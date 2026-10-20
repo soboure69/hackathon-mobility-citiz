@@ -1,6 +1,6 @@
 # Pitch jury — synthèse d'une minute (v1)
 
-**Statut :** version 1. Les crochets se remplissent uniquement avec les résultats réels. Aucun chiffre ne doit être inventé.
+**Statut :** version 2. Le territoire n'est pas choisi. Les crochets se remplissent uniquement avec les résultats réels. Le score cité est un score de potentiel territorial, pas une prédiction de fréquentation. Aucun chiffre ne doit être inventé.
 
 ---
 
@@ -8,7 +8,7 @@
 >
 > Nous avons combiné les arrêts de transport public, les stations de vélos et d'autopartage, la population INSEE à 200 mètres et le réseau piéton réel d'OpenStreetMap. Nous savons ainsi précisément qui est desservi et qui ne l'est pas : [X] % de la population est couverte et [Y] habitants restent sans option.
 >
-> Nous avons ensuite évalué des emplacements candidats : combien d'habitants chacun touche réellement, sans doublonner l'existant, quel potentiel notre modèle lui attribue et quel coût il représente.
+> Nous avons ensuite évalué des emplacements candidats : combien d'habitants chacun touche réellement, sans doublonner l'existant, quel score de potentiel territorial il reçoit et quel coût il représente. Ce score priorise des lieux. Il ne prévoit pas un nombre de locations.
 >
 > Résultat : avec un budget de [B] €, notre recommandation couvre [Z] nouveaux habitants, à [C] € par habitant, en garantissant que les zones peu denses ne soient pas oubliées.
 >
