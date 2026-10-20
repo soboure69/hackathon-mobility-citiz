@@ -25,15 +25,33 @@
 | Bronze | `data/bronze/<famille>/<territoire>/<source_id>_<AAAA-MM-JJ>/` | nom d'origine du fichier, jamais renommé ni modifié |
 | Silver | `data/silver/<étape>/` | `<source>_<objet>_<territoire>.parquet` |
 | Gold | `data/gold/<domaine>/` | `<objet>_<territoire>.parquet` |
-| Exports Power BI | `data/gold/exports/` | `pbi_<table>.csv` ou `.parquet` |
+| Exports Power BI | `data/gold/exports/` | `pbi_dim_<objet>.parquet` ou `pbi_fact_<objet>.parquet` |
 
 - Bronze : un fichier `_manifest.json` par dossier daté (URL, date, licence, empreinte SHA-256). Le `source_id` est celui de `docs/registre_des_sources.xlsx`. Deux flux de la même famille ne partagent pas le même dossier.
-- Les noms exacts des tables Gold sont fixés à la mission « schéma Gold ».
+
+## Nommage Silver, Gold et exports
+
+Pas de dossier de partition (AD5). Les tables multi-villes ont une colonne `territoire`, et un suffixe `_h6` ou `_5epci` dans le nom.
+
+| Élément | Règle |
+|---|---|
+| Nom Silver | `<source>_<objet>_<territoire>`, ou `<objet>_<territoire>` après fusion de sources |
+| Nom Gold | `<objet>_<territoire>` ; tables multi-villes : `h6_<objet>` ; références : `ref_<objet>` ; agrégats : `agg_<objet>` |
+| Nom export | `pbi_dim_<objet>` ou `pbi_fact_<objet>`, en Parquet |
+| `cell_id` | Identifiant du carreau tel que publié, gardé en texte. Le nom dans le fichier source se constate à V-b. |
+| `offre_id` | `<mode>_<source_id>_<id_origine>` |
+| `candidat_id` | `C_<cell_id>` |
+| `scenario_id` | `SC_<budget>_<variante>_<hypothese>` |
+| Règles | Nettoyage `RC-xx`. Qualité `Q1` à `Q8`. Chaque règle est écrite dans `methodologie.md` avant d'être codée. |
+
+La liste des tables est dans `data_dictionary.md`.
 
 ## Géographie
-- Stockage et exports : EPSG:4326 (latitude / longitude).
-- Calculs de distance et de surface : EPSG:2154 (Lambert-93).
+
+- Silver et Gold avec une géométrie : EPSG:2154 (Lambert-93). Le CRS est dans les métadonnées GeoParquet.
+- Exports Power BI : EPSG:4326 (latitude / longitude).
 - Le système de coordonnées est vérifié à chaque jointure spatiale, jamais supposé.
+- Décision AD1, 21 octobre 2026.
 
 ## Colonnes
 - snake_case ; identifiants suffixés `_id` ; populations `pop_` ; coûts `cout_` + colonne `cout_etiquette`.

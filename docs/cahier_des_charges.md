@@ -48,7 +48,7 @@
 |---|---|
 | Entrée décideur | Territoire T (choisi par la grille, pas encore fixé), budget B, types d'équipement autorisés, poids éventuel de l'équité |
 | Sortie | Liste ordonnée d'emplacements avec type, coût estimé et son étiquette, population nouvellement couverte, coût par habitant, score de potentiel territorial, justification |
-| Format | Carte et tableau dans Power BI, alimentés par un export CSV ou Parquet. Le calcul est fait en Python. |
+| Format | Carte et tableau dans Power BI, alimentés par un export Parquet. Le calcul est fait en Python. |
 | Statut de la sortie | **Recommandation d'aide à la décision**, pas une décision automatique : Citiz garde la main (foncier, voirie, partenariats locaux) |
 
 ---
@@ -138,7 +138,7 @@ Un seul territoire, choisi après la grille. Calculs en Python local. Durée vis
 | Coûts | Un paramètre par type, étiqueté | Aucun montant sans étiquette |
 | Optimisation | Couverture maximale sous budget, glouton, sans double comptage | Obligatoire |
 | Scénarios | Au moins efficacité et équité. Trois budgets si le temps le permet. | E9 |
-| Restitution | Exports CSV ou Parquet, Power BI, pitch, slides | Obligatoire |
+| Restitution | Exports Parquet, Power BI, pitch, slides | Obligatoire |
 
 **Hors du temps disponible, donc hors MVP :** plusieurs territoires, isochrones 10 min, Omphale intégré au score, sensibilité complète des pondérations, Microsoft Fabric, orchestration de production.
 
@@ -173,7 +173,7 @@ Le détail des étapes et la coupe si le temps manque sont dans `plan_de_travail
 | H6 | Score de potentiel territorial, défini ci-dessous | **Validée dans ce sens.** Pas une fréquentation. | Model card au moment du calcul |
 | H7 | Les coûts unitaires sont inconnus | **Confirmée.** Rien reçu de Citiz. | `strategie_couts.md` |
 | H8 | La population de référence est le carroyage actuel. Omphale, plus grossier, ne sert pas au MVP. | Hypothèse | Ne pas intégrer Omphale au score dans le MVP |
-| H9 | Python local, notebooks, scripts, Parquet / GeoParquet, exports CSV ou Parquet pour Power BI | **Tranchée** | Le plan de travail décrit la séquence |
+| H9 | Python local, notebooks, scripts, Parquet / GeoParquet, exports Parquet pour Power BI | **Tranchée**, précisée par AD2 le 21/10/2026 | Le plan de travail décrit la séquence |
 
 ### Définition de H6
 

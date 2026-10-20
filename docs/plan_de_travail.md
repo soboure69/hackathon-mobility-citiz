@@ -1,6 +1,6 @@
 # Plan de travail
 
-**Outils :** Python en local. Notebooks pour le récit, scripts pour les transformations rejouables. Parquet et GeoParquet pour les couches. CSV ou Parquet pour Power BI. Power BI est la restitution, pas l'atelier de données.
+**Outils :** Python en local. Notebooks pour le récit, scripts pour les transformations rejouables. Parquet et GeoParquet pour les couches. Parquet pour Power BI (AD2). Power BI est la restitution, pas l'atelier de données.
 
 On ne démarre pas l'étape suivante tant que le point de validation de l'étape en cours n'est pas coché.
 
