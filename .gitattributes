@@ -3,3 +3,7 @@
 *.jpg binary
 *.jpeg binary
 *.webp binary
+
+*.ipynb filter=nbstripout
+*.zpln filter=nbstripout
+*.ipynb diff=ipynb

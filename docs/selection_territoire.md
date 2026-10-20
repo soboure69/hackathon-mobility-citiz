@@ -194,7 +194,7 @@ Les captures des fiches sont dans `docs/annexes/selection_territoire/`. Aucun fi
 | Deuxième | Nantes Métropole et Rennes Métropole, 90 / 100, meilleur score de la grille. Nantes est la plus petite des deux (environ 523 km² contre 705). |
 | Raison du choix | Le meilleur score est 90. La Rochelle est à 87,5, donc dans la bande des 5 points, avec la plus petite superficie (environ 327 km²). Angers et Grand Poitiers sont à 85, eux aussi dans la bande, mais plus étendus. |
 | Jeux écartés et pourquoi | Lyon : 1 436 354 habitants, porte G5. Pays Basque : environ 2 969 km², porte G5. Angers (environ 667 km²) et Grand Poitiers (environ 1 065 km²) : portes passées, écart de 5 points avec le meilleur score, écartés par la superficie. |
-| Décisions géospatiales | Le territoire est décidé. Le rattachement des stations au contour reste provisoire jusqu'à E3 : si moins de 80 % des stations tombent dans le contour Admin Express, la décision est rouverte. `data/` n'est pas créé. |
+| Décisions géospatiales | Le territoire est décidé. Le rattachement des stations au contour reste provisoire jusqu'à E3 : si moins de 80 % des stations tombent dans le contour Admin Express, la décision est rouverte. La structure `data/` est créée vide ; aucun fichier de données n'y est déposé. |
 
 ---
 

@@ -1,0 +1,31 @@
+# Python >= 3.11 — environnement du projet hackathon-mobility-citiz
+# Données tabulaires
+pandas
+numpy
+pyarrow
+# Géospatial
+geopandas
+shapely
+pyproj
+pyogrio
+# Réseau piéton
+osmnx
+networkx
+# Modèle H6 et statistiques
+scikit-learn
+scipy
+# Optimisation sous budget
+pulp
+# Visualisation intermédiaire
+matplotlib
+plotly
+# Utilitaires
+requests
+pyyaml
+openpyxl
+# Notebooks
+jupyterlab
+ipykernel
+nbstripout
+# Tests
+pytest

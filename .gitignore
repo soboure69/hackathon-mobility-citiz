@@ -218,3 +218,47 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ===================== Projet hackathon-mobility-citiz =====================
+
+# --- Données : jamais versionnées. Seuls la structure et data/README.md le sont.
+data/**
+!data/**/
+!data/**/.gitkeep
+!data/README.md
+
+# --- Formats lourds ou de données, où qu'ils soient (filet de sécurité)
+*.parquet
+*.gpkg
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+*.osm
+*.pbf
+*.graphml
+*.zip
+*.7z
+*.gz
+*.tar
+
+# --- Cache OSMnx (créé automatiquement dans le dossier courant)
+cache/
+
+# --- Power BI : le .pbix embarque les données, on ne versionne pas
+*.pbix
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# --- Secrets
+.env
+*.key
+secrets/
+
+# --- Système et éditeurs
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
