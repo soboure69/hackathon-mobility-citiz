@@ -53,6 +53,8 @@ Toutes sont obligatoires.
 
 Appliquée seulement si G1 à G6 sont passées. Chaque critère vaut 0, 1 ou 2. Score = somme (note × poids) / 2, sur 100.
 
+S5 couvre aussi la diversité des besoins de mobilité : le contraste dense / peu dense rend un scénario d'équité lisible. S7 couvre la facilité de démonstration devant le jury.
+
 | ID | Critère | Poids | 0 | 1 | 2 |
 |---|---|---|---|---|---|
 | S1 | Flux Citiz utilisable | 20 | fiche sans stations exploitables dans le périmètre | stations géolocalisées, champs incomplets | nom, latitude, longitude et capacité renseignés |
@@ -193,3 +195,45 @@ Les captures des fiches sont dans `docs/annexes/selection_territoire/`. Aucun fi
 | Raison du choix | Le meilleur score est 90. La Rochelle est à 87,5, donc dans la bande des 5 points, avec la plus petite superficie (environ 327 km²). Angers et Grand Poitiers sont à 85, eux aussi dans la bande, mais plus étendus. |
 | Jeux écartés et pourquoi | Lyon : 1 436 354 habitants, porte G5. Pays Basque : environ 2 969 km², porte G5. Angers (environ 667 km²) et Grand Poitiers (environ 1 065 km²) : portes passées, écart de 5 points avec le meilleur score, écartés par la superficie. |
 | Décisions géospatiales | Le territoire est décidé. Le rattachement des stations au contour reste provisoire jusqu'à E3 : si moins de 80 % des stations tombent dans le contour Admin Express, la décision est rouverte. `data/` n'est pas créé. |
+
+---
+
+## 8. Périmètre de secours
+
+Secours : Nantes Métropole (90/100, environ 523 km²), désigné par la même règle (bande de 5 points, plus petite superficie après La Rochelle).
+
+| Déclencheur de bascule | Vérifié à |
+|---|---|
+| Moins de 80 % des stations Citiz dans le contour Admin Express | E3 |
+| Archive GTFS Yélo inexploitable (arrêts sans coordonnées, réseau incomplet) : S3 = 0, score 80, écart de 10 avec Nantes | E2 |
+| Carroyage Filosofi absent ou lacunaire sur le périmètre | E2 |
+| Graphe piéton non calculable en local | E3 |
+
+Date limite de bascule : fin de E3. Après E3, on ne change plus de territoire, on documente la limite.
+
+Point de vigilance sur le secours : Nantes est proche du plafond G5 (689 456 habitants).
+
+---
+
+## 9. Verrouillage
+
+Statut : décidé, pas verrouillé. Le choix devient définitif quand les 4 vérifications sont faites.
+
+| # | Vérification | Constat attendu | Étape |
+|---|---|---|---|
+| V-a | Ouvrir l'archive GTFS Yélo | stops.txt avec coordonnées, routes et trips présents, calendrier valide à la date de démo | E2 |
+| V-b | Filosofi 200 m | carreaux présents sur les 28 communes, part des carreaux sous secret statistique notée | E2 |
+| V-c | Contour Admin Express de l'EPCI 241700434 | ≥ 80 % des 24 stations Citiz dedans | E3 |
+| V-d | Graphe piéton OSM de l'EPCI | téléchargé et calculé en local, nombre de nœuds noté | E3 |
+
+---
+
+## 10. Risques liés au territoire
+
+Résumé ; le détail est dans [`suivi_risques.md`](suivi_risques.md).
+
+- R16 : périmètre trop grand pour le graphe piéton → La Rochelle, la plus compacte des 7
+- R17 : 24 stations Citiz seulement → H6 option A (multi-territoires)
+- R18 : vélo Yélo figé au 17/06/2026 → positions seulement, date affichée
+- R19 : GTFS Yélo non encore ouvert → vérification V-a, bascule vers Nantes si échec
+- R20 : territoire de taille moyenne, donc un impact en valeur absolue plus faible qu'une grande métropole → présenter aussi des ratios (coût par habitant, % de couverture), pas seulement des volumes
