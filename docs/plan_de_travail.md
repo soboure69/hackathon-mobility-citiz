@@ -8,7 +8,7 @@ On ne démarre pas l'étape suivante tant que le point de validation de l'étape
 | Étape | Contenu | Point de validation | Dans le MVP |
 |---|---|---|---|
 | E0 | Cadrage : problème, H6, coûts, outils, critères | Ce dossier `docs/` relu | Fait |
-| E1 | Choisir le territoire avec la grille | Une ligne « Décision » remplie dans `selection_territoire.md`, preuves URL à l'appui | **En cours. Rien d'autre ne démarre.** |
+| E1 | Choisir le territoire avec la grille | Décision écrite : CA de La Rochelle, 92,5/100 | Fait. `data/` n'est toujours pas créé. |
 | E2 | Registre des sources du territoire retenu | URL, date, licence, empreinte pour chaque fichier | Oui |
 | E3 | Bronze : dépôt brut, sans nettoyage | Les fichiers bruts sont relisibles et cités | Oui |
 | E4 | Silver : dédoublonnage, qualité Q1–Q8 | Les KPI qualité sont calculés | Oui |
@@ -25,17 +25,24 @@ Si le temps manque après E7, E8 reste dû sous une forme minimale (cible proxy,
 
 ## Structure du dépôt
 
-Les dossiers `data/` ne sont pas créés avant la validation de E1.
+Les dossiers `data/` ne sont pas créés avant la validation de E1. Les exports Power BI vont dans `data/gold/exports/`, pour garder bronze / silver / gold comme seule racine de données.
 
 ```text
-docs/                 cadrage, grille territoire, coûts, risques, pitch, plan
-data/bronze/          fichiers bruts, non modifiés
-data/silver/          tables nettoyées, Parquet ou GeoParquet
-data/gold/            tables de décision, Parquet ou GeoParquet
-exports/              CSV ou Parquet consommés par Power BI
-notebooks/            récit numéroté, du registre jusqu'aux scénarios
-src/                  fonctions appelées par les notebooks
-config/               seuils et coûts paramétrables, chacun avec son étiquette
+docs/                          cadrage, grille, coûts, risques, pitch, plan
+docs/annexes/selection_territoire/   captures de preuve de la grille, pas des données
+data/bronze/gtfs/              GTFS bruts
+data/bronze/gbfs/              GBFS bruts
+data/bronze/insee_filosofi/    carroyage Filosofi
+data/bronze/insee_omphale/     projections Omphale, hors MVP
+data/bronze/admin_express/     contours administratifs
+data/bronze/osm/               réseau piéton
+data/bronze/external/          autres sources brutes
+data/silver/cleaned/           tables nettoyées, Parquet ou GeoParquet
+data/gold/analytics/           tables de décision
+data/gold/exports/             CSV ou Parquet consommés par Power BI
+notebooks/                     récit numéroté, du registre jusqu'aux scénarios
+src/                           fonctions appelées par les notebooks
+config/                        seuils et coûts paramétrables ; remplace un futur src/config.py
 ```
 
 ---
@@ -52,5 +59,5 @@ config/               seuils et coûts paramétrables, chacun avec son étiquett
 | Registre des sources | E2 |
 | Couches bronze, silver, gold | E3 à E7 |
 | `model_card.md` | E8 |
-| Exports Power BI et démonstration | E10 |
+| Exports Power BI dans `data/gold/exports/` et démonstration | E10 |
 | Slides et dépôt Git | E10 |

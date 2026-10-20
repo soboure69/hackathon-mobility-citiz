@@ -1,6 +1,6 @@
 # Cahier des charges — cadrage fonctionnel
 
-**Statut :** mis à jour le 20 octobre 2026. Le territoire n'est pas choisi.
+**Statut :** territoire retenu le 20 octobre 2026 : CA de La Rochelle. Le rattachement géométrique des stations reste à confirmer à E3.
 **Porteur :** une personne. Le travail est une séquence d'étapes, pas une répartition entre six membres.
 **Documents liés :** [sélection du territoire](selection_territoire.md), [plan de travail](plan_de_travail.md), [coûts](strategie_couts.md), [risques](suivi_risques.md), [pitch](jury_pitch.md).
 
@@ -167,7 +167,7 @@ Le détail des étapes et la coupe si le temps manque sont dans `plan_de_travail
 
 | ID | Hypothèse | Statut | Comment la confirmer |
 |---|---|---|---|
-| H1 | Le territoire est un EPCI ou une métropole qui passe la grille. Il n'est pas choisi. Lyon 2e n'est pas le territoire d'étude. | **Ouverte. Prochaine étape.** | Remplir `selection_territoire.md` |
+| H1 | Territoire = CA de La Rochelle (241700434), score 92,5. Lyon 2e n'est pas le territoire d'étude. | **Tranchée** par la grille du 20 octobre 2026. Confirmation géométrique à E3 (seuil 80 %). | `selection_territoire.md` |
 | H2 | 5 min de marche ≈ 400 m (≈ 4,8 km/h) sur le réseau piéton | Hypothèse de travail | Citer une source de vitesse. Tester 300 m et 500 m seulement après E5. |
 | H3 | Unité d'analyse = cellule INSEE 200 m, origine = centroïde | Hypothèse, provisoire tant que H1 est ouverte | Vérifier le millésime Filosofi et le secret statistique sur T |
 | H4 | Une option = un arrêt ou une station distincts après dédoublonnage | À préciser au nettoyage | Règle `parent_station` ou distance, écrite avant le calcul |
@@ -223,7 +223,7 @@ Le registre tenu à jour est [`suivi_risques.md`](suivi_risques.md). Les risques
 | A15 | Code, slides et sources sont sur le dépôt Git | Dépôt |
 | A16 | Aucun coût n'est affiché sans l'étiquette coût documenté, estimation publique ou hypothèse de simulation | `strategie_couts.md` et restitution |
 | A17 | Aucun chiffre de fréquentation, de locations ou de chiffre d'affaires n'est produit | Pitch, model card, Power BI |
-| A18 | Aucune couche bronze n'existe avant la décision de territoire | Dépôt au moment de E1 |
+| A18 | Aucun fichier sous `data/` avant la décision. Les preuves de la grille sont des captures dans `docs/annexes/selection_territoire/`. | Dépôt au moment de E1 |
 
 ---
 
@@ -231,7 +231,7 @@ Le registre tenu à jour est [`suivi_risques.md`](suivi_risques.md). Les risques
 
 | Sujet | Décision |
 |---|---|
-| Territoire | Non choisi. Méthode et grille dans `selection_territoire.md`. Vérification des flux encore à faire. |
+| Territoire | CA de La Rochelle. Grille et preuves dans `selection_territoire.md`. |
 | Historique d'usage | Absent. H5 confirmée. |
 | H6 | Score de potentiel territorial sur cible proxy. Pas une fréquentation. |
 | Coûts | À sourcer publiquement. Sinon, hypothèses paramétrables et étiquetées. |

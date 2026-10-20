@@ -1,10 +1,10 @@
 # Pitch jury — synthèse d'une minute (v1)
 
-**Statut :** version 2. Le territoire n'est pas choisi. Les crochets se remplissent uniquement avec les résultats réels. Le score cité est un score de potentiel territorial, pas une prédiction de fréquentation. Aucun chiffre ne doit être inventé.
+**Statut :** version 2. Le territoire est la CA de La Rochelle. Les crochets de résultats se remplissent uniquement avec les chiffres calculés. Le score cité est un score de potentiel territorial, pas une prédiction de fréquentation. Aucun chiffre ne doit être inventé.
 
 ---
 
-> Aujourd'hui, à [territoire], une partie des habitants n'a aucune solution de mobilité partagée à moins de cinq minutes à pied de chez elle. Le problème n'est pas le manque de données : depuis la loi LOM, tout est ouvert. Le problème, c'est de les croiser.
+> Aujourd'hui, dans la communauté d'agglomération de La Rochelle, une partie des habitants n'a aucune solution de mobilité partagée à moins de cinq minutes à pied de chez elle. Le problème n'est pas le manque de données : depuis la loi LOM, tout est ouvert. Le problème, c'est de les croiser.
 >
 > Nous avons combiné les arrêts de transport public, les stations de vélos et d'autopartage, la population INSEE à 200 mètres et le réseau piéton réel d'OpenStreetMap. Nous savons ainsi précisément qui est desservi et qui ne l'est pas : [X] % de la population est couverte et [Y] habitants restent sans option.
 >
@@ -20,7 +20,7 @@
 
 | Symbole | Signification | Valeur |
 |---|---|---|
-| `[territoire]` | Territoire retenu (H1) | à compléter |
+| `[territoire]` | Territoire retenu (H1) | CA de La Rochelle |
 | `[X]` | Taux de couverture à 5 min (K2), en % | à compléter |
 | `[Y]` | Population non desservie (K4) | à compléter |
 | `[B]` | Budget du scénario présenté, en € | à compléter |
