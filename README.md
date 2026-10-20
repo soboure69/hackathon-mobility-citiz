@@ -55,6 +55,8 @@ py -3.11 -m venv .venv
 pip install -r requirements.txt
 ```
 
+Toujours activer `.venv` avant de travailler. Dans Jupyter ou VS Code, choisir le noyau « Python (hackathon-citiz) ». Ne pas utiliser `py` sans `-3.11`.
+
 ## Données
 
 Aucune donnée n'est versionnée. Toutes les sources sont publiques et listées dans le
@@ -66,6 +68,10 @@ retélécharge dans `data/bronze/`.
 Chaque source garde sa licence (Licence Ouverte 2.0, ODbL…). Les jeux sous ODbL
 (OpenStreetMap, certains GTFS) imposent l'attribution, et le partage à l'identique
 des bases de données dérivées. Le détail est dans le registre des sources.
+
+## Licence du code
+
+Aucune licence pour l'instant : tous droits réservés. Dépôt privé.
 
 ## Reproduire
 
