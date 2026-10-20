@@ -7,7 +7,7 @@ On ne démarre pas l'étape suivante tant que le point de validation de l'étape
 | Étape | Contenu | Point de validation | Dans le MVP |
 |---|---|---|---|
 | E0 | Cadrage : problème, H6, coûts, outils, critères | Ce dossier `docs/` relu | Fait |
-| E1 | Choisir le territoire avec la grille | Décision écrite : CA de La Rochelle, 92,5/100 | Fait. `data/` n'est toujours pas créé. |
+| E1 | Choisir le territoire avec la grille | Décision écrite : CA de La Rochelle, 87,5/100 | Fait. `data/` n'est toujours pas créé. |
 | E2 | Registre des sources du territoire retenu | URL, date, licence, empreinte pour chaque fichier | Oui |
 | E3 | Bronze : dépôt brut, sans nettoyage | Les fichiers bruts sont relisibles et cités | Oui |
 | E4 | Silver : dédoublonnage, qualité Q1–Q8 | Les KPI qualité sont calculés | Oui |

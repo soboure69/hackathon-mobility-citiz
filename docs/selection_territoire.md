@@ -24,7 +24,7 @@ Quatre temps, dans cet ordre. Pour un candidat, on s'arrête à la première por
 1. **Vivier.** Partir des jeux « Autopartage Citiz » au format GBFS sur le point d'accès national : [catalogue GBFS](https://transport.data.gouv.fr/datasets?format=gbfs&locale=fr&order_by=alpha). Une source publique équivalente est acceptable si l'URL, la date et la licence sont notées. Compléter la liste si le catalogue est paginé : le repérage ci-dessous n'est pas certifié exhaustif.
 2. **Périmètre.** Pour chaque jeu, nommer le périmètre que l'on accepterait de traiter. Si le jeu couvre une région ou plusieurs villes éloignées, le territoire candidat est **une** intercommunalité à l'intérieur du jeu, pas le jeu entier.
 3. **Portes.** Un candidat qui échoue une porte est écarté. On ne le note pas. On n'ouvre pas les portes suivantes pour ce candidat.
-4. **Note.** Les candidats qui passent toutes les portes sont notés. Le meilleur score est proposé. **Écart ≤ 5 points → le plus petit périmètre.**
+4. **Note.** Les candidats qui passent toutes les portes sont notés. Le meilleur score est proposé. **Si l'écart avec le meilleur score est ≤ 5 points, retenir la plus petite superficie.** La superficie est le quotient population / densité du comparateur INSEE (RP2023), en km². Ce n'est ni la population, ni le nombre de stations, ni le nombre de communes.
 
 La décision n'est valide que lorsque chaque case « Preuve » contient une URL, une date de consultation et le constat (nombre de stations, nom du GTFS, millésime de population). Une case vide vaut un échec.
 
@@ -65,9 +65,9 @@ Appliquée seulement si G1 à G6 sont passées. Chaque critère vaut 0, 1 ou 2. 
 
 ---
 
-## 5. Vivier repéré, non noté
+## 5. Vivier constitué avant la notation
 
-Repérage du catalogue GBFS au 20 octobre 2026. **Une ligne ci-dessous n'est pas un territoire validé.** L'exploitabilité (G1, G3, G4, G5) n'a pas été testée. Les URL ne sont citées que lorsqu'elles ont été lues ; les autres titres renvoient au catalogue.
+Liste du 20 octobre 2026, avant les portes. Ce n'est pas un classement, et une ligne de ce tableau n'est pas le territoire retenu. Les portes, les notes et la décision sont dans les sections 6 et 7. Les jeux régionaux restent hors périmètre d'étude en bloc.
 
 | Jeu publié | Échelle déclarée | Conséquence pour la grille | Fiche |
 |---|---|---|---|
@@ -110,11 +110,11 @@ Les captures des fiches sont dans `docs/annexes/selection_territoire/`. Aucun fi
 | S1 (20) | 2 | 2 | 2 | — | 2 | — | 2 |
 | S2 (10) | 2 | 2 | 2 | — | 2 | — | 2 |
 | S3 (15) | 2 | 2 | 1 | — | 2 | — | 2 |
-| S4 (10) | 1 | 1 | 2 | — | 2 | — | 2 |
+| S4 (10) | 1 | 1 | 1 | — | 2 | — | 2 |
 | S5 (15) | 2 | 2 | 2 | — | 2 | — | 2 |
 | S6 (20) | 1 | 1 | 2 | — | 1 | — | 1 |
 | S7 (10) | 2 | 2 | 2 | — | 2 | — | 2 |
-| Score /100 | 85 | 85 | **92,5** | — | 90 | — | 90 |
+| Score /100 | 85 | 85 | **87,5** | — | 90 | — | 90 |
 
 ### Preuves
 
@@ -138,7 +138,7 @@ Les captures des fiches sont dans `docs/annexes/selection_territoire/`. Aucun fi
 - G4. Même constat Filosofi 2021 que pour Angers.
 - Notes. S4 = 1 : [Pony Poitiers](https://www.data.gouv.fr/datasets/velos-et-trottinettes-pony-poitiers), GBFS sans `station_information`, licence non précisée, fiche mise à jour le 2026-05-18. S6 = 1. Les autres notes sont 2. Score = 85.
 
-**CA de La Rochelle — portes passées, score 92,5.**
+**CA de La Rochelle — portes passées, score 87,5.**
 
 - G1. Passe. [Fiche](https://www.data.gouv.fr/datasets/citiz-autopartage-la-rochelle), licence Ouverte 2.0, mise à jour le 2026-10-20. Flux `https://backend.citiz.fr/public/provider/18/gbfs/v3.0/gbfs.json` : 24 stations, toutes avec coordonnées et capacité. Communes : La Rochelle 19, Lagord 2, Aytré 1, Puilboreau 1, Périgny 1. Capture `G1_larochelle_2026-10-20.png`.
 - G2. Passe. CA de La Rochelle, 241700434, 28 communes. [Comparateur](https://www.insee.fr/fr/statistiques/1405599?geo=EPCI-241700434).
@@ -146,7 +146,7 @@ Les captures des fiches sont dans `docs/annexes/selection_territoire/`. Aucun fi
 - G6. Passe, provisoire. 24/24.
 - G3. Passe, avec réserve de note. Les fichiers Yélo sont publiés séparément (stops, trips, routes, calendrier, stop_times), licence Ouverte, fiches mises à jour le 2026-10-19. Exemple : [GTFS stop](https://www.data.gouv.fr/datasets/transport-yelo-gtfs-stop-des-bus), qui contient `gtfs_stop.csv` et un `gtfs.zip`. Archive non ouverte : la couverture complète n'est pas constatée, d'où S3 = 1.
 - G4. Même constat Filosofi 2021.
-- Notes. S4 = 2 : [Yélo vélos](https://www.data.gouv.fr/datasets/yelo-disponibilite-des-velos-en-libre-service), `gbfs.json` avec des stations, licence Ouverte, `last_updated` lu dans le flux le 2026-06-17. S6 = 2. S3 = 1. Score = (40+20+15+20+30+40+20) / 2 = 92,5.
+- Notes. S3 = 1, voir G3. S4 = 1 : [Yélo vélos](https://www.data.gouv.fr/datasets/yelo-disponibilite-des-velos-en-libre-service). Le champ `last_updated` vaut `2026-06-17T11:12:55+02:00` à la racine de `gbfs.json`, et la même valeur à la racine du seul flux lié, `system_information`. `gbfs.json` embarque en plus 137 stations et des disponibilités figées. Ce n'est pas un index GBFS vivant. S5 = 2 : les 28 communes ne sont pas au même niveau dans la [grille communale de densité INSEE](https://www.insee.fr/fr/information/8571524) (grille de densité 2025, fichier `fichier_diffusion_2026.xlsx`, mise en ligne le 15/05/2026, géographie au 01/01/2026). Degré à 3 postes : 2 communes en urbain dense, 15 en urbain intermédiaire, 11 en rural. L'EPCI est classé urbain intermédiaire. S6 = 2 : 182 435 habitants et environ 327 km², le périmètre le plus compact, tenable pour un graphe piéton local. S7 = 2 : Citiz est déjà sur l'agglomération, avec 24 stations, et la question d'implantation est directe. Score = (40+20+15+10+30+40+20) / 2 = 87,5.
 
 **CA du Pays Basque — écartée à G5.**
 
@@ -188,8 +188,8 @@ Les captures des fiches sont dans `docs/annexes/selection_territoire/`. Aucun fi
 |---|---|
 | Territoire retenu | **CA de La Rochelle** (241700434) |
 | Date | 20 octobre 2026 |
-| Score | 92,5 / 100 |
-| Deuxième | Nantes Métropole, 90 / 100. Rennes Métropole est aussi à 90. Écart nul entre ces deux-là : le plus petit est Nantes (environ 523 km² contre 705). |
-| Raison du choix | La Rochelle a le meilleur score. Nantes et Rennes sont à 2,5 points, donc sous le seuil de 5. La règle « écart ≤ 5 points → le plus petit périmètre » désigne aussi La Rochelle, environ 327 km². Le résultat ne dépend pas de la note S3 : à 2 au lieu de 1, le score passerait à 100 et l'écart avec Nantes dépasserait 5, La Rochelle resterait devant. |
-| Jeux écartés et pourquoi | Lyon : 1 436 354 habitants, porte G5. Pays Basque : environ 2 969 km², porte G5. Angers et Grand Poitiers : portes passées, 85/100, à 7,5 points du premier, donc hors de la règle d'égalité. |
+| Score | 87,5 / 100 |
+| Deuxième | Nantes Métropole et Rennes Métropole, 90 / 100, meilleur score de la grille. Nantes est la plus petite des deux (environ 523 km² contre 705). |
+| Raison du choix | Le meilleur score est 90. La Rochelle est à 87,5, donc dans la bande des 5 points, avec la plus petite superficie (environ 327 km²). Angers et Grand Poitiers sont à 85, eux aussi dans la bande, mais plus étendus. |
+| Jeux écartés et pourquoi | Lyon : 1 436 354 habitants, porte G5. Pays Basque : environ 2 969 km², porte G5. Angers (environ 667 km²) et Grand Poitiers (environ 1 065 km²) : portes passées, écart de 5 points avec le meilleur score, écartés par la superficie. |
 | Décisions géospatiales | Le territoire est décidé. Le rattachement des stations au contour reste provisoire jusqu'à E3 : si moins de 80 % des stations tombent dans le contour Admin Express, la décision est rouverte. `data/` n'est pas créé. |

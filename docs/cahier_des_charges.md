@@ -165,7 +165,7 @@ Le détail des étapes et la coupe si le temps manque sont dans `plan_de_travail
 
 | ID | Hypothèse | Statut | Comment la confirmer |
 |---|---|---|---|
-| H1 | Territoire = CA de La Rochelle (241700434), score 92,5. Lyon 2e n'est pas le territoire d'étude. | **Tranchée** par la grille du 20 octobre 2026. Confirmation géométrique à E3 (seuil 80 %). | `selection_territoire.md` |
+| H1 | Territoire = CA de La Rochelle (241700434), score 87,5. Lyon 2e n'est pas le territoire d'étude. | **Tranchée** par la grille du 20 octobre 2026. Confirmation géométrique à E3 (seuil 80 %). | `selection_territoire.md` |
 | H2 | 5 min de marche ≈ 400 m (≈ 4,8 km/h) sur le réseau piéton | Hypothèse de travail | Citer une source de vitesse. Tester 300 m et 500 m seulement après E5. |
 | H3 | Unité d'analyse = cellule INSEE 200 m, origine = centroïde | Hypothèse, provisoire tant que H1 est ouverte | Vérifier le millésime Filosofi et le secret statistique sur T |
 | H4 | Une option = un arrêt ou une station distincts après dédoublonnage | À préciser au nettoyage | Règle `parent_station` ou distance, écrite avant le calcul |
@@ -184,11 +184,22 @@ H6 priorise des emplacements candidats. Il ne répond pas à la question « comb
 | Nom affiché | Score de potentiel territorial |
 | Question autorisée | Ce lieu ressemble-t-il aux contextes où Citiz a déjà implanté une station, une fois retirée l'information qui est la cible ? |
 | Cible proxy | Présence d'une station Citiz dans la cellule, ou capacité de cette station si le champ est assez rempli |
-| Où le modèle apprend | Sur des villes déjà équipées, autres que le territoire de décision, ou par blocs spatiaux / par ville |
+| Où le modèle apprend | Option A retenue : sur plusieurs territoires Citiz dont les flux ont passé G1 (Angers, Grand Poitiers, Nantes, Rennes, La Rochelle), avec validation par ville (on entraîne sur toutes les villes sauf une, et on teste sur celle-ci). Score appliqué ensuite aux candidats de La Rochelle. |
+| Cohérence des variables | Les variables H6 sont calculées de la même façon dans toutes les villes : Filosofi, densité d'arrêts GTFS, distances à vol d'oiseau. Le graphe piéton n'est construit que pour La Rochelle et ne sert qu'à K1–K6, jamais à H6. |
 | Sortie | Un score de priorité, pas un volume |
 | Valeur qui décide | K6 reste devant H6. H6 départage ou éclaire. Il ne remplace pas la population nouvellement couverte. |
 | Évaluation exigée | Métrique adaptée à la cible, validation croisée spatiale, limites écrites dans `model_card.md` |
 | Interdit | Découpage aléatoire de cellules voisines. Variable « distance à une station Citiz » pour prédire la présence d'une station Citiz. Toute phrase du type « X locations prévues ». |
+
+**Décision H6 du 20/10/2026 — option A.**
+
+| Option | Principe | Statut |
+|---|---|---|
+| A | Apprentissage multi-territoires Citiz, validation par ville | Retenue |
+| B | Apprentissage sur La Rochelle seule (24 stations) | Écartée : trop peu d'exemples pour un modèle évalué |
+| C | Aucun modèle, score construit K10 seul | Écartée : ne répond pas à l'exigence « predictive model » du sujet |
+
+Inclure ou non La Rochelle dans l'apprentissage final est tranché à E8 et écrit dans `model_card.md`.
 
 K10 reste le score construit à la main, avec pondérations écrites. K11 est la sortie du modèle proxy. Les deux portent des noms différents dans les tableaux et dans Power BI.
 

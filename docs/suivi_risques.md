@@ -21,3 +21,5 @@
 | R14 | Travail géospatial lancé avant validation du territoire | Élevée | Critique | E1 bloque E2. Dossiers `data/` non créés tant que la décision n'est pas écrite. | Porteur |
 | R15 | `station_status` utilisé comme mesure de l'offre | Moyenne | Moyen | L'offre structurelle vient de `station_information` et des arrêts GTFS. Le temps réel reste hors MVP. | Porteur |
 | R16 | Métropole dont le graphe piéton ne tient pas en local | Moyenne | Élevé | Porte G5. Si elle échoue, prendre le candidat suivant, plus petit. | Porteur |
+| R17 | Effectif Citiz faible sur le territoire retenu (24 stations), donc modèle H6 fragile | Élevée | Élevé | Option A retenue le 20/10/2026 : apprentissage multi-territoires, validation par ville. | Porteur |
+| R18 | Offre vélo Yélo disponible seulement en export figé du 17/06/2026 (137 stations) | Certaine | Moyen | Utiliser uniquement les positions des stations comme offre structurelle, ignorer les disponibilités, afficher la date dans Q5 (fraîcheur) et dans Power BI, chercher une autre source publique à E2 sans supposer qu'elle existe. | Porteur |
