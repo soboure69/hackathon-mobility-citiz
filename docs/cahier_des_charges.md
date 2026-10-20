@@ -1,7 +1,6 @@
 # Cahier des charges — cadrage fonctionnel
 
 **Statut :** territoire retenu le 20 octobre 2026 : CA de La Rochelle. Le rattachement géométrique des stations reste à confirmer à E3.
-**Porteur :** une personne. Le travail est une séquence d'étapes, pas une répartition entre six membres.
 **Documents liés :** [sélection du territoire](selection_territoire.md), [plan de travail](plan_de_travail.md), [coûts](strategie_couts.md), [risques](suivi_risques.md), [pitch](jury_pitch.md).
 
 > **H6 est tranché.** Le sujet officiel (PDF v0.4.0) demande d'estimer la valeur d'une nouvelle station avec un modèle prédictif rigoureusement évalué. Citiz n'a fourni aucun historique d'usage, et n'en a pas promis. La valeur principale reste déterministe : la population nouvellement couverte (K6). H6 est un **score de potentiel territorial** servant à prioriser des emplacements. S'il est produit par un modèle, la cible d'apprentissage est une proxy observable (présence ou capacité d'une station Citiz déjà implantée ailleurs). Ce score n'est pas une prédiction de fréquentation.
@@ -38,7 +37,6 @@
 | **Jury (non technique)** | Évaluateur | Un problème concret, une recommandation claire, un impact chiffré | Dashboard simple, 3 chiffres clés, une carte |
 | **Jury (data scientist)** | Évaluateur | Choix justifiés, modèle rigoureusement évalué, limites assumées | Validation du modèle, absence de fuite d'information, qualité des données |
 | **Habitants** (indirects) | Bénéficiaires | Accès de proximité, pas de stigmatisation, vie privée | Vocabulaire neutre, aucune donnée individuelle |
-| **Porteur du projet** | Réalisation solo | Une séquence tenable, avec des portes de validation | Ce cahier, le plan de travail, la grille territoire |
 
 ---
 
@@ -125,7 +123,7 @@ Unité spatiale de référence : **cellule INSEE 200 m** (hypothèse H3, à conf
 
 ## 7. Périmètre MVP
 
-Un seul territoire, choisi après la grille. Calculs en Python local. Durée visée : 2,5 jours, en solo, donc la coupe est stricte.
+Un seul territoire, choisi après la grille. Calculs en Python local. Durée visée : 2,5 jours, donc la coupe est stricte.
 
 | Bloc | Inclus dans le MVP | Niveau de rigueur |
 |---|---|---|
@@ -236,4 +234,3 @@ Le registre tenu à jour est [`suivi_risques.md`](suivi_risques.md). Les risques
 | H6 | Score de potentiel territorial sur cible proxy. Pas une fréquentation. |
 | Coûts | À sourcer publiquement. Sinon, hypothèses paramétrables et étiquetées. |
 | Outils | Python local. Exports pour Power BI. |
-| Organisation | Solo. Étapes E0 à E10, porte de validation entre chaque étape. |

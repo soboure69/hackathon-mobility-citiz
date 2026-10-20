@@ -1,6 +1,5 @@
 # Plan de travail
 
-**Statut :** séquence solo. Le projet n'est plus réparti entre six personnes.
 **Outils :** Python en local. Notebooks pour le récit, scripts pour les transformations rejouables. Parquet et GeoParquet pour les couches. CSV ou Parquet pour Power BI. Power BI est la restitution, pas l'atelier de données.
 
 On ne démarre pas l'étape suivante tant que le point de validation de l'étape en cours n'est pas coché.

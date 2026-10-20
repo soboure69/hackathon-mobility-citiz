@@ -1,7 +1,6 @@
 # Suivi des risques
 
 **Statut :** mis à jour après les décisions du 20 octobre 2026.
-**Porteur :** une seule personne. La colonne Responsable est donc le porteur, pour chaque ligne.
 **Source :** [cahier des charges](cahier_des_charges.md).
 
 | ID | Risque | Probabilité | Impact | Mitigation | Responsable |
@@ -18,7 +17,7 @@
 | R10 | Vie privée dans les zones très peu peuplées | Faible | Élevé | Secret statistique Filosofi, agrégation, seuil minimal affiché | Porteur |
 | R11 | Le modèle, appris sur l'existant, favorise les zones déjà équipées | Élevée | Élevé | K6 reste la valeur principale. Scénario d'équité comparé au scénario d'efficacité. | Porteur |
 | R12 | Démonstration en direct qui plante | Moyenne | Critique | Tables gold précalculées, exports déjà ouverts, captures de secours | Porteur |
-| R13 | Surcharge du travail solo et étape bloquante | Élevée | Élevé | Plan séquentiel. On ne saute pas une porte de validation. Extensions fermées si E7 n'est pas tenu. | Porteur |
+| R13 | Surcharge de travail et étape bloquante | Élevée | Élevé | Plan séquentiel. On ne saute pas une porte de validation. Extensions fermées si E7 n'est pas tenu. | Porteur |
 | R14 | Travail géospatial lancé avant validation du territoire | Élevée | Critique | E1 bloque E2. Dossiers `data/` non créés tant que la décision n'est pas écrite. | Porteur |
 | R15 | `station_status` utilisé comme mesure de l'offre | Moyenne | Moyen | L'offre structurelle vient de `station_information` et des arrêts GTFS. Le temps réel reste hors MVP. | Porteur |
 | R16 | Métropole dont le graphe piéton ne tient pas en local | Moyenne | Élevé | Porte G5. Si elle échoue, prendre le candidat suivant, plus petit. | Porteur |
