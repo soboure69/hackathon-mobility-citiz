@@ -48,7 +48,7 @@ Une ligne par source. S06 et S18 sont découpés par ville (`S06a`, `S18a`…) p
 | 24 | `statut` | `identifiee`, `verifiee`, `telechargee` ou `ecartee` |
 | 25 | `commentaire` | Libre |
 
-`verifiee` veut dire que la fiche, et le flux quand il est cité, ont été consultés. Cela ne veut pas dire que le fichier est dans `data/`. Aucune ligne n'est `telechargee`.
+`verifiee` = URL et licence lues à la date indiquée. Cela ne veut pas dire que le fichier est dans `data/`. Aucune ligne n'est `telechargee`.
 
 ## Onglet `recuperations`
 
@@ -60,7 +60,9 @@ Une ligne par téléchargement. Vide tant qu'aucun fichier n'est déposé.
 
 `id` · `question` · `pourquoi` · `hypothese_par_defaut` · `reponse` · `date` · `source_reponse`
 
-Pas de canal vers Citiz au 21 octobre 2026. `reponse`, `date` et `source_reponse` restent vides. L'hypothèse par défaut s'applique, et le jury peut voir pourquoi.
+Pas de canal vers Citiz au 21 octobre 2026. `reponse`, `date` et `source_reponse` restent vides.
+
+Les hypothèses par défaut DC1–DC8 s'appliquent tant que la colonne réponse est vide.
 
 | ID | Hypothèse par défaut |
 |---|---|
