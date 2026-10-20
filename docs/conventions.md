@@ -22,12 +22,12 @@
 ## Données
 | Couche | Chemin | Nom |
 |---|---|---|
-| Bronze | `data/bronze/<source>/<territoire>/<AAAA-MM-JJ>/` | nom d'origine du fichier, jamais renommé ni modifié |
+| Bronze | `data/bronze/<famille>/<territoire>/<source_id>_<AAAA-MM-JJ>/` | nom d'origine du fichier, jamais renommé ni modifié |
 | Silver | `data/silver/<étape>/` | `<source>_<objet>_<territoire>.parquet` |
 | Gold | `data/gold/<domaine>/` | `<objet>_<territoire>.parquet` |
 | Exports Power BI | `data/gold/exports/` | `pbi_<table>.csv` ou `.parquet` |
 
-- Bronze : un fichier `_manifest.json` par dossier daté (URL, date, licence, empreinte SHA-256).
+- Bronze : un fichier `_manifest.json` par dossier daté (URL, date, licence, empreinte SHA-256). Le `source_id` est celui de `docs/registre_des_sources.xlsx`. Deux flux de la même famille ne partagent pas le même dossier.
 - Les noms exacts des tables Gold sont fixés à la mission « schéma Gold ».
 
 ## Géographie

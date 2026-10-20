@@ -221,11 +221,13 @@ __marimo__/
 
 # ===================== Projet hackathon-mobility-citiz =====================
 
-# --- Données : jamais versionnées. Seuls la structure et data/README.md le sont.
+# --- Données : jamais versionnées. Seuls la structure, data/README.md
+#     et les _manifest.json (traçabilité, sans données) le sont.
 data/**
 !data/**/
 !data/**/.gitkeep
 !data/README.md
+!data/**/_manifest.json
 
 # --- Formats lourds ou de données, où qu'ils soient (filet de sécurité)
 *.parquet

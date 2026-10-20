@@ -8,7 +8,7 @@ On ne démarre pas l'étape suivante tant que le point de validation de l'étape
 |---|---|---|---|
 | E0 | Cadrage : problème, H6, coûts, outils, critères | Ce dossier `docs/` relu | Fait |
 | E1 | Choisir le territoire avec la grille | Décision écrite : CA de La Rochelle, 87,5/100 | Fait. Structure `data/` vide créée ; aucun fichier de données. |
-| E2 | Registre des sources du territoire retenu | URL, date, licence, empreinte pour chaque fichier | Oui |
+| E2 | Registre des sources du territoire retenu | Registre validé ; V-a et V-b faits avec empreinte ; empreinte des autres sources à E3 | Oui |
 | E3 | Bronze : dépôt brut, sans nettoyage | Les fichiers bruts sont relisibles et cités | Oui |
 | E4 | Silver : dédoublonnage, qualité Q1–Q8 | Les KPI qualité sont calculés | Oui |
 | E5 | Accessibilité 5 min sur le réseau piéton | Une cellule, une fois, depuis son centroïde | Oui |
