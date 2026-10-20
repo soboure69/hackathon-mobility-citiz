@@ -68,7 +68,7 @@ Dossier `data/gold/exports/` seulement (AD3). Parquet, EPSG:4326 (AD1, AD2). Auc
 | `pbi_fact_qualite` | qualite_indicateurs | `source_id` (*) | 5 |
 | `pbi_fact_h6_evaluation` | h6_evaluation | — | 5 |
 
-Power BI affiche et filtre des KPI déjà calculés. Il ne recalcule aucune population couverte. Aucune mesure ne fait la somme de `pop_5min` sur plusieurs offres.
+Aucune mesure DAX n'additionne `pop_5min` sur plusieurs offres : K5 n'est pas exclusif. Power BI affiche et filtre des KPI déjà calculés.
 
 ## Colonnes
 
