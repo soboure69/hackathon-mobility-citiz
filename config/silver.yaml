@@ -8,7 +8,7 @@ coordonnees:
   lon_max: 10.0
   precision_min_decimales: 4   # 4 décimales ≈ 11 m
 gtfs:
-  seuil_rg06_m: null           # distance quai → zone d'arrêt : à fixer après constat de la distribution
+  seuil_rg06_m: 100            # m — fixé le 21/10 après constat (médiane 12,2 ; p95 59,3 ; max 183,5) : alerte, pas rejet
 gbfs:
   # source_id : mode de l'option et nom utilisé dans les tables
   S01: {mode: citiz, nom: citiz}
