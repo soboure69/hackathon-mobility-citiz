@@ -37,3 +37,19 @@ def indicateurs_gtfs(*, source_id: str, run_id: str, standard: pd.DataFrame, pro
             ligne(source_id, "Q5", "fin de validité (feed_info)", feed_info["feed_end_date"].iloc[0], "AAAAMMJJ", run_id),
         ]
     return pd.DataFrame(lignes).astype("string")
+
+
+def indicateurs_gbfs(*, source_id: str, run_id: str, standard: pd.DataFrame, offre: pd.DataFrame,
+                     n_rejets: int, last_updated: object, champs_ignores: list[str], n_rg07: int) -> pd.DataFrame:
+    n = len(standard)
+    lignes = [
+        ligne(source_id, "Q1", "complétude des coordonnées", round(float((standard["lat"].notna() & standard["lon"].notna()).mean()), 4) if n else None, "part", run_id),
+        ligne(source_id, "Q1", "complétude de la capacité", round(float(standard["capacity"].notna().mean()), 4) if n else None, "part", run_id),
+        ligne(source_id, "Q2", "lignes valides après nettoyage", round(1 - n_rejets / n, 4) if n else None, "part", run_id),
+        ligne(source_id, "Q3", "stations dans la source", n, "lignes", run_id),
+        ligne(source_id, "Q3", "options (stations)", len(offre), "options", run_id),
+        ligne(source_id, "RG-07", "stations aux coordonnées partagées", n_rg07, "stations", run_id),
+        ligne(source_id, "Q5", "last_updated du fichier lu", last_updated, "tel que publié", run_id),
+        ligne(source_id, "RC-14", "champs de la source non repris", ", ".join(champs_ignores) or "aucun", "liste", run_id),
+    ]
+    return pd.DataFrame(lignes).astype("string")

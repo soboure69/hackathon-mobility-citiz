@@ -17,6 +17,21 @@
 | `qualite_indicateurs` | source × indicateur | `source_id`, `q_id` | `valeur`, `seuil`, `statut`, `run_id` | toutes | P |
 | `rejets` | ligne rejetée | `source_id`, `id_origine`, `regle_id` | `motif`, `couche` | toutes | P |
 
+### Tables Silver écrites (blocs S-1 et S-2)
+
+| Dossier | Table | Clé | Source | Contenu |
+|---|---|---|---|---|
+| standardized | `gtfs_stops_larochelle` | `stop_id`, `id_origine` | S02 | `stops.txt` en texte + audit, aucune ligne retirée, pas de géométrie |
+| cleaned | `gtfs_stops_larochelle` | `stop_id` | S02 | Après RC-02, RC-03, RG-01 à RG-04, RC-04, RC-06 ; `desservi` ; EPSG:2154 |
+| deduplicated | `offre_arrets_larochelle` | `offre_id` | S02 | Une option par zone d'arrêt desservie ; `n_quais`, `n_quais_desservis` |
+| deduplicated | `dedup_correspondances_S02` | `id_origine` | S02 | Un quai → une zone ; `methode`, `distance_m`, `desservi` |
+| standardized | `gbfs_stations_citiz_larochelle`, `gbfs_stations_yelo_larochelle` | `station_id`, `id_origine` | S01, S08 | Champs repris seulement (RC-14), nom localisé `fr`, coordonnées en texte |
+| cleaned | mêmes noms | `station_id` | S01, S08 | Après RC-02, RC-03, RG-01 à RG-04, RC-07 ; EPSG:2154 |
+| deduplicated | `offre_citiz_larochelle`, `offre_velo_larochelle` | `offre_id` | S01, S08 | Une option par station ; `capacite` (NULL si absente) ; RG-07 signalé |
+| quality | `rejets_<source>`, `alertes_<source>`, `qualite_indicateurs_<source>` | voir manifeste | toutes | Journaux par source ; l'union se fait en Gold |
+
+Les tables d'offre partagent le schéma commun ci-dessous. Colonnes propres au mode : `n_quais`, `n_quais_desservis` (bus) ; `capacite` (stations). Elles seront réunies dans `offre_points_larochelle` à l'étape `spatial/`.
+
 ## Gold
 
 | Dossier | Table | Granularité | Clé primaire | Colonnes essentielles | Source | Usage métier | Format |

@@ -89,6 +89,15 @@ Les coordonnées d'une zone sont celles de la zone. Un écart avec les quais est
 
 `dedup_correspondances` a une ligne par élément d'origine : `source_id`, `id_origine`, `offre_id`, `methode`, `distance_m`. Chaque quai pointe vers une seule zone. Chaque identifiant d'origine apparaît au moins une fois.
 
+### Stations GBFS (bloc S-2)
+
+- Fichier lu : `station_information.json` quand il existe ; sinon (export figé S08) les stations embarquées dans `gbfs.json`.
+- Nom : texte en `fr` si la source donne une liste localisée (GBFS v3), sinon le premier ; texte simple en v1/v2.
+- RC-14 : seuls les champs descriptifs sont repris (`station_id`, `name`, `lat`, `lon`, `capacity`, `address`, `parking_type`, `is_virtual_station`, `station_opening_hours`). Les champs écartés sont listés dans le manifeste et dans `qualite_indicateurs` : rien n'est écarté sans trace.
+- RC-07 : capacité absente → NULL et alerte ; elle n'est jamais déduite des disponibilités.
+- RG-07 : stations distinctes aux mêmes coordonnées → alerte, toutes gardées (pas de fusion GBFS).
+- Une station de test placée hors de la métropole est rejetée par RG-02 comme toute coordonnée hors emprise.
+
 ## Coordonnées selon le calcul
 
 La lecture GTFS et GBFS reste en EPSG:4326, et ces valeurs sont gardées dans `lat_wgs84` et `lon_wgs84`. Le stockage Silver géométrique est EPSG:2154 (AD1), via pyproj. Filosofi métropole est déjà en EPSG:2154. Admin Express est reprojeté en 2154 si son CRS constaté est différent. Le graphe OSM arrive en 4326, avec des longueurs en mètres ; sa projection en 2154 se fait à `spatial/`. Les distances à vol d'oiseau, les aires et les tampons se calculent en 2154. Les exports Power BI restent en 4326, en Gold.
@@ -139,6 +148,8 @@ Mesure aussi : part de la population de l'EPCI dans ces carreaux.
 Usage : afficher en page 5 ; ne jamais présenter un carreau imputé comme une observation individuelle (vie privée, R10).
 
 ## Code prévu, non écrit
+
+État au 21/10/2026 — écrits : `audit.py`, `normalisation.py`, `coordonnees.py`, `gtfs.py` (dédoublonnage inclus), `gbfs.py`, `src/evaluation/qualite.py`, `src/utils/lignage.py`, `scripts/build_silver.py`, `config/silver.yaml`. Non écrits : `regles.py`, `schemas.py`, `dedup.py`, `filosofi.py`, `admin.py`, `osm.py`, notebook.
 
 L'implémentation attend le script d'ingestion et le lot 1. Le notebook appelle `src/` et ne contient pas les règles.
 

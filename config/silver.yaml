@@ -9,3 +9,7 @@ coordonnees:
   precision_min_decimales: 4   # 4 décimales ≈ 11 m
 gtfs:
   seuil_rg06_m: null           # distance quai → zone d'arrêt : à fixer après constat de la distribution
+gbfs:
+  # source_id : mode de l'option et nom utilisé dans les tables
+  S01: {mode: citiz, nom: citiz}
+  S08: {mode: velo, nom: yelo}
