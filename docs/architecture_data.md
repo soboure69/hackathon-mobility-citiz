@@ -1,6 +1,6 @@
 # Architecture des données
 
-**Statut :** architecture cible validée le 21 octobre 2026. Noms de colonnes des sources à constater à V-b et E3. Pas de code, pas de données.
+**Statut :** architecture cible validée le 21 octobre 2026. Conception du nettoyage Silver ajoutée le même jour, sans code. L'étape `spatial/` n'est pas spécifiée ici.
 
 Décisions AD1 à AD6 retenues. Les tables sont dans `data_dictionary.md`. Les noms et les clés sont dans `conventions.md`.
 
@@ -13,7 +13,7 @@ Décisions AD1 à AD6 retenues. Les tables sont dans `data_dictionary.md`. Les n
 | AD3 | `gold/exports/` est le seul dossier lu par Power BI. `gold/dashboards/` contient les agrégats calculés en Python. | Retenue |
 | AD4 | Les tables de paires (cellule × offre, candidat × cellule) ne vont jamais dans Power BI. | Retenue |
 | AD5 | Pas de partitionnement en dossiers. Une colonne `territoire` dans les tables multi-villes. | Retenue |
-| AD6 | Filosofi est restreint aux 5 EPCI dès `silver/standardized` : larochelle, angers, poitiers, nantes, rennes. Restreindre les lignes à une emprise n'ajoute pas d'information. C'est la seule opération spatiale autorisée avant `spatial/`. La colonne utilisée pour ce filtre se constate à V-b. | Retenue |
+| AD6 | Filosofi est restreint aux 5 EPCI dès `silver/standardized` : larochelle, angers, poitiers, nantes, rennes. Constat S03d du 21/10/2026 : `lcog_geo` porte le code officiel géographique au 01/01/2021 de la ou des communes du carreau, triées par surface d'intersection décroissante. Le séparateur n'est pas indiqué sur la page : il se constate dans le fichier à E4. Le filtre est un filtre d'attribut. Le test d'intersection avec l'emprise ne sert que si `lcog_geo` est inutilisable. Aucune commune n'est rattachée ici. | Retenue |
 
 ## 1. Définition des couches
 
@@ -49,11 +49,11 @@ Dans l'ordre d'exécution.
 
 | Ordre | Dossier | Transformations | Tables produites |
 |---|---|---|---|
-| 1 | `standardized/` | Noms de colonnes en snake_case, types, CRS 2154, `source_id` et identifiant d'origine conservés. Restriction de Filosofi aux 5 EPCI (AD6). | `gtfs_stops_larochelle`, `gtfs_stops_national`, `gbfs_stations_citiz_<ville>` (cinq villes), `gbfs_stations_yelo_larochelle`, `filosofi_carreaux_5epci`, `admin_communes`, `admin_epci`, `osm_walk_nodes_larochelle`, `osm_walk_edges_larochelle` |
-| 2 | `cleaned/` | Règles numérotées `RC-xx` : coordonnées absentes, hors emprise, géométrie invalide, arêtes non piétonnes. La liste des valeurs retenues est écrite dans `methodologie.md` avant le code. Chaque ligne retirée va dans `quality/rejets`. | Mêmes noms, version nettoyée |
-| 3 | `deduplicated/` | Arrêts fusionnés : `parent_station` si le champ est présent, sinon par distance. Le seuil est H4, à fixer avant le calcul. Doublons GBFS éventuels. | `offre_arrets_larochelle`, `offre_arrets_h6` |
+| 1 | `standardized/` | Noms de colonnes en snake_case, types, CRS 2154, `source_id` et identifiant d'origine conservés. Restriction de Filosofi aux 5 EPCI par `lcog_geo` (AD6). | `gtfs_stops_larochelle`, `gtfs_stops_national`, `gbfs_stations_citiz_<ville>` (cinq villes), `gbfs_stations_yelo_larochelle`, `filosofi_carreaux_5epci`, `admin_communes`, `admin_epci`, `osm_walk_nodes_larochelle`, `osm_walk_edges_larochelle`, `ref_densite_communes` |
+| 2 | `cleaned/` | Règles `RC-xx` et `RG-xx` de `methodologie.md`. Une ligne retirée va dans `rejets`. Une ligne gardée mais signalée va dans `alertes`. Hors emprise : marqueur `dans_emprise`, pas un rejet. | Mêmes noms, version nettoyée |
+| 3 | `deduplicated/` | S02 : une option par `parent_station` (981 quais sur 981). S07 : `parent_station`, sinon distance et nom normalisé, seuil à fixer après constat. Pas de fusion entre modes. | `offre_arrets_larochelle`, `offre_arrets_h6`, `dedup_correspondances` |
 | 4 | `spatial/` | Rattachement carreau, commune, EPCI. Point vers le nœud du graphe le plus proche, avec la distance de rattachement. Table unifiée des options (H4). | `cellules_larochelle`, `offre_points_larochelle`, `cellules_h6`, `offre_points_h6` |
-| 5 | `quality/` | Indicateurs Q1 à Q8, journal des rejets. | `qualite_indicateurs`, `rejets` |
+| 5 | `quality/` | Indicateurs Q1 à Q8, journal des rejets et des alertes. | `qualite_indicateurs`, `rejets`, `alertes` |
 
 `offre_points_larochelle` réunit toutes les options (arrêts dédoublonnés, stations Citiz, stations vélo) : `offre_id`, `mode`, `source_id`, `node_id`. C'est la définition opérationnelle d'une option pour K1.
 
@@ -85,7 +85,7 @@ S06a–d, S07, S03, S04 ─► … ─► spatial/cellules_h6, offre_points_h6 �
 config (coûts étiquetés) ─► candidats ─► paires_candidat_cellule ─────────────────────────► valeur_candidat ◄──────┘
                                                                                                  │
                                                        scenarios ─► selection_scenario ─► kpi_scenario ─► agg_equite
-toutes les tables ─► quality/qualite_indicateurs, rejets          registre ─► ref_sources        S10 ─► ref_communes
+toutes les tables ─► quality/qualite_indicateurs, rejets, alertes   registre ─► ref_sources        S10 ─► ref_communes
                                                       GOLD ─► exports/pbi_* ─► Power BI
 ```
 
@@ -97,7 +97,7 @@ Les agrégats `agg_distribution_acces` et `agg_equite` servent les pages de dém
 
 | Niveau | Règle |
 |---|---|
-| Ligne | Chaque ligne Silver garde `source_id` et `id_origine`. Une ligne retirée est dans `rejets` avec sa règle. |
+| Ligne | Chaque ligne Silver garde les colonnes d'audit de `data_dictionary.md`. Une ligne retirée est dans `rejets`. Une ligne gardée mais signalée est dans `alertes`, et elle reste dans sa table. |
 | Table | Chaque table Gold a une colonne `run_id` (date et heure, et hash court du commit Git). |
 | Exécution | Un `_manifest.json` par dossier Silver ou Gold à chaque exécution : tables d'entrée et leur SHA-256, tables de sortie et leur SHA-256, hash de `config/`, commit Git, `requirements-lock.txt`. Il est versionné par l'exception déjà en place. |
 | Paramètres | Aucun seuil ni coût dans le code. Tout est dans `config/`, chaque coût avec son étiquette. |

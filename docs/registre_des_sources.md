@@ -18,7 +18,7 @@ S07 est la source proposée pour la densité d'arrêts de H6 : un seul fichier, 
 
 ## Onglet `sources`
 
-Une ligne par source. S06 et S18 sont découpés par ville (`S06a`, `S18a`…) pour que chaque `source_id` ait son dossier bronze. S03d est la documentation du millésime Filosofi, dans son propre dossier : le suffixe `d` veut dire documentation, et la même règle vaudra pour les autres sources. Le dossier de données déjà empreinté n'est pas rouvert.
+Une ligne par source. S06 et S18 sont découpés par ville (`S06a`, `S18a`…) pour que chaque `source_id` ait son dossier bronze. S03d est la documentation du millésime Filosofi, dans son propre dossier : le suffixe `d` veut dire documentation, et la même règle vaudra pour les autres sources. Le dossier de données déjà empreinté n'est pas rouvert. S19 cherche d'autres modes de transport collectif à La Rochelle : aucune fiche n'est lue.
 
 | # | Colonne | Contenu |
 |---|---|---|

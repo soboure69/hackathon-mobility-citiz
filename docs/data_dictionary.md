@@ -83,6 +83,46 @@ Règle : les noms du fichier font foi ; la documentation fait foi pour le sens.
 
 À confirmer à E4 : les 32 autres variables ont le même nom dans la page et dans le fichier ; aucune autre colonne du fichier ne ressemble à ces deux noms ; les valeurs ont le type et les modalités décrits par la page.
 
+## Schéma commun des offres
+
+Il s'applique à `offre_arrets_larochelle`, `offre_arrets_h6` et, plus tard, aux stations GBFS réunies dans `offre_points`. Les noms GTFS d'origine (`stop_id`, `parent_station`) restent dans les tables `gtfs_stops_*`.
+
+| Colonne | Règle |
+|---|---|
+| `offre_id` | `<mode>_<source_id>_<id_origine>` |
+| `source_id` | Identifiant du registre |
+| `id_origine` | Identifiant source, en texte. Pour une zone GTFS, c'est l'identifiant de la zone |
+| `mode` | `bus`, `citiz`, `velo`, ou `autre` |
+| `nom` | Nom d'origine, non modifié |
+| `nom_normalise` | Sert seulement à comparer des noms |
+| `lat_wgs84`, `lon_wgs84` | Coordonnées d'origine, avant Lambert-93 |
+| `geometry` | EPSG:2154 |
+| `dans_emprise` | Marqueur. Faux ne retire pas la ligne |
+| `desservi` | Faux si la ligne est exclue de l'offre (RC-04, RC-05, RC-06) |
+
+`cell_id` est `idcar_nat`, en texte. Sur `cellules_larochelle`, `secret_stat` reprend `est_impute`, vrai lorsque `i_est_200 = 1`.
+
+## Colonnes d'audit
+
+Présentes sur chaque ligne Silver.
+
+| Colonne | Contenu |
+|---|---|
+| `source_id` | S01, S02… |
+| `id_origine` | Identifiant dans la source, en texte |
+| `fichier_origine` | Chemin du fichier Bronze, dossier daté compris |
+| `sha256_origine` | Empreinte du fichier Bronze, lue dans le manifeste |
+| `date_donnee` | Version du producteur |
+| `run_id` | Exécution Silver |
+| `statut_transformation` | `inchange`, `standardise`, `repare`, `fusionne` ou `exclu` |
+| `regles_appliquees` | RC et RG déclenchées sur la ligne |
+| `qualite` | `ok` ou `alerte` |
+| `lat_wgs84`, `lon_wgs84` | Points seulement |
+
+`rejets` et `alertes` ont : `source_id`, `id_origine`, `regle_id`, `niveau`, `motif`, `valeur_constatee`, `etape`, `run_id`.
+
+`dedup_correspondances` a : `source_id`, `id_origine`, `offre_id`, `methode`, `distance_m`. Une ligne par quai ou par arrêt d'origine.
+
 ## Colonnes
 
 À remplir à E4, après constat des fichiers sources.
