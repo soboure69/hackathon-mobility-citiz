@@ -39,7 +39,7 @@
           }
         }
       },
-      "run_id": "20261021T050439Z_9dba230",
+      "run_id": "20261021T055009Z_eed0b7c",
       "table": {
         "cle": [
           "code_insee"
@@ -52,6 +52,8 @@
           "geometry",
           "epci_siren",
           "territoire",
+          "code_departement",
+          "code_region",
           "source_id",
           "id_origine",
           "fichier_origine",
@@ -65,7 +67,7 @@
         "crs": "EPSG:2154",
         "lignes": 164,
         "nom": "admin_communes_5epci.parquet",
-        "sha256": "e9969e008902c07567bc35f421cc16985323804096eb2f000125195ac01dad26"
+        "sha256": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2"
       }
     },
     "admin_epci_5epci.parquet": {
@@ -106,7 +108,7 @@
           }
         }
       },
-      "run_id": "20261021T050439Z_9dba230",
+      "run_id": "20261021T055009Z_eed0b7c",
       "table": {
         "cle": [
           "code_siren"
@@ -132,13 +134,13 @@
         "crs": "EPSG:2154",
         "lignes": 5,
         "nom": "admin_epci_5epci.parquet",
-        "sha256": "dba918a2cb1563aeb81f641cc4ae99405dfad03fc3fee591656ce81577ceb49b"
+        "sha256": "8c157ffbacff42a206e09e28c318eb2b54ef1b110691e7018526227b34833926"
       }
     },
     "filosofi_carreaux_5epci.parquet": {
       "origine_bronze": {
         "communes_silver": {
-          "sha256": "e9969e008902c07567bc35f421cc16985323804096eb2f000125195ac01dad26",
+          "sha256": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
           "table": "cleaned/admin_communes_5epci.parquet"
         },
         "dossier": "data/bronze/insee_filosofi/national/S03_2026-10-21",
@@ -156,7 +158,7 @@
         },
         "regle_perimetre": "RF-01"
       },
-      "run_id": "20261021T050513Z_9dba230",
+      "run_id": "20261021T055041Z_eed0b7c",
       "table": {
         "cle": [
           "cell_id"
@@ -219,7 +221,7 @@
         "crs": "EPSG:2154",
         "lignes": 29000,
         "nom": "filosofi_carreaux_5epci.parquet",
-        "sha256": "3eb03ec0fcb181e789dcef35cf559b31875688055bce47e7f6370788200406b9"
+        "sha256": "73a3e3835901a0037e19a5cbae3d9e67a91cd2e35a7f2837949254c170be87b0"
       }
     },
     "gbfs_stations_citiz_larochelle.parquet": {

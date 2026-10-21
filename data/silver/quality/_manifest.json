@@ -97,7 +97,7 @@
     "alertes_S03.parquet": {
       "origine_bronze": {
         "communes_silver": {
-          "sha256": "e9969e008902c07567bc35f421cc16985323804096eb2f000125195ac01dad26",
+          "sha256": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
           "table": "cleaned/admin_communes_5epci.parquet"
         },
         "dossier": "data/bronze/insee_filosofi/national/S03_2026-10-21",
@@ -115,7 +115,7 @@
         },
         "regle_perimetre": "RF-01"
       },
-      "run_id": "20261021T050513Z_9dba230",
+      "run_id": "20261021T055041Z_eed0b7c",
       "table": {
         "cle": [
           "regle_id",
@@ -176,7 +176,7 @@
           }
         }
       },
-      "run_id": "20261021T050439Z_9dba230",
+      "run_id": "20261021T055009Z_eed0b7c",
       "table": {
         "cle": [
           "regle_id",
@@ -311,8 +311,9 @@
     },
     "alertes_spatial.parquet": {
       "entrees_silver": {
-        "cleaned/admin_epci_5epci.parquet": "dba918a2cb1563aeb81f641cc4ae99405dfad03fc3fee591656ce81577ceb49b",
-        "cleaned/filosofi_carreaux_5epci.parquet": "3eb03ec0fcb181e789dcef35cf559b31875688055bce47e7f6370788200406b9",
+        "cleaned/admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "cleaned/admin_epci_5epci.parquet": "8c157ffbacff42a206e09e28c318eb2b54ef1b110691e7018526227b34833926",
+        "cleaned/filosofi_carreaux_5epci.parquet": "73a3e3835901a0037e19a5cbae3d9e67a91cd2e35a7f2837949254c170be87b0",
         "cleaned/osm_walk_edges_larochelle.parquet": "8f72d45d908e99ae237241fcb13d29aa28047e636d7874ce278b2a80539d6b30",
         "cleaned/osm_walk_nodes_larochelle.parquet": "6bb2d5fb53d5cf978ee600168762f81e189994d9955cfa2941f77c6aa97271ac",
         "deduplicated/offre_arrets_larochelle.parquet": "3d4b87a12f67c5b68058c85c7b63a856b4fd52fd831871c7f4d924297e9d5b25",
@@ -323,7 +324,7 @@
         "distance_max_marche_m": 400,
         "tampon_m": 500
       },
-      "run_id": "20261021T053529Z_f5db0b4",
+      "run_id": "20261021T055111Z_eed0b7c",
       "table": {
         "cle": [
           "regle_id",
@@ -343,7 +344,7 @@
         "crs": null,
         "lignes": 7,
         "nom": "alertes_spatial.parquet",
-        "sha256": "55f69617887ccaa5310cd228ceffb1b9565cd15dc8b6809bd7c3ed3e8f20b932"
+        "sha256": "96cb0d423269914cbe09f6f0a35bdb4308d7d3fa1ca09f42693382b6ab90b676"
       }
     },
     "qualite_indicateurs_S01.parquet": {
@@ -436,7 +437,7 @@
     "qualite_indicateurs_S03.parquet": {
       "origine_bronze": {
         "communes_silver": {
-          "sha256": "e9969e008902c07567bc35f421cc16985323804096eb2f000125195ac01dad26",
+          "sha256": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
           "table": "cleaned/admin_communes_5epci.parquet"
         },
         "dossier": "data/bronze/insee_filosofi/national/S03_2026-10-21",
@@ -454,7 +455,7 @@
         },
         "regle_perimetre": "RF-01"
       },
-      "run_id": "20261021T050513Z_9dba230",
+      "run_id": "20261021T055041Z_eed0b7c",
       "table": {
         "cle": [
           "q_id",
@@ -471,7 +472,7 @@
         "crs": null,
         "lignes": 44,
         "nom": "qualite_indicateurs_S03.parquet",
-        "sha256": "a0bba9f592e72ad529aad9bc3f7c0f1e3bf579382dbc1f603505ff1e17799590"
+        "sha256": "9e24ff58bba2ff684ed6c7a4719b3ad88bb1d7796693aed24aba6ddd14c33d47"
       }
     },
     "qualite_indicateurs_S04.parquet": {
@@ -512,7 +513,7 @@
           }
         }
       },
-      "run_id": "20261021T050439Z_9dba230",
+      "run_id": "20261021T055009Z_eed0b7c",
       "table": {
         "cle": [
           "q_id",
@@ -529,7 +530,7 @@
         "crs": null,
         "lignes": 17,
         "nom": "qualite_indicateurs_S04.parquet",
-        "sha256": "1c76b5defde4f24768d9917c9d8bb462326675081bafdbc61c1d05de98e7248a"
+        "sha256": "05f7e3a36370671e89bd72d4875f52830f3bb7b65494c6288efe3ef3fb278540"
       }
     },
     "qualite_indicateurs_S05.parquet": {
@@ -638,8 +639,9 @@
     },
     "qualite_indicateurs_spatial.parquet": {
       "entrees_silver": {
-        "cleaned/admin_epci_5epci.parquet": "dba918a2cb1563aeb81f641cc4ae99405dfad03fc3fee591656ce81577ceb49b",
-        "cleaned/filosofi_carreaux_5epci.parquet": "3eb03ec0fcb181e789dcef35cf559b31875688055bce47e7f6370788200406b9",
+        "cleaned/admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "cleaned/admin_epci_5epci.parquet": "8c157ffbacff42a206e09e28c318eb2b54ef1b110691e7018526227b34833926",
+        "cleaned/filosofi_carreaux_5epci.parquet": "73a3e3835901a0037e19a5cbae3d9e67a91cd2e35a7f2837949254c170be87b0",
         "cleaned/osm_walk_edges_larochelle.parquet": "8f72d45d908e99ae237241fcb13d29aa28047e636d7874ce278b2a80539d6b30",
         "cleaned/osm_walk_nodes_larochelle.parquet": "6bb2d5fb53d5cf978ee600168762f81e189994d9955cfa2941f77c6aa97271ac",
         "deduplicated/offre_arrets_larochelle.parquet": "3d4b87a12f67c5b68058c85c7b63a856b4fd52fd831871c7f4d924297e9d5b25",
@@ -650,7 +652,7 @@
         "distance_max_marche_m": 400,
         "tampon_m": 500
       },
-      "run_id": "20261021T053529Z_f5db0b4",
+      "run_id": "20261021T055111Z_eed0b7c",
       "table": {
         "cle": [
           "q_id",
@@ -665,9 +667,9 @@
           "run_id"
         ],
         "crs": null,
-        "lignes": 17,
+        "lignes": 20,
         "nom": "qualite_indicateurs_spatial.parquet",
-        "sha256": "32bc26e335b45b58ddb3362317f4fc6482a2b3b2f253e040ec3f7e3e800165e7"
+        "sha256": "3058329296b223fb698f8d75bfe7aae712beb931f482a1c60b967f5db5ed2bcb"
       }
     },
     "rejets_S01.parquet": {
@@ -766,7 +768,7 @@
     "rejets_S03.parquet": {
       "origine_bronze": {
         "communes_silver": {
-          "sha256": "e9969e008902c07567bc35f421cc16985323804096eb2f000125195ac01dad26",
+          "sha256": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
           "table": "cleaned/admin_communes_5epci.parquet"
         },
         "dossier": "data/bronze/insee_filosofi/national/S03_2026-10-21",
@@ -784,7 +786,7 @@
         },
         "regle_perimetre": "RF-01"
       },
-      "run_id": "20261021T050513Z_9dba230",
+      "run_id": "20261021T055041Z_eed0b7c",
       "table": {
         "cle": [
           "regle_id",
@@ -845,7 +847,7 @@
           }
         }
       },
-      "run_id": "20261021T050439Z_9dba230",
+      "run_id": "20261021T055009Z_eed0b7c",
       "table": {
         "cle": [
           "regle_id",

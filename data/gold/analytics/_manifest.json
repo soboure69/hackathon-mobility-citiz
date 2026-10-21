@@ -1,0 +1,34 @@
+{
+  "couche": "gold",
+  "tables": {
+    "qualite_indicateurs_paires.parquet": {
+      "entrees_silver": {
+        "cleaned/osm_walk_edges_larochelle.parquet": "8f72d45d908e99ae237241fcb13d29aa28047e636d7874ce278b2a80539d6b30",
+        "spatial/cellules_larochelle.parquet": "84b054d602771f562c941471aefd028545d3b99ca8abbe9ce93cbe6652e85456",
+        "spatial/offre_points_larochelle.parquet": "54dd2bed492f7b5edb7b2e86554b17488786bae141f81a46a810d92e7fb7eba1"
+      },
+      "parametres": {
+        "budget_m": 400.0
+      },
+      "run_id": "20261021T055114Z_eed0b7c",
+      "table": {
+        "cle": [
+          "q_id",
+          "libelle"
+        ],
+        "colonnes": [
+          "source_id",
+          "q_id",
+          "libelle",
+          "valeur",
+          "unite",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 14,
+        "nom": "qualite_indicateurs_paires.parquet",
+        "sha256": "5819f642ce5a9d07500d85e4ed4606e17f2850a5d9e171ec352684882b571c5b"
+      }
+    }
+  }
+}
