@@ -1,0 +1,84 @@
+{
+  "source_id": "S05",
+  "nom": "Réseau piéton OpenStreetMap",
+  "run_id": "20261021T033603Z_635bc9b",
+  "date_heure": "2026-10-21T03:36:03+00:00",
+  "url_demandee": "https://overpass-api.de/api",
+  "url_effective": "https://overpass-api.de/api",
+  "http_status": null,
+  "fichiers": [
+    {
+      "nom": "emprise_requete.geojson",
+      "taille_octets": 153651,
+      "sha256": "7af67ee22df0d5ad825b33c70d08a7bea0674f51863c79cf0c2e22554033f7a7"
+    },
+    {
+      "nom": "walk_graph.graphml",
+      "taille_octets": 39285234,
+      "sha256": "d042196f369f5d68a45bb425cda2140d96cc8ff9acf27fc12dd388848cbb40a8"
+    }
+  ],
+  "version_producteur": {
+    "date_requete": "2026-10-21T03:36:03+00:00",
+    "note": "OSM évolue en continu : la version de référence est ce graphe sauvegardé."
+  },
+  "licence_registre": "Open Database License (ODbL), OpenStreetMap Foundation",
+  "licence_constatee": "Open Database License (ODbL), OpenStreetMap Foundation (page openstreetmap.org/copyright lue le 2026-10-21)",
+  "outil": {
+    "mode": "script",
+    "script": "scripts/ingest_osm.py",
+    "osmnx": "2.1.1"
+  },
+  "parametres": {
+    "network_type": "walk",
+    "simplify": true,
+    "retain_all": true,
+    "use_cache": false,
+    "essais_overpass": 4,
+    "attente_initiale_s": 60,
+    "tampon_m": 500.0,
+    "siren": "241700434",
+    "crs_emprise": "EPSG:4326",
+    "source_contour": {
+      "source_id": "S04",
+      "dossier": "data/bronze/admin_express/national/S04_2026-10-21",
+      "sha256": "688eb44505d9b4a8e422ded2f4afaac799f10783de563132ca1a60e9491c6278",
+      "run_id": "20261021T024321Z_7a6e527",
+      "couche": "epci",
+      "colonne": "code_siren"
+    }
+  },
+  "controles": [
+    {
+      "id": "url_overpass",
+      "resultat": "ok",
+      "valeur": "utilisée https://overpass-api.de/api / registre https://overpass-api.de/api"
+    },
+    {
+      "id": "nb_noeuds",
+      "resultat": "ok",
+      "valeur": 29865
+    },
+    {
+      "id": "nb_aretes",
+      "resultat": "ok",
+      "valeur": 84010
+    },
+    {
+      "id": "nb_composantes",
+      "resultat": "ok",
+      "valeur": 136
+    },
+    {
+      "id": "tentatives_overpass",
+      "resultat": "ok",
+      "valeur": 1
+    },
+    {
+      "id": "licence_constatee",
+      "resultat": "ok",
+      "valeur": "Open Database License (ODbL), OpenStreetMap Foundation (page openstreetmap.org/copyright lue le 2026-10-21)"
+    }
+  ],
+  "statut_ingestion": "reussie"
+}
