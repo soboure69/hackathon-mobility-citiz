@@ -7,7 +7,7 @@ import altair as alt  # noqa: E402
 import pydeck as pdk  # noqa: E402
 import streamlit as st  # noqa: E402
 
-from commun import (C, COULEURS_MODE, MODES, carte, couche_communes, donnees, ent, filtre_communes, geojson,  # noqa: E402
+from commun import (ESPACE_MILLIERS, C, COULEURS_MODE, MODES, carte, couche_communes, donnees, ent, filtre_communes, geojson,  # noqa: E402
                     legende, m, pct, rgb, titre)
 
 d = donnees()
@@ -45,19 +45,30 @@ with gauche:
         if ids is not None and cid not in ids:
             continue
         ok = bool(etat.get(cid, False))
-        feats.append({**f, "properties": {"cell_id": cid, "pop": int(round(pop.get(cid, 0))),
-                                          "etat": "desservi" if ok else "non desservi",
+        feats.append({**f, "properties": {"cell_id": cid, "pop": f"· {pop.get(cid, 0):,.0f} habitants".replace(",", " "),
+                                          "etat": "Carreau desservi" if ok else "Carreau non desservi",
                                           "couleur": rgb(C["couvert"] if ok else C["manque"], 170)}})
     carreaux = pdk.Layer("GeoJsonLayer", {"type": "FeatureCollection", "features": feats}, filled=True, stroked=False,
                          get_fill_color="properties.couleur", pickable=True)
     offre = d["dim_offre"] if mode == "tous" else d["dim_offre"][d["dim_offre"]["mode"] == mode]
-    offre = offre.assign(couleur=offre["mode"].map(lambda x: rgb(COULEURS_MODE[x])))
+    offre = offre.assign(couleur=offre["mode"].map(lambda x: rgb(COULEURS_MODE[x])),
+                         habitants=offre["pop_5min"].map(lambda p: f"· {p:,.0f} habitants à 5 min".replace(",", " ")))
     stations = pdk.Layer("ScatterplotLayer", offre, get_position="[lon, lat]", get_fill_color="couleur", get_radius=35,
                          radius_min_pixels=2, pickable=True)
     carte([carreaux, couche_communes(), stations],
-          {"html": "{properties.etat} · {properties.pop} hab.<br/>{nom} {mode}"})
+          {"html": "{properties.etat} {properties.pop}<br/>{nom} {mode} {habitants}"})
     legende([(C["couvert"], f"carreau de 200 m desservi ({libelle})"), (C["manque"], "carreau non desservi"),
-             (C["prioritaire_trait"], "commune prioritaire")])
+             (C["prioritaire_trait"], "commune prioritaire"), (C["texte"], "point : station ou arrêt (survol = habitants à 5 min)")])
+    st.markdown(f"**Habitants à 5 min de chaque station ou arrêt · {libelle}** (objectif 2 du sujet)")
+    o = offre.assign(commune=offre["commune_insee"].map(dict(zip(d["dim_commune"]["commune_insee"], d["dim_commune"]["nom"]))))
+    if communes:
+        o = o[o["commune_insee"].isin(communes)]
+    st.dataframe(o.sort_values("pop_5min", ascending=False)[["nom", "mode", "commune", "pop_5min", "pop_exclusive"]],
+                 hide_index=True, height=210,
+                 column_config={"nom": "Station ou arrêt", "mode": "Mode", "commune": "Commune",
+                                "pop_5min": st.column_config.NumberColumn("Habitants à 5 min", format="%d",
+                                                                          help="Ne s'additionne pas entre stations : les zones se chevauchent."),
+                                "pop_exclusive": st.column_config.NumberColumn("Dont desservis par elle seule", format="%d")})
 
 noms = d["dim_commune"][["commune_insee", "nom", "statut_commune", "prioritaire"]]
 with droite:
@@ -81,7 +92,7 @@ with b1:
     dist = d["fact_distribution"].query("mode == @mode").groupby("classe", as_index=False)["pop"].sum()
     st.altair_chart(alt.Chart(dist).mark_bar(color=COULEURS_MODE[mode]).encode(
         x=alt.X("classe:N", sort=["0", "1-2", "3-5", "6+"], title="Options à 5 min"),
-        y=alt.Y("pop:Q", title="Habitants"), tooltip=[alt.Tooltip("pop:Q", format=",.0f", title="Habitants")]), height=240)
+        y=alt.Y("pop:Q", title="Habitants", axis=alt.Axis(labelExpr=ESPACE_MILLIERS)), tooltip=[alt.Tooltip("pop:Q", format=",.0f", title="Habitants")]), height=240)
 with b2:
     st.markdown(f"**Couverture par quintile de niveau de vie · {libelle}**")
     q = m.taux_quintiles(d["fact_equite_quintile"], mode)

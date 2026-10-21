@@ -268,3 +268,6 @@ desktop.ini
 .vscode/
 .idea/
 ~$*
+
+# --- Vidéo de démonstration : le .webm brut n est pas versionné (le .mp4 peut l être)
+reports/demo/*.webm

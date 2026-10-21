@@ -32,8 +32,9 @@ MODES = {"Tous modes": "tous", "Bus": "bus", "Citiz": "citiz", "Vélo": "velo"}
 COULEURS_MODE = {"tous": "#1A1A1A", "bus": "#6E6E6E", "citiz": "#0072B2", "velo": "#CC79A7"}
 SEQUENTIEL = ["#EFF3FF", "#BDD7E7", "#6BAED6", "#3182BD", "#08519C"]
 CLASSES_SCORE = ["Très faible", "Faible", "Moyen", "Fort", "Très fort"]
+ESPACE_MILLIERS = "replace(datum.label, /,/g, '\u202f')"   # axes Altair : 150 000 et non 150,000
 VUE = pdk.ViewState(latitude=46.13, longitude=-1.07, zoom=9.6, pitch=0)            # agglomération entière
-VUE_VILLE = pdk.ViewState(latitude=46.158, longitude=-1.15, zoom=11.6, pitch=0)    # stations Citiz (La Rochelle)
+VUE_VILLE = pdk.ViewState(latitude=46.16, longitude=-1.13, zoom=10.9, pitch=0)    # stations Citiz (La Rochelle)
 
 
 def rgb(hex_: str, alpha: int = 255) -> list[int]:

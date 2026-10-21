@@ -32,5 +32,6 @@ nbstripout
 streamlit
 pydeck
 altair
+playwright        # optionnel : vidéo de démonstration (scripts/enregistrer_demo.py)
 # Tests
 pytest

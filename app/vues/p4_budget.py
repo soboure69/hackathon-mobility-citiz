@@ -7,7 +7,7 @@ import altair as alt  # noqa: E402
 import pydeck as pdk  # noqa: E402
 import streamlit as st  # noqa: E402
 
-from commun import VUE_VILLE, C, carte, couche_communes, donnees, ent, etiquette, eur, legende, m, nom_commune, pct, pts, rgb, titre  # noqa: E402
+from commun import ESPACE_MILLIERS, VUE_VILLE, C, carte, couche_communes, donnees, ent, etiquette, eur, legende, m, nom_commune, pct, pts, rgb, titre  # noqa: E402
 
 d = donnees()
 sc = d["dim_scenario"]
@@ -60,7 +60,7 @@ with droite:
     st.markdown("**Rendements décroissants du portefeuille**")
     st.altair_chart(alt.Chart(sel).mark_line(interpolate="step-after", color=C["propose"], point=True).encode(
         x=alt.X("ordre_ajout:Q", title="Stations ajoutées", axis=alt.Axis(tickMinStep=1)),
-        y=alt.Y("pop_nouvelle_cumulee:Q", title="Habitants nouvellement couverts (cumul)"),
+        y=alt.Y("pop_nouvelle_cumulee:Q", title="Habitants (cumul)", axis=alt.Axis(labelExpr=ESPACE_MILLIERS)),
         tooltip=["commune:N", alt.Tooltip("pop_nouvelle_marginale:Q", format=",.0f", title="+ habitants")]), height=200)
 with gauche:
     points = d["fact_carte_scenario"].query("scenario_id == @s.scenario_id").copy()
@@ -84,7 +84,7 @@ with b[0]:
     st.markdown("**Budget → impact** (coût central, 1 à 30 stations)")
     courbe = d["fact_courbe"]
     st.altair_chart(alt.Chart(courbe).mark_line(color=C["couvert"], point=True).encode(
-        x=alt.X("n_stations:Q", title=f"Stations (× {eur(courbe['budget'].iloc[0])})"), y=alt.Y("k6:Q", title="Habitants nouvellement couverts"),
+        x=alt.X("n_stations:Q", title=f"Stations (× {eur(courbe['budget'].iloc[0])})"), y=alt.Y("k6:Q", title="Habitants nouvellement couverts", axis=alt.Axis(labelExpr=ESPACE_MILLIERS)),
         tooltip=[alt.Tooltip("budget:Q", format=",.0f", title="Budget (€)"), alt.Tooltip("k6:Q", format=",.0f"),
                  alt.Tooltip("gain_marginal:Q", format=",.0f", title="Apport de la dernière station")]), height=240)
     st.caption(f"La 1re station couvre {ent(courbe['gain_marginal'].iloc[0])} habitants, "
@@ -93,7 +93,8 @@ with b[1]:
     st.markdown("**Les 12 scénarios** (le scénario choisi est cerclé)")
     vue = sc.assign(choisi=sc["scenario_id"] == s["scenario_id"],
                     Variante=sc["variante"].map({"efficacite": "Efficacité", "equite": "Équité"}))
-    base = alt.Chart(vue).encode(x=alt.X("k7:Q", title="Coût total (€)"), y=alt.Y("k6:Q", title="Habitants nouvellement couverts"))
+    base = alt.Chart(vue).encode(x=alt.X("k7:Q", title="Coût total (€)", axis=alt.Axis(labelExpr=ESPACE_MILLIERS)),
+                                 y=alt.Y("k6:Q", title="Habitants nouvellement couverts", axis=alt.Axis(labelExpr=ESPACE_MILLIERS)))
     st.altair_chart(base.mark_point(filled=True, size=90).encode(
         color=alt.Color("Variante:N", scale=alt.Scale(domain=["Efficacité", "Équité"], range=[C["couvert"], C["equite"]])),
         shape=alt.Shape("Variante:N"), tooltip=["libelle:N", alt.Tooltip("k6:Q", format=",.0f"), alt.Tooltip("k8:Q", format=".2f")])
@@ -105,7 +106,7 @@ with b[2]:
         Budget=lambda x: x["budget"].map(eur))
     st.altair_chart(alt.Chart(eq).mark_bar().encode(
         x=alt.X("Budget:N", sort=alt.EncodingSortField("budget"), title=None), xOffset="Variante:N",
-        y=alt.Y("k6:Q", title="Habitants nouvellement couverts"),
+        y=alt.Y("k6:Q", title="Habitants nouvellement couverts", axis=alt.Axis(labelExpr=ESPACE_MILLIERS)),
         color=alt.Color("Variante:N", scale=alt.Scale(domain=["Efficacité", "Équité"], range=[C["couvert"], C["equite"]])),
         tooltip=["libelle:N", alt.Tooltip("k6:Q", format=",.0f"), alt.Tooltip("prix_equite_part:Q", format=".1%", title="Prix")]),
         height=240)

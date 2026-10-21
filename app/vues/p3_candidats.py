@@ -7,7 +7,7 @@ import altair as alt  # noqa: E402
 import pydeck as pdk  # noqa: E402
 import streamlit as st  # noqa: E402
 
-from commun import (C, CLASSES_SCORE, SEQUENTIEL, carte, couche_communes, donnees, ent, eur, filtre_communes,  # noqa: E402
+from commun import (ESPACE_MILLIERS, C, CLASSES_SCORE, SEQUENTIEL, carte, couche_communes, donnees, ent, eur, filtre_communes,  # noqa: E402
                     legende, nom_commune, pct, rgb, titre)
 
 d = donnees()
@@ -82,7 +82,7 @@ with droite:
     st.markdown("**Impact et redondance**: en haut à gauche, les meilleurs sites")
     st.altair_chart(alt.Chart(vue).mark_circle(opacity=0.5).encode(
         x=alt.X("taux_redondance:Q", title="Redondance avec l'offre Citiz existante", axis=alt.Axis(format="%")),
-        y=alt.Y("pop_nouvelle_isolee:Q", title="Habitants gagnés (site seul)"),
+        y=alt.Y("pop_nouvelle_isolee:Q", title="Habitants gagnés (site seul)", axis=alt.Axis(labelExpr=ESPACE_MILLIERS)),
         color=alt.Color("commune_prioritaire:N", title="Commune prioritaire",
                         scale=alt.Scale(domain=[True, False], range=[C["equite"], C["couvert"]])),
         tooltip=["rang:Q", "commune:N", alt.Tooltip("score:Q", format=".0f")]), height=230)
