@@ -67,3 +67,15 @@ def test_preparer_ne_garde_que_les_carreaux_non_desservis():
     d = opt.preparer(candidats, paires, acces, "citiz", 8500, {"17002"})
     assert list(d.sites["candidat_id"]) == ["S1"]                        # S2 non retenu
     assert list(d.carreaux["cell_id"]) == ["b"] and bool(d.carreaux["prioritaire"].iloc[0])
+
+
+def test_equite_sur_la_couverture_reelle():
+    # S1 : a (10) + b (3, prioritaire) = 13, part 23 %. S2 : b (3) + d (4) = 7, part 43 %. Une station.
+    # Piège : avec y_a = 0,7 le solveur « oublierait » 3 habitants de a et garderait S1 (objectif 10 > 7).
+    d = donnees([("S1", "a"), ("S1", "b"), ("S2", "b"), ("S2", "d")], {"a": 10, "b": 3, "d": 4})
+    d.carreaux["prioritaire"] = d.carreaux["cell_id"].eq("b")
+    libre = opt.resoudre(d, budget=1.0)
+    equite = opt.resoudre(d, budget=1.0, part_prioritaire_min=0.30)
+    assert libre["choisis"] == ["S1"] and libre["k6"] == 13.0
+    assert equite["choisis"] == ["S2"] and equite["k6"] == 7.0 and equite["k6_prioritaire"] == 3.0
+    assert equite["k6_prioritaire"] >= 0.30 * equite["k6"]               # prix de l'équité : 13 − 7 = 6

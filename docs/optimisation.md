@@ -178,3 +178,23 @@ Statut : **D-1 à D-5 validées le 21/10/2026.** L'équité reste la variante en
 | central × bas / haut | 21 / 6 | 30 834 / 12 888 | 2,72 / 6,05 |
 
 Messages : rendements décroissants (gain de la 1re station 4 040 hab., de la 30e 894) ; couverture Citiz 9,8 % → 20,6 % au central ; « sans aucune option » presque inchangé (Citiz s'installe là où le bus passe déjà) ; 0 % des gains en communes prioritaires dans 8 scénarios sur 9, ce qui justifie la variante équité. Le glouton atteint l'optimum dans 8 scénarios sur 9.
+
+## 15. Variante équité (C-5), validée le 21/10/2026
+
+Réglages : au moins **30 %** des habitants nouvellement couverts vivent dans une commune prioritaire (couverture tous modes < 60 %, `config/score.yaml`) ; mêmes trois budgets ; coût central 8 500 € seulement. Bassin disponible : 9 communes, 27 266 habitants atteignables.
+
+Contrainte ajoutée : Σ_{j prioritaire} pop_j · y_j ≥ 0,30 · Σ_j pop_j · y_j.
+
+**Piège évité.** Sans autre changement, le solveur pourrait laisser y_j < 1 sur un carreau couvert hors commune prioritaire : il « oublierait » des habitants pour gonfler la part. En variante équité, on ajoute y_j ≥ x_i pour chaque paire (site, carreau) : y_j vaut exactement 1 dès qu'un site ouvert atteint le carreau. Un test reproduit ce piège.
+
+Contrôles ajoutés : **O-T7** part prioritaire réelle (recalculée par union des carreaux) ≥ 30 % ; **O-T8** K6 équité ≤ K6 efficacité (à l'écart garanti près). O-T5 (glouton) ne s'applique pas : le glouton ignore la contrainte.
+
+### Prix de l'équité (bac à sable, à confirmer sur le poste)
+
+| Budget | K6 efficacité | K6 équité | Prix (hab.) | Prix (%) | Gains prioritaires | K8 équité | Tous modes après |
+|---|---:|---:|---:|---:|---:|---:|---|
+| 42 500 € | 11 338 | 8 304 | 3 034 | 26,8 % | 2 494 (0 avant) | 5,12 € | 77,8 % → 78,5 % |
+| 85 000 € | 18 816 | 14 446 | 4 371 | 23,2 % | 4 674 (0 avant) | 5,88 € | 77,8 % → 78,9 % |
+| 170 000 € | 29 834 | 25 264 | 4 570 | 15,3 % | 7 882 (0 avant) | 6,73 € | 77,8 % → 79,6 % |
+
+Lecture : l'équité coûte environ un quart de l'impact à petit budget, 15 % à gros budget. En échange, elle fait passer les gains en communes prioritaires de 0 à 2 500 – 7 900 habitants, et elle touche davantage d'habitants **sans aucune option** que la variante efficacité (+1,1 point de couverture tous modes au central, contre +0,1). Prix connu à ± 0,1 % de K6 près (écart garanti des deux optimums). Solveur : jusqu'à 24 s par scénario équité, contre moins de 1 s en efficacité.

@@ -10,7 +10,9 @@ scenarios:                                                    # D-3 : budgets en
   central: 85000
   ambitieux: 170000
 n_max: null                                                   # D-4
-equite: null                                                  # D-5 : variante enrichie, pas dans le MVP
+equite:                                                       # D-5 : variante enrichie C-5, validée le 21/10/2026
+  part_min: 0.30                                              # part minimale des nouveaux couverts en commune prioritaire
+  cout: central                                               # hypothèse de coût, mêmes budgets que le MVP
 courbe:
   stations_max: 30                                            # budgets de 1 à 30 stations au coût central
 solveur:

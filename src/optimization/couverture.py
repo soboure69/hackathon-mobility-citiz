@@ -50,8 +50,12 @@ def epsilon(donnees: Donnees) -> float:
 
 
 def resoudre(donnees: Donnees, budget: float, n_max: int | None = None, temps_max_s: int = 120,
-             ecart_relatif: float = 0.0) -> dict:
-    """Résout le modèle exact. Renvoie statut, sites choisis, K6, durée."""
+             ecart_relatif: float = 0.0, part_prioritaire_min: float | None = None) -> dict:
+    """Résout le modèle exact. Renvoie statut, sites choisis, K6, durée.
+
+    `part_prioritaire_min` (variante équité, C-5) : au moins cette part des habitants nouvellement
+    couverts doit vivre dans une commune prioritaire.
+    """
     modele = pulp.LpProblem("couverture_max_budget", pulp.LpMaximize)
     x = {i: pulp.LpVariable(f"x_{n}", cat="Binary") for n, i in enumerate(donnees.sites["candidat_id"])}
     y = {j: pulp.LpVariable(f"y_{n}", lowBound=0, upBound=1) for n, j in enumerate(donnees.carreaux["cell_id"])}
@@ -63,6 +67,15 @@ def resoudre(donnees: Donnees, budget: float, n_max: int | None = None, temps_ma
     for j, sites_j in donnees.liens.groupby("cell_id")["candidat_id"]:
         modele += y[j] <= pulp.lpSum(x[i] for i in sites_j)
     modele += pulp.lpSum(cout[i] * x[i] for i in x) <= budget
+    if part_prioritaire_min is not None:
+        # Sans le lien y_j ≥ x_i, le solveur pourrait « oublier » des habitants couverts hors des
+        # communes prioritaires (y_j < 1) pour gonfler la part prioritaire. On impose donc y_j = 1
+        # dès qu'un site ouvert atteint le carreau : la part est calculée sur la couverture réelle.
+        for i, j in donnees.liens[["candidat_id", "cell_id"]].itertuples(index=False):
+            modele += y[j] >= x[i]
+        prio = dict(zip(donnees.carreaux["cell_id"], donnees.carreaux["prioritaire"].astype(bool)))
+        modele += (pulp.lpSum(pop[j] * y[j] for j in y if prio[j])
+                   >= part_prioritaire_min * pulp.lpSum(pop[j] * y[j] for j in y))
     # Inégalité valide : on ne peut pas ouvrir plus de ⌊B / c_min⌋ stations. Elle ne retire aucune
     # solution entière, mais elle empêche la relaxation d'« acheter » une fraction de station
     # (sans elle, 170 000 € / 4 000 € = 42,5 stations et l'optimum n'est pas prouvé en 120 s).
@@ -76,14 +89,19 @@ def resoudre(donnees: Donnees, budget: float, n_max: int | None = None, temps_ma
     prouvee = modele.sol_status == pulp.LpSolutionOptimal
     return {"statut": pulp.LpStatus[statut], "statut_solution": pulp.LpSolution[modele.sol_status],
             "optimum_prouve": prouvee, "ecart_relatif_garanti": ecart_relatif if prouvee else None,
-            "choisis": choisis, "k6": population_couverte(donnees, choisis), "duree_s": duree, "epsilon": eps}
+            "choisis": choisis, "k6": population_couverte(donnees, choisis),
+            "k6_prioritaire": population_couverte(donnees, choisis, prioritaire_seulement=True),
+            "duree_s": duree, "epsilon": eps}
 
 
-def population_couverte(donnees: Donnees, choisis: list[str]) -> float:
+def population_couverte(donnees: Donnees, choisis: list[str], prioritaire_seulement: bool = False) -> float:
     """K6 du portefeuille : carreaux distincts atteints, chacun compté une fois."""
     couverture = donnees.couverture
     atteints = set().union(*(couverture.get(i, set()) for i in choisis)) if choisis else set()
-    return float(donnees.carreaux.loc[donnees.carreaux["cell_id"].isin(atteints), "pop"].sum())
+    masque = donnees.carreaux["cell_id"].isin(atteints)
+    if prioritaire_seulement:
+        masque &= donnees.carreaux["prioritaire"].astype(bool)
+    return float(donnees.carreaux.loc[masque, "pop"].sum())
 
 
 def ordre_ajout(donnees: Donnees, candidats_autorises: list[str], budget: float) -> pd.DataFrame:
