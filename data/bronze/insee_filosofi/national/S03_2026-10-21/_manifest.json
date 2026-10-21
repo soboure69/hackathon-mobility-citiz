@@ -1,0 +1,52 @@
+{
+  "source_id": "S03",
+  "nom": "Filosofi carroyé 200 m",
+  "run_id": "20261021T014800_dfe198d",
+  "date_heure": "2026-10-21T01:48:00+02:00",
+  "url_demandee": "https://www.insee.fr/fr/statistiques/fichier/8735162/Filosofi2021_carreaux_200m_gpkg.zip",
+  "url_effective": "https://www.insee.fr/fr/statistiques/fichier/8735162/Filosofi2021_carreaux_200m_gpkg.zip",
+  "http_status": {
+    "Filosofi2021_carreaux_200m_gpkg.zip": 200
+  },
+  "fichiers": [
+    {
+      "nom": "Filosofi2021_carreaux_200m_gpkg.zip",
+      "taille_octets": 309208796,
+      "sha256": "2bb4ba8d38a9c7c90313ba7018b96fd0475d331a67c1059f84ba85d5937b86ee",
+      "content_type": "application/zip"
+    }
+  ],
+  "version_producteur": {
+    "millesime": "2021",
+    "date_parution_page": "2026-02-12",
+    "page": "https://www.insee.fr/fr/statistiques/8735162",
+    "champ": "France métropolitaine, Martinique, La Réunion",
+    "couches": [
+      {"fichier": "carreaux_200m_met.gpkg", "couche": "carreaux_200m_met", "geometrie": "Polygon", "crs": "EPSG:2154", "carreaux": 2298582},
+      {"fichier": "carreaux_200m_mart.gpkg", "couche": "carreaux_200m_mart", "geometrie": "Polygon", "crs": "EPSG:5490", "carreaux": 11222},
+      {"fichier": "carreaux_200m_reun.gpkg", "couche": "carreaux_200m_reun", "geometrie": "Polygon", "crs": "EPSG:2975", "carreaux": 14773}
+    ],
+    "champs_metropole_constates": ["idcar_200m", "idcar_1km", "idcar_nat", "i_est_200", "i_est_1km", "lcog_geo", "ind", "men", "men_pauv", "men_1ind", "men_5ind", "men_prop", "men_fmp", "ind_snv", "men_surf", "men_coll", "men_mais", "log_av45", "log_45_70", "log_70_90", "log_ap90", "log_inc", "log_soc", "ind_0_3", "ind_4_5", "ind_6_10", "ind_11_17", "ind_18_24", "ind_25_39", "ind_40_54", "ind_55_64", "ind_65_79", "ind_80p", "ind_inc"],
+    "note_schema": "Noms de champs constatés à la lecture. Ce n'est pas le schéma Silver."
+  },
+  "licence_registre": "à vérifier",
+  "licence_constatee": "Non affichée dans le HTML de la page consultée le 2026-10-21. Reste à vérifier.",
+  "outil": {
+    "mode": "manuel",
+    "commit": "dfe198d",
+    "requests": "2.34.2, non utilisé",
+    "osmnx": "2.1.1, non utilisé",
+    "lecture": "pyogrio 0.13.0 via zip://, sans extraction"
+  },
+  "parametres": {},
+  "controles": [
+    {"id": "http_200", "resultat": "ok", "valeur": "200"},
+    {"id": "non_vide", "resultat": "ok", "valeur": "309208796 octets"},
+    {"id": "zip_lisible", "resultat": "ok", "valeur": "carreaux_200m_met.gpkg, carreaux_200m_mart.gpkg, carreaux_200m_reun.gpkg"},
+    {"id": "crs_lu", "resultat": "ok", "valeur": "métropole EPSG:2154 ; Martinique EPSG:5490 ; La Réunion EPSG:2975"},
+    {"id": "nombre_carreaux", "resultat": "ok", "valeur": "2298582 + 11222 + 14773 = 2324577"},
+    {"id": "documentation", "resultat": "alerte", "valeur": "Page INSEE lue (parution 12/02/2026). Aucun fichier de documentation séparé n'est déposé."},
+    {"id": "carreaux_emprise", "resultat": "alerte", "valeur": "À faire au premier script. Le contour S04 n'est pas là. Aucune table Silver n'a été produite."}
+  ],
+  "statut_ingestion": "reussie_avec_alertes"
+}

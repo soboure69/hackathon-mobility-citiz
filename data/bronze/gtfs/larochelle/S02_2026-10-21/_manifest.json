@@ -1,0 +1,46 @@
+{
+  "source_id": "S02",
+  "nom": "Transport Yélo GTFS (exemple : stop des bus)",
+  "run_id": "20261021T013600_dfe198d",
+  "date_heure": "2026-10-21T01:36:00+02:00",
+  "url_demandee": "https://opendata.agglo-larochelle.fr/sites/default/files/dataset/tra/nsport_yelo___gtfs_stop_des_bus/gtfs.zip",
+  "url_effective": "https://opendata.agglo-larochelle.fr/sites/default/files/dataset/tra/nsport_yelo___gtfs_stop_des_bus/gtfs.zip",
+  "http_status": {
+    "gtfs.zip": 200
+  },
+  "fichiers": [
+    {
+      "nom": "gtfs.zip",
+      "taille_octets": 1479862,
+      "sha256": "cf7085c5258a9997499e50ebfa21603d023efb4fa9cbd8ef29296b6587887fd7",
+      "content_type": "application/zip"
+    }
+  ],
+  "version_producteur": {
+    "feed_publisher_name": "YELO",
+    "feed_publisher_url": "http://www.yelo-larochelle.fr",
+    "feed_lang": "fr",
+    "feed_start_date": "20261008",
+    "feed_end_date": "20270103"
+  },
+  "licence_registre": "Licence Ouverte",
+  "licence_constatee": "fr-lo (Licence Ouverte), lue sur l'API data.gouv.fr le 2026-10-21. La version 2.0 n'est pas précisée.",
+  "outil": {
+    "mode": "manuel",
+    "commit": "dfe198d",
+    "requests": "2.34.2, non utilisé",
+    "osmnx": "2.1.1, non utilisé"
+  },
+  "parametres": {
+    "date_demonstration": null
+  },
+  "controles": [
+    {"id": "http_200", "resultat": "ok", "valeur": "200"},
+    {"id": "non_vide", "resultat": "ok", "valeur": "1479862 octets"},
+    {"id": "zip_lisible", "resultat": "ok", "valeur": "agency.txt, calendar.txt, calendar_dates.txt, stops.txt, routes.txt, trips.txt, stop_times.txt, shapes.txt, feed_info.txt"},
+    {"id": "fichiers_obligatoires", "resultat": "ok", "valeur": "agency, stops, routes, trips, stop_times, calendar, calendar_dates"},
+    {"id": "stops_coordonnees", "resultat": "ok", "valeur": "1515 arrêts, 0 sans coordonnées"},
+    {"id": "validite_date_demo", "resultat": "alerte", "valeur": "feed_info du 20261008 au 20270103. Le 2026-10-21 est dans la plage. La date de démonstration n'est pas connue, donc V-a n'est pas clos."}
+  ],
+  "statut_ingestion": "reussie_avec_alertes"
+}

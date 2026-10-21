@@ -1,6 +1,6 @@
 # Registre des sources
 
-**Statut :** inventaire écrit le 21 octobre 2026. Aucun fichier n'est téléchargé. Les empreintes viendront dans l'onglet `recuperations`.
+**Statut :** inventaire écrit le 21 octobre 2026. Lot 0 déposé le même jour : S02 et S03, empreintes dans `recuperations`. Les autres sources ne sont pas téléchargées.
 
 Le fichier lu par le pipeline et par le jury est `docs/registre_des_sources.xlsx`. Ce document fixe les règles et le sens des colonnes.
 
@@ -14,7 +14,7 @@ Aucune valeur n'est saisie sans avoir été lue sur la source. Ce qui n'a pas é
 | `recommandee` | Utile, ne bloque pas le MVP |
 | `optionnelle` | Seulement s'il reste du temps, ou secours d'une source obligatoire |
 
-S07 est la source proposée pour la densité d'arrêts de H6 : un seul fichier, le même traitement dans les cinq villes. S18a à S18d restent le secours, non écartées. S05 n'a pas encore d'extrait choisi : la préférence est OSMnx, avec le graphe et sa date sauvegardés, parce que le périmètre est local et qu'OSMnx est déjà l'outil prévu. Ces deux préférences ne sont pas une vérification de fiche.
+S07 est la source proposée pour la densité d'arrêts de H6 : un seul fichier, le même traitement dans les cinq villes. S18a à S18d restent le secours, non écartées. S05 est un graphe OSMnx (GraphML) : pas d'URL, la requête est tracée par ses paramètres, et la reproductibilité vient du graphe sauvegardé. S07 n'est pas encore une fiche vérifiée.
 
 ## Onglet `sources`
 
@@ -48,13 +48,13 @@ Une ligne par source. S06 et S18 sont découpés par ville (`S06a`, `S18a`…) p
 | 24 | `statut` | `identifiee`, `verifiee`, `telechargee` ou `ecartee` |
 | 25 | `commentaire` | Libre |
 
-`verifiee` = URL et licence lues à la date indiquée. Cela ne veut pas dire que le fichier est dans `data/`. Aucune ligne n'est `telechargee`.
+`verifiee` = URL et licence lues à la date indiquée. Cela ne veut pas dire que le fichier est dans `data/`. `telechargee` est le statut après dépôt. S02 et S03 le sont depuis le lot 0. La licence de S03 reste `à vérifier`.
 
 ## Onglet `recuperations`
 
 Une ligne par téléchargement. Vide tant qu'aucun fichier n'est déposé.
 
-`recup_id` · `source_id` · `date_heure_recuperation` (ISO, avec fuseau) · `url_effective` · `version_producteur` · `fichier_local` (chemin relatif) · `taille_octets` · `sha256` · `licence_constatee` · `methode` (`navigateur` ou `script`) · `commentaire`
+`recup_id` · `source_id` · `date_heure_recuperation` (ISO, avec fuseau) · `url_effective` · `version_producteur` · `fichier_local` (chemin relatif) · `taille_octets` · `sha256` · `licence_constatee` · `methode` (`navigateur`, `script` ou `manuel`) · `commentaire`
 
 ## Onglet `decisions_citiz`
 

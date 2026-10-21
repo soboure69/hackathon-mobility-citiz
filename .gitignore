@@ -248,6 +248,9 @@ data/**
 # --- Cache OSMnx (créé automatiquement dans le dossier courant)
 cache/
 
+# --- Logs d'exécution : diagnostic local. La preuve versionnée est le manifeste.
+logs/
+
 # --- Power BI : le .pbix embarque les données, on ne versionne pas
 *.pbix
 **/.pbi/localSettings.json
