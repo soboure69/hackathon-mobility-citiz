@@ -1,6 +1,6 @@
 # Conception du rapport Power BI
 
-**Statut :** conception validée le 21/10/2026 (P-1 à P-6). Rien n'est encore construit dans Power BI. Les chiffres d'équité de la page 4 sont ceux du run `20261021T084710Z_5c8ceff` (12 scénarios).
+**Statut :** conception validée le 21/10/2026 (P-1 à P-6). **P-1 révisée le 21/10/2026 : la restitution est une application Streamlit** (`app/`), qui applique cette conception page par page ; équivalences dans `docs/application.md`. Les chiffres d'équité de la page 4 sont ceux du run `20261021T084710Z_5c8ceff` (12 scénarios).
 
 Documents liés : `dataset_schema/modele_donnees.md` (tables, relations, contrôles d'export), `measures_dax.md` (code DAX), `pages_wireframe.md` (maquettes textuelles), `assets/theme_hackathon.json` (thème).
 

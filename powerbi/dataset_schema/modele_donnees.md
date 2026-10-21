@@ -1,6 +1,6 @@
 # Modèle de données Power BI
 
-**Statut :** conception, Mission 13 (21/10/2026). Les exports `pbi_*` ne sont pas encore écrits : ils seront produits par `scripts/build_exports_powerbi.py` après validation (décision P-5 de `powerbi/conception_rapport.md`).
+**Statut :** Mission 13 (21/10/2026). Écrit par `scripts/build_exports.py` sous le nom `<table>_larochelle.parquet` (sans préfixe `pbi_`), plus `communes_larochelle.geojson` et `carreaux_larochelle.geojson` en WGS84. Lu par l'application Streamlit (P-1 révisée) ; reste lisible par Power BI.
 
 Règles reprises de l'architecture : Power BI lit **seulement** `data/gold/exports/` (AD3), en Parquet, coordonnées en WGS84 (`lat`, `lon`, AD1-AD2), aucune table de paires (AD4). Les KPI sont calculés en Python ; Power BI les affiche, les filtre et les recoupe, il ne les recalcule pas autrement.
 

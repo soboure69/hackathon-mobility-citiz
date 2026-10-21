@@ -1,0 +1,14 @@
+# Restitution (application Streamlit), Mission 13 — décisions P-1 à P-6 du 21/10/2026, P-1 révisée : Streamlit.
+type_equipement: citiz                       # P-4 : candidats affichés
+scenario_reference: SC_central_central       # P-3 : page 1, montré à côté de sa variante équité, sans trancher
+# Page 5. nature ∈ {certain, estimé, hypothèse}. Rien n'est saisi sans document de référence.
+hypotheses:
+  - {hypothese_id: H-01, theme: Accessibilité, texte: "Accès à 5 min à pied = trajet carreau → réseau → option de 400 m au plus, sur le réseau piéton OSM", valeur: "400 m", nature: hypothèse, document: "config/silver.yaml (H2), docs/kpi_acces.md"}
+  - {hypothese_id: H-02, theme: Population, texte: "Population des carreaux de 200 m Filosofi ; carreaux de moins de 11 ménages imputés par l'INSEE (secret statistique)", valeur: "174 016 hab.", nature: certain, document: "docs/registre_des_sources.md (S03)"}
+  - {hypothese_id: H-03, theme: Offre, texte: "Stations Citiz et vélos du flux GBFS, arrêts de bus du GTFS Yélo, à la date de téléchargement", valeur: "24 Citiz, 136 vélo, 534 bus", nature: certain, document: "docs/registre_des_sources.md (S01, S02, S08)"}
+  - {hypothese_id: H-04, theme: Score, texte: "Score de potentiel multicritère (K10), pas une prédiction : aucun historique d'usage disponible", valeur: "pondérations 0,40 / 0,20 / 0,15 / 0,15 / 0,10", nature: hypothèse, document: "config/score.yaml, docs/score_potentiel.md"}
+  - {hypothese_id: H-05, theme: Coûts, texte: "Coût d'une station Citiz pour la collectivité sur 3 ans ; forfait TTC et boîtier HT additionnés sans conversion", valeur: "4 000 / 8 500 / 13 000 €", nature: estimé, document: "docs/registre_couts.md"}
+  - {hypothese_id: H-06, theme: Budgets, texte: "Budgets de simulation, pas des budgets votés", valeur: "42 500 / 85 000 / 170 000 €", nature: hypothèse, document: "config/optimisation.yaml (D-3)"}
+  - {hypothese_id: H-07, theme: Équité, texte: "Commune prioritaire : couverture tous modes sous 60 %", valeur: "< 60 %", nature: hypothèse, document: "config/score.yaml"}
+  - {hypothese_id: H-08, theme: Équité, texte: "Variante équité : au moins 30 % des habitants nouvellement couverts en commune prioritaire, au coût central", valeur: "≥ 30 %", nature: hypothèse, document: "config/optimisation.yaml (C-5)"}
+  - {hypothese_id: H-09, theme: Optimisation, texte: "Portefeuille optimal sous budget, chaque habitant compté une fois ; optimum prouvé par le solveur", valeur: "écart garanti 0,1 %", nature: certain, document: "docs/optimisation.md"}

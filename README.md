@@ -42,7 +42,8 @@ Le choix est décidé, pas encore verrouillé (vérifications V-a à V-d, §9).
 | `scripts/` | exécution rejouable du pipeline |
 | `tests/` | tests des règles critiques (double comptage, budget, jointures) |
 | `config/` | paramètres : seuils, coûts étiquetés |
-| `powerbi/` | schéma, mesures DAX, maquettes |
+| `app/` | application de restitution Streamlit (5 pages) |
+| `powerbi/` | conception du rapport : pages, modèle, mesures, maquettes (appliquée par `app/`) |
 | `reports/` | figures et tableaux de restitution |
 
 Les conventions de nommage sont dans `docs/conventions.md`.
@@ -56,6 +57,15 @@ pip install -r requirements.txt
 ```
 
 Toujours activer `.venv` avant de travailler. Dans Jupyter ou VS Code, choisir le noyau « Python (hackathon-citiz) ». Ne pas utiliser `py` sans `-3.11`.
+
+## Application de restitution
+
+```powershell
+.\.venv\Scripts\python.exe scripts/build_exports.py --territoire larochelle
+.\.venv\Scripts\python.exe -m streamlit run app/streamlit_app.py
+```
+
+Cinq pages : synthèse, couverture actuelle, candidats et score, optimisation budgétaire, méthode et limites. L'application lit seulement `data/gold/exports/`. Sans Internet, désactiver « Fond de carte » : carreaux, communes et stations restent affichés. Détails : `docs/application.md`.
 
 ## Données
 

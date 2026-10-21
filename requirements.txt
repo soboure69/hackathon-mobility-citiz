@@ -28,5 +28,9 @@ py7zr
 jupyterlab
 ipykernel
 nbstripout
+# Restitution : application Streamlit (P-1 révisée, Mission 13)
+streamlit
+pydeck
+altair
 # Tests
 pytest
