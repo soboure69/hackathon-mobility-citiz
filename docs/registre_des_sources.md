@@ -48,7 +48,7 @@ Une ligne par source. S06 et S18 sont découpés par ville (`S06a`, `S18a`…) p
 | 24 | `statut` | `identifiee`, `verifiee`, `telechargee` ou `ecartee` |
 | 25 | `commentaire` | Libre |
 
-`verifiee` = URL et licence lues à la date indiquée. Cela ne veut pas dire que le fichier est dans `data/`. `telechargee` est le statut après dépôt. S02 et S03 le sont depuis le lot 0. La licence de S03 reste `à vérifier`.
+`verifiee` = URL et licence lues à la date indiquée. Cela ne veut pas dire que le fichier est dans `data/`. `telechargee` est le statut après dépôt. S02, S03 et S03d le sont. La licence de S03 et S03d a été lue le 21/10/2026 dans les mentions légales du site, pas sur la page du jeu : le statut reste `telechargee`.
 
 ## Onglet `recuperations`
 

@@ -70,6 +70,19 @@ Dossier `data/gold/exports/` seulement (AD3). Parquet, EPSG:4326 (AD1, AD2). Auc
 
 Aucune mesure DAX n'additionne `pop_5min` sur plusieurs offres : K5 n'est pas exclusif. Power BI affiche et filtre des KPI déjà calculés.
 
+## Écarts documentation / fichier
+
+Le fichier fait foi pour les noms de colonnes, parce que c'est lui que le code lira. La documentation fait foi pour le sens. L'équivalence ci-dessous est présumée : elle n'est pas encore vérifiée.
+
+| Source | Nom dans la documentation (S03d) | Nom dans le fichier (S03) | Statut |
+|---|---|---|---|
+| Filosofi 2021 | `id_car_nat` | `idcar_nat` | équivalence présumée, à confirmer à E4 |
+| Filosofi 2021 | `i_est_1Km` | `i_est_1km` | équivalence présumée, à confirmer à E4 |
+
+Règle : les noms du fichier font foi ; la documentation fait foi pour le sens.
+
+À confirmer à E4 : les 32 autres variables ont le même nom dans la page et dans le fichier ; aucune autre colonne du fichier ne ressemble à ces deux noms ; les valeurs ont le type et les modalités décrits par la page.
+
 ## Colonnes
 
 À remplir à E4, après constat des fichiers sources.
