@@ -55,6 +55,8 @@ def main(argv: list[str] | None = None) -> int:
     aretes = lire(f"cleaned/osm_walk_edges_{t}.parquet", entrees)
     carreaux = lire("cleaned/filosofi_carreaux_5epci.parquet", entrees)
     epci = lire("cleaned/admin_epci_5epci.parquet", entrees)
+    communes = lire("cleaned/admin_communes_5epci.parquet", entrees)
+    communes_t = communes[communes["territoire"] == t]
     offres = [lire(f"deduplicated/offre_arrets_{t}.parquet", entrees),
               lire(f"deduplicated/offre_citiz_{t}.parquet", entrees),
               lire(f"deduplicated/offre_velo_{t}.parquet", entrees)]
@@ -65,6 +67,10 @@ def main(argv: list[str] | None = None) -> int:
     dmax = float(reglage["distance_max_marche_m"])
     cellules = rattachement.construire_cellules(carreaux, t, routables, suivi, dmax, run_id)
     points = rattachement.construire_offre_points(offres, routables, emprise, suivi, dmax, run_id)
+    cellules = rattachement.completer_admin_cellules(cellules, communes_t)
+    points = rattachement.rattacher_admin_options(points, communes_t)
+    if cellules["code_departement"].isna().any():
+        raise RuntimeError("Carreau sans département : commune RF-01 absente des communes Admin Express.")
 
     journal = suivi.table()
     q = [
@@ -72,6 +78,12 @@ def main(argv: list[str] | None = None) -> int:
         ligne("spatial", "Q4", "carreaux rattachés", len(cellules), "carreaux", run_id),
         ligne("spatial", "Q4", "rattachement des carreaux, médiane", round(float(cellules["dist_snap_m"].median()), 1), "m", run_id),
         ligne("spatial", "Q4", "rattachement des carreaux, maximum", round(float(cellules["dist_snap_m"].max()), 1), "m", run_id),
+        ligne("spatial", "J-02", "carreaux dont le centroïde est dans la commune attribuée (RF-01)",
+              round(float(cellules["centroide_dans_commune"].mean()), 4), "part", run_id),
+        ligne("spatial", "J-02", "carreaux dont le centroïde est hors de l'EPCI",
+              int(cellules["commune_centroide"].isna().sum()), "carreaux", run_id),
+        ligne("spatial", "J-01", "options rattachées à une commune de l'EPCI",
+              round(float((~points["hors_epci"]).mean()), 4), "part", run_id),
         ligne("spatial", "RG-08", "population des carreaux à plus du budget du réseau",
               round(float(cellules.loc[cellules["dist_snap_m"] > dmax, "pop"].sum())), "habitants", run_id),
     ]

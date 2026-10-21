@@ -16,6 +16,8 @@ def communes_brutes():
         "nom_officiel": ["A", "B", "Hors EPCI"],
         "codes_siren_des_epci": ["111111111", "200000000/111111111", "NR"],
         "population": [100, 200, 50],
+        "code_insee_du_departement": ["17", "17", "17"],
+        "code_insee_de_la_region": ["75", "75", "75"],
     }, geometry=[box(0, 0, 1000, 1000), box(1000, 0, 2000, 1000), box(2000, 0, 3000, 1000)], crs=2154)
 
 

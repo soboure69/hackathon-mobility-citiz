@@ -29,7 +29,8 @@ def lire_admin(chemin_7z: Path | str, sirens: list[str]) -> tuple[gpd.GeoDataFra
     with tempfile.TemporaryDirectory() as temporaire:
         gpkg = _extraire_gpkg(chemin_7z, temporaire)
         communes = pyogrio.read_dataframe(gpkg, layer="commune",
-                                          columns=["code_insee", "nom_officiel", "codes_siren_des_epci", "population"])
+                                          columns=["code_insee", "nom_officiel", "codes_siren_des_epci", "population",
+                                                   "code_insee_du_departement", "code_insee_de_la_region"])
         epci = pyogrio.read_dataframe(gpkg, layer="epci", where=f"code_siren IN ({liste})",
                                       columns=["code_siren", "nom_officiel", "nature", "codes_insee_des_communes_membres"])
     return communes, epci
@@ -46,6 +47,8 @@ def standardiser_admin(communes: gpd.GeoDataFrame, epci: gpd.GeoDataFrame, terri
     communes["epci_siren"] = etude[communes.index].map(lambda l: l[0]).astype("string")
     communes["territoire"] = communes["epci_siren"].map(par_siren).astype("string")
     communes["code_insee"] = communes["code_insee"].astype("string")
+    communes["code_departement"] = communes.pop("code_insee_du_departement").astype("string")
+    communes["code_region"] = communes.pop("code_insee_de_la_region").astype("string")
     communes["population"] = pd.to_numeric(communes["population"], errors="coerce").astype("Int64")
     communes = ajouter_audit(communes, id_origine=communes["code_insee"], **audit)
 

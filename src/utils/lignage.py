@@ -33,11 +33,12 @@ def ecrire_table(table: pd.DataFrame, chemin: Path | str, cle: list[str]) -> dic
             "crs": "EPSG:2154" if geometrique else None, "sha256": calculer_sha256(chemin)}
 
 
-def mettre_a_jour_manifeste(dossier: Path | str, table: str, entree: dict[str, object]) -> None:
+def mettre_a_jour_manifeste(dossier: Path | str, table: str, entree: dict[str, object],
+                            couche: str = "silver") -> None:
     """Met à jour l'entrée `table` du _manifest.json du dossier (les autres tables sont gardées)."""
     chemin = Path(dossier) / NOM_MANIFESTE
     contenu = (json.loads(chemin.read_text(encoding="utf-8")) if chemin.exists()
-               else {"couche": "silver", "tables": {}})
+               else {"couche": couche, "tables": {}})
     contenu["tables"][table] = entree
     with chemin.open("w", encoding="utf-8", newline="\n") as fichier:
         fichier.write(json.dumps(contenu, ensure_ascii=False, indent=2, sort_keys=True, default=str) + "\n")

@@ -112,6 +112,7 @@ Les coordonnées d'une zone sont celles de la zone. Un écart avec les quais est
 
 - Constat du 21/10 : le graphe S05 ne contient pas les tags `motorroad` ni `foot`. OSMnx ne garde par défaut qu'une liste de tags (`access`, `highway`, `name`, `service`…). RC-01 ne peut donc pas s'appliquer sur ce Bronze : le code l'applique si les tags sont présents, sinon il le note « non applicable » et signale les arêtes `trunk` et `trunk_link` (184).
 - Décision du 21/10 (option B) : le graphe du verrouillage est gardé. À l'étape d'accessibilité, K1 est calculé avec et sans les arêtes `trunk` signalées par RC-01. Écart négligeable → limite mesurée et présentée ; sinon → réingestion de S05 (`--suffixe 3`) avec les tags `motorroad`, `foot`, `sidewalk`.
+- Résultat du 21/10 : sans les arêtes `trunk`, 1 paire sur 3 016 (0,03 %) et 1 carreau perdus. Écart négligeable : option B confirmée, pas de réingestion. Voir `strategie_jointures.md` §6.
 - RC-15 : `highway=busway` (voie réservée aux bus) → arête exclue du réseau piéton (220). Le filtre piéton d'OSMnx ne l'écarte pas.
 - RC-16 : `access=no` hors busway → alerte, arête gardée (480) : sans le tag `foot`, on ne sait pas si la marche est permise.
 - Q7 : la composante principale est marquée (98,3 % des nœuds) ; rien n'est supprimé. Le rattachement des carreaux et des options se fera sur cette composante, à l'étape `spatial/`.
