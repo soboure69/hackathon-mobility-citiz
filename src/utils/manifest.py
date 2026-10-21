@@ -20,6 +20,7 @@ CHAMPS_OBLIGATOIRES = (
 )
 
 STATUTS_INGESTION = ("reussie", "reussie_avec_alertes", "echouee")
+DOSSIERS_CODE = ("src", "scripts", "config", "pytest.ini", "requirements-lock.txt")
 
 
 def calculer_sha256(chemin: Path | str) -> str:
@@ -55,8 +56,8 @@ def decrire_fichier(chemin: Path | str) -> dict[str, object]:
 def lire_commit_git(dossier: Path | str = ".") -> str:
     """Hash court du commit courant.
 
-    Suffixe « -modifie » si des fichiers suivis par Git ont des modifications
-    non commitées : le code exécuté n'est alors pas exactement ce commit.
+    Suffixe « -modifie » si le code (src, scripts, config…) diffère du commit,
+    fichiers non suivis compris.
     """
     def git(*arguments: str) -> str:
         resultat = subprocess.run(
@@ -69,7 +70,9 @@ def lire_commit_git(dossier: Path | str = ".") -> str:
         return resultat.stdout.strip()
 
     commit = git("rev-parse", "--short", "HEAD")
-    if git("status", "--porcelain", "--untracked-files=no"):
+    # Code modifié OU nouveau code non suivi, dans les seuls dossiers de code :
+    # data/ et logs/ (qui changent pendant une exécution) ne comptent pas.
+    if git("status", "--porcelain", "--untracked-files=all", "--", *DOSSIERS_CODE):
         commit += "-modifie"
     return commit
 

@@ -1,6 +1,6 @@
 # Suivi des risques
 
-**Statut :** mis à jour le 21 octobre 2026. R19 est clos. R23 porte sur la fin de validité du GTFS Yélo. R24 porte sur l'absence d'autres modes que le bus dans ce GTFS.
+**Statut :** mis à jour le 21 octobre 2026. R19 est clos. R23 porte sur la fin de validité du GTFS Yélo. R24 porte sur l'absence d'autres modes que le bus dans ce GTFS. R25 est clos le jour même.
 **Source :** [cahier des charges](cahier_des_charges.md).
 
 | ID | Risque | Probabilité | Impact | Mitigation | Responsable |
@@ -29,3 +29,4 @@
 | R21 | Écarts de comportement pandas 3 par rapport à la documentation en ligne (pandas 2) | Moyenne | Faible | Versions figées dans `requirements-lock.txt`, documentation officielle de pandas 3 en référence. | Porteur |
 | R22 | Dépôt privé, donc le jury n'a pas accès si rien n'est fait | Élevée | Critique | Demander aux encadrants les comptes GitHub à inviter, ou rendre le dépôt public avant la soutenance. | Porteur |
 | R24 | GTFS Yélo limité au bus (118 lignes de type 3) : d'autres modes éventuels (train, navettes) sont absents de K1 | Moyenne | Moyen | Rechercher les jeux correspondants (S19). S'ils n'existent pas, écrire la limite. | Porteur |
+| R25 | `run_id` sans `-modifie` alors que du nouveau code non suivi a été exécuté (S01) | Écartée | Moyen | Clos le 21/10/2026 : contrôle des fichiers non suivis dans les dossiers de code. Le manifeste S01 n'est pas réécrit. | Porteur |

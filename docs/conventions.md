@@ -29,7 +29,7 @@
 
 - Bronze : un fichier `_manifest.json` par dossier daté (URL, date, licence, empreinte SHA-256). Le `source_id` est celui de `docs/registre_des_sources.xlsx`. Deux flux de la même famille ne partagent pas le même dossier.
 - Date du dossier Bronze = date locale (Europe/Paris) du téléchargement. `run_id` et `date_heure` du manifeste = UTC. Cohérent avec le lot 0.
-- `run_id` = `AAAAMMJJTHHMMSSZ_<hash court du commit>[-modifie]`. Heure UTC. Suffixe `-modifie` si des fichiers suivis ont des modifications non commitées. Les manifestes manuels du lot 0 gardent leur `run_id` d'origine.
+- `run_id` = `AAAAMMJJTHHMMSSZ_<hash court du commit>[-modifie]`. Heure UTC. Suffixe `-modifie` si le code (`src`, `scripts`, `config`, `pytest.ini`, `requirements-lock.txt`) diffère du commit, fichiers non suivis compris. `data/` et `logs/` ne comptent pas. Les manifestes manuels du lot 0 gardent leur `run_id` d'origine.
 
 ## Nommage Silver, Gold et exports
 

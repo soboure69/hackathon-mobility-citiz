@@ -54,7 +54,7 @@ Un `_manifest.json` par dossier.
 | Champ | Contenu |
 |---|---|
 | `source_id`, `nom` | Repris du registre |
-| `run_id` | `AAAAMMJJTHHMMSSZ_<hash court du commit>[-modifie]`. Heure UTC. Suffixe `-modifie` si des fichiers suivis ont des modifications non commitées. Les manifestes manuels du lot 0 gardent leur `run_id` d'origine. |
+| `run_id` | `AAAAMMJJTHHMMSSZ_<hash court du commit>[-modifie]`. Heure UTC. Suffixe `-modifie` si le code (`src`, `scripts`, `config`, `pytest.ini`, `requirements-lock.txt`) diffère du commit, fichiers non suivis compris. `data/` et `logs/` ne comptent pas. Les manifestes manuels du lot 0 gardent leur `run_id` d'origine. |
 | `date_heure` | ISO 8601 avec fuseau |
 | `url_demandee`, `url_effective` | Avant et après redirection |
 | `http_status` | Code par fichier |
