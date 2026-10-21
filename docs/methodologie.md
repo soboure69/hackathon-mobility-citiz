@@ -108,6 +108,14 @@ Les coordonnées d'une zone sont celles de la zone. Un écart avec les quais est
 - Filosofi est lu dans le zip sans extraction ; pré-filtre large par département, tri exact par RF-01.
 - Rapport population Filosofi 2021 / population Admin Express : 0,954 (La Rochelle), de 0,875 à 0,91 ailleurs. Écart attendu entre population fiscale et population légale ; l'explication par catégorie de population est à vérifier dans la documentation S03d avant d'être affirmée.
 
+### Réseau piéton (bloc S-4)
+
+- Constat du 21/10 : le graphe S05 ne contient pas les tags `motorroad` ni `foot`. OSMnx ne garde par défaut qu'une liste de tags (`access`, `highway`, `name`, `service`…). RC-01 ne peut donc pas s'appliquer sur ce Bronze : le code l'applique si les tags sont présents, sinon il le note « non applicable » et signale les arêtes `trunk` et `trunk_link` (184).
+- RC-15 : `highway=busway` (voie réservée aux bus) → arête exclue du réseau piéton (220). Le filtre piéton d'OSMnx ne l'écarte pas.
+- RC-16 : `access=no` hors busway → alerte, arête gardée (480) : sans le tag `foot`, on ne sait pas si la marche est permise.
+- Q7 : la composante principale est marquée (98,3 % des nœuds) ; rien n'est supprimé. Le rattachement des carreaux et des options se fera sur cette composante, à l'étape `spatial/`.
+- Les attributs en liste (arêtes fusionnées par OSMnx) sont écrits « a;b ».
+
 ## Coordonnées selon le calcul
 
 La lecture GTFS et GBFS reste en EPSG:4326, et ces valeurs sont gardées dans `lat_wgs84` et `lon_wgs84`. Le stockage Silver géométrique est EPSG:2154 (AD1), via pyproj. Filosofi métropole est déjà en EPSG:2154. Admin Express est reprojeté en 2154 si son CRS constaté est différent. Le graphe OSM arrive en 4326, avec des longueurs en mètres ; sa projection en 2154 se fait à `spatial/`. Les distances à vol d'oiseau, les aires et les tampons se calculent en 2154. Les exports Power BI restent en 4326, en Gold.
@@ -159,7 +167,7 @@ Usage : afficher en page 5 ; ne jamais présenter un carreau imputé comme une o
 
 ## Code prévu, non écrit
 
-État au 21/10/2026 — écrits : `audit.py`, `normalisation.py`, `coordonnees.py`, `gtfs.py` (dédoublonnage inclus), `gbfs.py`, `admin.py`, `filosofi.py`, `src/evaluation/qualite.py`, `src/utils/lignage.py`, `scripts/build_silver.py`, `config/silver.yaml`. Non écrits : `regles.py`, `schemas.py`, `dedup.py`, `osm.py`, notebook.
+État au 21/10/2026 — écrits : `audit.py`, `normalisation.py`, `coordonnees.py`, `gtfs.py` (dédoublonnage inclus), `gbfs.py`, `admin.py`, `filosofi.py`, `osm.py`, `src/evaluation/qualite.py`, `src/utils/lignage.py`, `scripts/build_silver.py`, `config/silver.yaml`. Non écrits : `regles.py`, `schemas.py`, `dedup.py`, notebook.
 
 L'implémentation attend le script d'ingestion et le lot 1. Le notebook appelle `src/` et ne contient pas les règles.
 

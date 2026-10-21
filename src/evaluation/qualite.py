@@ -97,3 +97,21 @@ def indicateurs_filosofi(*, source_id: str, run_id: str, carreaux: pd.DataFrame,
             ligne(source_id, "RF-01", f"{t} : carreaux partiellement hors EPCI", int(groupe["partiel_epci"].sum()), "carreaux", run_id),
         ]
     return pd.DataFrame(lignes).astype("string")
+
+
+def indicateurs_osm(*, source_id: str, run_id: str, noeuds: pd.DataFrame, aretes: pd.DataFrame,
+                    journal: pd.DataFrame, statut_rc01: str) -> pd.DataFrame:
+    compter = lambda regle: int((journal["regle_id"] == regle).sum())  # noqa: E731
+    utilisables = aretes[aretes["statut_transformation"] != "exclu"]
+    return pd.DataFrame([
+        ligne(source_id, "Q3", "nœuds", len(noeuds), "nœuds", run_id),
+        ligne(source_id, "Q3", "arêtes (deux sens comptés)", len(aretes), "arêtes", run_id),
+        ligne(source_id, "Q3", "longueur des arêtes utilisables, un sens", round(float(utilisables["length_m"].sum()) / 2000, 1), "km", run_id),
+        ligne(source_id, "Q7", "composantes", int(noeuds["composante"].nunique()), "composantes", run_id),
+        ligne(source_id, "Q7", "part des nœuds dans la composante principale", round(float(noeuds["composante_principale"].mean()), 4), "part", run_id),
+        ligne(source_id, "RC-13", "rejets (longueur, extrémité, coordonnées)", compter("RC-13"), "lignes", run_id),
+        ligne(source_id, "RC-01", "statut", statut_rc01, "texte", run_id),
+        ligne(source_id, "RC-01", "arêtes concernées", compter("RC-01"), "arêtes", run_id),
+        ligne(source_id, "RC-15", "arêtes busway exclues", compter("RC-15"), "arêtes", run_id),
+        ligne(source_id, "RC-16", "arêtes access=no signalées", compter("RC-16"), "arêtes", run_id),
+    ]).astype("string")

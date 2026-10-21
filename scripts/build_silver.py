@@ -2,11 +2,13 @@
 
 S-1 : GTFS Yélo (S02). S-2 : GBFS Citiz (S01) et Yélo vélo (S08).
 S-3 : Admin Express (S04), puis Filosofi (S03), qui lit les communes Silver de S04.
+S-4 : réseau piéton OSM (S05).
 Usage, depuis la racine :
     python scripts/build_silver.py --source S02 --bronze data/bronze/gtfs/larochelle/S02_2026-10-21
     python scripts/build_silver.py --source S01 --bronze data/bronze/gbfs/larochelle/S01_2026-10-21
     python scripts/build_silver.py --source S04 --bronze data/bronze/admin_express/national/S04_2026-10-21
     python scripts/build_silver.py --source S03 --bronze data/bronze/insee_filosofi/national/S03_2026-10-21
+    python scripts/build_silver.py --source S05 --bronze data/bronze/osm/larochelle/S05_2026-10-21_2
 """
 from __future__ import annotations
 
@@ -23,11 +25,12 @@ sys.path.insert(0, str(RACINE))
 import geopandas as gpd  # noqa: E402
 
 from src.cleaning import admin, filosofi  # noqa: E402
+from src.cleaning import osm as silver_osm  # noqa: E402
 from src.cleaning import gbfs as silver_gbfs  # noqa: E402
 from src.cleaning import gtfs  # noqa: E402
 from src.cleaning.audit import Suivi, verifier_conservation  # noqa: E402
 from src.evaluation.qualite import (  # noqa: E402
-    indicateurs_admin, indicateurs_filosofi, indicateurs_gbfs, indicateurs_gtfs,
+    indicateurs_admin, indicateurs_filosofi, indicateurs_gbfs, indicateurs_gtfs, indicateurs_osm,
 )
 from src.ingestion.gbfs import trouver_stations  # noqa: E402
 from src.utils.lignage import ecrire_table, mettre_a_jour_manifeste  # noqa: E402
@@ -226,6 +229,42 @@ def construire_filosofi(source_id: str, bronze_relatif: str, config: dict) -> di
             "qualite": qualite[["q_id", "libelle", "valeur", "unite"]].values.tolist()}
 
 
+def construire_osm(source_id: str, bronze_relatif: str, territoire: str) -> dict:
+    run_id = construire_run_id()
+    bronze, manifeste, origine = ouvrir_bronze(source_id, bronze_relatif)
+    if manifeste["statut_ingestion"] == "echouee":
+        raise RuntimeError(f"{bronze_relatif} : ingestion échouée, pas de graphe à construire.")
+    fichier = next(f for f in manifeste["fichiers"] if f["nom"].endswith(".graphml"))
+    graphe = silver_osm.charger_graphe(bronze / fichier["nom"])
+    audit = {"source_id": source_id, "fichier_origine": f"{bronze_relatif}/{fichier['nom']}",
+             "sha256_origine": fichier["sha256"],
+             "date_donnee": f"requête Overpass du {manifeste['version_producteur']['date_requete']}", "run_id": run_id}
+    noeuds_std, aretes_std = silver_osm.standardiser_reseau(graphe, **audit)
+
+    suivi = Suivi(run_id)
+    noeuds, aretes, statut_rc01 = silver_osm.nettoyer_reseau(noeuds_std, aretes_std, suivi)
+    journal = suivi.table()
+    rejets_noeuds = int(((journal["niveau"] == "rejet") & (journal["motif"] == "nœud sans coordonnées")).sum())
+    verifier_conservation(len(noeuds_std), len(noeuds), rejets_noeuds, "cleaned (nœuds)")
+    verifier_conservation(len(aretes_std), len(aretes), suivi.compter("rejet") - rejets_noeuds, "cleaned (arêtes)")
+
+    qualite = indicateurs_osm(source_id=source_id, run_id=run_id, noeuds=noeuds, aretes=aretes,
+                              journal=journal, statut_rc01=statut_rc01)
+    cle_arete = ["u", "v", "key"]
+    sorties = [
+        ("standardized", f"osm_walk_nodes_{territoire}.parquet", noeuds_std, ["node_id"]),
+        ("standardized", f"osm_walk_edges_{territoire}.parquet", aretes_std, cle_arete),
+        ("cleaned", f"osm_walk_nodes_{territoire}.parquet", noeuds, ["node_id"]),
+        ("cleaned", f"osm_walk_edges_{territoire}.parquet", aretes, cle_arete),
+        *journaux(source_id, journal),
+        ("quality", f"qualite_indicateurs_{source_id}.parquet", qualite, ["q_id", "libelle"]),
+    ]
+    parametres = {"rc01": statut_rc01, "parametres_bronze": manifeste["parametres"]}
+    return {"run_id": run_id, "tables": ecrire_sorties(sorties, run_id=run_id, origine=origine, parametres=parametres),
+            "regles": journal.groupby(["niveau", "regle_id"]).size().to_dict(),
+            "qualite": qualite[["q_id", "libelle", "valeur", "unite"]].values.tolist()}
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Construction Silver d'une source.")
     parser.add_argument("--source", required=True)
@@ -238,6 +277,8 @@ def main(argv: list[str] | None = None) -> int:
         bilan = construire_gtfs(args.source, args.bronze, args.territoire, config)
     elif args.source == "S04":
         bilan = construire_admin(args.source, args.bronze, config)
+    elif args.source == "S05":
+        bilan = construire_osm(args.source, args.bronze, args.territoire)
     elif args.source == "S03":
         bilan = construire_filosofi(args.source, args.bronze, config)
     elif args.source in config.get("gbfs", {}):
