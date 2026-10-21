@@ -1,6 +1,205 @@
 {
   "couche": "gold",
   "tables": {
+    "acces_cellule_larochelle.parquet": {
+      "entrees": {
+        "gold\\accessibility\\paires_cellule_offre_larochelle.parquet": "53c57f4b1524a0e0d4f7541cf4800f97b684d94a2c1f0dbf861af4a8205d3ab9",
+        "gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "silver\\spatial\\cellules_larochelle.parquet": "84b054d602771f562c941471aefd028545d3b99ca8abbe9ce93cbe6652e85456",
+        "silver\\spatial\\offre_points_larochelle.parquet": "54dd2bed492f7b5edb7b2e86554b17488786bae141f81a46a810d92e7fb7eba1"
+      },
+      "parametres": {
+        "budget_m": 400,
+        "paires": "reseau / reference"
+      },
+      "run_id": "20261021T064450Z_d5d6a7e",
+      "table": {
+        "cle": [
+          "cell_id"
+        ],
+        "colonnes": [
+          "idcar_200m",
+          "idcar_1km",
+          "idcar_nat",
+          "i_est_200",
+          "i_est_1km",
+          "lcog_geo",
+          "ind",
+          "men",
+          "men_pauv",
+          "men_1ind",
+          "men_5ind",
+          "men_prop",
+          "men_fmp",
+          "ind_snv",
+          "men_surf",
+          "men_coll",
+          "men_mais",
+          "log_av45",
+          "log_45_70",
+          "log_70_90",
+          "log_ap90",
+          "log_inc",
+          "log_soc",
+          "ind_0_3",
+          "ind_4_5",
+          "ind_6_10",
+          "ind_11_17",
+          "ind_18_24",
+          "ind_25_39",
+          "ind_40_54",
+          "ind_55_64",
+          "ind_65_79",
+          "ind_80p",
+          "ind_inc",
+          "geometry",
+          "cell_id",
+          "commune_insee",
+          "commune_principale",
+          "territoire",
+          "epci_siren",
+          "multi_commune",
+          "partiel_epci",
+          "est_impute",
+          "source_id",
+          "id_origine",
+          "fichier_origine",
+          "sha256_origine",
+          "date_donnee",
+          "run_id",
+          "statut_transformation",
+          "regles_appliquees",
+          "qualite",
+          "aire_m2",
+          "x_centroide",
+          "y_centroide",
+          "node_id",
+          "dist_snap_m",
+          "pop",
+          "code_departement",
+          "code_region",
+          "commune_centroide",
+          "centroide_dans_commune",
+          "n_options_total",
+          "dist_min_m",
+          "n_modes",
+          "n_options_bus",
+          "dist_min_bus_m",
+          "desservi_bus",
+          "n_options_citiz",
+          "dist_min_citiz_m",
+          "desservi_citiz",
+          "n_options_velo",
+          "dist_min_velo_m",
+          "desservi_velo",
+          "desservi",
+          "options_pour_1000_hab",
+          "classe_acces",
+          "niveau_vie_moyen",
+          "quintile_niveau_vie",
+          "lon_centroide_wgs84",
+          "lat_centroide_wgs84"
+        ],
+        "crs": "EPSG:2154",
+        "lignes": 2637,
+        "nom": "acces_cellule_larochelle.parquet",
+        "sha256": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245"
+      }
+    },
+    "desserte_offre_larochelle.parquet": {
+      "entrees": {
+        "gold\\accessibility\\paires_cellule_offre_larochelle.parquet": "53c57f4b1524a0e0d4f7541cf4800f97b684d94a2c1f0dbf861af4a8205d3ab9",
+        "gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "silver\\spatial\\cellules_larochelle.parquet": "84b054d602771f562c941471aefd028545d3b99ca8abbe9ce93cbe6652e85456",
+        "silver\\spatial\\offre_points_larochelle.parquet": "54dd2bed492f7b5edb7b2e86554b17488786bae141f81a46a810d92e7fb7eba1"
+      },
+      "parametres": {
+        "budget_m": 400,
+        "paires": "reseau / reference"
+      },
+      "run_id": "20261021T064450Z_d5d6a7e",
+      "table": {
+        "cle": [
+          "offre_id"
+        ],
+        "colonnes": [
+          "offre_id",
+          "mode",
+          "source_id",
+          "id_origine",
+          "nom",
+          "nom_normalise",
+          "lat_wgs84",
+          "lon_wgs84",
+          "capacite",
+          "n_quais",
+          "n_quais_desservis",
+          "fichier_origine",
+          "sha256_origine",
+          "date_donnee",
+          "run_id",
+          "statut_transformation",
+          "regles_appliquees",
+          "qualite",
+          "geometry",
+          "node_id",
+          "dist_snap_m",
+          "dans_emprise",
+          "commune_insee",
+          "epci_siren",
+          "code_departement",
+          "code_region",
+          "hors_epci",
+          "pop_5min",
+          "n_carreaux",
+          "pop_exclusive",
+          "n_carreaux_exclusifs",
+          "atteinte"
+        ],
+        "crs": "EPSG:2154",
+        "lignes": 694,
+        "nom": "desserte_offre_larochelle.parquet",
+        "sha256": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b"
+      }
+    },
+    "kpi_couverture_larochelle.parquet": {
+      "entrees": {
+        "gold\\accessibility\\paires_cellule_offre_larochelle.parquet": "53c57f4b1524a0e0d4f7541cf4800f97b684d94a2c1f0dbf861af4a8205d3ab9",
+        "gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "silver\\spatial\\cellules_larochelle.parquet": "84b054d602771f562c941471aefd028545d3b99ca8abbe9ce93cbe6652e85456",
+        "silver\\spatial\\offre_points_larochelle.parquet": "54dd2bed492f7b5edb7b2e86554b17488786bae141f81a46a810d92e7fb7eba1"
+      },
+      "parametres": {
+        "budget_m": 400,
+        "paires": "reseau / reference"
+      },
+      "run_id": "20261021T064450Z_d5d6a7e",
+      "table": {
+        "cle": [
+          "perimetre_type",
+          "perimetre_id",
+          "mode"
+        ],
+        "colonnes": [
+          "perimetre_type",
+          "perimetre_id",
+          "mode",
+          "pop_totale",
+          "pop_desservie",
+          "pop_non_desservie",
+          "taux_couverture",
+          "n_carreaux",
+          "n_carreaux_desservis",
+          "options_moyennes_par_habitant",
+          "pop_au_moins_2_modes",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 116,
+        "nom": "kpi_couverture_larochelle.parquet",
+        "sha256": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8"
+      }
+    },
     "paires_cellule_offre_larochelle.parquet": {
       "entrees_silver": {
         "cleaned/osm_walk_edges_larochelle.parquet": "8f72d45d908e99ae237241fcb13d29aa28047e636d7874ce278b2a80539d6b30",
