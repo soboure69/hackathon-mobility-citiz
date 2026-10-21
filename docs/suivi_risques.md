@@ -1,6 +1,6 @@
 # Suivi des risques
 
-**Statut :** mis à jour le 21 octobre 2026. R19 est clos. R23 porte sur la fin de validité du GTFS Yélo. R24 porte sur l'absence d'autres modes que le bus dans ce GTFS. R25 est clos le jour même.
+**Statut :** mis à jour le 21 octobre 2026. R19 est clos. R23 porte sur la fin de validité du GTFS Yélo. R24 porte sur l'absence d'autres modes que le bus dans ce GTFS. R25 est clos le jour même. R27 est ouvert : un appel CBC peut rester bloqué sans charge processeur.
 **Source :** [cahier des charges](cahier_des_charges.md).
 
 | ID | Risque | Probabilité | Impact | Mitigation | Responsable |
@@ -31,3 +31,4 @@
 | R24 | GTFS Yélo limité au bus (118 lignes de type 3) : d'autres modes éventuels (train, navettes) sont absents de K1 | Moyenne | Moyen | Rechercher les jeux correspondants (S19). S'ils n'existent pas, écrire la limite. | Porteur |
 | R25 | `run_id` sans `-modifie` alors que du nouveau code non suivi a été exécuté (S01) | Écartée | Moyen | Clos le 21/10/2026 : contrôle des fichiers non suivis dans les dossiers de code. Le manifeste S01 n'est pas réécrit. | Porteur |
 | R26 | Tags `motorroad` et `foot` absents du graphe S05 : RC-01 non applicable, 184 arêtes trunk (0,2 %) gardées et signalées | Certaine | Faible à confirmer | Option B. Mesuré le 21/10 : 1 paire sur 3 016 et 1 carreau perdus sans ces arêtes. Écart négligeable, risque clos sans réingestion | Porteur |
+| R27 | Appel CBC bloqué sans charge processeur (1 cas le 21/10, Windows), donc la limite `timeLimit` ne joue pas | Faible | Faible | Cause non établie. Arrêt manuel puis relance sans modification du code : résultats identiques. Si cela se reproduit, ajouter un délai de garde externe autour du solveur. | Porteur |
