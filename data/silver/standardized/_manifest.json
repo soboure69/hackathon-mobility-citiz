@@ -395,6 +395,137 @@
         "nom": "gtfs_stops_larochelle.parquet",
         "sha256": "6b0b607adec4d1d678e33f169e53ec6ed5254025b104abf554ea07d72155561f"
       }
+    },
+    "osm_walk_edges_larochelle.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/osm/larochelle/S05_2026-10-21_2",
+        "fichiers": {
+          "emprise_requete.geojson": "7af67ee22df0d5ad825b33c70d08a7bea0674f51863c79cf0c2e22554033f7a7",
+          "walk_graph.graphml": "d042196f369f5d68a45bb425cda2140d96cc8ff9acf27fc12dd388848cbb40a8"
+        },
+        "run_id": "20261021T033603Z_635bc9b",
+        "source_id": "S05"
+      },
+      "parametres": {
+        "parametres_bronze": {
+          "attente_initiale_s": 60,
+          "crs_emprise": "EPSG:4326",
+          "essais_overpass": 4,
+          "network_type": "walk",
+          "retain_all": true,
+          "simplify": true,
+          "siren": "241700434",
+          "source_contour": {
+            "colonne": "code_siren",
+            "couche": "epci",
+            "dossier": "data/bronze/admin_express/national/S04_2026-10-21",
+            "run_id": "20261021T024321Z_7a6e527",
+            "sha256": "688eb44505d9b4a8e422ded2f4afaac799f10783de563132ca1a60e9491c6278",
+            "source_id": "S04"
+          },
+          "tampon_m": 500.0,
+          "use_cache": false
+        },
+        "rc01": "non applicable : tags motorroad et foot absents du graphe"
+      },
+      "run_id": "20261021T052106Z_fe51dac",
+      "table": {
+        "cle": [
+          "u",
+          "v",
+          "key"
+        ],
+        "colonnes": [
+          "u",
+          "v",
+          "key",
+          "osmid",
+          "highway",
+          "name",
+          "access",
+          "service",
+          "reversed",
+          "oneway",
+          "length_m",
+          "composante",
+          "geometry",
+          "source_id",
+          "id_origine",
+          "fichier_origine",
+          "sha256_origine",
+          "date_donnee",
+          "run_id",
+          "statut_transformation",
+          "regles_appliquees",
+          "qualite"
+        ],
+        "crs": "EPSG:2154",
+        "lignes": 84010,
+        "nom": "osm_walk_edges_larochelle.parquet",
+        "sha256": "881668026f5db4365e4d63dabe8ed08a1705d33f1bf4241ed4593bbab92538ea"
+      }
+    },
+    "osm_walk_nodes_larochelle.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/osm/larochelle/S05_2026-10-21_2",
+        "fichiers": {
+          "emprise_requete.geojson": "7af67ee22df0d5ad825b33c70d08a7bea0674f51863c79cf0c2e22554033f7a7",
+          "walk_graph.graphml": "d042196f369f5d68a45bb425cda2140d96cc8ff9acf27fc12dd388848cbb40a8"
+        },
+        "run_id": "20261021T033603Z_635bc9b",
+        "source_id": "S05"
+      },
+      "parametres": {
+        "parametres_bronze": {
+          "attente_initiale_s": 60,
+          "crs_emprise": "EPSG:4326",
+          "essais_overpass": 4,
+          "network_type": "walk",
+          "retain_all": true,
+          "simplify": true,
+          "siren": "241700434",
+          "source_contour": {
+            "colonne": "code_siren",
+            "couche": "epci",
+            "dossier": "data/bronze/admin_express/national/S04_2026-10-21",
+            "run_id": "20261021T024321Z_7a6e527",
+            "sha256": "688eb44505d9b4a8e422ded2f4afaac799f10783de563132ca1a60e9491c6278",
+            "source_id": "S04"
+          },
+          "tampon_m": 500.0,
+          "use_cache": false
+        },
+        "rc01": "non applicable : tags motorroad et foot absents du graphe"
+      },
+      "run_id": "20261021T052106Z_fe51dac",
+      "table": {
+        "cle": [
+          "node_id"
+        ],
+        "colonnes": [
+          "node_id",
+          "lon_wgs84",
+          "lat_wgs84",
+          "street_count",
+          "highway",
+          "composante",
+          "composante_principale",
+          "geometry",
+          "source_id",
+          "id_origine",
+          "fichier_origine",
+          "sha256_origine",
+          "date_donnee",
+          "run_id",
+          "statut_transformation",
+          "regles_appliquees",
+          "qualite"
+        ],
+        "crs": "EPSG:2154",
+        "lignes": 29865,
+        "nom": "osm_walk_nodes_larochelle.parquet",
+        "sha256": "6bb2d5fb53d5cf978ee600168762f81e189994d9955cfa2941f77c6aa97271ac"
+      }
     }
   }
 }
