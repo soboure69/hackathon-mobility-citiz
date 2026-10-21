@@ -1,0 +1,257 @@
+{
+  "couche": "gold",
+  "tables": {
+    "candidats_larochelle.parquet": {
+      "entrees": {
+        "gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "silver\\cleaned\\admin_epci_5epci.parquet": "8c157ffbacff42a206e09e28c318eb2b54ef1b110691e7018526227b34833926",
+        "silver\\cleaned\\osm_walk_edges_larochelle.parquet": "8f72d45d908e99ae237241fcb13d29aa28047e636d7874ce278b2a80539d6b30",
+        "silver\\cleaned\\osm_walk_nodes_larochelle.parquet": "6bb2d5fb53d5cf978ee600168762f81e189994d9955cfa2941f77c6aa97271ac",
+        "silver\\spatial\\cellules_larochelle.parquet": "84b054d602771f562c941471aefd028545d3b99ca8abbe9ce93cbe6652e85456"
+      },
+      "parametres": {
+        "equite": {
+          "quota_communes_prioritaires": 0.3,
+          "seuil_commune_prioritaire": 0.6,
+          "top_n": 20
+        },
+        "exclusion": {
+          "acces_voiture_requis": [
+            "citiz",
+            "bus"
+          ],
+          "redondance_max": 0.8,
+          "voies_voiture": [
+            "primary",
+            "primary_link",
+            "secondary",
+            "secondary_link",
+            "tertiary",
+            "tertiary_link",
+            "unclassified",
+            "residential",
+            "living_street",
+            "service"
+          ]
+        },
+        "ponderations": {
+          "besoin": 0.2,
+          "complementarite_bus": 0.15,
+          "impact": 0.4,
+          "logement_collectif": 0.15,
+          "petits_menages": 0.1
+        },
+        "sensibilite": {
+          "concentration": 20,
+          "graine": 2026,
+          "tirages": 500,
+          "top_n": 20
+        },
+        "types_equipement": [
+          "citiz",
+          "velo",
+          "bus"
+        ]
+      },
+      "run_id": "20261021T065501Z_16ea26d",
+      "table": {
+        "cle": [
+          "candidat_id",
+          "type_equipement"
+        ],
+        "colonnes": [
+          "node_id",
+          "geometry",
+          "cell_id_origine",
+          "commune_insee",
+          "candidat_id",
+          "dans_epci",
+          "acces_voiture",
+          "pop_rayon",
+          "pop_nouvelle",
+          "taux_redondance",
+          "impact",
+          "besoin",
+          "complementarite_bus",
+          "logement_collectif",
+          "petits_menages",
+          "niveau_vie_moyen_zone",
+          "n_carreaux_zone",
+          "type_equipement",
+          "motif_exclusion",
+          "retenu",
+          "score",
+          "n_impact",
+          "contribution_impact",
+          "n_besoin",
+          "contribution_besoin",
+          "n_complementarite_bus",
+          "contribution_complementarite_bus",
+          "n_logement_collectif",
+          "contribution_logement_collectif",
+          "n_petits_menages",
+          "contribution_petits_menages",
+          "rang",
+          "rang_commune",
+          "frequence_top_n",
+          "commune_prioritaire",
+          "rang_equite",
+          "lon_wgs84",
+          "lat_wgs84",
+          "run_id"
+        ],
+        "crs": "EPSG:2154",
+        "lignes": 7641,
+        "nom": "candidats_larochelle.parquet",
+        "sha256": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b"
+      }
+    },
+    "paires_candidat_cellule_larochelle.parquet": {
+      "entrees": {
+        "gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "silver\\cleaned\\admin_epci_5epci.parquet": "8c157ffbacff42a206e09e28c318eb2b54ef1b110691e7018526227b34833926",
+        "silver\\cleaned\\osm_walk_edges_larochelle.parquet": "8f72d45d908e99ae237241fcb13d29aa28047e636d7874ce278b2a80539d6b30",
+        "silver\\cleaned\\osm_walk_nodes_larochelle.parquet": "6bb2d5fb53d5cf978ee600168762f81e189994d9955cfa2941f77c6aa97271ac",
+        "silver\\spatial\\cellules_larochelle.parquet": "84b054d602771f562c941471aefd028545d3b99ca8abbe9ce93cbe6652e85456"
+      },
+      "parametres": {
+        "equite": {
+          "quota_communes_prioritaires": 0.3,
+          "seuil_commune_prioritaire": 0.6,
+          "top_n": 20
+        },
+        "exclusion": {
+          "acces_voiture_requis": [
+            "citiz",
+            "bus"
+          ],
+          "redondance_max": 0.8,
+          "voies_voiture": [
+            "primary",
+            "primary_link",
+            "secondary",
+            "secondary_link",
+            "tertiary",
+            "tertiary_link",
+            "unclassified",
+            "residential",
+            "living_street",
+            "service"
+          ]
+        },
+        "ponderations": {
+          "besoin": 0.2,
+          "complementarite_bus": 0.15,
+          "impact": 0.4,
+          "logement_collectif": 0.15,
+          "petits_menages": 0.1
+        },
+        "sensibilite": {
+          "concentration": 20,
+          "graine": 2026,
+          "tirages": 500,
+          "top_n": 20
+        },
+        "types_equipement": [
+          "citiz",
+          "velo",
+          "bus"
+        ]
+      },
+      "run_id": "20261021T065501Z_16ea26d",
+      "table": {
+        "cle": [
+          "candidat_id",
+          "cell_id"
+        ],
+        "colonnes": [
+          "candidat_id",
+          "cell_id",
+          "dist_acces_cellule_m",
+          "dist_reseau_m",
+          "dist_totale_m",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 10435,
+        "nom": "paires_candidat_cellule_larochelle.parquet",
+        "sha256": "aae5b455a8f50869ca984347257e3fffbd744c8b5570f02ac6166d35d4049c22"
+      }
+    },
+    "sensibilite_ponderations_larochelle.parquet": {
+      "entrees": {
+        "gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "silver\\cleaned\\admin_epci_5epci.parquet": "8c157ffbacff42a206e09e28c318eb2b54ef1b110691e7018526227b34833926",
+        "silver\\cleaned\\osm_walk_edges_larochelle.parquet": "8f72d45d908e99ae237241fcb13d29aa28047e636d7874ce278b2a80539d6b30",
+        "silver\\cleaned\\osm_walk_nodes_larochelle.parquet": "6bb2d5fb53d5cf978ee600168762f81e189994d9955cfa2941f77c6aa97271ac",
+        "silver\\spatial\\cellules_larochelle.parquet": "84b054d602771f562c941471aefd028545d3b99ca8abbe9ce93cbe6652e85456"
+      },
+      "parametres": {
+        "equite": {
+          "quota_communes_prioritaires": 0.3,
+          "seuil_commune_prioritaire": 0.6,
+          "top_n": 20
+        },
+        "exclusion": {
+          "acces_voiture_requis": [
+            "citiz",
+            "bus"
+          ],
+          "redondance_max": 0.8,
+          "voies_voiture": [
+            "primary",
+            "primary_link",
+            "secondary",
+            "secondary_link",
+            "tertiary",
+            "tertiary_link",
+            "unclassified",
+            "residential",
+            "living_street",
+            "service"
+          ]
+        },
+        "ponderations": {
+          "besoin": 0.2,
+          "complementarite_bus": 0.15,
+          "impact": 0.4,
+          "logement_collectif": 0.15,
+          "petits_menages": 0.1
+        },
+        "sensibilite": {
+          "concentration": 20,
+          "graine": 2026,
+          "tirages": 500,
+          "top_n": 20
+        },
+        "types_equipement": [
+          "citiz",
+          "velo",
+          "bus"
+        ]
+      },
+      "run_id": "20261021T065501Z_16ea26d",
+      "table": {
+        "cle": [
+          "type_equipement",
+          "variable",
+          "facteur"
+        ],
+        "colonnes": [
+          "type_equipement",
+          "variable",
+          "facteur",
+          "spearman",
+          "recouvrement_top_n"
+        ],
+        "crs": null,
+        "lignes": 30,
+        "nom": "sensibilite_ponderations_larochelle.parquet",
+        "sha256": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f"
+      }
+    }
+  }
+}
