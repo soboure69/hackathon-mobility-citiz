@@ -82,7 +82,9 @@ def resoudre(donnees: Donnees, budget: float, n_max: int | None = None, temps_ma
     plafond = math.floor((budget + 1e-9) / float(donnees.sites["cout"].min()))
     modele += pulp.lpSum(x.values()) <= (plafond if n_max is None else min(plafond, n_max))
     debut = time.perf_counter()
-    statut = modele.solve(pulp.PULP_CBC_CMD(msg=False, timeLimit=temps_max_s, gapRel=ecart_relatif, threads=1))
+    # threads=1 bloque ce binaire CBC sous Windows dès que le modèle d'équité est construit
+    # (R27 : processus vivant, charge processeur nulle, timeLimit jamais atteint).
+    statut = modele.solve(pulp.PULP_CBC_CMD(msg=False, timeLimit=temps_max_s, gapRel=ecart_relatif))
     duree = time.perf_counter() - debut
     choisis = sorted(i for i, v in x.items() if (v.value() or 0) > 0.5)
     # PuLP peut afficher « Optimal » alors que CBC s'est arrêté au temps limite : on lit le statut de la solution.
