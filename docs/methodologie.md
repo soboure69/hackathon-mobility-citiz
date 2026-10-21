@@ -117,6 +117,14 @@ Les coordonnées d'une zone sont celles de la zone. Un écart avec les quais est
 - Q7 : la composante principale est marquée (98,3 % des nœuds) ; rien n'est supprimé. Le rattachement des carreaux et des options se fera sur cette composante, à l'étape `spatial/`.
 - Les attributs en liste (arêtes fusionnées par OSMnx) sont écrits « a;b ».
 
+### Rattachement au réseau (étape silver/spatial)
+
+- Réseau routable : arêtes non exclues (sans `busway`, RC-15), graphe non orienté, plus grande composante (29 342 nœuds).
+- Carreau : rattaché par son centroïde au nœud routable le plus proche ; option : par son point. Distance à vol d'oiseau en Lambert-93, un seul nœud par point, résultat déterministe.
+- Cette distance d'accès entrera dans le budget de marche de 400 m (H2) : distance d'accès du carreau + distance réseau + distance d'accès de l'option. Aucun seuil de rattachement arbitraire n'est ajouté. Limite : les deux accès sont à vol d'oiseau.
+- RG-05 : `dans_emprise` = point dans le contour de l'EPCI élargi du tampon de S05 (500 m, contrôlé contre le manifeste). Marqueur, aucune ligne retirée.
+- RG-08 : rattachement plus long que 400 m → alerte (le carreau ou l'option ne peut rien atteindre en 5 min). Constaté : 7 carreaux, 26 habitants.
+
 ## Coordonnées selon le calcul
 
 La lecture GTFS et GBFS reste en EPSG:4326, et ces valeurs sont gardées dans `lat_wgs84` et `lon_wgs84`. Le stockage Silver géométrique est EPSG:2154 (AD1), via pyproj. Filosofi métropole est déjà en EPSG:2154. Admin Express est reprojeté en 2154 si son CRS constaté est différent. Le graphe OSM arrive en 4326, avec des longueurs en mètres ; sa projection en 2154 se fait à `spatial/`. Les distances à vol d'oiseau, les aires et les tampons se calculent en 2154. Les exports Power BI restent en 4326, en Gold.

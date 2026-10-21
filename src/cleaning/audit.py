@@ -27,7 +27,17 @@ def ajouter_audit(df: pd.DataFrame, *, source_id: str, id_origine: pd.Series, fi
 
 
 def _ajouter_regle(colonne: pd.Series, regle_id: str) -> pd.Series:
-    return colonne.map(lambda v: regle_id if not v else f"{v};{regle_id}")
+    return colonne.map(lambda v: regle_id if pd.isna(v) or not v else f"{v};{regle_id}")
+
+
+def _colonnes_suivi(df: pd.DataFrame) -> pd.DataFrame:
+    """Garantit des colonnes d'état en texte, avec leur valeur par défaut (jamais NaN)."""
+    df = df.copy()
+    for colonne, defaut in (("regles_appliquees", ""), ("qualite", "ok"), ("statut_transformation", "standardise")):
+        if colonne not in df.columns:
+            df[colonne] = defaut
+        df[colonne] = df[colonne].astype("string").fillna(defaut)
+    return df
 
 
 class Suivi:
@@ -59,7 +69,7 @@ class Suivi:
         """Garde les lignes, marque qualite = alerte."""
         masque = masque.fillna(False).astype(bool)
         self._noter(df, masque, regle_id, "alerte", motif, etape, colonne_valeur)
-        df = df.copy()
+        df = _colonnes_suivi(df)
         df.loc[masque, "regles_appliquees"] = _ajouter_regle(df.loc[masque, "regles_appliquees"], regle_id)
         df.loc[masque, "qualite"] = "alerte"
         return df
@@ -68,7 +78,7 @@ class Suivi:
         """Garde les lignes en Silver, mais elles ne comptent pas comme options (statut = exclu)."""
         masque = masque.fillna(False).astype(bool)
         self._noter(df, masque, regle_id, "exclusion", motif, etape, colonne_valeur)
-        df = df.copy()
+        df = _colonnes_suivi(df)
         df.loc[masque, "regles_appliquees"] = _ajouter_regle(df.loc[masque, "regles_appliquees"], regle_id)
         df.loc[masque, "statut_transformation"] = "exclu"
         return df

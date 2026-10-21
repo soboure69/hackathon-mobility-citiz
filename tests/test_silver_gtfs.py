@@ -97,3 +97,11 @@ def test_identifiants_restent_du_texte(tmp_path):
 ])
 def test_normaliser_nom(brut, attendu):
     assert normaliser_nom(brut) == attendu
+
+
+def test_signaler_sans_colonnes_d_audit_ne_produit_pas_nan():
+    import pandas as pd
+    df = pd.DataFrame({"source_id": ["S99", "S99"], "id_origine": ["a", "b"], "regles_appliquees": [None, "RG-04"]})
+    resultat = Suivi("R").signaler(df, pd.Series([True, True]), "RG-08", "m", "spatial")
+    assert list(resultat["regles_appliquees"]) == ["RG-08", "RG-04;RG-08"]
+    assert list(resultat["qualite"]) == ["alerte", "alerte"]

@@ -33,6 +33,8 @@
 | standardized, cleaned | `filosofi_carreaux_5epci` | `cell_id` (= `idcar_200m`) | S03 + `admin_communes_5epci` | Carreaux retenus par RF-01 ; les 34 variables Filosofi ; `commune_insee`, `commune_principale`, `territoire`, `epci_siren`, `multi_commune`, `partiel_epci`, `est_impute`, `aire_m2` (cleaned) |
 | standardized, cleaned | `osm_walk_nodes_larochelle` | `node_id` | S05 | Nœuds du graphe ; `street_count`, `composante` (0 = principale), `composante_principale` ; EPSG:2154 |
 | standardized, cleaned | `osm_walk_edges_larochelle` | `u`, `v`, `key` | S05 | Arêtes, deux sens ; `highway`, `name`, `access`, `service` (listes écrites « a;b »), `length_m`, `composante` ; arêtes `busway` à statut `exclu` (cleaned) |
+| spatial | `cellules_larochelle` | `cell_id` | `filosofi_carreaux_5epci` + réseau | Carreaux de La Rochelle ; variables Filosofi ; `pop` (= `ind`) ; `x_centroide`, `y_centroide` ; `node_id`, `dist_snap_m` (centroïde → nœud routable, vol d'oiseau) |
+| spatial | `offre_points_larochelle` | `offre_id` | offres bus, Citiz, vélo + réseau | Les 3 modes réunis ; `capacite` (stations), `n_quais` (bus) ; `node_id`, `dist_snap_m`, `dans_emprise` |
 | quality | `rejets_<source>`, `alertes_<source>`, `qualite_indicateurs_<source>` | voir manifeste | toutes | Journaux par source ; l'union se fait en Gold |
 
 Les tables d'offre partagent le schéma commun ci-dessous. Colonnes propres au mode : `n_quais`, `n_quais_desservis` (bus) ; `capacite` (stations). Elles seront réunies dans `offre_points_larochelle` à l'étape `spatial/`.

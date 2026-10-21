@@ -24,3 +24,6 @@ filosofi:
   couche: carreaux_200m_met
   separateur_lcog_geo: ","          # constaté le 21/10/2026
   tolerance_aire_relative: 0.01     # constaté : écart maximal 0,19 % sur les 5 EPCI (RC-09)
+spatial:
+  tampon_m: 500                 # identique au tampon de la requête S05 (contrôlé à l'exécution)
+  distance_max_marche_m: 400    # H2 : 5 min ≈ 400 m ; au-delà, un rattachement seul épuise le budget (RG-08)
