@@ -94,6 +94,111 @@
         "sha256": "6aa6874072b9bf9f870950f11fc3cbe2610c1d8ea5fb158fbdc626a12b67fce4"
       }
     },
+    "alertes_S03.parquet": {
+      "origine_bronze": {
+        "communes_silver": {
+          "sha256": "e9969e008902c07567bc35f421cc16985323804096eb2f000125195ac01dad26",
+          "table": "cleaned/admin_communes_5epci.parquet"
+        },
+        "dossier": "data/bronze/insee_filosofi/national/S03_2026-10-21",
+        "fichiers": {
+          "Filosofi2021_carreaux_200m_gpkg.zip": "2bb4ba8d38a9c7c90313ba7018b96fd0475d331a67c1059f84ba85d5937b86ee"
+        },
+        "run_id": "20261021T014800_dfe198d",
+        "source_id": "S03"
+      },
+      "parametres": {
+        "filosofi": {
+          "couche": "carreaux_200m_met",
+          "separateur_lcog_geo": ",",
+          "tolerance_aire_relative": 0.01
+        },
+        "regle_perimetre": "RF-01"
+      },
+      "run_id": "20261021T050513Z_9dba230",
+      "table": {
+        "cle": [
+          "regle_id",
+          "id_origine",
+          "etape"
+        ],
+        "colonnes": [
+          "source_id",
+          "id_origine",
+          "regle_id",
+          "niveau",
+          "motif",
+          "valeur_constatee",
+          "etape",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 0,
+        "nom": "alertes_S03.parquet",
+        "sha256": "c63d70303d9889e33d8efb4ccd54e8d2247bc951fd12c971ddc31f8196fcc430"
+      }
+    },
+    "alertes_S04.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/admin_express/national/S04_2026-10-21",
+        "fichiers": {
+          "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01.7z": "688eb44505d9b4a8e422ded2f4afaac799f10783de563132ca1a60e9491c6278"
+        },
+        "run_id": "20261021T024321Z_7a6e527",
+        "source_id": "S04"
+      },
+      "parametres": {
+        "territoires": {
+          "angers": {
+            "nb_communes": 29,
+            "role": "apprentissage_h6",
+            "siren": "244900015"
+          },
+          "larochelle": {
+            "nb_communes": 28,
+            "role": "decision",
+            "siren": "241700434"
+          },
+          "nantes": {
+            "nb_communes": 24,
+            "role": "apprentissage_h6",
+            "siren": "244400404"
+          },
+          "poitiers": {
+            "nb_communes": 40,
+            "role": "apprentissage_h6",
+            "siren": "200069854"
+          },
+          "rennes": {
+            "nb_communes": 43,
+            "role": "apprentissage_h6",
+            "siren": "243500139"
+          }
+        }
+      },
+      "run_id": "20261021T050439Z_9dba230",
+      "table": {
+        "cle": [
+          "regle_id",
+          "id_origine",
+          "etape"
+        ],
+        "colonnes": [
+          "source_id",
+          "id_origine",
+          "regle_id",
+          "niveau",
+          "motif",
+          "valeur_constatee",
+          "etape",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 0,
+        "nom": "alertes_S04.parquet",
+        "sha256": "c63d70303d9889e33d8efb4ccd54e8d2247bc951fd12c971ddc31f8196fcc430"
+      }
+    },
     "alertes_S08.parquet": {
       "origine_bronze": {
         "dossier": "data/bronze/gbfs/larochelle/S08_2026-10-21",
@@ -234,6 +339,105 @@
         "lignes": 11,
         "nom": "qualite_indicateurs_S02.parquet",
         "sha256": "0d85cac1374a4ad57728095ef3cf206bead448d2a211f9f43370d90b7e66cef9"
+      }
+    },
+    "qualite_indicateurs_S03.parquet": {
+      "origine_bronze": {
+        "communes_silver": {
+          "sha256": "e9969e008902c07567bc35f421cc16985323804096eb2f000125195ac01dad26",
+          "table": "cleaned/admin_communes_5epci.parquet"
+        },
+        "dossier": "data/bronze/insee_filosofi/national/S03_2026-10-21",
+        "fichiers": {
+          "Filosofi2021_carreaux_200m_gpkg.zip": "2bb4ba8d38a9c7c90313ba7018b96fd0475d331a67c1059f84ba85d5937b86ee"
+        },
+        "run_id": "20261021T014800_dfe198d",
+        "source_id": "S03"
+      },
+      "parametres": {
+        "filosofi": {
+          "couche": "carreaux_200m_met",
+          "separateur_lcog_geo": ",",
+          "tolerance_aire_relative": 0.01
+        },
+        "regle_perimetre": "RF-01"
+      },
+      "run_id": "20261021T050513Z_9dba230",
+      "table": {
+        "cle": [
+          "q_id",
+          "libelle"
+        ],
+        "colonnes": [
+          "source_id",
+          "q_id",
+          "libelle",
+          "valeur",
+          "unite",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 44,
+        "nom": "qualite_indicateurs_S03.parquet",
+        "sha256": "a0bba9f592e72ad529aad9bc3f7c0f1e3bf579382dbc1f603505ff1e17799590"
+      }
+    },
+    "qualite_indicateurs_S04.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/admin_express/national/S04_2026-10-21",
+        "fichiers": {
+          "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01.7z": "688eb44505d9b4a8e422ded2f4afaac799f10783de563132ca1a60e9491c6278"
+        },
+        "run_id": "20261021T024321Z_7a6e527",
+        "source_id": "S04"
+      },
+      "parametres": {
+        "territoires": {
+          "angers": {
+            "nb_communes": 29,
+            "role": "apprentissage_h6",
+            "siren": "244900015"
+          },
+          "larochelle": {
+            "nb_communes": 28,
+            "role": "decision",
+            "siren": "241700434"
+          },
+          "nantes": {
+            "nb_communes": 24,
+            "role": "apprentissage_h6",
+            "siren": "244400404"
+          },
+          "poitiers": {
+            "nb_communes": 40,
+            "role": "apprentissage_h6",
+            "siren": "200069854"
+          },
+          "rennes": {
+            "nb_communes": 43,
+            "role": "apprentissage_h6",
+            "siren": "243500139"
+          }
+        }
+      },
+      "run_id": "20261021T050439Z_9dba230",
+      "table": {
+        "cle": [
+          "q_id",
+          "libelle"
+        ],
+        "colonnes": [
+          "source_id",
+          "q_id",
+          "libelle",
+          "valeur",
+          "unite",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 17,
+        "nom": "qualite_indicateurs_S04.parquet",
+        "sha256": "1c76b5defde4f24768d9917c9d8bb462326675081bafdbc61c1d05de98e7248a"
       }
     },
     "qualite_indicateurs_S08.parquet": {
@@ -379,6 +583,111 @@
         "lignes": 0,
         "nom": "rejets_S02.parquet",
         "sha256": "73d09a9e277fd9f18ed22f319f8ce830cd478dbbdc39f8d658dfa48d213ff7f5"
+      }
+    },
+    "rejets_S03.parquet": {
+      "origine_bronze": {
+        "communes_silver": {
+          "sha256": "e9969e008902c07567bc35f421cc16985323804096eb2f000125195ac01dad26",
+          "table": "cleaned/admin_communes_5epci.parquet"
+        },
+        "dossier": "data/bronze/insee_filosofi/national/S03_2026-10-21",
+        "fichiers": {
+          "Filosofi2021_carreaux_200m_gpkg.zip": "2bb4ba8d38a9c7c90313ba7018b96fd0475d331a67c1059f84ba85d5937b86ee"
+        },
+        "run_id": "20261021T014800_dfe198d",
+        "source_id": "S03"
+      },
+      "parametres": {
+        "filosofi": {
+          "couche": "carreaux_200m_met",
+          "separateur_lcog_geo": ",",
+          "tolerance_aire_relative": 0.01
+        },
+        "regle_perimetre": "RF-01"
+      },
+      "run_id": "20261021T050513Z_9dba230",
+      "table": {
+        "cle": [
+          "regle_id",
+          "id_origine",
+          "valeur_constatee"
+        ],
+        "colonnes": [
+          "source_id",
+          "id_origine",
+          "regle_id",
+          "niveau",
+          "motif",
+          "valeur_constatee",
+          "etape",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 0,
+        "nom": "rejets_S03.parquet",
+        "sha256": "c63d70303d9889e33d8efb4ccd54e8d2247bc951fd12c971ddc31f8196fcc430"
+      }
+    },
+    "rejets_S04.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/admin_express/national/S04_2026-10-21",
+        "fichiers": {
+          "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01.7z": "688eb44505d9b4a8e422ded2f4afaac799f10783de563132ca1a60e9491c6278"
+        },
+        "run_id": "20261021T024321Z_7a6e527",
+        "source_id": "S04"
+      },
+      "parametres": {
+        "territoires": {
+          "angers": {
+            "nb_communes": 29,
+            "role": "apprentissage_h6",
+            "siren": "244900015"
+          },
+          "larochelle": {
+            "nb_communes": 28,
+            "role": "decision",
+            "siren": "241700434"
+          },
+          "nantes": {
+            "nb_communes": 24,
+            "role": "apprentissage_h6",
+            "siren": "244400404"
+          },
+          "poitiers": {
+            "nb_communes": 40,
+            "role": "apprentissage_h6",
+            "siren": "200069854"
+          },
+          "rennes": {
+            "nb_communes": 43,
+            "role": "apprentissage_h6",
+            "siren": "243500139"
+          }
+        }
+      },
+      "run_id": "20261021T050439Z_9dba230",
+      "table": {
+        "cle": [
+          "regle_id",
+          "id_origine",
+          "valeur_constatee"
+        ],
+        "colonnes": [
+          "source_id",
+          "id_origine",
+          "regle_id",
+          "niveau",
+          "motif",
+          "valeur_constatee",
+          "etape",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 0,
+        "nom": "rejets_S04.parquet",
+        "sha256": "c63d70303d9889e33d8efb4ccd54e8d2247bc951fd12c971ddc31f8196fcc430"
       }
     },
     "rejets_S08.parquet": {

@@ -1,6 +1,226 @@
 {
   "couche": "silver",
   "tables": {
+    "admin_communes_5epci.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/admin_express/national/S04_2026-10-21",
+        "fichiers": {
+          "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01.7z": "688eb44505d9b4a8e422ded2f4afaac799f10783de563132ca1a60e9491c6278"
+        },
+        "run_id": "20261021T024321Z_7a6e527",
+        "source_id": "S04"
+      },
+      "parametres": {
+        "territoires": {
+          "angers": {
+            "nb_communes": 29,
+            "role": "apprentissage_h6",
+            "siren": "244900015"
+          },
+          "larochelle": {
+            "nb_communes": 28,
+            "role": "decision",
+            "siren": "241700434"
+          },
+          "nantes": {
+            "nb_communes": 24,
+            "role": "apprentissage_h6",
+            "siren": "244400404"
+          },
+          "poitiers": {
+            "nb_communes": 40,
+            "role": "apprentissage_h6",
+            "siren": "200069854"
+          },
+          "rennes": {
+            "nb_communes": 43,
+            "role": "apprentissage_h6",
+            "siren": "243500139"
+          }
+        }
+      },
+      "run_id": "20261021T050439Z_9dba230",
+      "table": {
+        "cle": [
+          "code_insee"
+        ],
+        "colonnes": [
+          "nom_officiel",
+          "code_insee",
+          "population",
+          "codes_siren_des_epci",
+          "geometry",
+          "epci_siren",
+          "territoire",
+          "source_id",
+          "id_origine",
+          "fichier_origine",
+          "sha256_origine",
+          "date_donnee",
+          "run_id",
+          "statut_transformation",
+          "regles_appliquees",
+          "qualite"
+        ],
+        "crs": "EPSG:2154",
+        "lignes": 164,
+        "nom": "admin_communes_5epci.parquet",
+        "sha256": "e9969e008902c07567bc35f421cc16985323804096eb2f000125195ac01dad26"
+      }
+    },
+    "admin_epci_5epci.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/admin_express/national/S04_2026-10-21",
+        "fichiers": {
+          "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01.7z": "688eb44505d9b4a8e422ded2f4afaac799f10783de563132ca1a60e9491c6278"
+        },
+        "run_id": "20261021T024321Z_7a6e527",
+        "source_id": "S04"
+      },
+      "parametres": {
+        "territoires": {
+          "angers": {
+            "nb_communes": 29,
+            "role": "apprentissage_h6",
+            "siren": "244900015"
+          },
+          "larochelle": {
+            "nb_communes": 28,
+            "role": "decision",
+            "siren": "241700434"
+          },
+          "nantes": {
+            "nb_communes": 24,
+            "role": "apprentissage_h6",
+            "siren": "244400404"
+          },
+          "poitiers": {
+            "nb_communes": 40,
+            "role": "apprentissage_h6",
+            "siren": "200069854"
+          },
+          "rennes": {
+            "nb_communes": 43,
+            "role": "apprentissage_h6",
+            "siren": "243500139"
+          }
+        }
+      },
+      "run_id": "20261021T050439Z_9dba230",
+      "table": {
+        "cle": [
+          "code_siren"
+        ],
+        "colonnes": [
+          "nom_officiel",
+          "nature",
+          "codes_insee_des_communes_membres",
+          "code_siren",
+          "geometry",
+          "territoire",
+          "n_membres_declares",
+          "source_id",
+          "id_origine",
+          "fichier_origine",
+          "sha256_origine",
+          "date_donnee",
+          "run_id",
+          "statut_transformation",
+          "regles_appliquees",
+          "qualite"
+        ],
+        "crs": "EPSG:2154",
+        "lignes": 5,
+        "nom": "admin_epci_5epci.parquet",
+        "sha256": "3a6543b3856e1e8ffa012bb1dade9aacc7c537d8e1fa37a8cf6bdc6be43f9430"
+      }
+    },
+    "filosofi_carreaux_5epci.parquet": {
+      "origine_bronze": {
+        "communes_silver": {
+          "sha256": "e9969e008902c07567bc35f421cc16985323804096eb2f000125195ac01dad26",
+          "table": "cleaned/admin_communes_5epci.parquet"
+        },
+        "dossier": "data/bronze/insee_filosofi/national/S03_2026-10-21",
+        "fichiers": {
+          "Filosofi2021_carreaux_200m_gpkg.zip": "2bb4ba8d38a9c7c90313ba7018b96fd0475d331a67c1059f84ba85d5937b86ee"
+        },
+        "run_id": "20261021T014800_dfe198d",
+        "source_id": "S03"
+      },
+      "parametres": {
+        "filosofi": {
+          "couche": "carreaux_200m_met",
+          "separateur_lcog_geo": ",",
+          "tolerance_aire_relative": 0.01
+        },
+        "regle_perimetre": "RF-01"
+      },
+      "run_id": "20261021T050513Z_9dba230",
+      "table": {
+        "cle": [
+          "cell_id"
+        ],
+        "colonnes": [
+          "idcar_200m",
+          "idcar_1km",
+          "idcar_nat",
+          "i_est_200",
+          "i_est_1km",
+          "lcog_geo",
+          "ind",
+          "men",
+          "men_pauv",
+          "men_1ind",
+          "men_5ind",
+          "men_prop",
+          "men_fmp",
+          "ind_snv",
+          "men_surf",
+          "men_coll",
+          "men_mais",
+          "log_av45",
+          "log_45_70",
+          "log_70_90",
+          "log_ap90",
+          "log_inc",
+          "log_soc",
+          "ind_0_3",
+          "ind_4_5",
+          "ind_6_10",
+          "ind_11_17",
+          "ind_18_24",
+          "ind_25_39",
+          "ind_40_54",
+          "ind_55_64",
+          "ind_65_79",
+          "ind_80p",
+          "ind_inc",
+          "geometry",
+          "cell_id",
+          "commune_insee",
+          "commune_principale",
+          "territoire",
+          "epci_siren",
+          "multi_commune",
+          "partiel_epci",
+          "est_impute",
+          "source_id",
+          "id_origine",
+          "fichier_origine",
+          "sha256_origine",
+          "date_donnee",
+          "run_id",
+          "statut_transformation",
+          "regles_appliquees",
+          "qualite"
+        ],
+        "crs": "EPSG:2154",
+        "lignes": 29000,
+        "nom": "filosofi_carreaux_5epci.parquet",
+        "sha256": "113e0b789ec99cec6ad8da9d6eb1436de91b2461cc3f898740a9408031dd24b9"
+      }
+    },
     "gbfs_stations_citiz_larochelle.parquet": {
       "origine_bronze": {
         "dossier": "data/bronze/gbfs/larochelle/S01_2026-10-21",
