@@ -1,0 +1,440 @@
+{
+  "couche": "silver",
+  "tables": {
+    "alertes_S01.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/gbfs/larochelle/S01_2026-10-21",
+        "fichiers": {
+          "gbfs.json": "2eb78fcf56756216ea5d80390567cbcfcec1c2be404777c79bfffc450e488157",
+          "station_information.json": "1f15fde7e591a919f661a0106b870296c2c28899f41f710b83e55ea5c90f4108",
+          "system_information.json": "6402bd8a35b1f9217d9970b4424e8b7fd1d3c29d5f574182b89a353576e0116c"
+        },
+        "run_id": "20261021T020400Z_beaf780",
+        "source_id": "S01"
+      },
+      "parametres": {
+        "champs_non_repris_rc14": [],
+        "coordonnees": {
+          "lat_max": 51.5,
+          "lat_min": 41.0,
+          "lon_max": 10.0,
+          "lon_min": -5.5,
+          "precision_min_decimales": 4
+        },
+        "fichier_lu": "station_information.json",
+        "gbfs": {
+          "mode": "citiz",
+          "nom": "citiz"
+        }
+      },
+      "run_id": "20261021T044721Z_364e71c",
+      "table": {
+        "cle": [
+          "regle_id",
+          "id_origine",
+          "etape"
+        ],
+        "colonnes": [
+          "source_id",
+          "id_origine",
+          "regle_id",
+          "niveau",
+          "motif",
+          "valeur_constatee",
+          "etape",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 0,
+        "nom": "alertes_S01.parquet",
+        "sha256": "c63d70303d9889e33d8efb4ccd54e8d2247bc951fd12c971ddc31f8196fcc430"
+      }
+    },
+    "alertes_S02.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/gtfs/larochelle/S02_2026-10-21",
+        "fichiers": {
+          "gtfs.zip": "cf7085c5258a9997499e50ebfa21603d023efb4fa9cbd8ef29296b6587887fd7"
+        },
+        "run_id": "20261021T013600_dfe198d",
+        "source_id": "S02"
+      },
+      "parametres": {
+        "coordonnees": {
+          "lat_max": 51.5,
+          "lat_min": 41.0,
+          "lon_max": 10.0,
+          "lon_min": -5.5,
+          "precision_min_decimales": 4
+        },
+        "gtfs": {
+          "seuil_rg06_m": 100
+        }
+      },
+      "run_id": "20261021T044718Z_364e71c",
+      "table": {
+        "cle": [
+          "regle_id",
+          "id_origine",
+          "etape"
+        ],
+        "colonnes": [
+          "source_id",
+          "id_origine",
+          "regle_id",
+          "niveau",
+          "motif",
+          "valeur_constatee",
+          "etape",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 10,
+        "nom": "alertes_S02.parquet",
+        "sha256": "6aa6874072b9bf9f870950f11fc3cbe2610c1d8ea5fb158fbdc626a12b67fce4"
+      }
+    },
+    "alertes_S08.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/gbfs/larochelle/S08_2026-10-21",
+        "fichiers": {
+          "gbfs.json": "0a20e42f6916987211aa97f83030ab524bba468690735831a78238c836759cde",
+          "system_information.json": "a5aff42156c37b8837060effe3e8db8c08d16729d2900c6c5248b54e332df0b0"
+        },
+        "run_id": "20261021T024255Z_7a6e527",
+        "source_id": "S08"
+      },
+      "parametres": {
+        "champs_non_repris_rc14": [
+          "is_renting",
+          "is_returning",
+          "num_docks_available",
+          "num_docks_disabled",
+          "num_vehicles_available",
+          "num_vehicles_disabled"
+        ],
+        "coordonnees": {
+          "lat_max": 51.5,
+          "lat_min": 41.0,
+          "lon_max": 10.0,
+          "lon_min": -5.5,
+          "precision_min_decimales": 4
+        },
+        "fichier_lu": "gbfs.json",
+        "gbfs": {
+          "mode": "velo",
+          "nom": "yelo"
+        }
+      },
+      "run_id": "20261021T044737Z_364e71c",
+      "table": {
+        "cle": [
+          "regle_id",
+          "id_origine",
+          "etape"
+        ],
+        "colonnes": [
+          "source_id",
+          "id_origine",
+          "regle_id",
+          "niveau",
+          "motif",
+          "valeur_constatee",
+          "etape",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 138,
+        "nom": "alertes_S08.parquet",
+        "sha256": "23999ad0fa12ce20bd7a4d93947d987b96447e9ad018bcaf545a481c1e0171fa"
+      }
+    },
+    "qualite_indicateurs_S01.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/gbfs/larochelle/S01_2026-10-21",
+        "fichiers": {
+          "gbfs.json": "2eb78fcf56756216ea5d80390567cbcfcec1c2be404777c79bfffc450e488157",
+          "station_information.json": "1f15fde7e591a919f661a0106b870296c2c28899f41f710b83e55ea5c90f4108",
+          "system_information.json": "6402bd8a35b1f9217d9970b4424e8b7fd1d3c29d5f574182b89a353576e0116c"
+        },
+        "run_id": "20261021T020400Z_beaf780",
+        "source_id": "S01"
+      },
+      "parametres": {
+        "champs_non_repris_rc14": [],
+        "coordonnees": {
+          "lat_max": 51.5,
+          "lat_min": 41.0,
+          "lon_max": 10.0,
+          "lon_min": -5.5,
+          "precision_min_decimales": 4
+        },
+        "fichier_lu": "station_information.json",
+        "gbfs": {
+          "mode": "citiz",
+          "nom": "citiz"
+        }
+      },
+      "run_id": "20261021T044721Z_364e71c",
+      "table": {
+        "cle": [
+          "q_id",
+          "libelle"
+        ],
+        "colonnes": [
+          "source_id",
+          "q_id",
+          "libelle",
+          "valeur",
+          "unite",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 8,
+        "nom": "qualite_indicateurs_S01.parquet",
+        "sha256": "7290267401273b5f1803a04382e4320f9cede7c7ac41b76bc2f23895effe0115"
+      }
+    },
+    "qualite_indicateurs_S02.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/gtfs/larochelle/S02_2026-10-21",
+        "fichiers": {
+          "gtfs.zip": "cf7085c5258a9997499e50ebfa21603d023efb4fa9cbd8ef29296b6587887fd7"
+        },
+        "run_id": "20261021T013600_dfe198d",
+        "source_id": "S02"
+      },
+      "parametres": {
+        "coordonnees": {
+          "lat_max": 51.5,
+          "lat_min": 41.0,
+          "lon_max": 10.0,
+          "lon_min": -5.5,
+          "precision_min_decimales": 4
+        },
+        "gtfs": {
+          "seuil_rg06_m": 100
+        }
+      },
+      "run_id": "20261021T044718Z_364e71c",
+      "table": {
+        "cle": [
+          "q_id",
+          "libelle"
+        ],
+        "colonnes": [
+          "source_id",
+          "q_id",
+          "libelle",
+          "valeur",
+          "unite",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 11,
+        "nom": "qualite_indicateurs_S02.parquet",
+        "sha256": "0d85cac1374a4ad57728095ef3cf206bead448d2a211f9f43370d90b7e66cef9"
+      }
+    },
+    "qualite_indicateurs_S08.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/gbfs/larochelle/S08_2026-10-21",
+        "fichiers": {
+          "gbfs.json": "0a20e42f6916987211aa97f83030ab524bba468690735831a78238c836759cde",
+          "system_information.json": "a5aff42156c37b8837060effe3e8db8c08d16729d2900c6c5248b54e332df0b0"
+        },
+        "run_id": "20261021T024255Z_7a6e527",
+        "source_id": "S08"
+      },
+      "parametres": {
+        "champs_non_repris_rc14": [
+          "is_renting",
+          "is_returning",
+          "num_docks_available",
+          "num_docks_disabled",
+          "num_vehicles_available",
+          "num_vehicles_disabled"
+        ],
+        "coordonnees": {
+          "lat_max": 51.5,
+          "lat_min": 41.0,
+          "lon_max": 10.0,
+          "lon_min": -5.5,
+          "precision_min_decimales": 4
+        },
+        "fichier_lu": "gbfs.json",
+        "gbfs": {
+          "mode": "velo",
+          "nom": "yelo"
+        }
+      },
+      "run_id": "20261021T044737Z_364e71c",
+      "table": {
+        "cle": [
+          "q_id",
+          "libelle"
+        ],
+        "colonnes": [
+          "source_id",
+          "q_id",
+          "libelle",
+          "valeur",
+          "unite",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 8,
+        "nom": "qualite_indicateurs_S08.parquet",
+        "sha256": "80eb351294e6cdfc2bc1d3cbcb670a35ab652569c156b854addf8655199b0d4b"
+      }
+    },
+    "rejets_S01.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/gbfs/larochelle/S01_2026-10-21",
+        "fichiers": {
+          "gbfs.json": "2eb78fcf56756216ea5d80390567cbcfcec1c2be404777c79bfffc450e488157",
+          "station_information.json": "1f15fde7e591a919f661a0106b870296c2c28899f41f710b83e55ea5c90f4108",
+          "system_information.json": "6402bd8a35b1f9217d9970b4424e8b7fd1d3c29d5f574182b89a353576e0116c"
+        },
+        "run_id": "20261021T020400Z_beaf780",
+        "source_id": "S01"
+      },
+      "parametres": {
+        "champs_non_repris_rc14": [],
+        "coordonnees": {
+          "lat_max": 51.5,
+          "lat_min": 41.0,
+          "lon_max": 10.0,
+          "lon_min": -5.5,
+          "precision_min_decimales": 4
+        },
+        "fichier_lu": "station_information.json",
+        "gbfs": {
+          "mode": "citiz",
+          "nom": "citiz"
+        }
+      },
+      "run_id": "20261021T044721Z_364e71c",
+      "table": {
+        "cle": [
+          "regle_id",
+          "id_origine",
+          "valeur_constatee"
+        ],
+        "colonnes": [
+          "source_id",
+          "id_origine",
+          "regle_id",
+          "niveau",
+          "motif",
+          "valeur_constatee",
+          "etape",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 0,
+        "nom": "rejets_S01.parquet",
+        "sha256": "c63d70303d9889e33d8efb4ccd54e8d2247bc951fd12c971ddc31f8196fcc430"
+      }
+    },
+    "rejets_S02.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/gtfs/larochelle/S02_2026-10-21",
+        "fichiers": {
+          "gtfs.zip": "cf7085c5258a9997499e50ebfa21603d023efb4fa9cbd8ef29296b6587887fd7"
+        },
+        "run_id": "20261021T013600_dfe198d",
+        "source_id": "S02"
+      },
+      "parametres": {
+        "coordonnees": {
+          "lat_max": 51.5,
+          "lat_min": 41.0,
+          "lon_max": 10.0,
+          "lon_min": -5.5,
+          "precision_min_decimales": 4
+        },
+        "gtfs": {
+          "seuil_rg06_m": 100
+        }
+      },
+      "run_id": "20261021T044718Z_364e71c",
+      "table": {
+        "cle": [
+          "regle_id",
+          "id_origine",
+          "valeur_constatee"
+        ],
+        "colonnes": [
+          "source_id",
+          "id_origine",
+          "regle_id",
+          "niveau",
+          "motif",
+          "valeur_constatee",
+          "etape",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 0,
+        "nom": "rejets_S02.parquet",
+        "sha256": "73d09a9e277fd9f18ed22f319f8ce830cd478dbbdc39f8d658dfa48d213ff7f5"
+      }
+    },
+    "rejets_S08.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/gbfs/larochelle/S08_2026-10-21",
+        "fichiers": {
+          "gbfs.json": "0a20e42f6916987211aa97f83030ab524bba468690735831a78238c836759cde",
+          "system_information.json": "a5aff42156c37b8837060effe3e8db8c08d16729d2900c6c5248b54e332df0b0"
+        },
+        "run_id": "20261021T024255Z_7a6e527",
+        "source_id": "S08"
+      },
+      "parametres": {
+        "champs_non_repris_rc14": [
+          "is_renting",
+          "is_returning",
+          "num_docks_available",
+          "num_docks_disabled",
+          "num_vehicles_available",
+          "num_vehicles_disabled"
+        ],
+        "coordonnees": {
+          "lat_max": 51.5,
+          "lat_min": 41.0,
+          "lon_max": 10.0,
+          "lon_min": -5.5,
+          "precision_min_decimales": 4
+        },
+        "fichier_lu": "gbfs.json",
+        "gbfs": {
+          "mode": "velo",
+          "nom": "yelo"
+        }
+      },
+      "run_id": "20261021T044737Z_364e71c",
+      "table": {
+        "cle": [
+          "regle_id",
+          "id_origine",
+          "valeur_constatee"
+        ],
+        "colonnes": [
+          "source_id",
+          "id_origine",
+          "regle_id",
+          "niveau",
+          "motif",
+          "valeur_constatee",
+          "etape",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 1,
+        "nom": "rejets_S08.parquet",
+        "sha256": "3ade4dfdd034afdf837c9200491e9ac56d1f481de9adf11bd18c20850d4daa82"
+      }
+    }
+  }
+}

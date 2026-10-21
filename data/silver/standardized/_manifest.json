@@ -1,0 +1,180 @@
+{
+  "couche": "silver",
+  "tables": {
+    "gbfs_stations_citiz_larochelle.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/gbfs/larochelle/S01_2026-10-21",
+        "fichiers": {
+          "gbfs.json": "2eb78fcf56756216ea5d80390567cbcfcec1c2be404777c79bfffc450e488157",
+          "station_information.json": "1f15fde7e591a919f661a0106b870296c2c28899f41f710b83e55ea5c90f4108",
+          "system_information.json": "6402bd8a35b1f9217d9970b4424e8b7fd1d3c29d5f574182b89a353576e0116c"
+        },
+        "run_id": "20261021T020400Z_beaf780",
+        "source_id": "S01"
+      },
+      "parametres": {
+        "champs_non_repris_rc14": [],
+        "coordonnees": {
+          "lat_max": 51.5,
+          "lat_min": 41.0,
+          "lon_max": 10.0,
+          "lon_min": -5.5,
+          "precision_min_decimales": 4
+        },
+        "fichier_lu": "station_information.json",
+        "gbfs": {
+          "mode": "citiz",
+          "nom": "citiz"
+        }
+      },
+      "run_id": "20261021T044721Z_364e71c",
+      "table": {
+        "cle": [
+          "station_id",
+          "id_origine"
+        ],
+        "colonnes": [
+          "station_id",
+          "nom",
+          "lat",
+          "lon",
+          "capacity",
+          "address",
+          "parking_type",
+          "is_virtual_station",
+          "station_opening_hours",
+          "source_id",
+          "id_origine",
+          "fichier_origine",
+          "sha256_origine",
+          "date_donnee",
+          "run_id",
+          "statut_transformation",
+          "regles_appliquees",
+          "qualite"
+        ],
+        "crs": null,
+        "lignes": 24,
+        "nom": "gbfs_stations_citiz_larochelle.parquet",
+        "sha256": "a60583f30374832787ad481e0ae5dccb6e7e28a7cd910c343e2bceadf073c38b"
+      }
+    },
+    "gbfs_stations_yelo_larochelle.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/gbfs/larochelle/S08_2026-10-21",
+        "fichiers": {
+          "gbfs.json": "0a20e42f6916987211aa97f83030ab524bba468690735831a78238c836759cde",
+          "system_information.json": "a5aff42156c37b8837060effe3e8db8c08d16729d2900c6c5248b54e332df0b0"
+        },
+        "run_id": "20261021T024255Z_7a6e527",
+        "source_id": "S08"
+      },
+      "parametres": {
+        "champs_non_repris_rc14": [
+          "is_renting",
+          "is_returning",
+          "num_docks_available",
+          "num_docks_disabled",
+          "num_vehicles_available",
+          "num_vehicles_disabled"
+        ],
+        "coordonnees": {
+          "lat_max": 51.5,
+          "lat_min": 41.0,
+          "lon_max": 10.0,
+          "lon_min": -5.5,
+          "precision_min_decimales": 4
+        },
+        "fichier_lu": "gbfs.json",
+        "gbfs": {
+          "mode": "velo",
+          "nom": "yelo"
+        }
+      },
+      "run_id": "20261021T044737Z_364e71c",
+      "table": {
+        "cle": [
+          "station_id",
+          "id_origine"
+        ],
+        "colonnes": [
+          "station_id",
+          "nom",
+          "lat",
+          "lon",
+          "capacity",
+          "address",
+          "parking_type",
+          "is_virtual_station",
+          "station_opening_hours",
+          "source_id",
+          "id_origine",
+          "fichier_origine",
+          "sha256_origine",
+          "date_donnee",
+          "run_id",
+          "statut_transformation",
+          "regles_appliquees",
+          "qualite"
+        ],
+        "crs": null,
+        "lignes": 137,
+        "nom": "gbfs_stations_yelo_larochelle.parquet",
+        "sha256": "8aa3438232a3e5bcd4a78ed9fd0a6a9659ff61b616d007cbbf2a9e4b4c8c89a5"
+      }
+    },
+    "gtfs_stops_larochelle.parquet": {
+      "origine_bronze": {
+        "dossier": "data/bronze/gtfs/larochelle/S02_2026-10-21",
+        "fichiers": {
+          "gtfs.zip": "cf7085c5258a9997499e50ebfa21603d023efb4fa9cbd8ef29296b6587887fd7"
+        },
+        "run_id": "20261021T013600_dfe198d",
+        "source_id": "S02"
+      },
+      "parametres": {
+        "coordonnees": {
+          "lat_max": 51.5,
+          "lat_min": 41.0,
+          "lon_max": 10.0,
+          "lon_min": -5.5,
+          "precision_min_decimales": 4
+        },
+        "gtfs": {
+          "seuil_rg06_m": 100
+        }
+      },
+      "run_id": "20261021T044718Z_364e71c",
+      "table": {
+        "cle": [
+          "stop_id",
+          "id_origine"
+        ],
+        "colonnes": [
+          "stop_id",
+          "stop_code",
+          "stop_name",
+          "stop_desc",
+          "stop_lat",
+          "stop_lon",
+          "location_type",
+          "parent_station",
+          "wheelchair_boarding",
+          "source_id",
+          "id_origine",
+          "fichier_origine",
+          "sha256_origine",
+          "date_donnee",
+          "run_id",
+          "statut_transformation",
+          "regles_appliquees",
+          "qualite"
+        ],
+        "crs": null,
+        "lignes": 1515,
+        "nom": "gtfs_stops_larochelle.parquet",
+        "sha256": "6b0b607adec4d1d678e33f169e53ec6ed5254025b104abf554ea07d72155561f"
+      }
+    }
+  }
+}
