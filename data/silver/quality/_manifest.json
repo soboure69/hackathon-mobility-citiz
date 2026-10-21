@@ -309,6 +309,43 @@
         "sha256": "23999ad0fa12ce20bd7a4d93947d987b96447e9ad018bcaf545a481c1e0171fa"
       }
     },
+    "alertes_spatial.parquet": {
+      "entrees_silver": {
+        "cleaned/admin_epci_5epci.parquet": "dba918a2cb1563aeb81f641cc4ae99405dfad03fc3fee591656ce81577ceb49b",
+        "cleaned/filosofi_carreaux_5epci.parquet": "3eb03ec0fcb181e789dcef35cf559b31875688055bce47e7f6370788200406b9",
+        "cleaned/osm_walk_edges_larochelle.parquet": "8f72d45d908e99ae237241fcb13d29aa28047e636d7874ce278b2a80539d6b30",
+        "cleaned/osm_walk_nodes_larochelle.parquet": "6bb2d5fb53d5cf978ee600168762f81e189994d9955cfa2941f77c6aa97271ac",
+        "deduplicated/offre_arrets_larochelle.parquet": "3d4b87a12f67c5b68058c85c7b63a856b4fd52fd831871c7f4d924297e9d5b25",
+        "deduplicated/offre_citiz_larochelle.parquet": "0c56c06e6b15c35d855e0d69e1cd08a09dc8733e2eecb0b5a4aa69229fde0188",
+        "deduplicated/offre_velo_larochelle.parquet": "7a34f377b23122a373870e8702c5314c8136e8bb8d3b1f45c73ed88adbc422c8"
+      },
+      "parametres": {
+        "distance_max_marche_m": 400,
+        "tampon_m": 500
+      },
+      "run_id": "20261021T053529Z_f5db0b4",
+      "table": {
+        "cle": [
+          "regle_id",
+          "id_origine",
+          "etape"
+        ],
+        "colonnes": [
+          "source_id",
+          "id_origine",
+          "regle_id",
+          "niveau",
+          "motif",
+          "valeur_constatee",
+          "etape",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 7,
+        "nom": "alertes_spatial.parquet",
+        "sha256": "55f69617887ccaa5310cd228ceffb1b9565cd15dc8b6809bd7c3ed3e8f20b932"
+      }
+    },
     "qualite_indicateurs_S01.parquet": {
       "origine_bronze": {
         "dossier": "data/bronze/gbfs/larochelle/S01_2026-10-21",
@@ -597,6 +634,40 @@
         "lignes": 8,
         "nom": "qualite_indicateurs_S08.parquet",
         "sha256": "80eb351294e6cdfc2bc1d3cbcb670a35ab652569c156b854addf8655199b0d4b"
+      }
+    },
+    "qualite_indicateurs_spatial.parquet": {
+      "entrees_silver": {
+        "cleaned/admin_epci_5epci.parquet": "dba918a2cb1563aeb81f641cc4ae99405dfad03fc3fee591656ce81577ceb49b",
+        "cleaned/filosofi_carreaux_5epci.parquet": "3eb03ec0fcb181e789dcef35cf559b31875688055bce47e7f6370788200406b9",
+        "cleaned/osm_walk_edges_larochelle.parquet": "8f72d45d908e99ae237241fcb13d29aa28047e636d7874ce278b2a80539d6b30",
+        "cleaned/osm_walk_nodes_larochelle.parquet": "6bb2d5fb53d5cf978ee600168762f81e189994d9955cfa2941f77c6aa97271ac",
+        "deduplicated/offre_arrets_larochelle.parquet": "3d4b87a12f67c5b68058c85c7b63a856b4fd52fd831871c7f4d924297e9d5b25",
+        "deduplicated/offre_citiz_larochelle.parquet": "0c56c06e6b15c35d855e0d69e1cd08a09dc8733e2eecb0b5a4aa69229fde0188",
+        "deduplicated/offre_velo_larochelle.parquet": "7a34f377b23122a373870e8702c5314c8136e8bb8d3b1f45c73ed88adbc422c8"
+      },
+      "parametres": {
+        "distance_max_marche_m": 400,
+        "tampon_m": 500
+      },
+      "run_id": "20261021T053529Z_f5db0b4",
+      "table": {
+        "cle": [
+          "q_id",
+          "libelle"
+        ],
+        "colonnes": [
+          "source_id",
+          "q_id",
+          "libelle",
+          "valeur",
+          "unite",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 17,
+        "nom": "qualite_indicateurs_spatial.parquet",
+        "sha256": "32bc26e335b45b58ddb3362317f4fc6482a2b3b2f253e040ec3f7e3e800165e7"
       }
     },
     "rejets_S01.parquet": {

@@ -1,0 +1,139 @@
+{
+  "couche": "silver",
+  "tables": {
+    "cellules_larochelle.parquet": {
+      "entrees_silver": {
+        "cleaned/admin_epci_5epci.parquet": "dba918a2cb1563aeb81f641cc4ae99405dfad03fc3fee591656ce81577ceb49b",
+        "cleaned/filosofi_carreaux_5epci.parquet": "3eb03ec0fcb181e789dcef35cf559b31875688055bce47e7f6370788200406b9",
+        "cleaned/osm_walk_edges_larochelle.parquet": "8f72d45d908e99ae237241fcb13d29aa28047e636d7874ce278b2a80539d6b30",
+        "cleaned/osm_walk_nodes_larochelle.parquet": "6bb2d5fb53d5cf978ee600168762f81e189994d9955cfa2941f77c6aa97271ac",
+        "deduplicated/offre_arrets_larochelle.parquet": "3d4b87a12f67c5b68058c85c7b63a856b4fd52fd831871c7f4d924297e9d5b25",
+        "deduplicated/offre_citiz_larochelle.parquet": "0c56c06e6b15c35d855e0d69e1cd08a09dc8733e2eecb0b5a4aa69229fde0188",
+        "deduplicated/offre_velo_larochelle.parquet": "7a34f377b23122a373870e8702c5314c8136e8bb8d3b1f45c73ed88adbc422c8"
+      },
+      "parametres": {
+        "distance_max_marche_m": 400,
+        "tampon_m": 500
+      },
+      "run_id": "20261021T053529Z_f5db0b4",
+      "table": {
+        "cle": [
+          "cell_id"
+        ],
+        "colonnes": [
+          "idcar_200m",
+          "idcar_1km",
+          "idcar_nat",
+          "i_est_200",
+          "i_est_1km",
+          "lcog_geo",
+          "ind",
+          "men",
+          "men_pauv",
+          "men_1ind",
+          "men_5ind",
+          "men_prop",
+          "men_fmp",
+          "ind_snv",
+          "men_surf",
+          "men_coll",
+          "men_mais",
+          "log_av45",
+          "log_45_70",
+          "log_70_90",
+          "log_ap90",
+          "log_inc",
+          "log_soc",
+          "ind_0_3",
+          "ind_4_5",
+          "ind_6_10",
+          "ind_11_17",
+          "ind_18_24",
+          "ind_25_39",
+          "ind_40_54",
+          "ind_55_64",
+          "ind_65_79",
+          "ind_80p",
+          "ind_inc",
+          "geometry",
+          "cell_id",
+          "commune_insee",
+          "commune_principale",
+          "territoire",
+          "epci_siren",
+          "multi_commune",
+          "partiel_epci",
+          "est_impute",
+          "source_id",
+          "id_origine",
+          "fichier_origine",
+          "sha256_origine",
+          "date_donnee",
+          "run_id",
+          "statut_transformation",
+          "regles_appliquees",
+          "qualite",
+          "aire_m2",
+          "x_centroide",
+          "y_centroide",
+          "node_id",
+          "dist_snap_m",
+          "pop"
+        ],
+        "crs": "EPSG:2154",
+        "lignes": 2637,
+        "nom": "cellules_larochelle.parquet",
+        "sha256": "e2cb4dcebba0539e51d264ad73905449352b92352141452b2a0c91a2f44314f9"
+      }
+    },
+    "offre_points_larochelle.parquet": {
+      "entrees_silver": {
+        "cleaned/admin_epci_5epci.parquet": "dba918a2cb1563aeb81f641cc4ae99405dfad03fc3fee591656ce81577ceb49b",
+        "cleaned/filosofi_carreaux_5epci.parquet": "3eb03ec0fcb181e789dcef35cf559b31875688055bce47e7f6370788200406b9",
+        "cleaned/osm_walk_edges_larochelle.parquet": "8f72d45d908e99ae237241fcb13d29aa28047e636d7874ce278b2a80539d6b30",
+        "cleaned/osm_walk_nodes_larochelle.parquet": "6bb2d5fb53d5cf978ee600168762f81e189994d9955cfa2941f77c6aa97271ac",
+        "deduplicated/offre_arrets_larochelle.parquet": "3d4b87a12f67c5b68058c85c7b63a856b4fd52fd831871c7f4d924297e9d5b25",
+        "deduplicated/offre_citiz_larochelle.parquet": "0c56c06e6b15c35d855e0d69e1cd08a09dc8733e2eecb0b5a4aa69229fde0188",
+        "deduplicated/offre_velo_larochelle.parquet": "7a34f377b23122a373870e8702c5314c8136e8bb8d3b1f45c73ed88adbc422c8"
+      },
+      "parametres": {
+        "distance_max_marche_m": 400,
+        "tampon_m": 500
+      },
+      "run_id": "20261021T053529Z_f5db0b4",
+      "table": {
+        "cle": [
+          "offre_id"
+        ],
+        "colonnes": [
+          "offre_id",
+          "mode",
+          "source_id",
+          "id_origine",
+          "nom",
+          "nom_normalise",
+          "lat_wgs84",
+          "lon_wgs84",
+          "capacite",
+          "n_quais",
+          "n_quais_desservis",
+          "fichier_origine",
+          "sha256_origine",
+          "date_donnee",
+          "run_id",
+          "statut_transformation",
+          "regles_appliquees",
+          "qualite",
+          "geometry",
+          "node_id",
+          "dist_snap_m",
+          "dans_emprise"
+        ],
+        "crs": "EPSG:2154",
+        "lignes": 694,
+        "nom": "offre_points_larochelle.parquet",
+        "sha256": "5ad6974ab3eddebd66e5fb56869e5e2511dac0cd0e0974454a8533df7bf1dc43"
+      }
+    }
+  }
+}
