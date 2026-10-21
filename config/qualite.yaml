@@ -1,0 +1,39 @@
+# Seuils du protocole qualité (docs/protocole_qualite.md).
+# sens : ">=" ou "<=" (seuil d'alerte), "intervalle" ([min, max]), "info" (aucun seuil : constat seul).
+# Un seuil fixé AVANT constat le dit ; un seuil fixé APRÈS constat cite la mesure.
+seuils:
+  QC-COMP-01: {sens: ">=", seuil: 0.95}     # coordonnées des options (cahier Q1, fixé avant constat)
+  QC-COMP-02: {sens: ">=", seuil: 0.95}     # capacité des stations (champ non critique)
+  QC-COMP-03: {sens: ">=", seuil: 0.99}     # population des carreaux
+  QC-VAL-01: {sens: ">=", seuil: 0.98}      # lignes valides (cahier Q2)
+  QC-UNI-01: {sens: ">=", seuil: 1.0}       # clés uniques
+  QC-UNI-02: {sens: info}                   # réduction par dédoublonnage (constat)
+  QC-COH-01: {sens: ">=", seuil: 1.0}       # conservation CS-01
+  QC-COH-02: {sens: ">=", seuil: 0.95}      # centroïde dans la commune attribuée (J-02)
+  QC-COH-03: {sens: ">=", seuil: 1.0}       # paires réseau retrouvées à vol d'oiseau (J-06)
+  QC-COH-04: {sens: "<=", seuil: 0.01}      # sensibilité RC-01 : part des paires perdues
+  QC-COH-05: {sens: ">=", seuil: 1.0}       # anti-double comptage : population ventilée une seule fois
+  QC-FRA-GBFS: {sens: "<=", seuil: 30}      # jours depuis last_updated (flux temps réel)
+  QC-FRA-OSM: {sens: "<=", seuil: 90}       # jours depuis la requête Overpass
+  QC-FRA-GTFS: {sens: ">=", seuil: 14}      # jours de validité restants à la date de référence
+  QC-FRA-ADMIN: {sens: "<=", seuil: 365}    # jours depuis l'édition Admin Express
+  QC-FRA-FILOSOFI: {sens: info}             # millésime : âge en années, constat
+  QC-TRA-01: {sens: ">=", seuil: 1.0}       # dossiers Bronze conformes à leur manifeste
+  QC-TRA-02: {sens: ">=", seuil: 1.0}       # tables Silver et Gold conformes à leur empreinte
+  QC-TRA-03: {sens: ">=", seuil: 1.0}       # tables produites par du code commité (run_id sans -modifie)
+  QC-JOI-01: {sens: ">=", seuil: 0.99}      # options rattachées à une commune de l'EPCI (J-01)
+  QC-JOI-02: {sens: ">=", seuil: 0.99}      # population rattachée au réseau à ≤ 400 m (RG-08)
+  QC-JOI-03: {sens: ">=", seuil: 0.99}      # options rattachées au réseau à ≤ 400 m
+  QC-JOI-04: {sens: ">=", seuil: 1.0}       # quais rattachés à leur zone par parent_station (Q4)
+  QC-JOI-05: {sens: ">=", seuil: 0.99}      # nœuds dans la composante principale (cahier Q7, fixé avant constat)
+  CD-01: {sens: ">=", seuil: 1.0}           # communes de l'EPCI avec au moins un carreau
+  CD-02: {sens: intervalle, seuil: [0.85, 1.05]}  # population Filosofi / population légale
+  CD-03: {sens: ">=", seuil: 0.99}          # population dans le rayon du réseau piéton
+  CD-04: {sens: info}                       # modes de mobilité couverts par une source
+  CD-05: {sens: "<=", seuil: 0.10}          # part de la population imputée (Q8)
+  CM-01: {sens: info}
+  CM-02: {sens: info}
+  CM-03: {sens: info}
+  CM-04: {sens: info}
+  CM-05: {sens: info}
+  CM-06: {sens: info}
