@@ -1,6 +1,6 @@
 # Registre des sources
 
-**Statut :** inventaire écrit le 21 octobre 2026. Déposés : S02, S03 et S03d. Les empreintes sont dans `recuperations`. Les autres sources ne sont pas téléchargées.
+**Statut :** inventaire écrit le 21 octobre 2026. Déposés : S01, S02, S03 et S03d. Les empreintes sont dans `recuperations` ; pour S01, les trois empreintes sont dans le manifeste. Les autres sources ne sont pas téléchargées.
 
 Le fichier lu par le pipeline et par le jury est `docs/registre_des_sources.xlsx`. Ce document fixe les règles et le sens des colonnes.
 

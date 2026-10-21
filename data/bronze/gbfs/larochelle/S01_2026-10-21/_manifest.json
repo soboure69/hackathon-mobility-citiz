@@ -1,0 +1,117 @@
+{
+  "source_id": "S01",
+  "nom": "Citiz autopartage La Rochelle",
+  "run_id": "20261021T020400Z_beaf780",
+  "date_heure": "2026-10-21T02:04:00+00:00",
+  "url_demandee": "https://backend.citiz.fr/public/provider/18/gbfs/v3.0/gbfs.json",
+  "url_effective": "https://backend.citiz.fr/public/provider/18/gbfs/v3.0/gbfs.json",
+  "http_status": 200,
+  "fichiers": [
+    {
+      "nom": "gbfs.json",
+      "taille_octets": 1079,
+      "sha256": "2eb78fcf56756216ea5d80390567cbcfcec1c2be404777c79bfffc450e488157",
+      "content_type": "application/json; charset=utf-8",
+      "http_status": 200,
+      "url_demandee": "https://backend.citiz.fr/public/provider/18/gbfs/v3.0/gbfs.json",
+      "url_effective": "https://backend.citiz.fr/public/provider/18/gbfs/v3.0/gbfs.json",
+      "tentatives": 1
+    },
+    {
+      "nom": "system_information.json",
+      "taille_octets": 906,
+      "sha256": "6402bd8a35b1f9217d9970b4424e8b7fd1d3c29d5f574182b89a353576e0116c",
+      "content_type": "application/json",
+      "http_status": 200,
+      "url_demandee": "https://backend.citiz.fr/public/provider/18/gbfs/v3.0/system_information.json",
+      "url_effective": "https://backend.citiz.fr/public/provider/18/gbfs/v3.0/system_information.json",
+      "tentatives": 1
+    },
+    {
+      "nom": "station_information.json",
+      "taille_octets": 5154,
+      "sha256": "1f15fde7e591a919f661a0106b870296c2c28899f41f710b83e55ea5c90f4108",
+      "content_type": "application/json",
+      "http_status": 200,
+      "url_demandee": "https://backend.citiz.fr/public/provider/18/gbfs/v3.0/station_information.json",
+      "url_effective": "https://backend.citiz.fr/public/provider/18/gbfs/v3.0/station_information.json",
+      "tentatives": 1
+    }
+  ],
+  "version_producteur": {
+    "version": "3.0",
+    "ttl": 300,
+    "flux_annonces": [
+      "gbfs",
+      "gbfs_versions",
+      "geofencing_zones",
+      "station_information",
+      "station_status",
+      "system_information",
+      "system_pricing_plans",
+      "vehicle_status",
+      "vehicle_types"
+    ],
+    "last_updated": {
+      "gbfs.json": "2026-10-21T04:04:01.2783437+02:00",
+      "system_information.json": "2026-10-21T04:00:25.4860453+02:00",
+      "station_information.json": "2026-10-21T03:59:16.6078611+02:00"
+    }
+  },
+  "licence_registre": "Licence Ouverte 2.0",
+  "licence_constatee": "Licence Ouverte / Open Licence version 2.0 (fiche data.gouv.fr lue le 2026-10-21)",
+  "outil": {
+    "mode": "script",
+    "script": "scripts/ingest_bronze.py",
+    "requests": "2.34.2"
+  },
+  "parametres": {
+    "flux_retenus": [
+      "system_information",
+      "station_information"
+    ],
+    "delai_s": [
+      10,
+      60
+    ],
+    "essais": 3
+  },
+  "controles": [
+    {
+      "id": "version_gbfs",
+      "resultat": "ok",
+      "valeur": "3.0"
+    },
+    {
+      "id": "flux_system_information",
+      "resultat": "ok",
+      "valeur": "system_information.json"
+    },
+    {
+      "id": "flux_station_information",
+      "resultat": "ok",
+      "valeur": "station_information.json"
+    },
+    {
+      "id": "nb_stations",
+      "resultat": "ok",
+      "valeur": 24
+    },
+    {
+      "id": "stations_coordonnees",
+      "resultat": "ok",
+      "valeur": "24/24"
+    },
+    {
+      "id": "stations_capacite",
+      "resultat": "ok",
+      "valeur": "24/24"
+    },
+    {
+      "id": "licence_constatee",
+      "resultat": "ok",
+      "valeur": "Licence Ouverte / Open Licence version 2.0 (fiche data.gouv.fr lue le 2026-10-21)"
+    }
+  ],
+  "statut_ingestion": "reussie"
+}
