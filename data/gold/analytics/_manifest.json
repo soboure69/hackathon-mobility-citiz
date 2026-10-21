@@ -1,6 +1,39 @@
 {
   "couche": "gold",
   "tables": {
+    "qualite_donnees_larochelle.parquet": {
+      "date_reference": "2026-10-21",
+      "parametres": {
+        "seuils": "config/qualite.yaml"
+      },
+      "run_id": "20261021T063511Z_d103556",
+      "table": {
+        "cle": [
+          "indicateur_id"
+        ],
+        "colonnes": [
+          "indicateur_id",
+          "dimension",
+          "famille",
+          "source_id",
+          "perimetre",
+          "libelle",
+          "formule",
+          "valeur",
+          "valeur_texte",
+          "unite",
+          "sens",
+          "seuil",
+          "statut",
+          "date_reference",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 52,
+        "nom": "qualite_donnees_larochelle.parquet",
+        "sha256": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86"
+      }
+    },
     "qualite_indicateurs_paires.parquet": {
       "entrees_silver": {
         "cleaned/osm_walk_edges_larochelle.parquet": "8f72d45d908e99ae237241fcb13d29aa28047e636d7874ce278b2a80539d6b30",
