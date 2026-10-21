@@ -1,0 +1,983 @@
+{
+  "couche": "gold",
+  "tables": {
+    "carreaux_larochelle.geojson": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "crs": "EPSG:4326",
+        "lignes": 2637,
+        "nom": "carreaux_larochelle.geojson",
+        "sha256": "74deda5d58ea6bed218af9bea2fc07bfed4e13035701da1af9dbfc34768df03e"
+      }
+    },
+    "communes_larochelle.geojson": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "crs": "EPSG:4326",
+        "lignes": 28,
+        "nom": "communes_larochelle.geojson",
+        "sha256": "1aabfd4541eab454fc714845bc142cd46a136d196f1beea966c2e326c780786c"
+      }
+    },
+    "dim_candidat_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "candidat_id"
+        ],
+        "colonnes": [
+          "candidat_id",
+          "commune_insee",
+          "score",
+          "rang",
+          "rang_commune",
+          "rang_equite",
+          "pop_rayon",
+          "pop_nouvelle_isolee",
+          "taux_redondance",
+          "frequence_top_n",
+          "commune_prioritaire",
+          "lat",
+          "lon",
+          "classe_score",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 2200,
+        "nom": "dim_candidat_larochelle.parquet",
+        "sha256": "9dffd3f68c48bb369e4f299ad40afd21b4f533a7aff1d953e46dc0fd21585439"
+      }
+    },
+    "dim_cellule_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "cell_id"
+        ],
+        "colonnes": [
+          "cell_id",
+          "commune_insee",
+          "pop",
+          "classe_acces",
+          "n_options_total",
+          "desservi_tous",
+          "desservi_citiz",
+          "quintile_niveau_vie",
+          "niveau_vie_moyen",
+          "est_impute",
+          "lat",
+          "lon",
+          "prioritaire",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 2637,
+        "nom": "dim_cellule_larochelle.parquet",
+        "sha256": "9bb07704fd1da8b708cf4c843dbe172011f18ae973a2454fd8cdbc85873ce86d"
+      }
+    },
+    "dim_commune_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "commune_insee"
+        ],
+        "colonnes": [
+          "commune_insee",
+          "nom",
+          "taux_tous_modes",
+          "taux_citiz",
+          "pop_filosofi",
+          "prioritaire",
+          "statut_commune",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 28,
+        "nom": "dim_commune_larochelle.parquet",
+        "sha256": "4db704986c4746a554a805582d25cb8ad3def7c8fbd14996d067a8806369b8b3"
+      }
+    },
+    "dim_mode_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "mode"
+        ],
+        "colonnes": [
+          "mode",
+          "libelle",
+          "ordre",
+          "couleur",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 4,
+        "nom": "dim_mode_larochelle.parquet",
+        "sha256": "aeb8194e263c68de6376fcff0061ea0da99a93799c079a67aa3fb8f5fb1db4ef"
+      }
+    },
+    "dim_offre_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "offre_id"
+        ],
+        "colonnes": [
+          "offre_id",
+          "mode",
+          "nom",
+          "commune_insee",
+          "lat",
+          "lon",
+          "capacite",
+          "pop_5min",
+          "pop_exclusive",
+          "atteinte",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 694,
+        "nom": "dim_offre_larochelle.parquet",
+        "sha256": "98ebd843114818289911b1598e6667fa9890b438dfdb68a2412ea872467dfba7"
+      }
+    },
+    "dim_scenario_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "scenario_id"
+        ],
+        "colonnes": [
+          "scenario_id",
+          "scenario",
+          "ordre_budget",
+          "hypothese_cout",
+          "variante",
+          "budget",
+          "cout_station",
+          "cout_etiquette",
+          "n_stations",
+          "k6",
+          "k7",
+          "k8",
+          "couverture_citiz_avant",
+          "couverture_citiz_apres",
+          "couverture_tous_avant",
+          "couverture_tous_apres",
+          "pop_sans_option_gagnee",
+          "pop_gagnee_prioritaire",
+          "k12_part_prioritaire",
+          "scenario_reference",
+          "prix_equite_habitants",
+          "prix_equite_part",
+          "statut_solution",
+          "ecart_relatif_garanti",
+          "k6_glouton",
+          "libelle",
+          "est_reference",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 12,
+        "nom": "dim_scenario_larochelle.parquet",
+        "sha256": "22a22685e9746dac6b2339866b4a231df6f130a59455361e578d1951950077b6"
+      }
+    },
+    "dim_source_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "source_id"
+        ],
+        "colonnes": [
+          "source_id",
+          "nom",
+          "producteur",
+          "licence",
+          "millesime",
+          "date_consultation",
+          "url",
+          "priorite",
+          "statut",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 26,
+        "nom": "dim_source_larochelle.parquet",
+        "sha256": "020c7a234d483f2b69252b7a098b3c1e3c5a49943ba7e7c7a64f608d8311ebb0"
+      }
+    },
+    "fact_acces_mode_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "cell_id",
+          "mode"
+        ],
+        "colonnes": [
+          "cell_id",
+          "mode",
+          "pop",
+          "n_options",
+          "dist_min_m",
+          "desservi",
+          "lat",
+          "lon",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 10548,
+        "nom": "fact_acces_mode_larochelle.parquet",
+        "sha256": "618a458ffe08ed407f5dec980dd7fb77abc39b90bb93c300ac8ec6ed8b0a10fe"
+      }
+    },
+    "fact_carte_scenario_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "scenario_id",
+          "point_id"
+        ],
+        "colonnes": [
+          "scenario_id",
+          "point_id",
+          "type_point",
+          "nom",
+          "lat",
+          "lon",
+          "taille",
+          "ordre_ajout",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 453,
+        "nom": "fact_carte_scenario_larochelle.parquet",
+        "sha256": "5cf6b6ce72b08caf0dcd7b7f305f8d3c49b2fe6ae75677245b747426163e8301"
+      }
+    },
+    "fact_cellules_gagnees_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "scenario_id",
+          "cell_id"
+        ],
+        "colonnes": [
+          "scenario_id",
+          "cell_id",
+          "pop",
+          "prioritaire",
+          "gain_tous_modes",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 1079,
+        "nom": "fact_cellules_gagnees_larochelle.parquet",
+        "sha256": "91121863707244d8b0996965ccef46c3e5e84690a09d9af5e4e41cc2a76be3d8"
+      }
+    },
+    "fact_contribution_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "candidat_id",
+          "critere"
+        ],
+        "colonnes": [
+          "candidat_id",
+          "critere",
+          "valeur_normalisee",
+          "contribution",
+          "libelle_critere",
+          "ordre",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 11000,
+        "nom": "fact_contribution_larochelle.parquet",
+        "sha256": "4c853cb5ed7f49087260c75be731bd3b13ba07f0f7885cd2c4f70a404b6888ca"
+      }
+    },
+    "fact_courbe_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "n_stations"
+        ],
+        "colonnes": [
+          "n_stations",
+          "budget",
+          "k6",
+          "gain_marginal",
+          "k8",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 30,
+        "nom": "fact_courbe_larochelle.parquet",
+        "sha256": "5eb97c6582b9fea8543767c6ca8d0622d58af33a304ca0daeb41fc8d137857fe"
+      }
+    },
+    "fact_distribution_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "mode",
+          "n_options"
+        ],
+        "colonnes": [
+          "mode",
+          "n_options",
+          "pop",
+          "n_carreaux",
+          "classe",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 42,
+        "nom": "fact_distribution_larochelle.parquet",
+        "sha256": "a0ce550e3ad84ffa498197c9b35b047161813634190a0e6c939606631c912ad4"
+      }
+    },
+    "fact_equite_quintile_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "quintile",
+          "mode"
+        ],
+        "colonnes": [
+          "quintile",
+          "mode",
+          "pop",
+          "pop_desservie",
+          "taux_couverture",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 20,
+        "nom": "fact_equite_quintile_larochelle.parquet",
+        "sha256": "2c0bba54ef43762c9d8b48662ed82b9fc85eebf8ff4c1b6d07cbb336e3c087f0"
+      }
+    },
+    "fact_kpi_commune_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "commune_insee",
+          "mode"
+        ],
+        "colonnes": [
+          "commune_insee",
+          "mode",
+          "pop_totale",
+          "pop_desservie",
+          "pop_non_desservie",
+          "taux_couverture",
+          "options_moyennes_par_habitant",
+          "pop_au_moins_2_modes",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 112,
+        "nom": "fact_kpi_commune_larochelle.parquet",
+        "sha256": "d9a364dc7c41e9f7bbc5282d05b113c5fd01f74bfd0ef15ab3111eeca0d12227"
+      }
+    },
+    "fact_kpi_territoire_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "mode"
+        ],
+        "colonnes": [
+          "mode",
+          "pop_totale",
+          "pop_desservie",
+          "pop_non_desservie",
+          "taux_couverture",
+          "options_moyennes_par_habitant",
+          "pop_au_moins_2_modes",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 4,
+        "nom": "fact_kpi_territoire_larochelle.parquet",
+        "sha256": "73ababe8f4550d07c8cf3edb0bf18bcd5bdaba79a7b252ae1843700a4834003f"
+      }
+    },
+    "fact_qualite_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "indicateur_id"
+        ],
+        "colonnes": [
+          "indicateur_id",
+          "dimension",
+          "famille",
+          "source_id",
+          "perimetre",
+          "libelle",
+          "formule",
+          "valeur",
+          "valeur_texte",
+          "unite",
+          "sens",
+          "seuil",
+          "statut",
+          "date_reference",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 52,
+        "nom": "fact_qualite_larochelle.parquet",
+        "sha256": "46baf7cde47c845db34c267e6daa8c504a51dd48527be79882921cbaec3c072f"
+      }
+    },
+    "fact_selection_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "scenario_id",
+          "candidat_id"
+        ],
+        "colonnes": [
+          "scenario_id",
+          "candidat_id",
+          "ordre_ajout",
+          "cout",
+          "cout_cumule",
+          "pop_nouvelle_marginale",
+          "pop_nouvelle_cumulee",
+          "commune_insee",
+          "score",
+          "lat",
+          "lon",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 165,
+        "nom": "fact_selection_larochelle.parquet",
+        "sha256": "a25beb7b179558babf6c7d461b746e0e654eebd2a01655d83114f8f4c940a983"
+      }
+    },
+    "fact_sensibilite_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "variable",
+          "facteur"
+        ],
+        "colonnes": [
+          "variable",
+          "facteur",
+          "spearman",
+          "recouvrement_top_n",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 10,
+        "nom": "fact_sensibilite_larochelle.parquet",
+        "sha256": "c19b8ba4c3dd9bb04969ff239c785d7c57666b13d967767a97ffa433eec69554"
+      }
+    },
+    "meta_execution_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "dossier",
+          "table"
+        ],
+        "colonnes": [
+          "dossier",
+          "table",
+          "run_id",
+          "date_execution_utc",
+          "commit",
+          "modifie"
+        ],
+        "crs": null,
+        "lignes": 16,
+        "nom": "meta_execution_larochelle.parquet",
+        "sha256": "fa9a0481750f7552b4af97a2878b16fec1efc08326c3789047f74751845637eb"
+      }
+    },
+    "ref_hypotheses_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "hypothese_id"
+        ],
+        "colonnes": [
+          "hypothese_id",
+          "theme",
+          "texte",
+          "valeur",
+          "nature",
+          "document",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 9,
+        "nom": "ref_hypotheses_larochelle.parquet",
+        "sha256": "248fda467a6344ffcc969f1fa7f65f1f3fe35ceff8f6f47adc632271069912eb"
+      }
+    },
+    "ref_risques_larochelle.parquet": {
+      "entrees": {
+        "data\\gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "data\\gold\\accessibility\\desserte_offre_larochelle.parquet": "22c2fdfa0d3825ad6ff164303a6be1ab30bbaaad9a7607f2822c39a00f95088b",
+        "data\\gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "data\\gold\\analytics\\qualite_donnees_larochelle.parquet": "c1ea8c0106ebf33bdde1900a6eadabac6c17b5702405de11e979991522ec1d86",
+        "data\\gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "data\\gold\\candidates\\sensibilite_ponderations_larochelle.parquet": "58efa1eb316efdb35002b83b44d9f03536ead7c1db4f9e503baecfb029b7639f",
+        "data\\gold\\dashboards\\agg_distribution_acces_larochelle.parquet": "eae88f0f22d14bedf70eea2006e14ec11413cc926c4a5f3bcaaea8ebcfdc5e68",
+        "data\\gold\\dashboards\\agg_equite_larochelle.parquet": "7495dcebda553f49dda9b9db0407ff26d7927e4fa43f583b22f242cbcbfdbdb6",
+        "data\\gold\\optimization\\cellules_couvertes_scenario_larochelle.parquet": "8631d2bf065c2577ebe7cca4d87d1a25abbb62cfed1c7a31f41bebbb04e2b9e4",
+        "data\\gold\\optimization\\courbe_budget_impact_larochelle.parquet": "9006fdb2cbe39c2c1daccff54c7f329b9e38a4054cba33fa5183c12d312e65fd",
+        "data\\gold\\optimization\\kpi_scenario_larochelle.parquet": "2709b8a2430a9398942cf21d1b5caf26ee876cb7f7b75436219facdf5bf2bb27",
+        "data\\gold\\optimization\\scenarios_larochelle.parquet": "68279a091588ffdba9702c1adc54f3e072f5128158ee303042a3b55155168694",
+        "data\\gold\\optimization\\selection_scenario_larochelle.parquet": "e0c8075942b2c5d1497bbdb427ecf73dad55785b01afe31a38a3589100895ecc",
+        "data\\silver\\cleaned\\admin_communes_5epci.parquet": "8dbacc60b549cdf8430790371ca32fd7bc33c25331827e45fe7c4c5fa5534eb2",
+        "docs/registre_des_sources.xlsx": "46fcb6b2182e2a115c07f1c6830f78e9b599b5c17d2a3d1ce29e5bc05e0a217e",
+        "docs/suivi_risques.md": "0c44bf1006852c8044fe5f559338df0239966718c91749ebeee7f20c62adb14c"
+      },
+      "run_id": "20261021T092556Z_a3fcfa0",
+      "table": {
+        "cle": [
+          "risque_id"
+        ],
+        "colonnes": [
+          "risque_id",
+          "libelle",
+          "probabilite",
+          "impact",
+          "mitigation",
+          "responsable",
+          "ouvert",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 29,
+        "nom": "ref_risques_larochelle.parquet",
+        "sha256": "594a3f13305bf0f3e39ac77c932d88bdd80d4e05cf249a3969eb90d3c413c702"
+      }
+    }
+  }
+}
