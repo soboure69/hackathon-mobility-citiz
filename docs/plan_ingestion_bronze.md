@@ -54,7 +54,7 @@ Un `_manifest.json` par dossier.
 | Champ | Contenu |
 |---|---|
 | `source_id`, `nom` | Repris du registre |
-| `run_id` | `AAAAMMJJTHHMMSS_<hash court du commit>` |
+| `run_id` | `AAAAMMJJTHHMMSSZ_<hash court du commit>[-modifie]`. Heure UTC. Suffixe `-modifie` si des fichiers suivis ont des modifications non commitées. Les manifestes manuels du lot 0 gardent leur `run_id` d'origine. |
 | `date_heure` | ISO 8601 avec fuseau |
 | `url_demandee`, `url_effective` | Avant et après redirection |
 | `http_status` | Code par fichier |

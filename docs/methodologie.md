@@ -38,6 +38,18 @@ Origine : test sur Lyon 2e (hors périmètre du projet).
 
 Les règles des sources non ingérées (S01, S04, S05, S07, S08) s'appliquent sous réserve du constat à l'ingestion.
 
+### RF-01 — Restriction de Filosofi aux EPCI d'étude (AD6)
+
+Attribut : `lcog_geo` = code(s) commune au 01/01/2021, triés par surface d'intersection décroissante ; séparateur à lire dans le fichier (E4).
+
+Règle : un carreau est gardé si au moins un de ses codes appartient à l'EPCI.
+
+Marqueurs : `multi_commune` (plusieurs codes) ; `partiel_epci` (au moins un code hors EPCI). Le carreau n'est jamais découpé : sa population compte une fois.
+
+Prérequis : vérifier que les codes 2021 des communes de l'EPCI sont identiques à ceux de la géographie de S04. Si une commune a changé, il faut une table de passage entre les deux millésimes du code officiel géographique (nouvelle source à enregistrer), et non une correspondance écrite à la main.
+
+Repli : test d'intersection avec l'emprise, si `lcog_geo` est inutilisable.
+
 ## Coordonnées
 
 Ces contrôles portent sur les points GTFS et GBFS, avant la conversion en Lambert-93. L'emprise métropolitaine, la précision minimale et le seuil de distance quai–zone sont des paramètres. RG-06 et le seuil de distance de S07 ne sont pas chiffrés.

@@ -28,6 +28,7 @@
 | Exports Power BI | `data/gold/exports/` | `pbi_dim_<objet>.parquet` ou `pbi_fact_<objet>.parquet` |
 
 - Bronze : un fichier `_manifest.json` par dossier daté (URL, date, licence, empreinte SHA-256). Le `source_id` est celui de `docs/registre_des_sources.xlsx`. Deux flux de la même famille ne partagent pas le même dossier.
+- `run_id` = `AAAAMMJJTHHMMSSZ_<hash court du commit>[-modifie]`. Heure UTC. Suffixe `-modifie` si des fichiers suivis ont des modifications non commitées. Les manifestes manuels du lot 0 gardent leur `run_id` d'origine.
 
 ## Nommage Silver, Gold et exports
 
