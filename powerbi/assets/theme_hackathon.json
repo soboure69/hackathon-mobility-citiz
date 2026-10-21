@@ -1,0 +1,19 @@
+{
+  "name": "Hackathon mobilite La Rochelle - accessible",
+  "dataColors": ["#0072B2", "#D55E00", "#009E73", "#CC79A7", "#6E6E6E", "#6A3D9A", "#56B4E9", "#E69F00"],
+  "background": "#FFFFFF",
+  "foreground": "#1A1A1A",
+  "tableAccent": "#0072B2",
+  "good": "#0072B2",
+  "neutral": "#6E6E6E",
+  "bad": "#D55E00",
+  "minimum": "#EFF3FF",
+  "center": "#6BAED6",
+  "maximum": "#08519C",
+  "textClasses": {
+    "title": {"fontFace": "Segoe UI Semibold", "fontSize": 14, "color": "#1A1A1A"},
+    "header": {"fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#1A1A1A"},
+    "label": {"fontFace": "Segoe UI", "fontSize": 10, "color": "#1A1A1A"},
+    "callout": {"fontFace": "Segoe UI Semibold", "fontSize": 28, "color": "#1A1A1A"}
+  }
+}

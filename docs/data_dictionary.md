@@ -80,6 +80,8 @@ K6 d'un scénario se calcule sur l'ensemble des carreaux nouvellement couverts, 
 
 ## Exports Power BI
 
+**Remplacé le 21/10/2026** par `powerbi/dataset_schema/modele_donnees.md` (Mission 13 : 22 tables, relations, contrôles X-01 à X-07). La liste ci-dessous est la version d'origine, gardée pour l'historique.
+
 Dossier `data/gold/exports/` seulement (AD3). Parquet, EPSG:4326 (AD1, AD2). Aucune table de paires (AD4).
 
 | Export | Issu de | Relation | Page |
