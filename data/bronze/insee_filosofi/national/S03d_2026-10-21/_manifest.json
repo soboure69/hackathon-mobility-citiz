@@ -1,0 +1,46 @@
+{
+  "source_id": "S03d",
+  "nom": "Documentation Filosofi 2021 (dictionnaire des variables et secret statistique)",
+  "run_id": "20261021T021000_749665a",
+  "date_heure": "2026-10-21T02:10:00+02:00",
+  "url_demandee": "https://www.insee.fr/fr/statistiques/8735162",
+  "url_effective": "https://www.insee.fr/fr/statistiques/8735162",
+  "http_status": {
+    "8735162.html": 200
+  },
+  "fichiers": [
+    {
+      "nom": "8735162.html",
+      "taille_octets": 61359,
+      "sha256": "6c2ebefae7e63742c4782a9e9cf7ea76747948fcdee6364a2f4a95a8ba49ca94",
+      "content_type": "text/html;charset=UTF-8"
+    }
+  ],
+  "version_producteur": {
+    "millesime": "2021",
+    "date_parution_page": "2026-02-12",
+    "page": "https://www.insee.fr/fr/statistiques/8735162",
+    "onglet": "Dictionnaire des variables",
+    "variables": 34,
+    "secret_statistique": "Carreau imputé si moins de 11 ménages fiscaux. i_est_200 vaut 1 en cas d'imputation.",
+    "nom_fichier": "Le serveur n'envoie pas de nom de fichier. Le corps HTML est enregistré sous 8735162.html, identifiant de la page."
+  },
+  "licence_registre": "à vérifier",
+  "licence_constatee": "Non affichée dans le HTML consulté le 2026-10-21. Reste à vérifier.",
+  "outil": {
+    "mode": "manuel",
+    "commit": "749665a",
+    "requests": "2.34.2, non utilisé",
+    "osmnx": "2.1.1, non utilisé"
+  },
+  "parametres": {},
+  "controles": [
+    {"id": "http_200", "resultat": "ok", "valeur": "200"},
+    {"id": "non_vide", "resultat": "ok", "valeur": "61359 octets"},
+    {"id": "html_lisible", "resultat": "ok", "valeur": "UTF-8, onglet Dictionnaire des variables présent"},
+    {"id": "dictionnaire", "resultat": "ok", "valeur": "34 variables, de idcar_200m à ind_inc"},
+    {"id": "secret_statistique", "resultat": "ok", "valeur": "seuil de 11 ménages fiscaux ; i_est_200 = 1 si imputé"},
+    {"id": "graphies_vs_s03", "resultat": "alerte", "valeur": "La page écrit id_car_nat et i_est_1Km. Le GeoPackage S03 contient idcar_nat et i_est_1km. Écart constaté, pas tranché."}
+  ],
+  "statut_ingestion": "reussie_avec_alertes"
+}

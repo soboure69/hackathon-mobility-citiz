@@ -1,6 +1,6 @@
 # Suivi des risques
 
-**Statut :** mis à jour après les décisions du 20 octobre 2026.
+**Statut :** mis à jour le 21 octobre 2026. R19 est clos. R23 porte sur la fin de validité du GTFS Yélo.
 **Source :** [cahier des charges](cahier_des_charges.md).
 
 | ID | Risque | Probabilité | Impact | Mitigation | Responsable |
@@ -23,7 +23,8 @@
 | R16 | Métropole dont le graphe piéton ne tient pas en local | Moyenne | Élevé | Porte G5. Si elle échoue, prendre le candidat suivant, plus petit. | Porteur |
 | R17 | Effectif Citiz faible sur le territoire retenu (24 stations), donc modèle H6 fragile | Élevée | Élevé | Option A retenue le 20/10/2026 : apprentissage multi-territoires, validation par ville. | Porteur |
 | R18 | Offre vélo Yélo disponible seulement en export figé du 17/06/2026 (137 stations) | Certaine | Moyen | Utiliser uniquement les positions des stations comme offre structurelle, ignorer les disponibilités, afficher la date dans Q5 (fraîcheur) et dans Power BI, chercher une autre source publique à E2 sans supposer qu'elle existe. | Porteur |
-| R19 | Archive GTFS Yélo non encore ouverte : arrêts sans coordonnées ou réseau incomplet feraient passer S3 à 0 | Moyenne | Élevé | Vérification V-a à E2. Si échec, bascule vers Nantes Métropole (`selection_territoire.md`, §8). | Porteur |
+| R19 | Archive GTFS Yélo non encore ouverte : arrêts sans coordonnées ou réseau incomplet feraient passer S3 à 0 | Écartée | Élevé | Clos le 21/10/2026 : V-a passée. | Porteur |
+| R23 | Validité GTFS Yélo jusqu'au 03/01/2027 : une finale nationale après cette date impose un nouveau téléchargement de S02 | À connaître | Moyen | Retélécharger S02 dans un nouveau dossier daté. Ne pas rouvrir `S02_2026-10-21`. | Porteur |
 | R20 | Territoire de taille moyenne : un impact en valeur absolue plus faible qu'une grande métropole | Certaine | Moyen | Présenter aussi des ratios (coût par habitant, % de couverture), pas seulement des volumes. | Porteur |
 | R21 | Écarts de comportement pandas 3 par rapport à la documentation en ligne (pandas 2) | Moyenne | Faible | Versions figées dans `requirements-lock.txt`, documentation officielle de pandas 3 en référence. | Porteur |
 | R22 | Dépôt privé, donc le jury n'a pas accès si rien n'est fait | Élevée | Critique | Demander aux encadrants les comptes GitHub à inviter, ou rendre le dépôt public avant la soutenance. | Porteur |

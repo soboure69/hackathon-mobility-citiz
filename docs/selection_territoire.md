@@ -219,12 +219,16 @@ Point de vigilance sur le secours : Nantes est proche du plafond G5 (689 456 hab
 
 Statut : décidé, pas verrouillé. Le choix devient définitif quand les 4 vérifications sont faites.
 
-| # | Vérification | Constat attendu | Étape |
-|---|---|---|---|
-| V-a | Ouvrir l'archive GTFS Yélo | stops.txt avec coordonnées, routes et trips présents, calendrier valide à la date de démo | E2 |
-| V-b | Filosofi 200 m | carreaux présents sur les 28 communes, part des carreaux sous secret statistique notée | E2 |
-| V-c | Contour Admin Express de l'EPCI 241700434 | ≥ 80 % des 24 stations Citiz dedans | E3 |
-| V-d | Graphe piéton OSM de l'EPCI | téléchargé et calculé en local, nombre de nœuds noté | E3 |
+| # | Vérification | Constat attendu | Résultat au 21/10/2026 | Étape |
+|---|---|---|---|---|
+| V-a | Ouvrir l'archive GTFS Yélo | stops.txt avec coordonnées, routes et trips présents, calendrier valide à la date de démo | Passée si la démonstration a lieu au plus tard le 03/01/2027. Archive complète : fichiers obligatoires, `shapes`, `feed_info`, 1 515 arrêts avec coordonnées, validité du 08/10/2026 au 03/01/2027. | E2 |
+| V-b | Filosofi 200 m | carreaux présents sur les 28 communes, part des carreaux sous secret statistique notée | Partielle : fichier lisible, emprise après S04. | E2 |
+| V-c | Contour Admin Express de l'EPCI 241700434 | ≥ 80 % des 24 stations Citiz dedans | En attente | E3 |
+| V-d | Graphe piéton OSM de l'EPCI | téléchargé et calculé en local, nombre de nœuds noté | En attente | E3 |
+
+Constat V-a du 21/10 : S3 passerait à 2 (95/100). Décision du 20/10 inchangée.
+
+Le déclencheur « archive GTFS inexploitable » du §8 ne s'applique pas. Le seul cas encore ouvert sur ce flux est une finale nationale après le 03/01/2027 (R23) : il faudrait alors retélécharger S02 dans un nouveau dossier daté.
 
 ---
 
@@ -235,5 +239,6 @@ Résumé ; le détail est dans [`suivi_risques.md`](suivi_risques.md).
 - R16 : périmètre trop grand pour le graphe piéton → La Rochelle, la plus compacte des 7
 - R17 : 24 stations Citiz seulement → H6 option A (multi-territoires)
 - R18 : vélo Yélo figé au 17/06/2026 → positions seulement, date affichée
-- R19 : GTFS Yélo non encore ouvert → vérification V-a, bascule vers Nantes si échec
+- R19 : clos le 21/10/2026, V-a passée
+- R23 : validité GTFS Yélo jusqu'au 03/01/2027 → nouveau téléchargement de S02 si une finale nationale a lieu après cette date
 - R20 : territoire de taille moyenne, donc un impact en valeur absolue plus faible qu'une grande métropole → présenter aussi des ratios (coût par habitant, % de couverture), pas seulement des volumes

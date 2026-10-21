@@ -1,6 +1,6 @@
 # Registre des sources
 
-**Statut :** inventaire écrit le 21 octobre 2026. Lot 0 déposé le même jour : S02 et S03, empreintes dans `recuperations`. Les autres sources ne sont pas téléchargées.
+**Statut :** inventaire écrit le 21 octobre 2026. Déposés : S02, S03 et S03d. Les empreintes sont dans `recuperations`. Les autres sources ne sont pas téléchargées.
 
 Le fichier lu par le pipeline et par le jury est `docs/registre_des_sources.xlsx`. Ce document fixe les règles et le sens des colonnes.
 
@@ -18,7 +18,7 @@ S07 est la source proposée pour la densité d'arrêts de H6 : un seul fichier, 
 
 ## Onglet `sources`
 
-Une ligne par source. S06 et S18 sont découpés par ville (`S06a`, `S18a`…) pour que chaque `source_id` ait son dossier bronze. Cela fait 24 lignes, pas une ligne par famille.
+Une ligne par source. S06 et S18 sont découpés par ville (`S06a`, `S18a`…) pour que chaque `source_id` ait son dossier bronze. S03d est la documentation du millésime Filosofi, dans son propre dossier : le suffixe `d` veut dire documentation, et la même règle vaudra pour les autres sources. Le dossier de données déjà empreinté n'est pas rouvert.
 
 | # | Colonne | Contenu |
 |---|---|---|

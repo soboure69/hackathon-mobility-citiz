@@ -109,3 +109,4 @@ Les deux dépôts sont manuels. Les archives ne sont pas versionnées. La preuve
 | V-b, fichier Filosofi | `ok`. Zip lisible, trois GeoPackage. Métropole : 2 298 582 carreaux, EPSG:2154. Martinique : 11 222, EPSG:5490. La Réunion : 14 773, EPSG:2975. |
 | V-b, carreaux dans l'emprise | `alerte`. À faire au premier script : le contour S04 n'existe pas encore. Aucune table Silver. |
 | Licence S03 | Non affichée sur la page. Reste `à vérifier`. |
+| Documentation | Déposée ensuite en S03d, dans un autre dossier. `S03_2026-10-21/` n'est pas rouvert. |
