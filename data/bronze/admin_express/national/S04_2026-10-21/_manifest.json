@@ -1,0 +1,167 @@
+{
+  "source_id": "S04",
+  "nom": "Admin Express (communes, EPCI)",
+  "run_id": "20261021T024321Z_7a6e527",
+  "date_heure": "2026-10-21T02:43:21+00:00",
+  "url_demandee": "https://data.geopf.fr/telechargement/download/ADMIN-EXPRESS-COG/ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01.7z",
+  "url_effective": "https://data.geopf.fr/telechargement/download/ADMIN-EXPRESS-COG/ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01.7z",
+  "http_status": 200,
+  "fichiers": [
+    {
+      "nom": "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01.7z",
+      "taille_octets": 238498257,
+      "sha256": "688eb44505d9b4a8e422ded2f4afaac799f10783de563132ca1a60e9491c6278",
+      "content_type": "application/x-7z-compressed",
+      "last_modified": null,
+      "etag": null,
+      "http_status": 200,
+      "url_demandee": "https://data.geopf.fr/telechargement/download/ADMIN-EXPRESS-COG/ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01.7z",
+      "url_effective": "https://data.geopf.fr/telechargement/download/ADMIN-EXPRESS-COG/ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01.7z",
+      "tentatives": 1
+    }
+  ],
+  "version_producteur": {
+    "last_modified": null,
+    "etag": null,
+    "edition_declaree": "ADMIN EXPRESS COG 4.0, édition 2026-01-01, FXX, LAMB93"
+  },
+  "licence_registre": "Licence Ouverte / Open Licence version 2.0",
+  "licence_constatee": "Licence Ouverte / Open Licence version 2.0 (fiche data.gouv.fr lue le 2026-10-21)",
+  "outil": {
+    "mode": "script",
+    "script": "scripts/ingest_bronze.py",
+    "requests": "2.34.2"
+  },
+  "parametres": {
+    "famille": "admin_express",
+    "index_seul": false,
+    "taille_annoncee": 238498257,
+    "siren": "241700434",
+    "nb_communes": 28,
+    "delai_s": [
+      10,
+      60
+    ],
+    "essais": 3
+  },
+  "controles": [
+    {
+      "id": "taille_annoncee",
+      "resultat": "ok",
+      "valeur": "238498257 reçus / 238498257 annoncés"
+    },
+    {
+      "id": "archive_integre",
+      "resultat": "ok",
+      "valeur": "17 entrées"
+    },
+    {
+      "id": "contenu_archive",
+      "resultat": "ok",
+      "valeur": [
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01",
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG",
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG/1_DONNEES_LIVRAISON_2026-06-00493",
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG/1_DONNEES_LIVRAISON_2026-06-00493/ADE-COG_4-0_GPKG_LAMB93_FXX-ED2026-01-01",
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG/2_METADONNEES_LIVRAISON_2026-06-00493",
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG/2_METADONNEES_LIVRAISON_2026-06-00493/ADE-COG_4-0_GPKG_LAMB93_FXX-ED2026-01-01",
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG/3_SUPPLEMENTS_LIVRAISON_2026-06-00493",
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG/3_SUPPLEMENTS_LIVRAISON_2026-06-00493/ADE-COG_4-0_GPKG_LAMB93_FXX-ED2026-01-01",
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG/3_SUPPLEMENTS_LIVRAISON_2026-06-00493/ADE-COG_4-0_GPKG_LAMB93_FXX-ED2026-01-01/EMPRISE",
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG/1_DONNEES_LIVRAISON_2026-06-00493/ADE-COG_4-0_GPKG_LAMB93_FXX-ED2026-01-01/ADE-COG_4-0_GPKG_LAMB93_FXX-ED2026-01-01.gpkg",
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG/2_METADONNEES_LIVRAISON_2026-06-00493/ADE-COG_4-0_GPKG_LAMB93_FXX-ED2026-01-01/LISEZ_MOI.txt",
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG/3_SUPPLEMENTS_LIVRAISON_2026-06-00493/ADE-COG_4-0_GPKG_LAMB93_FXX-ED2026-01-01/EMPRISE/EMPRISE.cpg",
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG/3_SUPPLEMENTS_LIVRAISON_2026-06-00493/ADE-COG_4-0_GPKG_LAMB93_FXX-ED2026-01-01/EMPRISE/EMPRISE.dbf",
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG/3_SUPPLEMENTS_LIVRAISON_2026-06-00493/ADE-COG_4-0_GPKG_LAMB93_FXX-ED2026-01-01/EMPRISE/EMPRISE.prj",
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG/3_SUPPLEMENTS_LIVRAISON_2026-06-00493/ADE-COG_4-0_GPKG_LAMB93_FXX-ED2026-01-01/EMPRISE/EMPRISE.shp",
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG/3_SUPPLEMENTS_LIVRAISON_2026-06-00493/ADE-COG_4-0_GPKG_LAMB93_FXX-ED2026-01-01/EMPRISE/EMPRISE.shx",
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG/LISEZ-MOI.pdf"
+      ]
+    },
+    {
+      "id": "couches",
+      "resultat": "ok",
+      "valeur": [
+        "canton",
+        "arrondissement",
+        "arrondissement_municipal",
+        "chef_lieu_d_arrondissement",
+        "chef_lieu_d_arrondissement_municipal",
+        "chef_lieu_de_canton",
+        "chef_lieu_de_collectivite_territoriale",
+        "chef_lieu_de_commune",
+        "chef_lieu_de_commune_associee_ou_deleguee",
+        "chef_lieu_de_departement",
+        "chef_lieu_d_epci",
+        "chef_lieu_de_region",
+        "collectivite_territoriale",
+        "commune",
+        "commune_associee_ou_deleguee",
+        "departement",
+        "epci",
+        "region",
+        "info_metadonnees",
+        "layer_styles"
+      ]
+    },
+    {
+      "id": "couche_commune",
+      "resultat": "ok",
+      "valeur": {
+        "entites": 34746,
+        "crs": "EPSG:2154",
+        "colonnes": [
+          "cleabs",
+          "nom_officiel",
+          "nom_officiel_en_majuscules",
+          "statut",
+          "code_insee",
+          "population",
+          "date_du_recensement",
+          "organisme_recenseur",
+          "code_insee_du_canton",
+          "code_insee_de_l_arrondissement",
+          "code_insee_du_departement",
+          "code_insee_de_la_region",
+          "code_siren",
+          "codes_siren_des_epci",
+          "code_postal",
+          "superficie_cadastrale"
+        ],
+        "colonnes_contenant_siren": [
+          "codes_siren_des_epci"
+        ],
+        "lignes_siren": 28,
+        "attendu": 28
+      }
+    },
+    {
+      "id": "couche_epci",
+      "resultat": "ok",
+      "valeur": {
+        "entites": 1241,
+        "crs": "EPSG:2154",
+        "colonnes": [
+          "cleabs",
+          "nom_officiel",
+          "nom_officiel_en_majuscules",
+          "nature",
+          "codes_insee_des_communes_membres",
+          "codes_insee_des_departements_membres",
+          "code_siren"
+        ],
+        "colonnes_contenant_siren": [
+          "code_siren"
+        ],
+        "lignes_siren": 1,
+        "attendu": 1
+      }
+    },
+    {
+      "id": "licence_constatee",
+      "resultat": "ok",
+      "valeur": "Licence Ouverte / Open Licence version 2.0 (fiche data.gouv.fr lue le 2026-10-21)"
+    }
+  ],
+  "statut_ingestion": "reussie"
+}

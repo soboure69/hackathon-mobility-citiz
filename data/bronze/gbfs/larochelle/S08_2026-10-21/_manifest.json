@@ -1,0 +1,108 @@
+{
+  "source_id": "S08",
+  "nom": "Yélo disponibilité des vélos en libre-service",
+  "run_id": "20261021T024255Z_7a6e527",
+  "date_heure": "2026-10-21T02:42:55+00:00",
+  "url_demandee": "https://opendata.agglo-larochelle.fr/sites/default/files/dataset/2dc/df9ac-ca89-4e3f-af7e-5d75f255ee5e/gbfs.json",
+  "url_effective": "https://opendata.agglo-larochelle.fr/sites/default/files/dataset/2dc/df9ac-ca89-4e3f-af7e-5d75f255ee5e/gbfs.json",
+  "http_status": 200,
+  "fichiers": [
+    {
+      "nom": "gbfs.json",
+      "taille_octets": 45450,
+      "sha256": "0a20e42f6916987211aa97f83030ab524bba468690735831a78238c836759cde",
+      "content_type": "application/json",
+      "last_modified": "Wed, 17 Jun 2026 09:14:28 GMT",
+      "etag": "\"b18a-6546f7c91e92b-gzip\"",
+      "http_status": 200,
+      "url_demandee": "https://opendata.agglo-larochelle.fr/sites/default/files/dataset/2dc/df9ac-ca89-4e3f-af7e-5d75f255ee5e/gbfs.json",
+      "url_effective": "https://opendata.agglo-larochelle.fr/sites/default/files/dataset/2dc/df9ac-ca89-4e3f-af7e-5d75f255ee5e/gbfs.json",
+      "tentatives": 1
+    },
+    {
+      "nom": "system_information.json",
+      "taille_octets": 403,
+      "sha256": "a5aff42156c37b8837060effe3e8db8c08d16729d2900c6c5248b54e332df0b0",
+      "content_type": "application/json",
+      "last_modified": "Wed, 17 Jun 2026 09:14:39 GMT",
+      "etag": "\"193-6546f7d40b675-gzip\"",
+      "http_status": 200,
+      "url_demandee": "https://opendata.agglo-larochelle.fr/d4c/api/datasets/1.0/yelo___disponibilite_des_velos_en_libre_service/alternative_exports/7f0df698-4c17-4d9f-9d7e-49c13a3a6015",
+      "url_effective": "https://opendata.agglo-larochelle.fr/sites/default/files/dataset/2dc/df9ac-ca89-4e3f-af7e-5d75f255ee5e/system_information.json",
+      "tentatives": 1
+    }
+  ],
+  "version_producteur": {
+    "version": "3.0",
+    "ttl": 180,
+    "flux_annonces": [
+      "system_information"
+    ],
+    "last_updated": {
+      "gbfs.json": "2026-06-17T11:12:55+02:00",
+      "system_information.json": "2026-06-17T11:12:55+02:00"
+    }
+  },
+  "licence_registre": "Licence Ouverte",
+  "licence_constatee": "Licence Ouverte / Open Licence (fiche data.gouv.fr lue le 2026-10-21)",
+  "outil": {
+    "mode": "script",
+    "script": "scripts/ingest_bronze.py",
+    "requests": "2.34.2"
+  },
+  "parametres": {
+    "famille": "gbfs",
+    "index_seul": true,
+    "taille_annoncee": null,
+    "siren": "241700434",
+    "nb_communes": 28,
+    "delai_s": [
+      10,
+      60
+    ],
+    "essais": 3
+  },
+  "controles": [
+    {
+      "id": "version_gbfs",
+      "resultat": "ok",
+      "valeur": "3.0"
+    },
+    {
+      "id": "export_fige",
+      "resultat": "alerte",
+      "valeur": "index seul, last_updated = 2026-06-17T11:12:55+02:00"
+    },
+    {
+      "id": "flux_system_information",
+      "resultat": "ok",
+      "valeur": "system_information.json"
+    },
+    {
+      "id": "flux_station_information",
+      "resultat": "alerte",
+      "valeur": "absent : stations embarquées dans gbfs.json"
+    },
+    {
+      "id": "nb_stations",
+      "resultat": "ok",
+      "valeur": 137
+    },
+    {
+      "id": "stations_coordonnees",
+      "resultat": "ok",
+      "valeur": "137/137"
+    },
+    {
+      "id": "stations_capacite",
+      "resultat": "alerte",
+      "valeur": "0/137"
+    },
+    {
+      "id": "licence_constatee",
+      "resultat": "ok",
+      "valeur": "Licence Ouverte / Open Licence (fiche data.gouv.fr lue le 2026-10-21)"
+    }
+  ],
+  "statut_ingestion": "reussie_avec_alertes"
+}
