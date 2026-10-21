@@ -6,6 +6,8 @@ d'arrêts de transport ou de stations vélo, là où elles couvrent le plus d'ha
 
 Hackathon Epitech x Citiz — sujet « Hackathon Mobility » (v0.4.0).
 
+**Commencer par le [manuel du projet](docs/manuel_projet.md)** : vision, déroulé des 15 missions, architecture et guide de lecture par profil.
+
 ## Territoire
 
 Communauté d'agglomération de La Rochelle (EPCI 241700434), 28 communes, 174 016 habitants,

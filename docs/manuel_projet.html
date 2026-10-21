@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>manuel_projet.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="manuel-du-projet-et-guide-darchitecture">Manuel du projet et guide d'architecture</h1>
+<p><strong>Hackathon Epitech x Citiz · « Hackathon Mobility » · CA de La Rochelle</strong></p>
+<p><strong>Statut :</strong> 21/10/2026, après les Missions 1 à 15. Ce manuel raconte le projet de bout en bout : pourquoi chaque étape existait, ce qu'elle a produit, et comment elle a ouvert la suivante. Les détails vivent dans les documents cités ; ce manuel est la porte d'entrée. Tous les chiffres viennent des tables Gold du dépôt (run de l'optimisation <code>20261021T084710Z_5c8ceff</code>).</p>
+<blockquote>
+<p><strong>Comment lire ce manuel.</strong> Si vous avez 2 minutes : § 1.2 et § 3.2. Si vous êtes au jury : § 4.1. Si vous décidez pour Citiz ou une collectivité : § 4.2. Si vous reprenez le code : § 3 puis § 4.3.</p>
+</blockquote>
+<hr>
+<h2 id="sommaire">Sommaire</h2>
+<ol>
+<li><a href="#1-introduction-et-vision-globale">Introduction et vision globale</a></li>
+<li><a href="#2-d%C3%A9roul%C3%A9-mission-par-mission">Déroulé mission par mission</a></li>
+<li><a href="#3-synth%C3%A8se-de-larchitecture-et-cha%C3%AEne-de-valeur">Synthèse de l'architecture et chaîne de valeur</a></li>
+<li><a href="#4-bilan-et-guide-de-lecture-par-profil">Bilan et guide de lecture par profil</a></li>
+<li><a href="#5-glossaire">Glossaire</a></li>
+</ol>
+<hr>
+<h2 id="1-introduction-et-vision-globale">1. Introduction et vision globale</h2>
+<h3 id="11-contexte-et-problématique-métier">1.1 Contexte et problématique métier</h3>
+<p>Citiz est le premier réseau coopératif d'autopartage en France : environ 2 800 voitures partagées dans quelque 280 villes. Comme tout opérateur, il doit choisir <strong>où ouvrir ses prochaines stations</strong> : là où elles toucheront le plus d'habitants, compléteront l'offre existante et trouveront leurs usagers.</p>
+<p>Depuis la loi d'orientation des mobilités (LOM), beaucoup de données sont ouvertes : arrêts de bus (format <strong>GTFS</strong>), stations de vélos et d'autopartage (format <strong>GBFS</strong>), population fine de l'INSEE, réseau piéton d'OpenStreetMap. Mais <strong>aucune source ne suffit seule</strong> : l'offre ne dit rien de la population servie, la population ne dit rien de l'offre, et une carte sans réseau piéton surestime l'accès réel.</p>
+<p>Le défi est donc de <strong>croiser</strong> ces sources pour répondre à une question simple : <em>qui a vraiment une option de mobilité près de chez lui, et où faut-il en ajouter ?</em></p>
+<p>Sur notre territoire, la réponse de départ est nette :</p>
+<table>
+<thead>
+<tr>
+<th>Constat (CA de La Rochelle, 174 016 habitants)</th>
+<th style="text-align:right">Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Habitants avec au moins une option à 5 min à pied (bus, Citiz ou vélo)</td>
+<td style="text-align:right">77,8 %</td>
+</tr>
+<tr>
+<td>… avec un arrêt de bus</td>
+<td style="text-align:right">76,1 %</td>
+</tr>
+<tr>
+<td>… avec une station vélo en libre-service</td>
+<td style="text-align:right">28,5 %</td>
+</tr>
+<tr>
+<td>… avec une station <strong>Citiz</strong></td>
+<td style="text-align:right"><strong>9,8 %</strong></td>
+</tr>
+<tr>
+<td>Habitants sans <strong>aucune</strong> option à 5 min</td>
+<td style="text-align:right"><strong>38 672</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-objectif-majeur-et-promesse-de-la-solution">1.2 Objectif majeur et promesse de la solution</h3>
+<p><strong>La décision que le projet permet de prendre :</strong></p>
+<blockquote>
+<p>Pour un territoire et un budget donnés, <strong>quelles stations financer en priorité</strong> pour maximiser le nombre d'habitants <strong>nouvellement</strong> à 5 minutes à pied d'une station, chacun compté une seule fois, sans doublonner l'offre existante, et en connaissant le prix de l'équité entre communes.</p>
+</blockquote>
+<p><strong>La réponse produite pour La Rochelle :</strong></p>
+<table>
+<thead>
+<tr>
+<th>Scénario de référence</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Budget</td>
+<td>85 000 € sur 3 ans (budget de simulation)</td>
+</tr>
+<tr>
+<td>Stations financées</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Habitants nouvellement couverts</td>
+<td><strong>+18 816</strong></td>
+</tr>
+<tr>
+<td>Coût par habitant gagné</td>
+<td><strong>4,52 €</strong></td>
+</tr>
+<tr>
+<td>Couverture Citiz</td>
+<td>9,8 % → <strong>20,6 %</strong> (doublée)</td>
+</tr>
+<tr>
+<td>Variante équité (30 % des gains en communes prioritaires)</td>
+<td>14 446 habitants (−23 %), mais 4 674 dans les communes prioritaires au lieu de 0, et 2 006 habitants sans aucune option atteints au lieu de 168</td>
+</tr>
+</tbody>
+</table>
+<p><strong>La promesse :</strong> une recommandation <strong>chiffrée, traçable et rejouable</strong>, qui distingue toujours ce qui est mesuré, ce qui est estimé et ce qui est une hypothèse. L'outil chiffre les arbitrages ; il ne les tranche pas à la place des décideurs.</p>
+<p><strong>Ce que la solution ne promet pas :</strong> une prévision de fréquentation. Aucun historique de locations n'est public ; le projet le dit, et ne fabrique pas de cible.</p>
+<h3 id="13-vue-densemble-du-parcours-missions-1-à-15">1.3 Vue d'ensemble du parcours (Missions 1 à 15)</h3>
+<pre class="hljs"><code><div> CADRER            OUTILLER              CONSTRUIRE LA DONNÉE              MESURER            DÉCIDER                 RESTITUER ET DÉFENDRE
+┌────────┐   ┌──────────────────┐   ┌──────────────────────────────┐   ┌──────────┐   ┌──────────────────┐   ┌─────────────────────────────┐
+│ M1     │   │ M3 Dépôt Git     │   │ M6 Bronze : copie fidèle      │   │ M10 KPI  │   │ M11 Candidats    │   │ M13 Restitution (5 pages)   │
+│ Cadrage│──▶│ M4 Registre des  │──▶│ M7 Silver : nettoyage,        │──▶│ d&#x27;accès  │──▶│     et score     │──▶│ M14 Soutenance              │
+│ M2     │   │    sources       │   │    dédoublonnage              │   │ (qui est │   │ M12 Optimisation │   │ M15 Checklist finale        │
+│ Terri- │   │ M5 Architecture  │   │ M8 Jointures spatiales        │   │ desservi)│   │     sous budget  │   │                             │
+│ toire  │   │    Bronze/Silver │   │ M9 Qualité et couverture      │   │          │   │     + équité     │   │                             │
+└────────┘   │    /Gold         │   └──────────────────────────────┘   └──────────┘   └──────────────────┘   └─────────────────────────────┘
+             └──────────────────┘
+ Question ──▶ Cadre de travail ──▶ Données fiables et traçables ──▶ Diagnostic ──▶ Recommandation chiffrée ──▶ Décision éclairée
+</div></code></pre>
+<p>Chaque mission produit un livrable qui rend la suivante <strong>possible</strong> (on ne peut pas mesurer sans données propres) et <strong>nécessaire</strong> (une mesure appelle une décision). Les transitions sont détaillées au § 2.</p>
+<hr>
+<h2 id="2-déroulé-mission-par-mission">2. Déroulé mission par mission</h2>
+<h3 id="-mission-1--cadrage-fonctionnel">📌 Mission 1 : Cadrage fonctionnel</h3>
+<p><strong>1. Pourquoi cette mission ?</strong>
+Un hackathon de deux jours et demi échoue rarement faute de code ; il échoue faute de question claire. Il fallait transformer un sujet large (« cartographier l'accès à la mobilité en France et proposer où investir ») en <strong>une décision mesurable</strong>, avec des indicateurs définis avant tout calcul, et dire dès le départ ce que le projet ne ferait pas.</p>
+<p><strong>2. Ce qui a été réalisé et les choix clés</strong></p>
+<ul>
+<li>Problème reformulé et relié aux 3 objectifs officiels : O1 cartographier l'accès, O2 montrer qui est concerné, O3 proposer où investir (le cœur).</li>
+<li>Parties prenantes et besoins : Citiz, collectivités, autres opérateurs, urbanistes, jury non technique, jury data, habitants.</li>
+<li>Décision finale et 7 décisions secondaires (territoire, type d'équipement, budget, arbitrage efficacité / équité…).</li>
+<li>KPI métier <strong>K1 à K13</strong> et KPI qualité <strong>Q1 à Q8</strong>, avec la règle d'or : <strong>une cellule de population n'est comptée qu'une fois</strong>.</li>
+<li>Hypothèses H1 à H9 ; la plus structurante, <strong>H5 : aucun historique d'usage Citiz</strong>. D'où le choix de parler de <strong>score de potentiel</strong>, jamais de prédiction de fréquentation.</li>
+<li>Périmètre MVP strict, hors périmètre écrit, 18 critères d'acceptation.</li>
+</ul>
+<p><strong>3. Ce que cela apporte</strong>
+Un contrat de travail : <code>docs/cahier_des_charges.md</code>. Chaque chiffre produit ensuite a une définition écrite d'avance, ce qui protège contre les erreurs classiques (double comptage, confusion couverture / usage, coût sans source).</p>
+<p><strong>4. Transition</strong>
+Les KPI sont définis à la cellule de 200 m et le calcul doit tenir sur un ordinateur portable : impossible à l'échelle de la France. Il fallait donc <strong>choisir un territoire</strong>.</p>
+<hr>
+<h3 id="-mission-2--choisir-le-périmètre">📌 Mission 2 : Choisir le périmètre</h3>
+<p><strong>1. Pourquoi cette mission ?</strong>
+Un territoire trop grand rend les calculs sur réseau piéton impossibles en local ; un territoire mal choisi (sans flux Citiz, sans GTFS) rend la démonstration vide. Le choix devait être <strong>défendable</strong> devant un jury, pas une préférence.</p>
+<p><strong>2. Ce qui a été réalisé et les choix clés</strong></p>
+<ul>
+<li>Méthode en deux temps : des <strong>portes éliminatoires</strong> (G1 flux Citiz exploitable, G2 périmètre EPCI ou métropole, G3 GTFS ouvert, G4 carroyage INSEE, G5 taille du graphe, G6 intérêt métier), puis une <strong>note pondérée</strong> S1 à S7 (qualité du flux Citiz, fraîcheur, GTFS, second mode, contraste dense / peu dense, taille, récit pour le jury).</li>
+<li>Sept agglomérations candidates examinées. <strong>CA de La Rochelle retenue (87,5 / 100)</strong>, Nantes Métropole en secours.</li>
+<li>Vérifications de verrouillage V-a à V-d (validité du GTFS à la date de démonstration, carreaux dans l'emprise…), faites le 21/10/2026.</li>
+</ul>
+<p><strong>3. Ce que cela apporte</strong>
+Un territoire de 28 communes et 174 016 habitants, avec 24 stations Citiz, 136 stations vélo et 534 arrêts de bus : assez riche pour un vrai arbitrage (centre dense, périphérie peu desservie), assez petit pour un calcul exact. <code>docs/selection_territoire.md</code>.</p>
+<p><strong>4. Transition</strong>
+Le territoire étant connu, le travail pouvait commencer pour de bon : il fallait un <strong>dépôt</strong> organisé pour que tout soit traçable dès le premier fichier.</p>
+<hr>
+<h3 id="-mission-3--initialiser-le-dépôt">📌 Mission 3 : Initialiser le dépôt</h3>
+<p><strong>1. Pourquoi cette mission ?</strong>
+La rigueur se voit dans le dépôt. Un jury data vérifie qu'on peut rejouer le travail ; un futur développeur doit s'y retrouver. Et surtout, les données (plusieurs centaines de Mo) ne doivent jamais polluer l'historique Git.</p>
+<p><strong>2. Ce qui a été réalisé et les choix clés</strong></p>
+<ul>
+<li>Arborescence <code>data/bronze|silver|gold</code>, <code>docs</code>, <code>notebooks</code>, <code>src</code>, <code>tests</code>, <code>scripts</code>, <code>config</code>, <code>powerbi</code>, <code>reports</code>.</li>
+<li><code>.gitignore</code> qui exclut toutes les données (<code>data/**</code>, <code>*.parquet</code>, archives…) mais <strong>garde les manifestes</strong> <code>_manifest.json</code>, preuves de traçabilité.</li>
+<li><code>requirements.txt</code> et <code>requirements-lock.txt</code> (versions figées), environnement Python 3.11 sur Windows.</li>
+<li>Conventions de nommage (<code>docs/conventions.md</code>) : notebooks <code>NN_couche_objet</code>, scripts <code>verbe_objet</code>, tables <code>objet_territoire.parquet</code>.</li>
+<li>Règle de travail : le code est écrit dans le dépôt, les commandes <code>git</code> sont exécutées par le porteur.</li>
+</ul>
+<p><strong>3. Ce que cela apporte</strong>
+Un socle propre : n'importe qui clone le dépôt, installe l'environnement et sait où chercher. L'historique Git devient lui-même une preuve de méthode.</p>
+<p><strong>4. Transition</strong>
+Avant de télécharger quoi que ce soit, il fallait savoir <strong>quoi</strong> télécharger, <strong>d'où</strong>, et <strong>sous quelle licence</strong>.</p>
+<hr>
+<h3 id="-mission-4--registre-des-sources">📌 Mission 4 : Registre des sources</h3>
+<p><strong>1. Pourquoi cette mission ?</strong>
+« Les sources doivent être citées et traçables » est une exigence du sujet. Un chiffre sans source est un chiffre que le jury peut contester. Le registre est aussi l'outil qui révèle les manques (pas de données d'usage, pas de coûts).</p>
+<p><strong>2. Ce qui a été réalisé et les choix clés</strong></p>
+<ul>
+<li><code>docs/registre_des_sources.xlsx</code> : 26 sources, classées <strong>obligatoire / recommandée / optionnelle</strong>, avec producteur, format, usage métier, granularité, fréquence, licence, URL, couche cible, limites connues et contrôles prévus.</li>
+<li>Stratégie de traçabilité : date de récupération, empreinte <strong>SHA-256</strong> (une « signature » du fichier : si un octet change, l'empreinte change), version, chemin local, licence constatée.</li>
+<li>Section « décisions à valider avec Citiz » et liste des champs à demander pour obtenir un jour une <strong>vraie cible d'usage</strong> (réservations, durées, taux d'occupation).</li>
+<li>Règle : rien n'est saisi sans avoir été lu sur la source ; sinon « à vérifier ».</li>
+</ul>
+<p><strong>3. Ce que cela apporte</strong>
+La liste de référence des données, livrable exigé par le sujet, et la preuve que chaque chiffre a une origine. Le registre a aussi rendu visibles les deux trous structurels du projet : <strong>pas d'usage</strong>, <strong>pas de coûts</strong> (d'où <code>docs/registre_couts.md</code>, plus tard).</p>
+<p><strong>4. Transition</strong>
+Avec des sources hétérogènes (zip GTFS, flux JSON GBFS, GeoPackage INSEE, graphe OSM), il fallait une <strong>architecture</strong> qui les range et les transforme sans jamais perdre la trace de l'original.</p>
+<hr>
+<h3 id="-mission-5--architecture-bronze--silver--gold">📌 Mission 5 : Architecture Bronze / Silver / Gold</h3>
+<p><strong>1. Pourquoi cette mission ?</strong>
+Mélanger données brutes, données nettoyées et résultats dans un même dossier, c'est perdre la capacité de dire d'où vient un chiffre. L'architecture « médaillon » sépare les états de la donnée pour que chaque transformation soit isolée, contrôlée et rejouable.</p>
+<p><strong>2. Ce qui a été réalisé et les choix clés</strong></p>
+<table>
+<thead>
+<tr>
+<th>Couche</th>
+<th>Rôle</th>
+<th>Règle d'or</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bronze</strong></td>
+<td>Copie fidèle de la source, à une date</td>
+<td>Jamais modifiée ; empreinte et manifeste</td>
+</tr>
+<tr>
+<td><strong>Silver</strong></td>
+<td>Données fiables, sans interprétation métier</td>
+<td>Typage, nettoyage, dédoublonnage, jointures, qualité ; pas de KPI</td>
+</tr>
+<tr>
+<td><strong>Gold</strong></td>
+<td>Tables de décision</td>
+<td>KPI, candidats, score, optimisation, exports</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Sens unique : Bronze → Silver → Gold.</li>
+<li>Décisions AD1 à AD6 : calculs dans la projection <strong>Lambert-93 (EPSG:2154)</strong>, en mètres, exacte pour la France ; exports en <strong>WGS84 (EPSG:4326)</strong>, le système GPS des cartes web ; formats <strong>Parquet / GeoParquet</strong> (colonnes compressées, types conservés, géométrie incluse) plutôt que CSV ; un seul dossier lu par la restitution (<code>gold/exports/</code>) ; les tables de paires (très grandes) n'y vont jamais.</li>
+<li>Dictionnaire des tables (<code>docs/data_dictionary.md</code>) : nom, grain, clé, colonnes, source, usage.</li>
+</ul>
+<blockquote>
+<p><strong>CRS, en une phrase :</strong> le « système de coordonnées de référence » dit comment lire une position. En Lambert-93, une distance se lit directement en mètres ; en WGS84, en degrés. Mélanger les deux fausse toutes les distances, d'où une règle unique.</p>
+</blockquote>
+<p><strong>3. Ce que cela apporte</strong>
+Une carte du chantier : on sait quelle table existe, d'où elle vient, à quoi elle sert et qui la lit. <code>docs/architecture_data.md</code>.</p>
+<p><strong>4. Transition</strong>
+L'architecture définissait les cases ; il fallait maintenant <strong>remplir Bronze</strong>, source par source, en prouvant que rien n'a été altéré.</p>
+<hr>
+<h3 id="-mission-6--ingestion-bronze">📌 Mission 6 : Ingestion Bronze</h3>
+<p><strong>1. Pourquoi cette mission ?</strong>
+C'est la fondation de la preuve. Si le fichier d'origine n'est pas conservé à l'identique et daté, aucun résultat ne peut être rejoué ni défendu.</p>
+<p><strong>2. Ce qui a été réalisé et les choix clés</strong></p>
+<ul>
+<li>Scripts <code>scripts/ingest_bronze.py</code> et <code>scripts/ingest_osm.py</code>, modules <code>src/ingestion/</code>.</li>
+<li>Dossiers datés et <strong>immuables</strong> : <code>data/bronze/&lt;famille&gt;/&lt;territoire&gt;/&lt;source&gt;_&lt;AAAA-MM-JJ&gt;/</code>. Un dossier existant n'est jamais écrasé (suffixe <code>_2</code> pour un second passage).</li>
+<li>Un <code>_manifest.json</code> par dossier : URL, date, licence constatée, taille, SHA-256 de chaque fichier.</li>
+<li>Ordre par lots : lot 0 (GTFS et Filosofi, pour verrouiller le territoire), lot 1 (communes, réseau OSM, Citiz, vélos). Le lot 2 (autres villes Citiz, pour le modèle H6) n'a pas été ingéré, faute de temps.</li>
+<li>Critères de réussite écrits : fichiers présents et non vides, empreinte vérifiée, contrôles <code>ok</code> ou alerte documentée, licence notée.</li>
+</ul>
+<p><strong>3. Ce que cela apporte</strong>
+Sept sources réelles déposées (S01 Citiz, S02 GTFS Yélo, S03 et S03d Filosofi, S04 Admin Express, S05 réseau piéton, S08 vélos Yélo), chacune vérifiable octet par octet.</p>
+<p><strong>4. Transition</strong>
+Les fichiers bruts sont fidèles mais pas utilisables tels quels : doublons, coordonnées douteuses, formats disparates. Place au <strong>nettoyage</strong>.</p>
+<hr>
+<h3 id="-mission-7--nettoyage-silver">📌 Mission 7 : Nettoyage Silver</h3>
+<p><strong>1. Pourquoi cette mission ?</strong>
+Des données ouvertes ne sont pas des données propres. Un arrêt compté deux fois, une coordonnée inversée ou une valeur manquante remplacée par zéro faussent silencieusement tous les KPI.</p>
+<p><strong>2. Ce qui a été réalisé et les choix clés</strong></p>
+<ul>
+<li>Règles de nettoyage par source <strong>RC-01 à RC-16</strong> (identifiant manquant → rejet ; doublon d'identifiant → rejet des deux lignes et alerte, jamais un choix au hasard ; quai jamais desservi → exclu…).</li>
+<li>Règles géographiques <strong>RG-01 à RG-08</strong> (coordonnées dans l'emprise, précision, rattachement au réseau à moins de 400 m).</li>
+<li><strong>Déduplication des arrêts :</strong> le GTFS de Yélo décrit 981 quais rattachés à 534 arrêts. Une option est un arrêt, pas un quai, sinon un arrêt à deux quais compterait double. La table <code>dedup_correspondances</code> garde la provenance de chaque quai.</li>
+<li>Valeurs manquantes conservées et signalées (jamais remplacées par 0 ou une moyenne) ; carreaux imputés par l'INSEE marqués <code>est_impute</code>.</li>
+<li>Colonnes d'audit sur chaque ligne : source, identifiant d'origine, fichier, empreinte, date, <code>run_id</code>, règles appliquées, statut.</li>
+<li>Contrôles automatiques bloquants <strong>CS-01 à CS-12</strong> (entrée = sortie + rejets, clé unique, CRS, géométries valides, 28 communes…).</li>
+</ul>
+<p><strong>3. Ce que cela apporte</strong>
+Une base fiable et auditable (<code>data/silver/</code>), avec ses rejets et alertes tracés (<code>data/silver/quality/</code>). <code>docs/methodologie.md</code>.</p>
+<p><strong>4. Transition</strong>
+Les données sont propres mais isolées : un carreau ne « sait » pas à quelle commune il appartient, ni quelle station il atteint. Il fallait les <strong>relier dans l'espace</strong>.</p>
+<hr>
+<h3 id="-mission-8--jointures-spatiales">📌 Mission 8 : Jointures spatiales</h3>
+<p><strong>1. Pourquoi cette mission ?</strong>
+Toute la valeur du projet tient dans une relation : <em>ce carreau d'habitants atteint-il cette station en 5 minutes de marche ?</em> Une jointure inexacte crée des habitants fantômes ou en oublie.</p>
+<p><strong>2. Ce qui a été réalisé et les choix clés</strong></p>
+<ul>
+<li>Principe : joindre <strong>par attribut</strong> quand la source fournit la clé (codes INSEE), <strong>par géométrie</strong> seulement sinon, et doubler chaque jointure géométrique d'un contrôle.</li>
+<li>Jointures J0 à J8 dans l'ordre : communes → EPCI ; carreau → commune (attribut INSEE, contrôlé géométriquement à 97,69 %) ; option → réseau ; option → commune (99,86 %) ; carreau → réseau ; <strong>carreau × option</strong> ; plus tard candidat × carreau.</li>
+<li><strong>Accès à 5 minutes = 400 m de marche réelle</strong> (H2, 4,8 km/h) : accès du carreau au réseau + plus court chemin sur le réseau piéton OpenStreetMap + accès à la station.</li>
+<li>Repli « à vol d'oiseau » prévu, mais mesuré : il <strong>surestime</strong> l'accès (2 096 carreaux atteints contre 1 463 sur réseau réel). Le réseau réel a donc été retenu.</li>
+</ul>
+<blockquote>
+<p><strong>Isochrone, en une phrase :</strong> la zone que l'on peut atteindre en un temps donné. Ici, au lieu de dessiner des polygones, on calcule directement, pour chaque station, la liste des carreaux à moins de 400 m de marche : c'est plus exact et plus simple à contrôler.</p>
+</blockquote>
+<p><strong>3. Ce que cela apporte</strong>
+La table des paires carreau × option (<code>gold/accessibility/paires_cellule_offre_larochelle</code>), source unique de toutes les distances. <code>docs/strategie_jointures.md</code>.</p>
+<p><strong>4. Transition</strong>
+Avant de publier le moindre KPI, il fallait <strong>prouver la qualité</strong> des données et des jointures, et séparer trois notions que tout le monde confond.</p>
+<hr>
+<h3 id="-mission-9--qualité-et-couverture">📌 Mission 9 : Qualité et couverture</h3>
+<p><strong>1. Pourquoi cette mission ?</strong>
+Un jury data demande toujours « vos données sont-elles fiables ? ». Il fallait y répondre avec des chiffres, et distinguer trois notions :</p>
+<table>
+<thead>
+<tr>
+<th>Notion</th>
+<th>Question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qualité des données</td>
+<td>Les données sont-elles complètes, valides, uniques, fraîches ?</td>
+</tr>
+<tr>
+<td>Couverture des données</td>
+<td>Avons-nous la donnée pour tout le territoire ?</td>
+</tr>
+<tr>
+<td>Couverture de mobilité</td>
+<td>Les habitants ont-ils une option à 5 min ?</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. Ce qui a été réalisé et les choix clés</strong></p>
+<ul>
+<li>Six dimensions (complétude, validité, unicité, cohérence, fraîcheur, traçabilité), formules et seuils écrits.</li>
+<li>KPI de jointure (taux de rattachement, connexité du réseau piéton).</li>
+<li>Méthode anti-double-comptage : tout est calculé au carreau, chaque carreau compté une fois.</li>
+<li>Table Gold <code>qualite_donnees_larochelle</code> : <strong>52 indicateurs</strong>, dont 40 conformes, 3 alertes, 9 informatifs.</li>
+<li>Les 3 alertes sont expliquées : flux vélo Yélo vieux de 126 jours, capacité des stations vélo absente, 98,3 % des nœuds piétons connectés (seuil 99 %). Aucune ne touche la recommandation Citiz.</li>
+</ul>
+<p><strong>3. Ce que cela apporte</strong>
+Une page « confiance » prête pour le jury, et une trame « limites des données » pour la soutenance. <code>docs/protocole_qualite.md</code>.</p>
+<p><strong>4. Transition</strong>
+Les données étant prouvées, on pouvait enfin <strong>mesurer la situation actuelle</strong> : qui est desservi, qui ne l'est pas.</p>
+<hr>
+<h3 id="-mission-10--kpi-daccessibilité">📌 Mission 10 : KPI d'accessibilité</h3>
+<p><strong>1. Pourquoi cette mission ?</strong>
+C'est le diagnostic exigé par les objectifs O1 et O2 du sujet, et la base de toute recommandation : on ne peut pas dire où ajouter sans savoir où il manque.</p>
+<p><strong>2. Ce qui a été réalisé et les choix clés</strong></p>
+<ul>
+<li>Table principale au carreau : <code>acces_cellule_larochelle</code> (nombre d'options par mode, distance minimale, desservi oui / non, quintile de niveau de vie).</li>
+<li>KPI : options accessibles (K1), taux de couverture (K2), population desservie et non desservie (K3, K4), population servie par chaque station (K5, non additive), équité par quintile de revenu (K12).</li>
+<li>Modes comptés sans répétition : un habitant desservi par le bus et le vélo compte une fois en « tous modes ».</li>
+<li>Agrégations par commune et pour l'EPCI.</li>
+</ul>
+<p><strong>3. Ce que cela apporte</strong>
+Le diagnostic chiffré : 77,8 % des habitants ont une option, 9,8 % seulement ont Citiz ; <strong>9 communes sur 28</strong> sont sous 60 % de couverture tous modes (de 35 % à 59 %) : ce sont les <strong>communes prioritaires</strong>. Constat contre-intuitif : les ménages les plus modestes sont les mieux desservis (89 %). <code>docs/kpi_acces.md</code>.</p>
+<p><strong>4. Transition</strong>
+Le diagnostic montre où il manque ; il fallait maintenant identifier <strong>où l'on pourrait ajouter</strong> une station, et comparer ces emplacements.</p>
+<hr>
+<h3 id="-mission-11--zones-candidates-et-score-de-potentiel">📌 Mission 11 : Zones candidates et score de potentiel</h3>
+<p><strong>1. Pourquoi cette mission ?</strong>
+Le sujet demande d'estimer la valeur d'un emplacement candidat. Sans historique d'usage, un « modèle prédictif » serait une fiction : le projet a choisi un <strong>score multicritère de potentiel</strong>, transparent et décomposable.</p>
+<p><strong>2. Ce qui a été réalisé et les choix clés</strong></p>
+<ul>
+<li><strong>Site candidat</strong> = nœud du réseau piéton relié à au moins un carreau peuplé : 2 547 sites, évalués pour Citiz, vélo et bus.</li>
+<li>Exclusions écrites : hors EPCI, pas d'accès voiture (pour Citiz), aucun habitant nouvellement couvert, redondance &gt; 80 %. Il reste <strong>2 200 sites Citiz</strong>.</li>
+<li><strong>Score K10 sur 100</strong> = somme de 5 contributions : impact (habitants nouvellement couverts, 40 %), besoin (habitants sans option, 20 %), complémentarité bus (15 %), logement collectif (15 %), petits ménages (10 %).</li>
+<li>Normalisation par <strong>rang centile</strong> (« meilleur que 90 % des sites »), robuste aux valeurs extrêmes.</li>
+<li>Sensibilité : chaque poids varié de ±50 % (l'ordre d'ensemble tient, Spearman ≥ 0,978, mais le top 20 change de 10 % à 65 %) ; 500 tirages aléatoires de poids pour mesurer la robustesse de chaque site.</li>
+<li>Garde-fou d'équité : quota de 30 % de communes prioritaires dans un top 20 « équité ».</li>
+</ul>
+<p><strong>3. Ce que cela apporte</strong>
+Un classement explicable (on voit <strong>pourquoi</strong> un site est bien noté) et une conclusion méthodologique forte : le haut du classement est serré (scores de 79 à 81), donc <strong>le score départage, il ne décide pas</strong>. <code>docs/score_potentiel.md</code>, <code>docs/model_card.md</code>.</p>
+<p><strong>4. Transition</strong>
+Un classement de sites ne suffit pas : deux sites voisins touchent les mêmes habitants. Pour choisir un <strong>portefeuille</strong> sous budget sans compter deux fois les mêmes personnes, il fallait une <strong>optimisation</strong>.</p>
+<hr>
+<h3 id="-mission-12--optimisation-budgétaire">📌 Mission 12 : Optimisation budgétaire</h3>
+<p><strong>1. Pourquoi cette mission ?</strong>
+C'est le cœur du sujet : passer d'un classement à une <strong>décision d'investissement</strong>. Prendre les 10 premiers du classement serait une erreur : ils sont voisins et se partagent les mêmes habitants.</p>
+<p><strong>2. Ce qui a été réalisé et les choix clés</strong></p>
+<ul>
+<li>Problème classique de <strong>couverture maximale sous budget</strong> (Church et ReVelle, 1974) : choisir des sites (oui / non) pour maximiser les habitants nouvellement couverts, chacun compté une fois, sans dépasser le budget.</li>
+<li>Résolution exacte par <strong>PLNE</strong> avec PuLP et le solveur CBC.</li>
+</ul>
+<blockquote>
+<p><strong>Solveur PLNE, en une phrase :</strong> un programme qui explore intelligemment toutes les combinaisons de oui / non et <strong>prouve</strong> qu'aucune n'est meilleure que celle qu'il renvoie. Ici, à 0,1 % près.</p>
+</blockquote>
+<ul>
+<li>Décisions validées (D-1 à D-5) : objectif = habitants nouvellement couverts par Citiz ; coûts sur 3 ans de 4 000 / 8 500 / 13 000 € (boîtier 4 000 € HT + forfait jusqu'à 250 € TTC par mois, source : convention publique collectivité – Citiz) ; budgets de simulation 42 500 / 85 000 / 170 000 €.</li>
+<li>Deux pièges corrigés : PuLP affichait « Optimal » même quand le solveur s'arrêtait sur sa limite de temps (on lit désormais le vrai statut) ; une contrainte valide (pas plus de ⌊budget / coût minimal⌋ stations) a ramené le cas le plus lent de plus de 120 s à 0,3 s.</li>
+<li><strong>Variante équité</strong> : au moins 30 % des habitants gagnés dans les communes prioritaires, calculée sur la couverture réelle (un piège de formulation évité et testé).</li>
+<li>Contrôles bloquants O-T1 à O-T8 (budget, absence de double compte, optimum prouvé, part d'équité réelle…) ; une règle simple (glouton) sert de témoin : elle égale l'optimum dans 8 cas sur 9.</li>
+</ul>
+<p><strong>3. Ce que cela apporte</strong>
+12 scénarios et une courbe budget → impact. Rendements décroissants (la 1re station couvre 4 040 habitants, la 30e 894). Le coût par station pèse autant que le budget (à 85 000 €, de 12 888 à 30 834 habitants). Le prix de l'équité est mesuré : −27 %, −23 %, −15 % selon le budget. <code>docs/optimisation.md</code>, <code>docs/registre_couts.md</code>.</p>
+<p><strong>4. Transition</strong>
+Les résultats existent, mais dans des tables. Un décideur a besoin de les <strong>voir</strong>, de les manipuler et de comprendre l'arbitrage en quelques secondes.</p>
+<hr>
+<h3 id="-mission-13--restitution-rapport-conçu-pour-power-bi-livré-en-application-streamlit">📌 Mission 13 : Restitution (rapport conçu pour Power BI, livré en application Streamlit)</h3>
+<p><strong>1. Pourquoi cette mission ?</strong>
+Le jury attend une démonstration en direct sur données réelles, et un décideur non technique doit comprendre en 30 secondes. La restitution est le pont entre l'analyse et la décision.</p>
+<p><strong>2. Ce qui a été réalisé et les choix clés</strong></p>
+<ul>
+<li>Conception complète en 5 pages (synthèse, couverture actuelle, candidats et score, optimisation, méthode et limites) : objectif de chaque page, KPI, visuels, filtres, interactions, mesures, messages, erreurs à éviter, modèle de données en étoile (22 tables), couleurs accessibles, maquettes. <code>powerbi/</code>.</li>
+<li><strong>Décision P-1 révisée :</strong> l'application est livrée en <strong>Streamlit</strong> (Python) plutôt que Power BI, sur la même conception. Raisons : cartes des vrais carreaux de 200 m sans service externe, logique en Python testé, fonctionnement hors ligne, pas de licence. Les exports restent lisibles par Power BI.</li>
+<li>Script d'export <code>scripts/build_exports.py</code> (contrôles X-01 à X-07) ; mesures Python testées (<code>src/export/mesures.py</code>), équivalentes aux mesures DAX ; titres calculés à partir des données.</li>
+<li>Couleurs Okabe-Ito, lisibles par les daltoniens, toujours doublées d'un libellé ; vocabulaire « communes prioritaires ».</li>
+<li>Page 5 : 6 recoupements prouvent que l'application affiche exactement les chiffres du pipeline.</li>
+</ul>
+<p><strong>3. Ce que cela apporte</strong>
+Un outil démontrable : changer le budget, le coût ou la variante, et voir la carte et le prix de l'équité se mettre à jour. <code>docs/application.md</code>, <code>app/</code>.</p>
+<p><strong>4. Transition</strong>
+Un bon outil mal présenté ne convainc pas. Il fallait une <strong>stratégie de soutenance</strong> pour un public mixte.</p>
+<hr>
+<h3 id="-mission-14--soutenance">📌 Mission 14 : Soutenance</h3>
+<p><strong>1. Pourquoi cette mission ?</strong>
+L'évaluation se fait sur une défense : convaincre à la fois une DG, des élus, un jury académique et des profils data, avec des attentes différentes, en 5 ou 10 minutes.</p>
+<p><strong>2. Ce qui a été réalisé et les choix clés</strong></p>
+<ul>
+<li>Un <strong>fil rouge</strong> en trois phrases : la question, la réponse (10 stations, couverture doublée), l'arbitrage (le prix de l'équité).</li>
+<li>Pitchs de 5 et 10 minutes, texte mot à mot (<code>narration.md</code>), plan des slides avec un titre-réponse par slide.</li>
+<li>Support de 12 slides et 2 annexes, réparti entre 6 personnes avec notes de présentation (<code>repartition_equipe.md</code>).</li>
+<li>33 questions difficiles et leurs réponses (<code>questions_jury.md</code>), dont la plus attaquable : « où est le modèle prédictif ? ».</li>
+<li>Démonstration pilotée par la question ; vidéo de secours sous-titrée générée automatiquement (<code>scripts/enregistrer_demo.py</code>).</li>
+<li>Limites formulées sans fragiliser le projet : <em>limite → pourquoi c'est raisonnable → effet sur la décision → suite</em>.</li>
+</ul>
+<p><strong>3. Ce que cela apporte</strong>
+Une soutenance répétable, des réponses sourcées, un plan B. <code>docs/soutenance/</code>.</p>
+<p><strong>4. Transition</strong>
+Il restait à <strong>tout vérifier</strong> avant de livrer : un oubli (dépôt privé, slides absentes) peut annuler des jours de travail.</p>
+<hr>
+<h3 id="-mission-15--checklist-finale">📌 Mission 15 : Checklist finale</h3>
+<p><strong>1. Pourquoi cette mission ?</strong>
+Le jour J, tout ce qui n'a pas été vérifié peut casser. Une checklist transforme le stress en procédure.</p>
+<p><strong>2. Ce qui a été réalisé et les choix clés</strong></p>
+<ul>
+<li>14 sections (dépôt, Bronze, Silver, Gold, qualité, KPI, score, optimisation, application, documentation, slides, démo, soutenance, éthique), avec pour chaque item la preuve attendue, la priorité (bloquant / important / bonus), le responsable et <strong>l'état constaté</strong> dans le dépôt.</li>
+<li>9 erreurs éliminatoires et leur parade ; plan de secours pour 9 pannes ; les dix dernières minutes minute par minute.</li>
+<li>Les manques trouvés ont été corrigés aussitôt : README à jour, fiche du score, notebook de démonstration (<code>notebooks/07_hackathon_demo.ipynb</code>), figures de secours.</li>
+</ul>
+<p><strong>3. Ce que cela apporte</strong>
+Une livraison maîtrisée. <code>docs/soutenance/checklist_finale.md</code>.</p>
+<p><strong>4. Et après ?</strong>
+Les suites naturelles : le modèle H6 validé ville par ville, l'optimisation bus et vélo avec des coûts validés, un devis Citiz pour remplacer l'hypothèse de coût, et un <strong>test terrain de 3 stations pendant un an</strong> pour mesurer enfin l'usage réel.</p>
+<hr>
+<h2 id="3-synthèse-de-larchitecture-et-chaîne-de-valeur">3. Synthèse de l'architecture et chaîne de valeur</h2>
+<h3 id="31-de-la-donnée-brute-à-la-décision">3.1 De la donnée brute à la décision</h3>
+<table>
+<thead>
+<tr>
+<th>Étape</th>
+<th>Ce que devient la donnée</th>
+<th>Exemple concret</th>
+<th>Pourquoi c'est utile à la décision</th>
+<th>Où</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sources</strong></td>
+<td>Fichiers publics hétérogènes</td>
+<td>Zip GTFS Yélo, flux GBFS Citiz, GeoPackage Filosofi, graphe OSM</td>
+<td>Les seules données disponibles, gratuites et réutilisables</td>
+<td><code>docs/registre_des_sources.xlsx</code></td>
+</tr>
+<tr>
+<td><strong>Bronze</strong></td>
+<td>Copie fidèle, datée, signée (SHA-256)</td>
+<td><code>data/bronze/gtfs/larochelle/S02_2026-10-21/</code></td>
+<td>On peut prouver d'où vient chaque chiffre</td>
+<td><code>scripts/ingest_*.py</code></td>
+</tr>
+<tr>
+<td><strong>Silver</strong></td>
+<td>Données nettoyées, dédoublonnées, reliées à l'espace</td>
+<td>981 quais → 534 arrêts ; 2 637 carreaux rattachés à une commune et au réseau</td>
+<td>On compte juste : ni doublons, ni habitants fantômes</td>
+<td><code>scripts/build_silver.py</code>, <code>build_spatial.py</code></td>
+</tr>
+<tr>
+<td><strong>Gold : accessibilité</strong></td>
+<td>Qui atteint quoi en 5 min</td>
+<td>Paires carreau × station à ≤ 400 m de marche ; KPI au carreau</td>
+<td>Le diagnostic : 77,8 % desservis, 9,8 % pour Citiz</td>
+<td><code>build_paires.py</code>, <code>build_kpi_acces.py</code></td>
+</tr>
+<tr>
+<td><strong>Gold : candidats</strong></td>
+<td>Où l'on pourrait ajouter, et pourquoi</td>
+<td>2 200 sites Citiz notés sur 100, décomposés en 5 critères</td>
+<td>Un classement explicable</td>
+<td><code>build_candidats.py</code></td>
+</tr>
+<tr>
+<td><strong>Gold : optimisation</strong></td>
+<td>Quel portefeuille financer</td>
+<td>12 scénarios, courbe budget → impact, prix de l'équité</td>
+<td>La recommandation chiffrée</td>
+<td><code>build_optimisation.py</code></td>
+</tr>
+<tr>
+<td><strong>Exports</strong></td>
+<td>Tables prêtes à afficher, en WGS84</td>
+<td>22 tables + 2 GeoJSON, contrôles X-01 à X-07</td>
+<td>Une restitution qui ne recalcule rien</td>
+<td><code>build_exports.py</code></td>
+</tr>
+<tr>
+<td><strong>Application</strong></td>
+<td>5 pages interactives</td>
+<td>Changer budget, coût, variante</td>
+<td>La décision se prend en voyant l'arbitrage</td>
+<td><code>app/</code> (Streamlit ; conception Power BI dans <code>powerbi/</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>Trois garanties traversent toute la chaîne :</p>
+<ul>
+<li><strong>Traçabilité :</strong> chaque table porte un <code>run_id</code> (date UTC + commit Git, <code>-modifie</code> si le code n'était pas commité) et chaque dossier un manifeste.</li>
+<li><strong>Contrôles bloquants :</strong> CS (Silver), J (jointures), Q (qualité), O-T (optimisation), X (exports). Si un contrôle échoue, le script s'arrête au lieu de produire un chiffre faux.</li>
+<li><strong>Une seule définition par chiffre :</strong> l'application et le notebook lisent les mêmes tables et vérifient les mêmes égalités.</li>
+</ul>
+<h3 id="32-les-trois-piliers-de-la-solution">3.2 Les trois piliers de la solution</h3>
+<h4 id="pilier-1--mesurer-la-qualité-et-la-couverture-réelle">Pilier 1 — Mesurer la qualité et la couverture réelle</h4>
+<p><em>Savoir avant de recommander.</em></p>
+<ul>
+<li>Accès mesuré sur le <strong>réseau piéton réel</strong>, pas à vol d'oiseau (qui surestimerait l'accès de 43 % en nombre de carreaux atteints).</li>
+<li>Population au <strong>carreau de 200 m</strong>, chaque habitant compté une fois.</li>
+<li>52 indicateurs de qualité ; les alertes sont affichées, pas cachées.</li>
+<li>Trois notions jamais confondues : qualité des données, couverture des données, couverture de mobilité.</li>
+</ul>
+<p><strong>Ce que le pilier rend possible :</strong> dire avec certitude qui est desservi aujourd'hui, et donc qui gagnerait à une nouvelle station.</p>
+<h4 id="pilier-2--score-multicritère-de-potentiel-territorial">Pilier 2 — Score multicritère de potentiel territorial</h4>
+<p><em>Comparer des emplacements de façon explicable.</em></p>
+<ul>
+<li>5 critères observés, pondérés et affichés ; chaque note se lit par ses contributions.</li>
+<li>Testé en sensibilité : l'ordre d'ensemble est stable, le haut du classement est serré.</li>
+<li><strong>Pas une prédiction</strong> : sans historique d'usage, le projet refuse d'inventer une cible. Le modèle appris H6 est conçu et documenté, non livré.</li>
+</ul>
+<p><strong>Ce que le pilier rend possible :</strong> expliquer pourquoi un site est intéressant, et départager deux portefeuilles qui couvrent autant d'habitants.</p>
+<h4 id="pilier-3--optimisation-sous-contrainte-budgétaire">Pilier 3 — Optimisation sous contrainte budgétaire</h4>
+<p><em>Décider avec un budget fini.</em></p>
+<ul>
+<li>Portefeuille optimal prouvé : chaque habitant compté une fois, budget respecté.</li>
+<li>Scénarios multi-budgets et multi-coûts : la sensibilité au coût unitaire est rendue visible.</li>
+<li>Variante équité : le prix de l'équité est mesuré en habitants, et la décision reste aux élus.</li>
+</ul>
+<p><strong>Ce que le pilier rend possible :</strong> la liste ordonnée des stations à financer, avec son impact et son coût.</p>
+<h3 id="33-ce-qui-est-certain-estimé-hypothétique">3.3 Ce qui est certain, estimé, hypothétique</h3>
+<table>
+<thead>
+<tr>
+<th>Nature</th>
+<th>Exemples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Certain (mesuré)</strong></td>
+<td>Population par carreau ; positions des stations et arrêts ; distances sur le réseau ; habitants nouvellement couverts par un portefeuille ; optimum prouvé</td>
+</tr>
+<tr>
+<td><strong>Estimé</strong></td>
+<td>Coûts bas et haut d'une station (sources publiques)</td>
+</tr>
+<tr>
+<td><strong>Hypothèse de travail</strong></td>
+<td>5 min = 400 m ; coût central de 8 500 € ; budgets de 42 500 à 170 000 € ; seuil de 60 % pour une commune prioritaire ; 30 % pour l'équité ; pondérations du score</td>
+</tr>
+<tr>
+<td><strong>Hors de portée</strong></td>
+<td>Fréquentation, chiffre d'affaires, CO₂ évité (faute de données d'usage et de report modal)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="4-bilan-et-guide-de-lecture-par-profil">4. Bilan et guide de lecture par profil</h2>
+<h3 id="41-pour-le-jury-et-les-évaluateurs">4.1 Pour le jury et les évaluateurs</h3>
+<table>
+<thead>
+<tr>
+<th>Ce que vous évaluez</th>
+<th>Où le vérifier en priorité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Un problème concret et une recommandation claire</td>
+<td>§ 1.2 ; slides 2, 9, 12 ; page 1 de l'application</td>
+</tr>
+<tr>
+<td>Démonstration sur données réelles</td>
+<td>Application (<code>streamlit run app/streamlit_app.py</code>) ; vidéo <code>reports/demo/demo_application.mp4</code></td>
+</tr>
+<tr>
+<td>Consolidation de sources hétérogènes</td>
+<td><code>docs/registre_des_sources.xlsx</code> ; manifestes <code>data/bronze/**/_manifest.json</code></td>
+</tr>
+<tr>
+<td>Qualité, couverture, limites</td>
+<td><code>docs/protocole_qualite.md</code> ; page 5 de l'application ; slide 5</td>
+</tr>
+<tr>
+<td>Indicateur justifié, absence de fuite</td>
+<td><code>docs/model_card.md</code> ; <code>docs/score_potentiel.md</code></td>
+</tr>
+<tr>
+<td>Optimisation sous budget</td>
+<td><code>docs/optimisation.md</code> ; <code>tests/test_optimisation.py</code> ; annexe B des slides</td>
+</tr>
+<tr>
+<td>Éthique, équité, vie privée</td>
+<td>Variante équité (slide 10) ; <code>docs/suivi_risques.md</code> ; page 5</td>
+</tr>
+<tr>
+<td>Reproductibilité</td>
+<td>README « Reproduire » ; <code>pytest</code> ; <code>run_id</code> dans chaque table</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Trois points forts à tester :</strong> demandez un chiffre de la slide, retrouvez-le dans l'application ; demandez « comment évitez-vous le double comptage ? » ; changez le coût d'une station en direct.</p>
+<p><strong>Limites assumées :</strong> pas de modèle prédictif d'usage livré ; coûts estimés ; seul Citiz optimisé ; pas d'Omphale ni de bilan carbone.</p>
+<h3 id="42-pour-le-décideur-dg-citiz-élus-aom">4.2 Pour le décideur (DG Citiz, élus, AOM)</h3>
+<ol>
+<li><strong>Lire § 1.2</strong> : la recommandation tient en quatre chiffres (10 stations, +18 816 habitants, 4,52 €, couverture doublée).</li>
+<li><strong>Ouvrir la page 4 de l'application</strong> et entrer <strong>votre</strong> budget et <strong>votre</strong> coût par station : le portefeuille se recalcule.</li>
+<li><strong>Choisir le curseur d'équité</strong> en connaissant son prix (page 4, bouton Équité) : moins d'habitants au total, mais des stations dans les communes peu desservies.</li>
+<li><strong>Valider sur le terrain</strong> les sites retenus : foncier, stationnement, accord des communes ne sont pas dans les données.</li>
+<li><strong>Lancer un test</strong> de 3 stations pendant un an, avec des indicateurs d'usage, pour transformer le score en modèle appris.</li>
+</ol>
+<p><strong>Trois précautions :</strong> le score n'est pas une prévision de locations ; 85 000 € est un budget de simulation ; 8 500 € par station est une hypothèse, qu'un devis remplace en une ligne de configuration.</p>
+<h3 id="43-pour-léquipe-technique-et-data">4.3 Pour l'équipe technique et data</h3>
+<table>
+<thead>
+<tr>
+<th>Besoin</th>
+<th>Où regarder</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lancer l'application</td>
+<td>README « Application de restitution » ; <code>docs/application.md</code></td>
+</tr>
+<tr>
+<td>Reconstruire tout le pipeline</td>
+<td>README « Reproduire » (12 étapes)</td>
+</tr>
+<tr>
+<td>Comprendre l'architecture</td>
+<td><code>docs/architecture_data.md</code> ; <code>docs/conventions.md</code> ; <code>docs/data_dictionary.md</code></td>
+</tr>
+<tr>
+<td>Règles de nettoyage et contrôles</td>
+<td><code>docs/methodologie.md</code> (RC, RG, CS) ; <code>src/cleaning/</code></td>
+</tr>
+<tr>
+<td>Jointures et accessibilité</td>
+<td><code>docs/strategie_jointures.md</code> ; <code>src/geospatial/</code></td>
+</tr>
+<tr>
+<td>Qualité</td>
+<td><code>docs/protocole_qualite.md</code> ; <code>src/evaluation/</code> ; <code>config/qualite.yaml</code></td>
+</tr>
+<tr>
+<td>KPI</td>
+<td><code>docs/kpi_acces.md</code> ; <code>src/features/kpi_acces.py</code></td>
+</tr>
+<tr>
+<td>Score</td>
+<td><code>docs/score_potentiel.md</code> ; <code>docs/model_card.md</code> ; <code>src/scoring/candidats.py</code> ; <code>config/score.yaml</code></td>
+</tr>
+<tr>
+<td>Optimisation</td>
+<td><code>docs/optimisation.md</code> ; <code>src/optimization/couverture.py</code> ; <code>config/optimisation.yaml</code></td>
+</tr>
+<tr>
+<td>Exports et mesures</td>
+<td><code>src/export/exports.py</code> ; <code>src/export/mesures.py</code> ; <code>config/app.yaml</code></td>
+</tr>
+<tr>
+<td>Démonstration et notebook</td>
+<td><code>notebooks/07_hackathon_demo.ipynb</code> ; <code>scripts/enregistrer_demo.py</code></td>
+</tr>
+<tr>
+<td>Risques ouverts</td>
+<td><code>docs/suivi_risques.md</code> (R1 à R29)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Règles de contribution :</strong> ne jamais modifier Bronze ; committer avant de lancer un build (sinon <code>run_id</code> en <code>-modifie</code>) ; toute nouvelle règle a son identifiant et son contrôle ; tout nouveau chiffre a sa définition et sa source ; <code>pytest</code> doit rester vert.</p>
+<p><strong>Pistes d'évolution, par ordre de valeur :</strong> ingérer le lot 2 et livrer H6 ; optimisation multi-équipements ; sensibilité des seuils d'équité ; projections Omphale pour un scénario 2030 ; portage vers un lakehouse Fabric (même logique Bronze / Silver / Gold).</p>
+<hr>
+<h2 id="5-glossaire">5. Glossaire</h2>
+<table>
+<thead>
+<tr>
+<th>Terme</th>
+<th>Définition simple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AOM</strong></td>
+<td>Autorité organisatrice de la mobilité : la collectivité qui organise les transports</td>
+</tr>
+<tr>
+<td><strong>Bronze / Silver / Gold</strong></td>
+<td>Les trois états de la donnée : brute, propre, prête pour la décision</td>
+</tr>
+<tr>
+<td><strong>Carreau (200 m)</strong></td>
+<td>Petit carré de 200 m de côté où l'INSEE publie la population ; notre unité de calcul</td>
+</tr>
+<tr>
+<td><strong>CRS</strong></td>
+<td>Système de coordonnées : Lambert-93 (en mètres) pour calculer, WGS84 (GPS) pour afficher</td>
+</tr>
+<tr>
+<td><strong>Commune prioritaire</strong></td>
+<td>Commune dont moins de 60 % des habitants ont une option à 5 min (9 sur 28)</td>
+</tr>
+<tr>
+<td><strong>Couverture de mobilité</strong></td>
+<td>Part des habitants qui ont au moins une option à 5 min de marche</td>
+</tr>
+<tr>
+<td><strong>EPCI</strong></td>
+<td>Intercommunalité ; ici la CA de La Rochelle (28 communes)</td>
+</tr>
+<tr>
+<td><strong>Filosofi</strong></td>
+<td>Données INSEE de population et de revenus au carreau ; certains carreaux sont imputés (secret statistique)</td>
+</tr>
+<tr>
+<td><strong>GBFS</strong></td>
+<td>Format ouvert des stations de mobilité partagée (vélos, autopartage)</td>
+</tr>
+<tr>
+<td><strong>GeoParquet</strong></td>
+<td>Format de fichier en colonnes, compressé, qui garde les types et la géométrie</td>
+</tr>
+<tr>
+<td><strong>Glouton</strong></td>
+<td>Règle simple : prendre à chaque tour le site qui rapporte le plus par euro ; sert de témoin</td>
+</tr>
+<tr>
+<td><strong>GTFS</strong></td>
+<td>Format ouvert des transports publics (arrêts, lignes, horaires)</td>
+</tr>
+<tr>
+<td><strong>Isochrone</strong></td>
+<td>Zone atteignable en un temps donné ; ici, 5 min de marche</td>
+</tr>
+<tr>
+<td><strong>K6</strong></td>
+<td>Habitants nouvellement couverts : passent de « aucune option » à « au moins une », comptés une fois</td>
+</tr>
+<tr>
+<td><strong>Manifeste</strong></td>
+<td>Fiche JSON qui décrit un dossier de données : source, date, empreinte, licence</td>
+</tr>
+<tr>
+<td><strong>OSM</strong></td>
+<td>OpenStreetMap, carte collaborative dont on extrait le réseau piéton</td>
+</tr>
+<tr>
+<td><strong>PLNE / solveur</strong></td>
+<td>Programmation linéaire en nombres entiers : un programme qui trouve et prouve la meilleure combinaison de oui / non sous contraintes</td>
+</tr>
+<tr>
+<td><strong>Rang centile</strong></td>
+<td>Position d'un site parmi les autres : « meilleur que 90 % »</td>
+</tr>
+<tr>
+<td><strong><code>run_id</code></strong></td>
+<td>Identifiant d'exécution : date UTC et commit Git du code qui a produit la table</td>
+</tr>
+<tr>
+<td><strong>Score de potentiel (K10)</strong></td>
+<td>Note sur 100 qui classe des sites ; ce n'est pas une prédiction</td>
+</tr>
+<tr>
+<td><strong>SHA-256</strong></td>
+<td>Empreinte d'un fichier : si un seul octet change, l'empreinte change</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>
