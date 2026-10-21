@@ -98,6 +98,16 @@ Les coordonnées d'une zone sont celles de la zone. Un écart avec les quais est
 - RG-07 : stations distinctes aux mêmes coordonnées → alerte, toutes gardées (pas de fusion GBFS).
 - Une station de test placée hors de la métropole est rejetée par RG-02 comme toute coordonnée hors emprise.
 
+### Admin Express et Filosofi (bloc S-3)
+
+- Appartenance d'une commune à un EPCI : SIREN extraits de `codes_siren_des_epci` par motif à 9 chiffres. Séparateur constaté : `/` ; valeur `NR` présente ; au plus 2 SIREN par commune.
+- RC-12 / CS-09 : pour chaque EPCI, nombre de communes de la couche `commune` = nombre déclaré par la couche `epci` = grille G2. Sinon arrêt. Constaté : 28, 29, 40, 24, 43.
+- La population des communes Admin Express est identique, pour les 5 EPCI, à la population légale RP2023 citée dans la grille (182 435 pour La Rochelle).
+- RF-01 appliqué aux 5 EPCI : `commune_insee` = premier code de `lcog_geo` qui appartient à un EPCI d'étude (les codes sont triés par surface d'intersection décroissante) ; `commune_principale` = premier code, membre ou non.
+- RC-09 : tolérance d'aire 1 %, fixée sur constat (écart maximal 0,19 % ; aires de 39 924 à 39 963 m², effet de la reprojection).
+- Filosofi est lu dans le zip sans extraction ; pré-filtre large par département, tri exact par RF-01.
+- Rapport population Filosofi 2021 / population Admin Express : 0,954 (La Rochelle), de 0,875 à 0,91 ailleurs. Écart attendu entre population fiscale et population légale ; l'explication par catégorie de population est à vérifier dans la documentation S03d avant d'être affirmée.
+
 ## Coordonnées selon le calcul
 
 La lecture GTFS et GBFS reste en EPSG:4326, et ces valeurs sont gardées dans `lat_wgs84` et `lon_wgs84`. Le stockage Silver géométrique est EPSG:2154 (AD1), via pyproj. Filosofi métropole est déjà en EPSG:2154. Admin Express est reprojeté en 2154 si son CRS constaté est différent. Le graphe OSM arrive en 4326, avec des longueurs en mètres ; sa projection en 2154 se fait à `spatial/`. Les distances à vol d'oiseau, les aires et les tampons se calculent en 2154. Les exports Power BI restent en 4326, en Gold.
@@ -149,7 +159,7 @@ Usage : afficher en page 5 ; ne jamais présenter un carreau imputé comme une o
 
 ## Code prévu, non écrit
 
-État au 21/10/2026 — écrits : `audit.py`, `normalisation.py`, `coordonnees.py`, `gtfs.py` (dédoublonnage inclus), `gbfs.py`, `src/evaluation/qualite.py`, `src/utils/lignage.py`, `scripts/build_silver.py`, `config/silver.yaml`. Non écrits : `regles.py`, `schemas.py`, `dedup.py`, `filosofi.py`, `admin.py`, `osm.py`, notebook.
+État au 21/10/2026 — écrits : `audit.py`, `normalisation.py`, `coordonnees.py`, `gtfs.py` (dédoublonnage inclus), `gbfs.py`, `admin.py`, `filosofi.py`, `src/evaluation/qualite.py`, `src/utils/lignage.py`, `scripts/build_silver.py`, `config/silver.yaml`. Non écrits : `regles.py`, `schemas.py`, `dedup.py`, `osm.py`, notebook.
 
 L'implémentation attend le script d'ingestion et le lot 1. Le notebook appelle `src/` et ne contient pas les règles.
 

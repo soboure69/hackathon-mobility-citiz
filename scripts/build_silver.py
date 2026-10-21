@@ -1,9 +1,12 @@
 """Construction de la couche Silver pour une source Bronze.
 
 S-1 : GTFS Yélo (S02). S-2 : GBFS Citiz (S01) et Yélo vélo (S08).
+S-3 : Admin Express (S04), puis Filosofi (S03), qui lit les communes Silver de S04.
 Usage, depuis la racine :
     python scripts/build_silver.py --source S02 --bronze data/bronze/gtfs/larochelle/S02_2026-10-21
     python scripts/build_silver.py --source S01 --bronze data/bronze/gbfs/larochelle/S01_2026-10-21
+    python scripts/build_silver.py --source S04 --bronze data/bronze/admin_express/national/S04_2026-10-21
+    python scripts/build_silver.py --source S03 --bronze data/bronze/insee_filosofi/national/S03_2026-10-21
 """
 from __future__ import annotations
 
@@ -17,13 +20,18 @@ import yaml
 RACINE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(RACINE))
 
+import geopandas as gpd  # noqa: E402
+
+from src.cleaning import admin, filosofi  # noqa: E402
 from src.cleaning import gbfs as silver_gbfs  # noqa: E402
 from src.cleaning import gtfs  # noqa: E402
 from src.cleaning.audit import Suivi, verifier_conservation  # noqa: E402
-from src.evaluation.qualite import indicateurs_gbfs, indicateurs_gtfs  # noqa: E402
+from src.evaluation.qualite import (  # noqa: E402
+    indicateurs_admin, indicateurs_filosofi, indicateurs_gbfs, indicateurs_gtfs,
+)
 from src.ingestion.gbfs import trouver_stations  # noqa: E402
 from src.utils.lignage import ecrire_table, mettre_a_jour_manifeste  # noqa: E402
-from src.utils.manifest import construire_run_id, lire_manifeste, verifier_manifeste  # noqa: E402
+from src.utils.manifest import calculer_sha256, construire_run_id, lire_manifeste, verifier_manifeste  # noqa: E402
 
 SILVER = RACINE / "data" / "silver"
 CONFIG = RACINE / "config" / "silver.yaml"
@@ -140,6 +148,84 @@ def construire_gbfs(source_id: str, bronze_relatif: str, territoire: str, config
             "qualite": qualite[["q_id", "libelle", "valeur", "unite"]].values.tolist()}
 
 
+def construire_admin(source_id: str, bronze_relatif: str, config: dict) -> dict:
+    run_id = construire_run_id()
+    bronze, manifeste, origine = ouvrir_bronze(source_id, bronze_relatif)
+    fichier = manifeste["fichiers"][0]
+    territoires = config["territoires"]
+    communes, epci = admin.lire_admin(bronze / fichier["nom"], [r["siren"] for r in territoires.values()])
+    audit = {"source_id": source_id, "fichier_origine": f"{bronze_relatif}/{fichier['nom']}",
+             "sha256_origine": fichier["sha256"], "date_donnee": "ADMIN EXPRESS COG 4.0, édition 2026-01-01",
+             "run_id": run_id}
+    std_communes, std_epci = admin.standardiser_admin(communes, epci, territoires, **audit)
+
+    suivi = Suivi(run_id)
+    propres_communes = admin.reparer_geometries(std_communes, suivi, "cleaned")
+    propres_epci = admin.reparer_geometries(std_epci, suivi, "cleaned")
+    n_rejets = suivi.compter("rejet", "cleaned")
+    verifier_conservation(len(std_communes) + len(std_epci), len(propres_communes) + len(propres_epci), n_rejets, "cleaned")
+    constats = admin.controler_composition(propres_communes, propres_epci, territoires)
+
+    journal = suivi.table()
+    qualite = indicateurs_admin(source_id=source_id, run_id=run_id, constats=constats, n_rejets=n_rejets,
+                                n_reparees=int((journal["regle_id"] == "RC-11").sum()) - n_rejets,
+                                communes=propres_communes)
+    colonnes_epci = [c for c in propres_epci.columns if c != "codes_insee_des_communes_membres"] + ["codes_insee_des_communes_membres"]
+    sorties = [
+        ("standardized", "admin_communes_5epci.parquet", std_communes, ["code_insee"]),
+        ("standardized", "admin_epci_5epci.parquet", std_epci, ["code_siren"]),
+        ("cleaned", "admin_communes_5epci.parquet", propres_communes, ["code_insee"]),
+        ("cleaned", "admin_epci_5epci.parquet", propres_epci[colonnes_epci], ["code_siren"]),
+        *journaux(source_id, journal),
+        ("quality", f"qualite_indicateurs_{source_id}.parquet", qualite, ["q_id", "libelle"]),
+    ]
+    parametres = {"territoires": territoires}
+    return {"run_id": run_id, "tables": ecrire_sorties(sorties, run_id=run_id, origine=origine, parametres=parametres),
+            "regles": journal.groupby(["niveau", "regle_id"]).size().to_dict(),
+            "qualite": qualite[["q_id", "libelle", "valeur", "unite"]].values.tolist()}
+
+
+def construire_filosofi(source_id: str, bronze_relatif: str, config: dict) -> dict:
+    run_id = construire_run_id()
+    bronze, manifeste, origine = ouvrir_bronze(source_id, bronze_relatif)
+    fichier = manifeste["fichiers"][0]
+    reglage = config["filosofi"]
+
+    # Dépendance Silver → Silver : les communes nettoyées de S04 définissent le périmètre (RF-01).
+    chemin_communes = SILVER / "cleaned" / "admin_communes_5epci.parquet"
+    if not chemin_communes.exists():
+        raise RuntimeError("Construire S04 d'abord : admin_communes_5epci.parquet est absent.")
+    communes = gpd.read_parquet(chemin_communes)
+    origine["communes_silver"] = {"table": "cleaned/admin_communes_5epci.parquet",
+                                  "sha256": calculer_sha256(chemin_communes)}
+
+    brut = filosofi.lire_carreaux(bronze / fichier["nom"], reglage["couche"], set(communes["code_insee"]))
+    if brut.crs is None or brut.crs.to_epsg() != 2154:
+        raise RuntimeError(f"CRS Filosofi inattendu : {brut.crs}")
+    standard = filosofi.standardiser_carreaux(
+        brut, communes, reglage["separateur_lcog_geo"], source_id=source_id,
+        fichier_origine=f"{bronze_relatif}/{fichier['nom']}", sha256_origine=fichier["sha256"],
+        date_donnee="Filosofi 2021, carroyage 200 m", run_id=run_id)
+    suivi = Suivi(run_id)
+    propre = filosofi.nettoyer_carreaux(standard, suivi, reglage["tolerance_aire_relative"])
+    n_rejets = suivi.compter("rejet", "cleaned")
+    verifier_conservation(len(standard), len(propre), n_rejets, "cleaned")
+
+    journal = suivi.table()
+    qualite = indicateurs_filosofi(source_id=source_id, run_id=run_id, carreaux=propre, communes=communes,
+                                   n_rejets=n_rejets, n_rc09=int((journal["regle_id"] == "RC-09").sum()))
+    sorties = [
+        ("standardized", "filosofi_carreaux_5epci.parquet", standard, ["cell_id"]),
+        ("cleaned", "filosofi_carreaux_5epci.parquet", propre, ["cell_id"]),
+        *journaux(source_id, journal),
+        ("quality", f"qualite_indicateurs_{source_id}.parquet", qualite, ["q_id", "libelle"]),
+    ]
+    parametres = {"filosofi": reglage, "regle_perimetre": "RF-01"}
+    return {"run_id": run_id, "tables": ecrire_sorties(sorties, run_id=run_id, origine=origine, parametres=parametres),
+            "regles": journal.groupby(["niveau", "regle_id"]).size().to_dict(),
+            "qualite": qualite[["q_id", "libelle", "valeur", "unite"]].values.tolist()}
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Construction Silver d'une source.")
     parser.add_argument("--source", required=True)
@@ -150,6 +236,10 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.source == "S02":
         bilan = construire_gtfs(args.source, args.bronze, args.territoire, config)
+    elif args.source == "S04":
+        bilan = construire_admin(args.source, args.bronze, config)
+    elif args.source == "S03":
+        bilan = construire_filosofi(args.source, args.bronze, config)
     elif args.source in config.get("gbfs", {}):
         bilan = construire_gbfs(args.source, args.bronze, args.territoire, config)
     else:

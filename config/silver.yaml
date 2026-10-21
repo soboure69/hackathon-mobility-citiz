@@ -13,3 +13,14 @@ gbfs:
   # source_id : mode de l'option et nom utilisé dans les tables
   S01: {mode: citiz, nom: citiz}
   S08: {mode: velo, nom: yelo}
+territoires:
+  # SIREN et nombre de communes : docs/selection_territoire.md, porte G2 (constatés dans S04 le 21/10).
+  larochelle: {siren: "241700434", nb_communes: 28, role: decision}
+  angers: {siren: "244900015", nb_communes: 29, role: apprentissage_h6}
+  poitiers: {siren: "200069854", nb_communes: 40, role: apprentissage_h6}
+  nantes: {siren: "244400404", nb_communes: 24, role: apprentissage_h6}
+  rennes: {siren: "243500139", nb_communes: 43, role: apprentissage_h6}
+filosofi:
+  couche: carreaux_200m_met
+  separateur_lcog_geo: ","          # constaté le 21/10/2026
+  tolerance_aire_relative: 0.01     # constaté : écart maximal 0,19 % sur les 5 EPCI (RC-09)
