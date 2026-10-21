@@ -64,9 +64,11 @@ Les tables d'offre partagent le schéma commun ci-dessous. Colonnes propres au m
 | analytics | `h6_scores_larochelle` | carreau | `cell_id` | `score_h6` | modèle | Alimente `valeur_candidat` | P |
 | analytics | `ref_communes` | commune | `commune_insee` | `nom`, `epci_siren`, `classe_densite` (S10) | S04, S10 | Équité (K12), filtres | P |
 | analytics | `ref_sources` | source | `source_id` | copie de l'onglet `sources` du registre | registre | Page 5 | P |
-| optimization | `scenarios` | scénario | `scenario_id` | `budget`, `variante` (efficacité / équité), `hypothese_cout` (basse / centrale / haute), paramètres | config | Page 4 | P |
-| optimization | `selection_scenario` | scénario × candidat retenu | `scenario_id`, `candidat_id` | `rang`, `cout_cumule`, `pop_nouvelle_marginale`, `pop_nouvelle_cumulee` | valeur_candidat, paires | Portefeuille retenu | P |
-| optimization | `kpi_scenario` | scénario | `scenario_id` | K6 total sans double comptage, K7, K8, `cout_etiquette`, K12 | selection | Synthèse, page 4 | P |
+| optimization | `scenarios_larochelle` | scénario | `scenario_id` | `budget`, `cout_station`, `cout_etiquette`, `statut_solution`, `ecart_relatif_garanti`, `valeur_k6`, `k6_glouton`, `epsilon`, `duree_s` | config, candidats | Page 4 | P |
+| optimization | `selection_scenario_larochelle` | scénario × candidat retenu | `scenario_id`, `candidat_id` | `ordre_ajout`, `cout`, `cout_cumule`, `pop_nouvelle_marginale`, `pop_nouvelle_cumulee`, `score`, géométrie 2154 | candidats, paires | Portefeuille retenu | GP |
+| optimization | `kpi_scenario_larochelle` | scénario | `scenario_id` | `n_stations`, K6, K7, K8, couverture Citiz et tous modes avant / après, `pop_sans_option_gagnee`, K12 | selection, kpi_couverture | Synthèse, page 4 | P |
+| optimization | `courbe_budget_impact_larochelle` | nombre de stations (1 à 30) | `n_stations` | `budget`, `k6`, `gain_marginal` | candidats, paires | Courbe budget / impact | P |
+| optimization | `cellules_couvertes_scenario_larochelle` | scénario × carreau gagné | `scenario_id`, `cell_id` | `pop`, `commune_insee`, `prioritaire`, `gain_tous_modes` | selection, paires | O-T4, équité | P |
 | dashboards | `agg_distribution_acces_larochelle` | mode × classe de `n_options` | `mode`, `classe` | `pop` | acces, cellules | Histogramme, page 2. Hors chemin critique. | P |
 | dashboards | `agg_equite_larochelle` | scénario × classe (densité, quintile de revenu) | `scenario_id`, `axe`, `classe` | couverture avant / après | kpi, cellules | Équité, pages 4 et 5 | P |
 

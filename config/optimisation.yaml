@@ -1,0 +1,18 @@
+# Optimisation budgétaire, MVP (docs/optimisation.md, décisions D-1 à D-5 du 21/10/2026).
+type_equipement: citiz
+objectif: habitants nouvellement couverts par Citiz          # D-1, variante A
+couts:                                                        # D-2 : coût collectivité sur 3 ans (docs/registre_couts.md)
+  bas: {montant: 4000, etiquette: estimation publique}
+  central: {montant: 8500, etiquette: hypothèse de simulation}
+  haut: {montant: 13000, etiquette: estimation publique}
+scenarios:                                                    # D-3 : budgets en hypothèse de simulation
+  prudent: 42500
+  central: 85000
+  ambitieux: 170000
+n_max: null                                                   # D-4
+equite: null                                                  # D-5 : variante enrichie, pas dans le MVP
+courbe:
+  stations_max: 30                                            # budgets de 1 à 30 stations au coût central
+solveur:
+  temps_max_s: 120
+  ecart_relatif: 0.001                                        # solution prouvée à moins de 0,1 % de l'optimum (à 0 : 120 s sans preuve sur 1 scénario, même solution)

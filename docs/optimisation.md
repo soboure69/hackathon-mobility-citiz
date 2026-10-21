@@ -131,7 +131,7 @@ Chaque scénario est résolu avec les coûts **bas, central et haut**, soit 9 so
 
 Les valeurs X, Y, Z et N seront **calculées**, jamais écrites à l'avance.
 
-## 13. Décisions à valider avant de coder
+## 13. Décisions validées (21/10/2026)
 
 | # | Décision | Proposition |
 |---|---|---|
@@ -140,3 +140,41 @@ Les valeurs X, Y, Z et N seront **calculées**, jamais écrites à l'avance.
 | D-3 | Budgets | 42 500 / 85 000 / 170 000 € |
 | D-4 | N_max | Aucun dans le MVP (le budget suffit) |
 | D-5 | Équité dans le MVP | Non : montrée par une variante en version enrichie (C-5 avec α = 30 %) |
+
+Statut : **D-1 à D-5 validées le 21/10/2026.** L'équité reste la variante enrichie, pour en montrer le prix.
+
+## 14. Implémentation MVP
+
+| Fichier | Rôle |
+|---|---|
+| `config/optimisation.yaml` | Coûts, budgets, solveur (temps max 120 s, écart 0,1 %) |
+| `src/optimization/couverture.py` | `preparer`, `epsilon`, `resoudre` (PuLP/CBC), `population_couverte`, `ordre_ajout` (glouton CELF) |
+| `scripts/build_optimisation.py` | 9 scénarios + courbe 1 à 30 stations, contrôles O-T1 à O-T6 |
+| `tests/test_optimisation.py` | 6 tests sur petits cas fabriqués |
+
+### Deux réglages du solveur
+
+1. **Statut réel.** PuLP renvoie « Optimal » même quand CBC s'arrête sur la limite de temps. Le script lit `sol_status` : O-T6 exige un optimum prouvé (à l'écart garanti près), sinon il s'arrête.
+2. **Inégalité valide** Σ x ≤ ⌊B / c_min⌋. La relaxation continue achetait 42,5 stations à 170 000 € ; CBC ne bouclait pas en 120 s. Avec la contrainte (qui n'exclut aucune solution entière), 0,3 s et même K6. Écart garanti : 0,1 % de l'optimum.
+
+### Contrôles d'exécution
+
+| ID | Contrôle |
+|---|---|
+| O-T1 | Coût total ≤ budget |
+| O-T2 | Σ `pop_nouvelle_marginale` = K6 |
+| O-T3 | K6 recalculé par union des carreaux = valeur du solveur (hors ε) |
+| O-T4 | Aucun carreau en double dans `cellules_couvertes_scenario` |
+| O-T5 | Optimum ≥ glouton |
+| O-T6 | Optimum prouvé (`sol_status`) |
+
+### Résultats (exécution bac à sable, à confirmer sur le poste)
+
+| Scénario | Stations | K6 (hab.) | K8 (€/hab.) |
+|---|---:|---:|---:|
+| prudent × central | 5 | 11 338 | 3,75 |
+| **central × central** | **10** | **18 816** | **4,52** |
+| ambitieux × central | 20 | 29 834 | 5,70 |
+| central × bas / haut | 21 / 6 | 30 834 / 12 888 | 2,72 / 6,05 |
+
+Messages : rendements décroissants (gain de la 1re station 4 040 hab., de la 30e 894) ; couverture Citiz 9,8 % → 20,6 % au central ; « sans aucune option » presque inchangé (Citiz s'installe là où le bus passe déjà) ; 0 % des gains en communes prioritaires dans 8 scénarios sur 9, ce qui justifie la variante équité. Le glouton atteint l'optimum dans 8 scénarios sur 9.

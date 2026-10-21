@@ -194,3 +194,7 @@ L'implémentation attend le script d'ingestion et le lot 1. Le notebook appelle 
 | `scripts/build_silver.py` | `--source`, `--etape` ou `--all` |
 | `config/silver.yaml` | Emprise, précision, tolérance d'aire, seuils encore ouverts |
 | `notebooks/02_silver_cleaning_join_quality.ipynb` | Sections 0 à 9 : manifestes, sources, dédoublonnage, qualité. La section 10 est réservée aux jointures |
+
+## Optimisation budgétaire (Mission 12)
+
+Problème de couverture maximale sous budget (Church et ReVelle, 1974), résolu exactement par PuLP/CBC. Objectif : habitants nouvellement couverts par Citiz, chaque carreau compté une fois. Le score K10 ne sert qu'à départager deux solutions de même population (poids ε, inférieur au plus petit carreau peuplé). Coûts 4 000 / 8 500 / 13 000 € sur 3 ans ; forfait Citiz TTC et boîtier HT additionnés sans conversion. Le solveur doit prouver l'optimum (`sol_status`, écart ≤ 0,1 %) ; l'inégalité Σ x ≤ ⌊B / c_min⌋ accélère la preuve sans changer l'optimum. Un glouton sert de contrôle. Détails : `docs/optimisation.md`.
