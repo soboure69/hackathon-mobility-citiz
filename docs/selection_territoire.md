@@ -217,16 +217,18 @@ Point de vigilance sur le secours : Nantes est proche du plafond G5 (689 456 hab
 
 ## 9. Verrouillage
 
-Statut : décidé, pas verrouillé. Le choix devient définitif quand les 4 vérifications sont faites.
+Statut : verrouillé le 21/10/2026. Preuve : [`verrouillage_2026-10-21.json`](annexes/selection_territoire/verrouillage_2026-10-21.json), run `20261021T035827Z_aabf711`.
 
 | # | Vérification | Constat attendu | Résultat au 21/10/2026 | Étape |
 |---|---|---|---|---|
 | V-a | Ouvrir l'archive GTFS Yélo | stops.txt avec coordonnées, routes et trips présents, calendrier valide à la date de démo | Passée si la démonstration a lieu au plus tard le 03/01/2027. Archive complète : fichiers obligatoires, `shapes`, `feed_info`, 1 515 arrêts avec coordonnées, validité du 08/10/2026 au 03/01/2027. | E2 |
-| V-b | Filosofi 200 m | carreaux présents sur les 28 communes, part des carreaux sous secret statistique notée | Partielle : fichier lisible, emprise après S04. | E2 |
-| V-c | Contour Admin Express de l'EPCI 241700434 | ≥ 80 % des 24 stations Citiz dedans | En attente | E3 |
-| V-d | Graphe piéton OSM de l'EPCI | téléchargé et calculé en local, nombre de nœuds noté | En attente | E3 |
+| V-b | Filosofi 200 m | carreaux présents sur les 28 communes, part des carreaux sous secret statistique notée | Passée. Les 28 codes 2026 sont dans `lcog_geo` 2021, aucun carreau hors contour. 2 637 carreaux, `idcar_200m` unique. Population Filosofi 2021 : 174 016, rapport 0,954 à la population légale 2023 (182 435). | E2 |
+| V-c | Contour Admin Express de l'EPCI 241700434 | ≥ 80 % des 24 stations Citiz dedans | Passée. 24/24 stations dans le contour (100 %, seuil 80 %). | E3 |
+| V-d | Graphe piéton OSM de l'EPCI | téléchargé et calculé en local, nombre de nœuds noté | Passée. 29 865 nœuds, 84 010 arêtes, 136 composantes. 98,29 % des nœuds sont dans la composante principale. Une distance réseau de 400 m a été calculée. | E3 |
 
 Constat V-a du 21/10 : S3 passerait à 2 (95/100). Décision du 20/10 inchangée.
+
+Limite Q8, à présenter au jury. Sur l'EPCI, 41,9 % des carreaux ont une valeur imputée (`i_est_200 = 1`), mais ils ne portent que 6,3 % de la population. C'est une limite de la diffusion Filosofi, pas un défaut du rattachement. Le constat départemental du même jour était plus haut : 78 % des carreaux de la Charente-Maritime. Une population imputée non entière ne s'affiche pas avec ses décimales comme un nombre d'habitants.
 
 Le déclencheur « archive GTFS inexploitable » du §8 ne s'applique pas. Le seul cas encore ouvert sur ce flux est une finale nationale après le 03/01/2027 (R23) : il faudrait alors retélécharger S02 dans un nouveau dossier daté.
 

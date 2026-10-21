@@ -1,0 +1,102 @@
+{
+  "run_id": "20261021T035827Z_aabf711",
+  "date_heure": "2026-10-21T03:59:01+00:00",
+  "epci": "241700434",
+  "communes": [
+    "17010",
+    "17028",
+    "17059",
+    "17094",
+    "17109",
+    "17136",
+    "17142",
+    "17153",
+    "17190",
+    "17193",
+    "17194",
+    "17200",
+    "17222",
+    "17245",
+    "17264",
+    "17274",
+    "17291",
+    "17300",
+    "17315",
+    "17373",
+    "17391",
+    "17407",
+    "17413",
+    "17414",
+    "17420",
+    "17443",
+    "17466",
+    "17483"
+  ],
+  "amont": {
+    "S01": {
+      "dossier": "data/bronze/gbfs/larochelle/S01_2026-10-21",
+      "run_id": "20261021T020400Z_beaf780",
+      "fichiers": {
+        "gbfs.json": "2eb78fcf56756216ea5d80390567cbcfcec1c2be404777c79bfffc450e488157",
+        "system_information.json": "6402bd8a35b1f9217d9970b4424e8b7fd1d3c29d5f574182b89a353576e0116c",
+        "station_information.json": "1f15fde7e591a919f661a0106b870296c2c28899f41f710b83e55ea5c90f4108"
+      }
+    },
+    "S03": {
+      "dossier": "data/bronze/insee_filosofi/national/S03_2026-10-21",
+      "run_id": "20261021T014800_dfe198d",
+      "fichiers": {
+        "Filosofi2021_carreaux_200m_gpkg.zip": "2bb4ba8d38a9c7c90313ba7018b96fd0475d331a67c1059f84ba85d5937b86ee"
+      }
+    },
+    "S04": {
+      "dossier": "data/bronze/admin_express/national/S04_2026-10-21",
+      "run_id": "20261021T024321Z_7a6e527",
+      "fichiers": {
+        "ADMIN-EXPRESS-COG_4-0__GPKG_LAMB93_FXX_2026-01-01.7z": "688eb44505d9b4a8e422ded2f4afaac799f10783de563132ca1a60e9491c6278"
+      }
+    },
+    "S05": {
+      "dossier": "data/bronze/osm/larochelle/S05_2026-10-21_2",
+      "run_id": "20261021T033603Z_635bc9b",
+      "fichiers": {
+        "emprise_requete.geojson": "7af67ee22df0d5ad825b33c70d08a7bea0674f51863c79cf0c2e22554033f7a7",
+        "walk_graph.graphml": "d042196f369f5d68a45bb425cda2140d96cc8ff9acf27fc12dd388848cbb40a8"
+      }
+    }
+  },
+  "V-b": {
+    "resultat": "ok",
+    "carreaux": 2637,
+    "idcar_200m_uniques": 2637,
+    "multi_commune": 393,
+    "partiel_epci": 36,
+    "codes_2026_absents_de_lcog_geo_2021": [],
+    "carreaux_hors_contour": 0,
+    "population_filosofi_2021": 174016,
+    "rapport_a_population_legale_2023": 0.954,
+    "q8_part_carreaux_imputes": 0.419,
+    "q8_part_population_imputee": 0.063
+  },
+  "V-c": {
+    "resultat": "ok",
+    "stations": 24,
+    "dans_le_contour": 24,
+    "part": 1.0,
+    "seuil": 0.8
+  },
+  "V-d": {
+    "resultat": "ok",
+    "noeuds": 29865,
+    "aretes": 84010,
+    "composantes": 136,
+    "part_noeuds_composante_principale": 0.9829,
+    "chargement_s": 9.6,
+    "essai_400m": {
+      "origine": 28277411,
+      "noeuds_atteints": 19,
+      "calcul_s": 0.004
+    }
+  },
+  "verrouille": true
+}
