@@ -147,6 +147,8 @@ def telecharger_fichier(
         description = decrire_fichier(destination)
         description.update(
             content_type=reponse.headers.get("Content-Type"),
+            last_modified=reponse.headers.get("Last-Modified"),
+            etag=reponse.headers.get("ETag"),
             http_status=reponse.status_code,
             url_demandee=url,
             url_effective=reponse.url,

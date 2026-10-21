@@ -23,6 +23,7 @@ plotly
 requests
 pyyaml
 openpyxl
+py7zr
 # Notebooks
 jupyterlab
 ipykernel

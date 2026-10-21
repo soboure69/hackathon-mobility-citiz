@@ -16,7 +16,9 @@ import requests
 RACINE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(RACINE))  # pour importer src/ en lançant le script depuis la racine
 
-from src.ingestion.gbfs import FLUX_RETENUS, ingerer_gbfs  # noqa: E402
+from src.ingestion.admin_express import controler_admin_express  # noqa: E402
+from src.ingestion.fichier import ingerer_fichier  # noqa: E402
+from src.ingestion.gbfs import ingerer_gbfs  # noqa: E402
 from src.ingestion.http_download import DELAI_PAR_DEFAUT, creer_dossier_date  # noqa: E402
 from src.ingestion.registre import lire_source  # noqa: E402
 from src.utils.journal import Journal  # noqa: E402
@@ -40,19 +42,35 @@ def statut_global(controles: list[dict]) -> str:
     return "reussie"
 
 
+def ingerer(source: dict, args: argparse.Namespace, dossier: Path, session: requests.Session):
+    """Choisit le traitement selon la famille. Renvoie (fichiers, version, contrôles)."""
+    options = {"session": session, "essais": ESSAIS}
+    if source["famille"] == "gbfs":
+        return ingerer_gbfs(source["url_ressource"], dossier, index_seul=args.index_seul, **options)
+    if source["famille"] == "osm":
+        raise ValueError("OSM passe par scripts/ingest_osm.py, pas par ce script.")
+    fichiers, version, controles = ingerer_fichier(source["url_ressource"], dossier,
+                                                   taille_annoncee=args.taille_annoncee, **options)
+    if source["famille"] == "admin_express":
+        controles.extend(controler_admin_express(dossier / fichiers[0]["nom"], args.siren, args.nb_communes))
+    return fichiers, version, controles
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Ingestion Bronze d'une source GBFS.")
     parser.add_argument("--source", required=True, help="source_id du registre, ex. S01")
     parser.add_argument("--licence-constatee", default=None, help="Licence lue sur la fiche le jour même.")
     parser.add_argument("--suffixe", type=int, default=None, help="2, 3… pour un second téléchargement le même jour.")
+    parser.add_argument("--index-seul", action="store_true", help="GBFS figé : stations embarquées dans gbfs.json.")
+    parser.add_argument("--taille-annoncee", type=int, default=None, help="Taille en octets annoncée par le catalogue.")
+    parser.add_argument("--version-producteur", default=None, help="Édition ou millésime lu sur la fiche.")
+    parser.add_argument("--siren", default="241700434", help="EPCI d'étude (contrôle Admin Express).")
+    parser.add_argument("--nb-communes", type=int, default=28, help="Communes attendues dans l'EPCI (G2).")
     args = parser.parse_args(argv)
 
     run_id = construire_run_id()
     journal = Journal(LOGS, run_id)
     source = lire_source(REGISTRE, args.source)
-    if source["famille"] != "gbfs":
-        journal.evenement(args.source, "registre", "echec", f"Famille {source['famille']!r} non prise en charge ici.")
-        return 2
 
     maintenant = datetime.now(timezone.utc)
     dossier = creer_dossier_date(BRONZE, source["famille"], source["territoire"], args.source,
@@ -62,8 +80,7 @@ def main(argv: list[str] | None = None) -> int:
     fichiers, version, controles = [], None, []
     try:
         with requests.Session() as session:
-            fichiers, version, controles = ingerer_gbfs(source["url_ressource"], dossier,
-                                                        session=session, essais=ESSAIS)
+            fichiers, version, controles = ingerer(source, args, dossier, session)
     except Exception as erreur:
         controles.append({"id": "telechargement", "resultat": "echec",
                           "valeur": f"{type(erreur).__name__}: {erreur}"})
@@ -76,6 +93,9 @@ def main(argv: list[str] | None = None) -> int:
         "resultat": "ok" if args.licence_constatee else "alerte",
         "valeur": args.licence_constatee or "non constatée : lire la fiche et relancer avec --licence-constatee",
     })
+
+    if args.version_producteur:
+        version = {**(version or {}), "edition_declaree": args.version_producteur}
 
     index = fichiers[0] if fichiers else {}
     statut = statut_global(controles)
@@ -92,7 +112,9 @@ def main(argv: list[str] | None = None) -> int:
         "licence_registre": source["licence"],
         "licence_constatee": args.licence_constatee,
         "outil": {"mode": "script", "script": "scripts/ingest_bronze.py", "requests": requests.__version__},
-        "parametres": {"flux_retenus": list(FLUX_RETENUS), "delai_s": list(DELAI_PAR_DEFAUT), "essais": ESSAIS},
+        "parametres": {"famille": source["famille"], "index_seul": args.index_seul,
+                       "taille_annoncee": args.taille_annoncee, "siren": args.siren,
+                       "nb_communes": args.nb_communes, "delai_s": list(DELAI_PAR_DEFAUT), "essais": ESSAIS},
         "controles": controles,
         "statut_ingestion": statut,
     })
