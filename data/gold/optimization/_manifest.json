@@ -1,0 +1,327 @@
+{
+  "couche": "gold",
+  "tables": {
+    "cellules_couvertes_scenario_larochelle.parquet": {
+      "entrees": {
+        "gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "gold\\candidates\\paires_candidat_cellule_larochelle.parquet": "aae5b455a8f50869ca984347257e3fffbd744c8b5570f02ac6166d35d4049c22"
+      },
+      "parametres": {
+        "courbe": {
+          "stations_max": 30
+        },
+        "couts": {
+          "bas": {
+            "etiquette": "estimation publique",
+            "montant": 4000
+          },
+          "central": {
+            "etiquette": "hypothèse de simulation",
+            "montant": 8500
+          },
+          "haut": {
+            "etiquette": "estimation publique",
+            "montant": 13000
+          }
+        },
+        "equite": null,
+        "n_max": null,
+        "objectif": "habitants nouvellement couverts par Citiz",
+        "scenarios": {
+          "ambitieux": 170000,
+          "central": 85000,
+          "prudent": 42500
+        },
+        "solveur": {
+          "ecart_relatif": 0.001,
+          "temps_max_s": 120
+        },
+        "type_equipement": "citiz"
+      },
+      "run_id": "20261021T073449Z_5e94261",
+      "table": {
+        "cle": [
+          "scenario_id",
+          "cell_id"
+        ],
+        "colonnes": [
+          "scenario_id",
+          "cell_id",
+          "pop",
+          "commune_insee",
+          "prioritaire",
+          "gain_tous_modes",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 839,
+        "nom": "cellules_couvertes_scenario_larochelle.parquet",
+        "sha256": "65b4a353a2b34f3025a75f6db81392fe875fa9a924c839fb92e9a719e4168eb7"
+      }
+    },
+    "courbe_budget_impact_larochelle.parquet": {
+      "entrees": {
+        "gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "gold\\candidates\\paires_candidat_cellule_larochelle.parquet": "aae5b455a8f50869ca984347257e3fffbd744c8b5570f02ac6166d35d4049c22"
+      },
+      "parametres": {
+        "courbe": {
+          "stations_max": 30
+        },
+        "couts": {
+          "bas": {
+            "etiquette": "estimation publique",
+            "montant": 4000
+          },
+          "central": {
+            "etiquette": "hypothèse de simulation",
+            "montant": 8500
+          },
+          "haut": {
+            "etiquette": "estimation publique",
+            "montant": 13000
+          }
+        },
+        "equite": null,
+        "n_max": null,
+        "objectif": "habitants nouvellement couverts par Citiz",
+        "scenarios": {
+          "ambitieux": 170000,
+          "central": 85000,
+          "prudent": 42500
+        },
+        "solveur": {
+          "ecart_relatif": 0.001,
+          "temps_max_s": 120
+        },
+        "type_equipement": "citiz"
+      },
+      "run_id": "20261021T073449Z_5e94261",
+      "table": {
+        "cle": [
+          "budget"
+        ],
+        "colonnes": [
+          "budget",
+          "n_stations",
+          "k6",
+          "k8_cout_par_habitant",
+          "gain_marginal",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 30,
+        "nom": "courbe_budget_impact_larochelle.parquet",
+        "sha256": "e5b740434d4a0033cc2b8db90185577a90b06b4fe0a1fbf1d861b78e6a7889c3"
+      }
+    },
+    "kpi_scenario_larochelle.parquet": {
+      "entrees": {
+        "gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "gold\\candidates\\paires_candidat_cellule_larochelle.parquet": "aae5b455a8f50869ca984347257e3fffbd744c8b5570f02ac6166d35d4049c22"
+      },
+      "parametres": {
+        "courbe": {
+          "stations_max": 30
+        },
+        "couts": {
+          "bas": {
+            "etiquette": "estimation publique",
+            "montant": 4000
+          },
+          "central": {
+            "etiquette": "hypothèse de simulation",
+            "montant": 8500
+          },
+          "haut": {
+            "etiquette": "estimation publique",
+            "montant": 13000
+          }
+        },
+        "equite": null,
+        "n_max": null,
+        "objectif": "habitants nouvellement couverts par Citiz",
+        "scenarios": {
+          "ambitieux": 170000,
+          "central": 85000,
+          "prudent": 42500
+        },
+        "solveur": {
+          "ecart_relatif": 0.001,
+          "temps_max_s": 120
+        },
+        "type_equipement": "citiz"
+      },
+      "run_id": "20261021T073449Z_5e94261",
+      "table": {
+        "cle": [
+          "scenario_id"
+        ],
+        "colonnes": [
+          "scenario_id",
+          "n_stations",
+          "k6_pop_nouvellement_couverte",
+          "k7_cout_total",
+          "k8_cout_par_habitant",
+          "cout_etiquette",
+          "couverture_citiz_avant",
+          "couverture_citiz_apres",
+          "couverture_tous_modes_avant",
+          "couverture_tous_modes_apres",
+          "pop_sans_option_gagnee",
+          "k12_part_gains_communes_prioritaires",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 9,
+        "nom": "kpi_scenario_larochelle.parquet",
+        "sha256": "b07e685dc86be93301d8f6ef8f6a827654ff1d703ca6a664e9fb6751e687e8ef"
+      }
+    },
+    "scenarios_larochelle.parquet": {
+      "entrees": {
+        "gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "gold\\candidates\\paires_candidat_cellule_larochelle.parquet": "aae5b455a8f50869ca984347257e3fffbd744c8b5570f02ac6166d35d4049c22"
+      },
+      "parametres": {
+        "courbe": {
+          "stations_max": 30
+        },
+        "couts": {
+          "bas": {
+            "etiquette": "estimation publique",
+            "montant": 4000
+          },
+          "central": {
+            "etiquette": "hypothèse de simulation",
+            "montant": 8500
+          },
+          "haut": {
+            "etiquette": "estimation publique",
+            "montant": 13000
+          }
+        },
+        "equite": null,
+        "n_max": null,
+        "objectif": "habitants nouvellement couverts par Citiz",
+        "scenarios": {
+          "ambitieux": 170000,
+          "central": 85000,
+          "prudent": 42500
+        },
+        "solveur": {
+          "ecart_relatif": 0.001,
+          "temps_max_s": 120
+        },
+        "type_equipement": "citiz"
+      },
+      "run_id": "20261021T073449Z_5e94261",
+      "table": {
+        "cle": [
+          "scenario_id"
+        ],
+        "colonnes": [
+          "scenario_id",
+          "scenario",
+          "hypothese_cout",
+          "budget",
+          "cout_station",
+          "cout_etiquette",
+          "type_equipement",
+          "objectif",
+          "contraintes",
+          "solveur",
+          "statut",
+          "statut_solution",
+          "ecart_relatif_garanti",
+          "valeur_k6",
+          "k6_glouton",
+          "epsilon",
+          "duree_s",
+          "run_id"
+        ],
+        "crs": null,
+        "lignes": 9,
+        "nom": "scenarios_larochelle.parquet",
+        "sha256": "12e5317d2b6675e7d1150ad54192a106eec7cfcf12264efe3ab95c0e640f5133"
+      }
+    },
+    "selection_scenario_larochelle.parquet": {
+      "entrees": {
+        "gold\\accessibility\\acces_cellule_larochelle.parquet": "ce7a5c028424af22de244316ebafaf5146616723f373d1298124d37641b3c245",
+        "gold\\accessibility\\kpi_couverture_larochelle.parquet": "01c9aa8fc5aa8a69547dd6f2c5166a74bd12540f963e453f48d2312070a259c8",
+        "gold\\candidates\\candidats_larochelle.parquet": "1ac65ad3ff99278b9aa5ceea41e8ac45cd7b40d1f64e2e88f79a6dadbbed440b",
+        "gold\\candidates\\paires_candidat_cellule_larochelle.parquet": "aae5b455a8f50869ca984347257e3fffbd744c8b5570f02ac6166d35d4049c22"
+      },
+      "parametres": {
+        "courbe": {
+          "stations_max": 30
+        },
+        "couts": {
+          "bas": {
+            "etiquette": "estimation publique",
+            "montant": 4000
+          },
+          "central": {
+            "etiquette": "hypothèse de simulation",
+            "montant": 8500
+          },
+          "haut": {
+            "etiquette": "estimation publique",
+            "montant": 13000
+          }
+        },
+        "equite": null,
+        "n_max": null,
+        "objectif": "habitants nouvellement couverts par Citiz",
+        "scenarios": {
+          "ambitieux": 170000,
+          "central": 85000,
+          "prudent": 42500
+        },
+        "solveur": {
+          "ecart_relatif": 0.001,
+          "temps_max_s": 120
+        },
+        "type_equipement": "citiz"
+      },
+      "run_id": "20261021T073449Z_5e94261",
+      "table": {
+        "cle": [
+          "scenario_id",
+          "candidat_id"
+        ],
+        "colonnes": [
+          "candidat_id",
+          "ordre_ajout",
+          "cout",
+          "pop_nouvelle_marginale",
+          "cout_cumule",
+          "pop_nouvelle_cumulee",
+          "scenario_id",
+          "cout_etiquette",
+          "commune_insee",
+          "score",
+          "rang",
+          "commune_prioritaire",
+          "lon_wgs84",
+          "lat_wgs84",
+          "geometry",
+          "run_id"
+        ],
+        "crs": "EPSG:2154",
+        "lignes": 130,
+        "nom": "selection_scenario_larochelle.parquet",
+        "sha256": "4800ba462ca1565b39d6bb3d00e5d8ba79670b3035fe807f902200b387cc0fc9"
+      }
+    }
+  }
+}
