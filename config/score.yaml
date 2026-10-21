@@ -1,0 +1,23 @@
+# Score multicritère de potentiel territorial (K10) — docs/score_potentiel.md.
+# Ce n'est PAS une prédiction de fréquentation : aucune donnée d'usage n'existe (H5).
+types_equipement: [citiz, velo, bus]
+exclusion:
+  redondance_max: 0.8          # au moins 1 habitant atteint sur 5 doit être nouvellement couvert (paramètre, testé en sensibilité)
+  acces_voiture_requis: [citiz, bus]
+  voies_voiture: [primary, primary_link, secondary, secondary_link, tertiary, tertiary_link,
+                  unclassified, residential, living_street, service]   # trunk exclu (RC-01)
+ponderations:                   # somme = 1 ; justification dans docs/score_potentiel.md §6
+  impact: 0.40                  # population nouvellement couverte par le type (K6 du site seul)
+  besoin: 0.20                  # part de la population atteinte sans aucune option aujourd'hui
+  complementarite_bus: 0.15     # part de la population atteinte desservie par le bus
+  logement_collectif: 0.15      # part des ménages en logement collectif (densité, stationnement contraint)
+  petits_menages: 0.10          # part des ménages d'une personne
+sensibilite:
+  tirages: 500                  # pondérations tirées autour des valeurs initiales (loi de Dirichlet)
+  concentration: 20             # plus grand = tirages plus proches des pondérations initiales
+  graine: 2026                  # tirages reproductibles
+  top_n: 20
+equite:
+  top_n: 20
+  quota_communes_prioritaires: 0.30   # au moins 30 % du top N dans les communes prioritaires
+  seuil_commune_prioritaire: 0.60     # commune prioritaire : couverture tous modes < 60 %

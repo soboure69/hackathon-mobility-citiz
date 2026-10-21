@@ -41,6 +41,9 @@
 | gold/accessibility | `desserte_offre_larochelle` | `offre_id` | spatial + paires | K5 : `pop_5min` (non exclusive, jamais additionnée), `pop_exclusive` (option la plus proche), `n_carreaux`, `atteinte` |
 | gold/accessibility | `kpi_couverture_larochelle` | `perimetre_type`, `perimetre_id`, `mode` | `acces_cellule` | K2 à K4 par EPCI et par commune, options par habitant, multimodalité |
 | gold/dashboards | `agg_distribution_acces_larochelle`, `agg_equite_larochelle` | `mode`, `n_options` / `quintile_niveau_vie`, `mode` | `acces_cellule` | Histogramme de K1 ; couverture par quintile de niveau de vie |
+| gold/candidates | `candidats_larochelle` | `candidat_id`, `type_equipement` | spatial, réseau, `acces_cellule`, `kpi_couverture` | Sites candidats (nœuds routables), exclusions et motifs, variables brutes et normalisées, contributions, `score` (K10, 0–100), `rang`, `rang_commune`, `frequence_top_n`, `rang_equite`. Pas une prédiction. Voir `score_potentiel.md` |
+| gold/candidates | `paires_candidat_cellule_larochelle` | `candidat_id`, `cell_id` | sites, cellules, réseau | Zone atteinte de chaque site à ≤ 400 m ; base de K6 marginal |
+| gold/candidates | `sensibilite_ponderations_larochelle` | `type_equipement`, `variable`, `facteur` | candidats | Spearman et recouvrement du top N, un poids à la fois (× 0,5 et × 1,5) |
 | quality | `rejets_<source>`, `alertes_<source>`, `qualite_indicateurs_<source>` | voir manifeste | toutes | Journaux par source ; l'union se fait en Gold |
 
 Les tables d'offre partagent le schéma commun ci-dessous. Colonnes propres au mode : `n_quais`, `n_quais_desservis` (bus) ; `capacite` (stations). Elles seront réunies dans `offre_points_larochelle` à l'étape `spatial/`.
