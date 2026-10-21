@@ -80,6 +80,8 @@ def main(argv: list[str] | None = None) -> int:
             {"id": "nb_noeuds", "resultat": "ok" if stats["nb_noeuds"] > 0 else "echec", "valeur": stats["nb_noeuds"]},
             {"id": "nb_aretes", "resultat": "ok" if stats["nb_aretes"] > 0 else "echec", "valeur": stats["nb_aretes"]},
             {"id": "nb_composantes", "resultat": "ok", "valeur": stats["nb_composantes"]},  # constaté, traité en Silver
+            {"id": "tentatives_overpass", "resultat": "ok" if stats["tentatives"] == 1 else "alerte",
+             "valeur": stats["tentatives"]},
         ]
     except Exception as erreur:
         controles.append({"id": "telechargement", "resultat": "echec", "valeur": f"{type(erreur).__name__}: {erreur}"})
@@ -110,6 +112,8 @@ def main(argv: list[str] | None = None) -> int:
         "parametres": {
             **PARAMETRES_GRAPHE,
             "use_cache": False,
+            "essais_overpass": 4,
+            "attente_initiale_s": 60,
             "tampon_m": args.tampon_m,
             "siren": args.siren,
             "crs_emprise": "EPSG:4326",
