@@ -40,7 +40,7 @@ Nous avons appliqué une grille à sept agglomérations : des critères élimina
 Nous avons fait un choix assumé : sans cible observée, un modèle « prédictif » d'usage serait une fiction. Nous avons séparé ce qui est mesuré (la couverture, qui décide) de ce qui est estimé (un score de potentiel, qui départage). Un modèle appris, H6, est conçu : il apprend où Citiz est déjà implanté dans cinq villes et se valide en laissant une ville de côté à chaque fois. Les données de quatre villes sont vérifiées ; le modèle n'est pas livré. C'est notre première extension. *(`docs/score_potentiel.md`, `docs/data_dictionary.md`.)*
 
 **B3. Comment savez-vous que votre score est bon ?**
-Sans vérité terrain, on ne peut pas mesurer une précision. Nous avons donc vérifié trois choses : il est décomposable (chaque point vient d'un critère visible) ; il est stable (500 tirages de pondérations : l'ordre global ne bouge presque pas, Spearman ≥ 0,978) ; et il ne décide pas seul (l'optimisation choisit sur les habitants comptés). Le haut du classement est serré, et nous le disons. *(Page 3, tableau de sensibilité.)*
+Sans vérité terrain, on ne peut pas mesurer une précision. Nous avons donc vérifié trois choses : il est décomposable (chaque point vient d'un critère visible) ; il est stable (chaque poids divisé ou multiplié par 1,5 : l'ordre global ne bouge presque pas, Spearman ≥ 0,978 ; 500 tirages de poids donnent la robustesse de chaque site) ; et il ne décide pas seul (l'optimisation choisit sur les habitants comptés). Le haut du classement est serré, et nous le disons. *(Page 3, tableau de sensibilité.)*
 
 **B4. Pourquoi Python en local et pas Microsoft Fabric ?**
 Projet mené seul en deux jours et demi : nous avons privilégié la reproductibilité (Git, tests, scripts rejouables) et un travail possible hors ligne. L'architecture Bronze / Silver / Gold en Parquet est exactement celle d'un lakehouse Fabric : le passage serait un portage, pas une refonte.
@@ -99,7 +99,7 @@ Il est rattaché à une seule commune, celle qui en contient la plus grande part
 
 | Question | Réponse courte |
 |---|---|
-| « Votre score, c'est arbitraire. » | « Les pondérations sont un choix, affiché et testé : 500 tirages. Et le score ne décide pas : l'optimisation décide sur des habitants comptés. » |
+| « Votre score, c'est arbitraire. » | « Les pondérations sont un choix, affiché et testé : chaque poids varié de ±50 %, plus 500 tirages aléatoires. Et le score ne décide pas : l'optimisation décide sur des habitants comptés. » |
 | « Vous n'avez fait qu'un seul type de station. » | « Un type fait jusqu'au bout, contrôlé et prouvé, plutôt que trois à moitié. Le code est paramétré par type. » |
 | « Ce n'est pas de l'IA. » | « C'est de l'aide à la décision : de la donnée, de la géographie et de l'optimisation exacte. Nous avons refusé d'appeler “prédiction” ce qui n'en est pas une. » |
 | « Pourquoi vous croire ? » | « Ne nous croyez pas : tout est dans le dépôt, rejouable, et la page 5 montre les contrôles à zéro. » |
