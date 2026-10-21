@@ -1,0 +1,11 @@
+# Paramètres de la couche Silver.
+# Un seuil qui n'a pas encore été constaté sur les données vaut null.
+coordonnees:
+  # Emprise de la France métropolitaine (Corse comprise), en degrés WGS84 — paramètre, pas une donnée.
+  lat_min: 41.0
+  lat_max: 51.5
+  lon_min: -5.5
+  lon_max: 10.0
+  precision_min_decimales: 4   # 4 décimales ≈ 11 m
+gtfs:
+  seuil_rg06_m: null           # distance quai → zone d'arrêt : à fixer après constat de la distribution

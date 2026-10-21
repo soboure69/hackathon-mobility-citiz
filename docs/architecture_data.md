@@ -49,11 +49,11 @@ Dans l'ordre d'exécution.
 
 | Ordre | Dossier | Transformations | Tables produites |
 |---|---|---|---|
-| 1 | `standardized/` | Noms de colonnes en snake_case, types, CRS 2154, `source_id` et identifiant d'origine conservés. Restriction de Filosofi aux 5 EPCI par `lcog_geo` (AD6). | `gtfs_stops_larochelle`, `gtfs_stops_national`, `gbfs_stations_citiz_<ville>` (cinq villes), `gbfs_stations_yelo_larochelle`, `filosofi_carreaux_5epci`, `admin_communes`, `admin_epci`, `osm_walk_nodes_larochelle`, `osm_walk_edges_larochelle`, `ref_densite_communes` |
-| 2 | `cleaned/` | Règles `RC-xx` et `RG-xx` de `methodologie.md`. Une ligne retirée va dans `rejets`. Une ligne gardée mais signalée va dans `alertes`. Hors emprise : marqueur `dans_emprise`, pas un rejet. | Mêmes noms, version nettoyée |
-| 3 | `deduplicated/` | S02 : une option par `parent_station` (981 quais sur 981). S07 : `parent_station`, sinon distance et nom normalisé, seuil à fixer après constat. Pas de fusion entre modes. | `offre_arrets_larochelle`, `offre_arrets_h6`, `dedup_correspondances` |
+| 1 | `standardized/` | Noms, types, colonnes d'audit, identifiant d'origine conservé. Pas de géométrie : une coordonnée invalide ne se convertit pas. Restriction de Filosofi aux 5 EPCI par `lcog_geo` (AD6). | `gtfs_stops_larochelle`, `gtfs_stops_national`, `gbfs_stations_citiz_<ville>` (cinq villes), `gbfs_stations_yelo_larochelle`, `filosofi_carreaux_5epci`, `admin_communes`, `admin_epci`, `osm_walk_nodes_larochelle`, `osm_walk_edges_larochelle`, `ref_densite_communes` |
+| 2 | `cleaned/` | Règles `RC-xx` et `RG-xx` de `methodologie.md`. La géométrie EPSG:2154 est créée ici, après RG-01 à RG-03. Une ligne retirée va dans `rejets_<source_id>`. Une ligne gardée mais signalée va dans `alertes_<source_id>`. Hors emprise : marqueur `dans_emprise`, pas un rejet. | Mêmes noms, version nettoyée |
+| 3 | `deduplicated/` | S02 : une option par `parent_station` (981 quais sur 981). S07 : `parent_station`, sinon distance et nom normalisé, seuil à fixer après constat. Pas de fusion entre modes. | `offre_arrets_larochelle`, `offre_arrets_h6`, `dedup_correspondances_<source_id>` |
 | 4 | `spatial/` | Rattachement carreau, commune, EPCI. Point vers le nœud du graphe le plus proche, avec la distance de rattachement. Table unifiée des options (H4). | `cellules_larochelle`, `offre_points_larochelle`, `cellules_h6`, `offre_points_h6` |
-| 5 | `quality/` | Indicateurs Q1 à Q8, journal des rejets et des alertes. | `qualite_indicateurs`, `rejets`, `alertes` |
+| 5 | `quality/` | Indicateurs Q1 à Q8, journal des rejets et des alertes. Écrits par source, pour qu'une reconstruction n'écrase pas les autres. L'union se fera en Gold. | `qualite_indicateurs_<source_id>`, `rejets_<source_id>`, `alertes_<source_id>` |
 
 `offre_points_larochelle` réunit toutes les options (arrêts dédoublonnés, stations Citiz, stations vélo) : `offre_id`, `mode`, `source_id`, `node_id`. C'est la définition opérationnelle d'une option pour K1.
 
@@ -101,5 +101,5 @@ Les agrégats `agg_distribution_acces` et `agg_equite` servent les pages de dém
 | Table | Chaque table Gold a une colonne `run_id` (date et heure, et hash court du commit Git). |
 | Exécution | Un `_manifest.json` par dossier Silver ou Gold à chaque exécution : tables d'entrée et leur SHA-256, tables de sortie et leur SHA-256, hash de `config/`, commit Git, `requirements-lock.txt`. Il est versionné par l'exception déjà en place. |
 | Paramètres | Aucun seuil ni coût dans le code. Tout est dans `config/`, chaque coût avec son étiquette. |
-| Reproductibilité | Même Bronze, même `config/`, même commit : mêmes SHA-256 en sortie. C'est un test à écrire, à partir de E4. |
+| Reproductibilité | Même Bronze, même `config/`, même commit, et même `run_id` imposé : mêmes SHA-256 des tables. Deux exécutions réelles diffèrent, parce que `run_id` est une colonne. |
 | Bronze | Immuable. Une nouvelle date crée un nouveau dossier. |

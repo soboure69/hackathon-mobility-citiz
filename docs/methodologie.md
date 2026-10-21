@@ -123,8 +123,10 @@ Les tests `pytest` utilisent de petits tableaux fabriqués par le test. Les cont
 | CS-08 | Stations GBFS = effectif du manifeste − rejets | Écart |
 | CS-09 | EPCI 241700434 = 28 communes | Autre effectif (RC-12) |
 | CS-10 | `i_est_200` dans {0, 1}, aire dans la tolérance | Hors domaine |
-| CS-11 | Même Bronze et même config : même empreinte de sortie | Empreinte différente |
+| CS-11 | Même Bronze, même config et même `run_id` imposé : même empreinte de sortie | Empreinte différente |
 | CS-12 | Colonnes d'audit renseignées | NULL |
+
+`run_id` est une colonne des tables Silver, donc leur empreinte change à chaque exécution réelle. CS-11 se vérifie en imposant le même `run_id` (test, ou vérification manuelle), pas en comparant deux exécutions successives.
 
 ## Indicateurs de qualité
 
