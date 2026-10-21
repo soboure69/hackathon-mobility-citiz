@@ -40,7 +40,7 @@ Pas de dossier de partition (AD5). Les tables multi-villes ont une colonne `terr
 | Nom Silver | `<source>_<objet>_<territoire>`, ou `<objet>_<territoire>` après fusion de sources |
 | Nom Gold | `<objet>_<territoire>` ; tables multi-villes : `h6_<objet>` ; références : `ref_<objet>` ; agrégats : `agg_<objet>` |
 | Nom export | `pbi_dim_<objet>` ou `pbi_fact_<objet>`, en Parquet |
-| `cell_id` | Identifiant du carreau tel que publié, gardé en texte. Le nom dans le fichier source se constate à V-b. |
+| `cell_id` | Valeur de `idcar_200m`, en texte, telle quelle. `idcar_nat` est un attribut (carreau naturel), jamais la clé. |
 | `offre_id` | `<mode>_<source_id>_<id_origine>` |
 | `candidat_id` | `C_<cell_id>` |
 | `scenario_id` | `SC_<budget>_<variante>_<hypothese>` |

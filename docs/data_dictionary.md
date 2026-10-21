@@ -76,7 +76,7 @@ Le fichier fait foi pour les noms de colonnes, parce que c'est lui que le code l
 
 | Source | Nom dans la documentation (S03d) | Nom dans le fichier (S03) | Statut |
 |---|---|---|---|
-| Filosofi 2021 | `id_car_nat` | `idcar_nat` | équivalence présumée, à confirmer à E4 |
+| Filosofi 2021 | `id_car_nat` | `idcar_nat` | écart de nom présumé, à confirmer à E4. Ce n'est pas la clé : `idcar_nat` identifie le carreau naturel. |
 | Filosofi 2021 | `i_est_1Km` | `i_est_1km` | équivalence présumée, à confirmer à E4 |
 
 Règle : les noms du fichier font foi ; la documentation fait foi pour le sens.
@@ -100,7 +100,7 @@ Il s'applique à `offre_arrets_larochelle`, `offre_arrets_h6` et, plus tard, aux
 | `dans_emprise` | Marqueur. Faux ne retire pas la ligne |
 | `desservi` | Faux si la ligne est exclue de l'offre (RC-04, RC-05, RC-06) |
 
-`cell_id` est `idcar_nat`, en texte. Sur `cellules_larochelle`, `secret_stat` reprend `est_impute`, vrai lorsque `i_est_200 = 1`.
+`cell_id` est la valeur de `idcar_200m`, en texte, telle quelle. `idcar_nat` est conservé comme attribut : c'est l'identifiant du carreau naturel, niveau de diffusion des valeurs imputées, et plusieurs carreaux de 200 m le partagent. Sur `cellules_larochelle`, `secret_stat` reprend `est_impute`, vrai lorsque `i_est_200 = 1`. Une population imputée non entière ne s'affiche jamais avec ses décimales comme un nombre d'habitants. `lcog_geo` se découpe sur la virgule (constaté le 21/10/2026) ; les codes font 5 caractères.
 
 ## Colonnes d'audit
 

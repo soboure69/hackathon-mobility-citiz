@@ -30,7 +30,7 @@ Origine : test sur Lyon 2e (hors périmètre du projet).
 | RC-07 | GBFS | Station sans `capacity` | Alerte, `capacite` reste NULL |
 | RC-08 | Filosofi | Carreau hors de la couche métropole | Exclusion à la lecture (AD6) |
 | RC-09 | Filosofi | Aire du carreau éloignée de 40 000 m² au-delà de la tolérance | Alerte. Tolérance à fixer après constat |
-| RC-10 | Filosofi | `idcar_nat` en double | Rejet des deux lignes, et alerte |
+| RC-10 | Filosofi | `idcar_200m` en double | Rejet des deux lignes, et alerte |
 | RC-11 | Admin Express | Géométrie invalide | Réparation et alerte. Géométrie vide : rejet |
 | RC-12 | Admin Express | L'EPCI 241700434 n'a pas 28 communes | Échec bloquant |
 | RC-13 | OSM | Arête de longueur nulle, ou nœud sans coordonnées | Rejet |
@@ -40,7 +40,7 @@ Les règles des sources non ingérées (S01, S04, S05, S07, S08) s'appliquent so
 
 ### RF-01 — Restriction de Filosofi aux EPCI d'étude (AD6)
 
-Attribut : `lcog_geo` = code(s) commune au 01/01/2021, triés par surface d'intersection décroissante ; séparateur à lire dans le fichier (E4).
+Attribut : `lcog_geo` = code(s) commune au 01/01/2021, triés par surface d'intersection décroissante. Séparateur constaté le 21/10/2026 : la virgule. Les codes font 5 caractères.
 
 Règle : un carreau est gardé si au moins un de ses codes appartient à l'EPCI.
 
@@ -72,7 +72,7 @@ RG-05 ne rejette pas : un arrêt juste au-delà de la limite peut desservir l'EP
 
 Les colonnes GTFS gardent le nom de la norme (`stop_id`, `parent_station`). Les colonnes communes à toutes les offres sont `offre_id`, `source_id`, `id_origine`, `mode`, `nom`, `nom_normalise`, `lat_wgs84`, `lon_wgs84`, `geometry`.
 
-`id_origine` reste du texte. `offre_id` vaut `<mode>_<source_id>_<id_origine>`. Pour une zone GTFS, `id_origine` est l'identifiant de la zone. `cell_id` est `idcar_nat`, en texte. Le code commune est un texte de 5 caractères. Le SIREN d'EPCI est un texte de 9 caractères.
+`id_origine` reste du texte. `offre_id` vaut `<mode>_<source_id>_<id_origine>`. Pour une zone GTFS, `id_origine` est l'identifiant de la zone. `cell_id` est `idcar_200m`, en texte. `idcar_nat` est un attribut, pas la clé. Le code commune est un texte de 5 caractères. Le SIREN d'EPCI est un texte de 9 caractères.
 
 `nom_normalise` sert seulement à comparer : minuscules, sans accents, ponctuation retirée, espaces réduits. `nom` n'est pas modifié. Les dates GTFS `AAAAMMJJ` deviennent des dates. `last_updated` devient une date et une heure avec fuseau. La lecture tolère une marque d'ordre d'octets en tête. `mode` est fermé : `bus`, `citiz`, `velo`, et `autre` si une source s'ajoute.
 

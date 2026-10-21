@@ -13,7 +13,7 @@ Décisions AD1 à AD6 retenues. Les tables sont dans `data_dictionary.md`. Les n
 | AD3 | `gold/exports/` est le seul dossier lu par Power BI. `gold/dashboards/` contient les agrégats calculés en Python. | Retenue |
 | AD4 | Les tables de paires (cellule × offre, candidat × cellule) ne vont jamais dans Power BI. | Retenue |
 | AD5 | Pas de partitionnement en dossiers. Une colonne `territoire` dans les tables multi-villes. | Retenue |
-| AD6 | Filosofi est restreint aux 5 EPCI dès `silver/standardized` : larochelle, angers, poitiers, nantes, rennes. Constat S03d du 21/10/2026 : `lcog_geo` porte le code officiel géographique au 01/01/2021 de la ou des communes du carreau, triées par surface d'intersection décroissante. Le séparateur n'est pas indiqué sur la page : il se constate dans le fichier à E4. Le filtre est un filtre d'attribut. Le test d'intersection avec l'emprise ne sert que si `lcog_geo` est inutilisable. Aucune commune n'est rattachée ici. | Retenue |
+| AD6 | Filosofi est restreint aux 5 EPCI dès `silver/standardized` : larochelle, angers, poitiers, nantes, rennes. Constat S03d du 21/10/2026 : `lcog_geo` porte le code officiel géographique au 01/01/2021 de la ou des communes du carreau, triées par surface d'intersection décroissante. Séparateur constaté le 21/10/2026 dans le fichier : la virgule. Le filtre est un filtre d'attribut. Le test d'intersection avec l'emprise ne sert que si `lcog_geo` est inutilisable. Aucune commune n'est rattachée ici. | Retenue |
 
 ## 1. Définition des couches
 
