@@ -34,3 +34,7 @@ Si l'étape 1 à 4 ne donne rien de fiable pour un type d'équipement, ce type e
 - L'optimisation est relancée au moins sur la valeur basse et la valeur haute lorsque le poste est une hypothèse. L'écart de population nouvellement couverte est montré.
 - Power BI affiche l'étiquette à côté du montant, pas seulement dans une annexe.
 - Aucun montant n'est inventé dans les documents de cadrage. Les valeurs n'apparaissent qu'au moment où la source ou la fourchette est écrite dans le registre des coûts.
+
+---
+
+**Mise en œuvre :** montants trouvés et paramètres étiquetés dans [`registre_couts.md`](registre_couts.md) (21/10/2026).
