@@ -59,7 +59,7 @@ Même fil, avec la preuve méthodologique et une démo complète.
 
 | Temps | Bloc | Slides | Ajouts par rapport au 5 minutes |
 |---|---|---|---|
-| 0:00 – 0:45 | Accroche, question | 1, 2, 3 | Pourquoi La Rochelle : 7 agglomérations candidates, portes éliminatoires (flux Citiz, GTFS, carroyage, intérêt métier) puis note ; Nantes en deuxième choix (`docs/selection_territoire.md`). |
+| 0:00 – 0:45 | Accroche, question | 1, 2, 3 | Pourquoi La Rochelle : 7 agglomérations candidates, portes éliminatoires (flux Citiz, GTFS, carroyage, intérêt métier) puis note ; Nantes et Rennes à 90, La Rochelle à 87,5, retenue par la règle écrite d'avance « à moins de 5 points, le plus compact » (327 km² contre 523 pour Nantes) (`docs/selection_territoire.md`). |
 | 0:45 – 2:15 | Données et méthode | 4, 5 | Bronze / Silver / Gold ; déduplication des arrêts ; réseau piéton OSM ; contrôles qualité (40 conformes, 3 alertes connues). |
 | 2:15 – 3:15 | Diagnostic | 2 (rappel), démo page 2 | Bus 76 %, vélo 29 %, Citiz 9,8 % ; 9 communes prioritaires ; les ménages modestes ne sont pas les moins couverts. |
 | 3:15 – 4:15 | Candidats et score | démo page 3 | 2 200 sites ; 5 critères ; sensibilité : ordre stable, haut du classement serré → l'optimisation décide. |

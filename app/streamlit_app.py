@@ -32,7 +32,7 @@ with st.sidebar:
     derniere = pd.to_datetime(meta["date_execution_utc"], utc=True).max()
     if pd.notna(derniere):
         st.caption(f"Données Gold au {derniere:%d/%m/%Y %H:%M} UTC")
-    st.toggle("Fond de carte (Internet)", value=True, key="fond_carte",
-              help="Sans Internet, désactivez : la carte garde les carreaux, les communes et les stations.")
+    st.toggle("Fond OpenStreetMap", value=True, key="fond_carte",
+              help="Tuiles © OpenStreetMap. Sans Internet, désactivez : la carte garde les carreaux, les communes et les stations.")
     st.caption("Score de potentiel ≠ prédiction de fréquentation. Coûts et budgets : hypothèses de simulation.")
 page.run()

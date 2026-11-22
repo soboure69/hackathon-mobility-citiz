@@ -33,6 +33,8 @@ COULEURS_MODE = {"tous": "#1A1A1A", "bus": "#6E6E6E", "citiz": "#0072B2", "velo"
 SEQUENTIEL = ["#EFF3FF", "#BDD7E7", "#6BAED6", "#3182BD", "#08519C"]
 CLASSES_SCORE = ["Très faible", "Faible", "Moyen", "Fort", "Très fort"]
 ESPACE_MILLIERS = "replace(datum.label, /,/g, '\u202f')"   # axes Altair : 150 000 et non 150,000
+# Le composant Streamlit exige une URL de style (une chaîne). Les tuiles sont celles d'OpenStreetMap.
+FOND_OSM = "/app/static/osm_style.json"
 VUE = pdk.ViewState(latitude=46.13, longitude=-1.07, zoom=9.6, pitch=0)            # agglomération entière
 VUE_VILLE = pdk.ViewState(latitude=46.16, longitude=-1.13, zoom=10.9, pitch=0)    # stations Citiz (La Rochelle)
 
@@ -98,9 +100,11 @@ def fond_de_carte() -> bool:
 def carte(couches: list[pdk.Layer], infobulle: dict | None = None, hauteur: int = 460, vue: pdk.ViewState = VUE) -> None:
     fond = fond_de_carte()
     deck = pdk.Deck(layers=couches, initial_view_state=vue, tooltip=infobulle,
-                    map_provider="carto" if fond else None,
-                    map_style=pdk.map_styles.CARTO_LIGHT if fond else None)
+                    map_provider="mapbox" if fond else None,
+                    map_style=FOND_OSM if fond else None)
     st.pydeck_chart(deck, height=hauteur)
+    if fond:
+        st.caption("Fond de carte © OpenStreetMap contributors")
 
 
 def couche_communes(prioritaires_seulement: bool = False) -> pdk.Layer:

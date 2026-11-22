@@ -108,7 +108,7 @@ Un territoire trop grand rend les calculs sur réseau piéton impossibles en loc
 
 **2. Ce qui a été réalisé et les choix clés**
 - Méthode en deux temps : des **portes éliminatoires** (G1 flux Citiz exploitable, G2 périmètre EPCI ou métropole, G3 GTFS ouvert, G4 carroyage INSEE, G5 taille du graphe, G6 intérêt métier), puis une **note pondérée** S1 à S7 (qualité du flux Citiz, fraîcheur, GTFS, second mode, contraste dense / peu dense, taille, récit pour le jury).
-- Sept agglomérations candidates examinées. **CA de La Rochelle retenue (87,5 / 100)**, Nantes Métropole en secours.
+- Sept agglomérations candidates examinées. Lyon (trop peuplée) et le Pays Basque (trop étendu) écartés aux portes. Nantes et Rennes ont la meilleure note (90 / 100), La Rochelle 87,5. **Règle écrite avant la notation : à moins de 5 points du meilleur score, retenir la plus petite superficie.** La Rochelle (327 km²) est donc retenue ; Nantes Métropole (523 km²) reste le territoire de secours.
 - Vérifications de verrouillage V-a à V-d (validité du GTFS à la date de démonstration, carreaux dans l'emprise…), faites le 21/10/2026.
 
 **3. Ce que cela apporte**

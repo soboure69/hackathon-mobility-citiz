@@ -61,7 +61,7 @@ Le bus couvre 76 % des habitants, le vélo en libre-service 29 %, Citiz 9,8 %. 3
 
 ### [Slide 3] — 0:30
 
-Citiz doit choisir où ouvrir ses prochaines stations. Nous avons pris un territoire réel, choisi avec une grille : sept agglomérations candidates, des critères éliminatoires — un flux Citiz ouvert, des arrêts de bus publiés, une population carroyée, un intérêt métier — puis une note. La Rochelle est sortie première, Nantes deuxième. 28 communes, 174 000 habitants, 24 stations Citiz.
+Citiz doit choisir où ouvrir ses prochaines stations. Nous avons pris un territoire réel, choisi avec une grille : sept agglomérations candidates, des critères éliminatoires — un flux Citiz ouvert, des arrêts de bus publiés, une population carroyée, un intérêt métier — puis une note. Nantes et Rennes ont la meilleure note, 90 ; La Rochelle a 87,5. La règle, écrite avant de noter, disait : à moins de 5 points du meilleur, on prend le territoire le plus compact, parce que la marche se calcule sur tout le réseau piéton. La Rochelle fait 327 km², Nantes 523. 28 communes, 174 000 habitants, 24 stations Citiz.
 
 ### [Slide 4] — 0:45
 
