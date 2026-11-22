@@ -10,7 +10,7 @@ babel==2.18.0
 backports.zstd==1.8.0
 beautifulsoup4==4.15.0
 bleach==6.4.0
-brotli==1.2.0
+brotli==1.2.1
 certifi==2026.10.19
 cffi==2.1.1
 charset-normalizer==3.5.2
@@ -80,7 +80,7 @@ packaging==26.3
 pandas==3.0.6
 pandocfilters==1.5.1
 parso==0.8.7
-pillow==12.3.0
+pillow==13.0.0
 platformdirs==4.13.5
 plotly==7.1.0
 pluggy==1.7.0
@@ -119,7 +119,7 @@ scipy==1.17.1
 Send2Trash==2.1.0
 shapely==2.2.0
 six==1.17.0
-soupsieve==3.0.3
+soupsieve==4.0
 stack-data==0.6.3
 starlette==1.9.0
 streamlit==1.65.0
@@ -128,7 +128,7 @@ texttable==1.7.2
 threadpoolctl==3.7.0
 tinycss2==1.5.1
 toml==0.10.2
-tornado==6.5.10
+tornado==6.6.1
 traitlets==5.16.1
 typing_extensions==4.16.0
 tzdata==2026.5
