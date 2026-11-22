@@ -269,5 +269,6 @@ desktop.ini
 .idea/
 ~$*
 
-# --- Vidéo de démonstration : le .webm brut n est pas versionné (le .mp4 peut l être)
+# --- Vidéo de démonstration : ni le .webm brut ni le .mp4 ne sont versionnés (fichiers lourds)
 reports/demo/*.webm
+reports/demo/*.mp4
