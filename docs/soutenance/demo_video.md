@@ -47,4 +47,4 @@ Règles : souris lente, pas de saisie au clavier, pause d'une seconde avant chaq
 
 ## Versionnement
 
-Le `.webm` n'est pas versionné (`.gitignore`). Le `.mp4` de secours (≈ 7 Mo) peut l'être pour que le jury le trouve dans le dépôt ; au-delà de 20 Mo, le mettre en pièce jointe plutôt que dans Git.
+Ni le `.webm` ni le `.mp4` ne sont versionnés (`.gitignore`). Le `.mp4` (≈ 7 Mo) est publié comme fichier joint de la release v1.0 : https://github.com/soboure69/hackathon-mobility-citiz/releases/download/v1.0/demo_application.mp4

@@ -1,5 +1,17 @@
 # hackathon-mobility-citiz
 
+> **En bref.** Projet réalisé **seul** pendant le hackathon Epitech x Citiz, du 20 au 21 octobre 2026.
+>
+> **Question :** où ouvrir de nouvelles stations d'autopartage, d'arrêts de bus ou de stations vélo pour couvrir le plus d'habitants à 5 minutes à pied, sous un budget donné ?
+>
+> **Méthode :** pipeline de données ouvertes (GTFS, GBFS, OpenStreetMap, INSEE Filosofi, Admin Express) en couches bronze / silver / gold, accessibilité sur le réseau piéton réel, puis optimisation de la couverture sous budget (programmation linéaire en nombres entiers, PuLP/CBC).
+>
+> **Résultat (scénario de référence, CA de La Rochelle) :** 10 stations Citiz pour 85 000 € sur 3 ans couvrent 18 816 habitants de plus, et la couverture Citiz passe de 9,8 % à 20,6 %.
+>
+> **Limites :** le modèle prédictif de fréquentation (H6) n'a pas été livré ; le score de potentiel K10 n'est pas une prédiction. Les coûts sont des hypothèses de simulation.
+>
+> **Démo :** [vidéo de l'application](https://github.com/soboure69/hackathon-mobility-citiz/releases/download/v1.0/demo_application.mp4) · 146 tests automatisés (139 passent sans les exports Gold, 7 les demandent).
+
 Outil d'aide à la décision pour implanter de nouvelles stations d'autopartage Citiz,
 d'arrêts de transport ou de stations vélo, là où elles couvrent le plus d'habitants
 à 5 minutes à pied, au moindre coût, sans doublonner l'offre existante.
@@ -79,7 +91,7 @@ Toujours activer `.venv` avant de travailler. Dans Jupyter ou VS Code, choisir l
 .\.venv\Scripts\python.exe -m streamlit run app/streamlit_app.py
 ```
 
-Cinq pages : synthèse, couverture actuelle, candidats et score, optimisation budgétaire, méthode et limites. L'application lit seulement `data/gold/exports/`. Sans Internet, désactiver « Fond de carte » : carreaux, communes et stations restent affichés. Détails : `docs/application.md`.
+Cinq pages : synthèse, couverture actuelle, candidats et score, optimisation budgétaire, méthode et limites. Aperçu sans installation : [vidéo de démonstration](https://github.com/soboure69/hackathon-mobility-citiz/releases/download/v1.0/demo_application.mp4). L'application lit seulement `data/gold/exports/`. Sans Internet, désactiver « Fond de carte » : carreaux, communes et stations restent affichés. Détails : `docs/application.md`.
 
 ## Données
 
@@ -95,7 +107,7 @@ des bases de données dérivées. Le détail est dans le registre des sources.
 
 ## Licence du code
 
-Aucune licence pour l'instant : tous droits réservés. L'accès au dépôt est ouvert au jury pour la soutenance.
+Le code est publié sous licence MIT (voir `LICENSE`). Les données gardent leur propre licence (section précédente).
 
 ## Reproduire
 

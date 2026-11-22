@@ -1,5 +1,7 @@
 # Répartition de la soutenance à six
 
+> **Document préparatoire, non utilisé.** Le projet a été réalisé seul et la soutenance portée par une seule voix (voir `strategie_soutenance.md`, § 8). Cette répartition avait été préparée au cas où une équipe serait reconstituée.
+
 **Statut :** 21/10/2026. Version équipe de 6 du support « Soutenance Hackathon Citiz — La Rochelle » (12 slides + 2 annexes). Le texte de chaque slide est dans ses notes de présentation. Remplacer [Membre n] par les prénoms sur la slide 1.
 
 ## Pitch de 10 minutes

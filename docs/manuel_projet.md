@@ -467,7 +467,7 @@ Trois garanties traversent toute la chaîne :
 | Ce que vous évaluez | Où le vérifier en priorité |
 |---|---|
 | Un problème concret et une recommandation claire | § 1.2 ; slides 2, 9, 12 ; page 1 de l'application |
-| Démonstration sur données réelles | Application (`streamlit run app/streamlit_app.py`) ; vidéo `reports/demo/demo_application.mp4` |
+| Démonstration sur données réelles | Application (`streamlit run app/streamlit_app.py`) ; [vidéo de démonstration](https://github.com/soboure69/hackathon-mobility-citiz/releases/download/v1.0/demo_application.mp4) (release v1.0) |
 | Consolidation de sources hétérogènes | `docs/registre_des_sources.xlsx` ; manifestes `data/bronze/**/_manifest.json` |
 | Qualité, couverture, limites | `docs/protocole_qualite.md` ; page 5 de l'application ; slide 5 |
 | Indicateur justifié, absence de fuite | `docs/model_card.md` ; `docs/score_potentiel.md` |
